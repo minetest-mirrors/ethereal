@@ -37,7 +37,7 @@ Based on candle textures and coloured by wRothbard (CC0):
   ethereal_candle_violet*.png
   ethereal_candle_yellow*.png
 
-Based on default tools in Minetest (CC BY-SA 3.0):
+Based on default tool textures by BlockMen in Minetest (CC BY-SA 3.0):
   ethereal_crystal_pick.png
   ethereal_crystal_shovel.png
   ethereal_crystal_axe.png
@@ -80,11 +80,11 @@ Textures by VanessaE (CC-BY-SA 4.0)
   ethereal_banana_wood.png (edited)
   ethereal_olive_wood.png (edited)
 
-asl97 (CC BY-SA 3.0):
-  ethereal_brick_ice.png [edited by TenPlus1]
+Based on default ice texture by asl97 (CC BY-SA 3.0):
+  ethereal_brick_ice.png [edited by philipmi]
 
-Gambit (CC BY-SA 3.0):
-  ethereal_brick_snow.png [edited by TenPlus1]
+Based on default snow texture by Gambit (CC BY-SA 3.0):
+  ethereal_brick_snow.png [edited by philipmi]
 
 Textures by Felfa (CC0)
   olive*.png
