@@ -301,7 +301,11 @@ minetest.register_node("ethereal:bamboo", {
 	walkable = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+		fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
+	},
+	collision_box = {
+		type = "fixed",
+		fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
 	},
 	groups = {choppy = 3, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
