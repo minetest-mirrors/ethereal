@@ -1,6 +1,6 @@
 
 local _ = {name = "air", prob = 0}
-local T = {name = "ethereal:redwood_trunk", prob = 255}
+local T = {name = "ethereal:redwood_trunk", prob = 255, force_place = true}
 local L = {name = "ethereal:redwood_leaves", prob = 255}
 
 ethereal.redwood_small_tree = {

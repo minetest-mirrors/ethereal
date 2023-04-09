@@ -1,4 +1,4 @@
-local T = {name = "ethereal:sakura_trunk", param1 = 255}
+local T = {name = "ethereal:sakura_trunk", param1 = 255, force_place = true}
 local P = {name = "ethereal:sakura_leaves", param1 = 255}
 local W = {name = "ethereal:sakura_leaves2", param1 = 255}
 local _ = {name = "air", param1 = 255}

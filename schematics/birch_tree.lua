@@ -1,6 +1,6 @@
 
 local _ = {name = "air", param1 = 0}
-local T = {name = "ethereal:birch_trunk", param1 = 255}
+local T = {name = "ethereal:birch_trunk", param1 = 255, force_place = true}
 local L = {name = "ethereal:birch_leaves", param1 = 255}
 local l = {name = "ethereal:birch_leaves", param1 = 150}
 

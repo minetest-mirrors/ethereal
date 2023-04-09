@@ -1,7 +1,7 @@
 
 local _ = {name = "air", prob = 0}
 local M = {name = "ethereal:mushroom", prob = 255}
-local T = {name = "ethereal:mushroom_trunk", prob = 255}
+local T = {name = "ethereal:mushroom_trunk", prob = 255, force_place = true}
 local P = {name = "ethereal:mushroom_pore", prob = 255}
 
 ethereal.mushroomone = {

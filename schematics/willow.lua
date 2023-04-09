@@ -1,7 +1,7 @@
 
 local _ = {name = "air", prob = 0}
 local L = {name = "ethereal:willow_twig", prob = 255}
-local T = {name = "ethereal:willow_trunk", prob = 255}
+local T = {name = "ethereal:willow_trunk", prob = 255, force_place = true}
 local t = {name = "ethereal:willow_trunk", prob = 127}
 
 ethereal.willow = {
