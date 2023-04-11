@@ -21,9 +21,18 @@ local fish_items = {
 	{"ethereal:fish_angler", "ocean"},
 	{"ethereal:fish_jellyfish", "ocean"},
 	{"ethereal:fish_seahorse", "ocean"},
+	{"ethereal:fish_seahorse_green", "junglee_ocean"},
+	{"ethereal:fish_seahorse_pink", "mushroom_ocean"},
+	{"ethereal:fish_seahorse_blue", "frost_ocean"},
+	{"ethereal:fish_seahorse_yellow", "desert_ocean"},
 	{"ethereal:fish_piranha", "jungle"},
 	{"ethereal:fish_trout", "ocean"}
 }
+-- grassland_ocean, desert_ocean, sakura_ocean, mesa_ocean, coniferous_forest_ocean,
+-- taiga_ocean, frost_ocean, deciduous_forest_ocean, grayness_ocean, grassytwo_ocean,
+-- prairie_ocean, jumble_ocean, junglee_ocean, grove_ocean, mushroom_ocean,
+-- sandstone_desert_ocean, plains_ocean, savanna_ocean, fiery_ocean, swamp_ocean,
+-- glacier_ocean, tundra_ocean
 
 local junk_items = {
 	"ethereal:bowl",
@@ -464,9 +473,13 @@ local fish = {
 	{"Cichlid", "cichlid", 2},
 	{"Angler", "angler", 2},
 	{"Jellyfish", "jellyfish", 0},
-	{"Seahorse", "seahorse", 0},
 	{"Piranha", "piranha", 2},
-	{"Trout", "trout", 2}
+	{"Trout", "trout", 2},
+	{"Red Seahorse", "seahorse", 0},
+	{"Green Seahorse", "seahorse_green", 0},
+	{"Pink Seahorse", "seahorse_pink", 0},
+	{"Blue Seahorse", "seahorse_blue", 0},
+	{"Yellow Seahorse", "seahorse_yellow", 0},
 }
 
 for n = 1, #fish do
