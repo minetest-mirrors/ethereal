@@ -113,7 +113,8 @@ Textures by SaKeL (CC-BY-SA-4.0)
   ethereal_fish_cooked.png
 
 Texture by Sirrobzeroone (CC0)
-  ethereal_fish_seahorse.png
+  ethereal_fish_seahorse*.png
+  ethereal_fish_coy.png
 
 Textures by Epoxum (CC0)
   ethereal_sushi_*.png
