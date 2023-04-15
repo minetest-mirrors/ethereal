@@ -110,11 +110,11 @@ Textures by SaKeL (CC-BY-SA-4.0)
   ethereal_fish_angler.png
   ethereal_fish_jellyfish.png
   ethereal_fish_chichlid.png
-  ethereal_fish_cooked.png
 
 Texture by Sirrobzeroone (CC0)
   ethereal_fish_seahorse*.png
   ethereal_fish_coy.png
+  ethereal_fish_cooked.png
 
 Textures by Epoxum (CC0)
   ethereal_sushi_*.png
