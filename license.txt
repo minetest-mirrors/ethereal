@@ -55,8 +55,8 @@ Based on tree textures by ElementW (CC BY-SA 3.0):
   ethereal_scorched_tree_top.png
 
 Based on wood texture by BlockMen (CC BY-SA 3.0):
-  ethereal_yellow_wood.png
-  ethereal_frost_wood.png
+  ethereal_yellow_wood.png [edited by alerikaisattera]
+  ethereal_frost_wood.png [edited by alerikaisattera]
 
 Based on bottle texture by Thomas-S (CC BY-SA 3.0):
   ethereal_flight_potion.png
