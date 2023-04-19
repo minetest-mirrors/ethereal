@@ -79,7 +79,7 @@ minetest.register_node("ethereal:willow_twig", {
 	wield_image = "ethereal_willow_twig.png",
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
-	visual_scale = leafscale,
+	visual_scale = 1.4,
 	waving = 1,
 	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
 	drop = {
