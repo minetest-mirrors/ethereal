@@ -26,7 +26,14 @@ local fish_items = {
 	{"ethereal:fish_seahorse_blue", "frost_ocean"},
 	{"ethereal:fish_seahorse_yellow", "desert_ocean"},
 	{"ethereal:fish_piranha", "jungle"},
-	{"ethereal:fish_trout", "ocean"}
+	{"ethereal:fish_tuna", "jungle"},
+	{"ethereal:fish_trout", "ocean"},
+	{"ethereal:fish_cod", "ocean"},
+	{"ethereal:fish_flounder", "ocean"},
+	{"ethereal:fish_redsnapper", "ocean"},
+	{"ethereal:fish_squid", "ocean"},
+	{"ethereal:fish_shrimp", "ocean"},
+	{"ethereal:fish_carp", "swamp"}
 }
 -- grassland_ocean, desert_ocean, sakura_ocean, mesa_ocean, coniferous_forest_ocean,
 -- taiga_ocean, frost_ocean, deciduous_forest_ocean, grayness_ocean, grassytwo_ocean,
@@ -491,25 +498,33 @@ minetest.register_craft({
 
 local fish = {
 	{"Blue Fin", "bluefin", 2},
-	{"Blue Ram", "blueram", 2},
-	{"Catfish", "catfish", 2},
+	{"Blue Ram Chichlid", "blueram", 2},
+	{"Common Carp", "carp", 2},
+	{"Cod", "cod", 2},
+	{"Redtail Catfish", "catfish", 2},
 	{"Clownfish", "clownfish", 2},
-	{"Pike", "pike", 2},
-	{"Flathead", "flathead", 2},
+	{"Northern Pike", "pike", 2},
+	{"Dusky Flathead", "flathead", 2},
 	{"Plaice", "plaice", 2},
-	{"Pufferfish", "pufferfish", -2},
+	{"Tiger Pufferfish", "pufferfish", -2},
 	{"Coy", "coy", 2},
-	{"Salmon", "salmon", 2},
-	{"Cichlid", "cichlid", 2},
+	{"European Flounder", "flounder", 2},
+	{"Atlantic Salmon", "salmon", 2},
+	{"Iceblue Zebra Cichlid", "cichlid", 2},
 	{"Angler", "angler", 2},
-	{"Jellyfish", "jellyfish", 0},
+	{"Moon Jellyfish", "jellyfish", 0},
+	{"Pacific Mackerel", "mackerel", 2},
 	{"Piranha", "piranha", 2},
-	{"Trout", "trout", 2},
+	{"Rainbow Trout", "trout", 2},
+	{"Red Snapper", "redsnapper", 2},
 	{"Red Seahorse", "seahorse", 0},
 	{"Green Seahorse", "seahorse_green", 0},
 	{"Pink Seahorse", "seahorse_pink", 0},
 	{"Blue Seahorse", "seahorse_blue", 0},
 	{"Yellow Seahorse", "seahorse_yellow", 0},
+	{"Yellowfin Tuna", "tuna", 2},
+	{"Humboldt Squid", "squid", 0},
+	{"White Shrimp", "shrimp", 0}
 }
 
 for n = 1, #fish do

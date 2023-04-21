@@ -98,6 +98,12 @@ several examples are at the documentation of [api.txt](api.txt) file.
 A huge thanks to Chinchow who was the inspiration behind Ethereal and everyone
 who helped make this mod bigger and better throughout it's release :)
 
+### 1.30
+ - New fish textures by SirroBzeroone and BlueTangs Rock
+ - New fish added along with food recipes (thanks BlueTangs Rock)
+ - Fishing rod now has 65 uses
+ - Fixed willow leaves scaling and forced schematic trunk placement
+
 #### 1.29
  - Use "stratum" to generate mesa biome for stripey goodness
  - Added coloured candles (thanks wRothbard)

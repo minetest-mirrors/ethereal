@@ -582,3 +582,70 @@ minetest.register_craft({
 		{"group:food_bowl"}
 	}
 })
+
+
+-- boiled shrimp
+minetest.register_craftitem("ethereal:fish_shrimp_cooked", {
+	description = S("Boiled Shrimp"),
+	inventory_image = "ethereal_fish_shrimp_cooked.png",
+	on_use = minetest.item_eat(2)
+})
+
+minetest.register_craft({
+	output = "ethereal:fish_shrimp_cooked 5",
+	recipe = {
+		{"ethereal:fish_shrimp", "ethereal:fish_shrimp", "ethereal:fish_shrimp"},
+		{"ethereal:fish_shrimp", "group:water_bucket", "ethereal:fish_shrimp"},
+		{"", "ethereal:fire_dust", ""}
+	},
+	replacements = {
+		{"group:water_bucket", "bucket:bucket_empty"},
+	}
+})
+
+
+-- jellyfish salad
+minetest.register_craftitem("ethereal:jellyfish_salad", {
+	description = S("Jellyfish Salad"),
+	inventory_image = "ethereal_jellyfish_salad.png",
+	on_use = minetest.item_eat(6)
+})
+
+minetest.register_craft({
+	output = "ethereal:jellyfish_salad",
+	recipe = {
+		{"farming:cutting_board", "ethereal:fish_jellyfish", "group:food_onion"},
+	},
+	replacements = {{"farming:cutting_board", "farming:cutting_board"}}
+})
+
+
+-- raw calamari
+minetest.register_craftitem("ethereal:calamari_raw", {
+	description = S("Raw Calamari"),
+	inventory_image = "ethereal_calamari_raw.png",
+	on_use = minetest.item_eat(-2)
+})
+
+minetest.register_craft({
+	output = "ethereal:calamari_raw 2",
+	recipe = {
+		{"farming:cutting_board", "ethereal:fish_squid"},
+	},
+	replacements = {{"farming:cutting_board", "farming:cutting_board"}}
+})
+
+-- cooked calamari
+minetest.register_craftitem("ethereal:calamari_cooked", {
+	description = S("Calamari"),
+	inventory_image = "ethereal_calamari_cooked.png",
+	on_use = minetest.item_eat(5)
+})
+
+minetest.register_craft({
+	output = "ethereal:calamari_cooked",
+	recipe = {
+		{"farming:skillet", "ethereal:calamari_raw", "farming:flour"},
+	},
+	replacements = {{"farming:skillet", "farming:skillet"}}
+})
