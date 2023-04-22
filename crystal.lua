@@ -290,12 +290,11 @@ minetest.register_tool("ethereal:crystal_gilly_staff", {
 })
 
 minetest.register_craft({
-	type = "shapeless",
 	output = "ethereal:crystal_gilly_staff",
 	recipe = {
-		"ethereal:green_moss", "ethereal:gray_moss", "ethereal:fiery_moss",
-		"ethereal:crystal_moss", "ethereal:crystal_ingot", "ethereal:mushroom_moss",
-		"ethereal:crystal_ingot"
+		{"ethereal:green_moss", "ethereal:gray_moss", "ethereal:fiery_moss"},
+		{"ethereal:crystal_moss", "ethereal:crystal_ingot", "ethereal:mushroom_moss"},
+		{"", "ethereal:crystal_ingot", ""}
 	},
 })
 

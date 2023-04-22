@@ -81,12 +81,39 @@ lucky_block:add_blocks({
 		{name = "ethereal:fish_salmon", max = 7},
 		{name = "ethereal:fish_cichlid", max = 7},
 		{name = "ethereal:fish_trout", max  =7},
+		{name = "ethereal:fishing_rod", max = 1},
+		{name = "ethereal:worm", max = 10}
+	}},
+	{"nod", "default:chest", 0, {
+		{name = "ethereal:fish_carp", max = 7},
+		{name = "ethereal:fish_coy", max = 7},
+		{name = "ethereal:fish_flounder", max = 7},
+		{name = "ethereal:fish_jellyfish", max = 7},
+		{name = "ethereal:fish_mackerel", max = 7},
+		{name = "ethereal:fish_redsnapper", max = 7},
+		{name = "ethereal:fish_tuna", max = 7},
+		{name = "ethereal:fish_squid", max = 7},
+		{name = "ethereal:fish_shrimp", max = 7},
 		{name = "ethereal:fish_angler", max = 7},
 		{name = "ethereal:fish_piranha", max = 7},
 		{name = "ethereal:fishing_rod", max = 1},
 		{name = "ethereal:worm", max = 10}
 	}},
-	{"dro", {"ethereal:lemon"}, 9}
+	{"dro", {"ethereal:lemon"}, 9},
+	{"dro", {"ethereal:fish_seahorse", "ethereal:fish_seahorse_green",
+		"ethereal:fish_seahorse_pink", "ethereal:fish_seahorse_blue",
+		"ethereal:fish_seahorse_yellow"}, 1},
+	{"dro", {"ethereal:jellyfish_salad"}, 2},
+	{"dro", {"ethereal:calamari_cooked", "ethereal:calamari_raw"}, 4},
+	{"dro", {"ethereal:fish_shrimp", "ethereal:fish_shrimp_cooked"}, 4},
+	{"dro", {"ethereal:teriyaki_chicken", "ethereal:teriyaki_beef"}, 4},
+	{"dro", {"ethereal:sushi_tamago", "ethereal:sushi_nigiri",
+		"ethereal:sushi_kappamaki", "ethereal:fugu", "ethereal:sashimi"}, 4},
+	{"flo", 3, {"ethereal:gray_moss", "ethereal:fiery_moss", "ethereal:green_moss",
+		"ethereal:crystal_moss", "ethereal:mushroom_moss"}, 1},
+	{"tro", "ethereal:candle_red", "tnt_blast", true},
+	{"nod", "ethereal:candle_orange", 0},
+	{"nod", "ethereal:candle", 0}
 })
 
 if minetest.get_modpath("3d_armor") then
