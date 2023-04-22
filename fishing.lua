@@ -524,7 +524,8 @@ local fish = {
 	{"Yellow Seahorse", "seahorse_yellow", 0},
 	{"Yellowfin Tuna", "tuna", 2},
 	{"Humboldt Squid", "squid", 0},
-	{"White Shrimp", "shrimp", 0}
+	{"White Shrimp", "shrimp", 0},
+	{"Neon Tetra", "tetra", 1},
 }
 
 for n = 1, #fish do
@@ -544,6 +545,10 @@ for n = 1, #fish do
 		groups = groups
 	})
 end
+
+
+-- Make Neon Tetra glow slightly
+minetest.override_item("ethereal:fish_tetra", {light_source = 3})
 
 
 -- cooked fish

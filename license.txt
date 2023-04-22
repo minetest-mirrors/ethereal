@@ -45,6 +45,7 @@ Textures by BlueTangs Rock (CC BY-SA 3.0):
   ethereal_fish_shrimp.png
   ethereal_fish_shrimp_cooked.png
   ethereal_fish_squid.png
+  ethereal_fish_tetra.png
   ethereal_fish_tuna.png
   ethereal_fish_trout.png
   ethereal_sashimi.png
@@ -110,6 +111,7 @@ Textures based on default_grass.png and default_grass_side.png by TumeniNodes (C
 Texture by ZonerDarkRevention (CC0)
   ethereal_crystal_spike.png [edited by TenPlus1]
   ethereal_bowl.png [edited by TenPlus1]
+  ethereal_teriyaki_beef.png [edited by TenPlus1]
   ethereal_hearty_stew.png
 
 Textures by VanessaE (CC-BY-SA 4.0)
