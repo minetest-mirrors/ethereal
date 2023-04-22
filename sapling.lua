@@ -179,7 +179,13 @@ local enough_height = function(pos, height)
 end
 
 
-local grow_sapling = function(pos, node)
+ethereal.grow_sapling = function(pos, node)
+
+	local light_level = minetest.get_node_light(pos) or 0
+
+	if light_level < 13 then
+		return
+	end
 
 	local under =  minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
 
@@ -265,14 +271,7 @@ minetest.register_abm({
 	chance = 50,
 	catch_up = false,
 	action = function(pos, node)
-
-		local light_level = minetest.get_node_light(pos) or 0
-
-		if light_level < 13 then
-			return
-		end
-
-		grow_sapling(pos, node)
+		ethereal.grow_sapling(pos, node)
 	end
 })
 
