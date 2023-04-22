@@ -103,6 +103,7 @@ who helped make this mod bigger and better throughout it's release :)
  - New fish added along with food recipes (thanks BlueTangs Rock)
  - Fishing rod now has 65 uses
  - Fixed willow leaves scaling and forced schematic trunk placement
+ - Add 11 new lucky blocks
 
 #### 1.29
  - Use "stratum" to generate mesa biome for stripey goodness
