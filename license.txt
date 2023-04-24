@@ -49,6 +49,7 @@ Textures by BlueTangs Rock (CC BY-SA 3.0):
   ethereal_fish_tuna.png
   ethereal_fish_trout.png
   ethereal_sashimi.png
+  ethereal_fugu.png
   ethereal_calamari_raw.png
   ethereal_calamari_cooked.png
 
