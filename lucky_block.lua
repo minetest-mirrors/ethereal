@@ -114,7 +114,7 @@ lucky_block:add_blocks({
 	{"tro", "ethereal:candle_red", "tnt_blast", true},
 	{"nod", "ethereal:candle_orange", 0},
 	{"nod", "ethereal:candle", 0},
-	{"dro", {"ethereal:fish_tetra", "ethereal:fish_shrimp", "ethereal:worm", 1},
+	{"dro", {"ethereal:fish_tetra", "ethereal:fish_shrimp", "ethereal:worm"}, 1},
 })
 
 if minetest.get_modpath("3d_armor") then
