@@ -18,6 +18,8 @@ local fish_items = {
 	{"ethereal:fish_pufferfish", "desert_ocean"},
 	{"ethereal:fish_cichlid", "junglee_ocean"},
 	{"ethereal:fish_coy", "sakura"},
+	{"ethereal:fish_tilapia", "sakura"},
+	{"ethereal:fish_trevally", "sakura"},
 	{"ethereal:fish_angler", "ocean"},
 	{"ethereal:fish_jellyfish", "ocean"},
 	{"ethereal:fish_seahorse", "ocean"},
@@ -25,6 +27,7 @@ local fish_items = {
 	{"ethereal:fish_seahorse_pink", "mushroom_ocean"},
 	{"ethereal:fish_seahorse_blue", "frost_ocean"},
 	{"ethereal:fish_seahorse_yellow", "desert_ocean"},
+	{"ethereal:fish_parrot", "desert"},
 	{"ethereal:fish_piranha", "jungle"},
 	{"ethereal:fish_tuna", "jungle"},
 	{"ethereal:fish_trout", "ocean"},
@@ -526,6 +529,9 @@ local fish = {
 	{"Humboldt Squid", "squid", 0},
 	{"White Shrimp", "shrimp", 0},
 	{"Neon Tetra", "tetra", 1},
+	{"Tilapia", "tilapia", 2},
+	{"Golden Trevally", "trevally", 2},
+	{"Stoplight Parrotfish", "parrot", 2}
 }
 
 for n = 1, #fish do

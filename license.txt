@@ -36,6 +36,7 @@ Textures by BlueTangs Rock (CC BY-SA 3.0):
   ethereal_fish_flounder.png
   ethereal_fish_jellyfish.png
   ethereal_fish_mackerel.png
+  ethereal_fish_parrot.png
   ethereal_fish_pike.png
   ethereal_fish_piranha.png
   ethereal_fish_plaice.png
@@ -46,12 +47,16 @@ Textures by BlueTangs Rock (CC BY-SA 3.0):
   ethereal_fish_shrimp_cooked.png
   ethereal_fish_squid.png
   ethereal_fish_tetra.png
+  ethereal_fish_tilapia.png
+  ethereal_fish_trevally.png
   ethereal_fish_tuna.png
   ethereal_fish_trout.png
   ethereal_sashimi.png
   ethereal_fugu.png
+  ethereal_fish_chips.png
   ethereal_calamari_raw.png
   ethereal_calamari_cooked.png
+  ethereal_garlic_butter_shrimp.png
 
 Texture by Sirrobzeroone (CC0)
   ethereal_fish_seahorse*.png
