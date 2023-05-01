@@ -48,7 +48,7 @@ if minetest.get_modpath("builtin_item") then
 				return
 			end
 
-			local objs = core.get_objects_inside_radius(pos, 0.8)
+			local objs = minetest.get_objects_inside_radius(pos, 0.8)
 
 			if not objs or #objs ~= 2 then return end
 
@@ -78,7 +78,7 @@ if minetest.get_modpath("builtin_item") then
 				mese:remove()
 				crystal:remove()
 
-				core.add_item(pos, "ethereal:crystal_ingot")
+				minetest.add_item(pos, "ethereal:crystal_ingot")
 
 				return false
 			end
