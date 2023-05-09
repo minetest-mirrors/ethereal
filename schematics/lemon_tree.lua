@@ -2,7 +2,7 @@
 local _ = {name = "air", param1 = 0}
 local L = {name = "ethereal:lemon_leaves", param1 = 255}
 local l = {name = "ethereal:lemon_leaves", param1 = 127}
-local T = {name = "default:tree", param1 = 255, force_place = true}
+local T = {name = "default:tree", param1 = 255}
 local e = {name = "ethereal:lemon", param1 = 100}
 
 ethereal.lemontree = {

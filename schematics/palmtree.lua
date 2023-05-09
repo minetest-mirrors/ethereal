@@ -2,7 +2,7 @@
 local _ = {name = "air", param = 0}
 local L = {name = "ethereal:palmleaves", param = 255}
 local l = {name = "ethereal:palmleaves", param = 191}
-local T = {name = "ethereal:palm_trunk", param = 255, force_place = true}
+local T = {name = "ethereal:palm_trunk", param = 255}
 local t = {name = "ethereal:palm_trunk", param = 191}
 local C = {name = "ethereal:coconut", param = 127}
 

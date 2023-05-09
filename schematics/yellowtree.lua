@@ -1,6 +1,6 @@
 
 local _ = {name = "air", prob = 0}
-local T = {name = "ethereal:yellow_trunk", prob = 255, force_place = true}
+local T = {name = "ethereal:yellow_trunk", prob = 255}
 local t = {name = "ethereal:yellow_trunk", prob = 127}
 local L = {name = "ethereal:yellowleaves", prob = 255}
 local A = {name = "ethereal:golden_apple", prob = 115}

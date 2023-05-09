@@ -1,7 +1,7 @@
 
 local _ = {name = "air", prob = 0}
 local l = {name = "ethereal:frost_leaves", prob = 255}
-local t = {name = "ethereal:frost_tree", prob = 255, force_place = true}
+local t = {name = "ethereal:frost_tree", prob = 255}
 
 ethereal.frosttrees = {
 

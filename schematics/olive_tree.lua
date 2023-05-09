@@ -1,7 +1,7 @@
 
 local _ = {name = "air", param1 = 0}
 local L = {name = "ethereal:olive_leaves", param1 = 255}
-local T = {name = "ethereal:olive_trunk", param1 = 255, force_place = true}
+local T = {name = "ethereal:olive_trunk", param1 = 255}
 local o = {name = "ethereal:olive", param1 = 150}
 
 ethereal.olivetree = {
