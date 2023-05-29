@@ -104,6 +104,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Fishing rod now has 65 uses
  - Fixed willow leaves scaling and forced schematic trunk placement
  - Add 11 new lucky blocks
+ - Caverealms' glow bait reduces wait time when fishing
 
 #### 1.29
  - Use "stratum" to generate mesa biome for stripey goodness

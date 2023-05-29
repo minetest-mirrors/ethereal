@@ -160,7 +160,10 @@ if not self.cast then
 			local inv = player and player:get_inventory()
 			local bait = 0
 
-			if inv and inv:contains_item("main", "ethereal:worm") then
+			if inv and inv:contains_item("main", "caverealms:glow_bait") then
+				inv:remove_item("main", "caverealms:glow_bait")
+				bait = 40
+			elseif inv and inv:contains_item("main", "ethereal:worm") then
 				inv:remove_item("main", "ethereal:worm")
 				bait = 20
 			end
