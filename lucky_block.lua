@@ -6,10 +6,13 @@ lucky_block:add_schematics({
 	{"palmtree", ethereal.palmtree, {x = 4, y = 0, z = 4}},
 	{"bananatree", ethereal.bananatree, {x = 3, y = 0, z = 3}},
 	{"orangetree", ethereal.orangetree, {x = 2, y = 0, z = 2}},
-	{"birchtree", ethereal.birchtree, {x = 2, y = 0, z = 2}}
+	{"birchtree", ethereal.birchtree, {x = 2, y = 0, z = 2}},
+	{"basandrabush", ethereal.basandrabush, {x = 1, y = 0, z = 1}}
 })
 
 lucky_block:add_blocks({
+	{"sch", "basandrabush", 0, false},
+	{"dro", {"ethereal:basandra_wood"}, 5},
 	{"dro", {"ethereal:firethorn"}, 3},
 	{"dro", {"ethereal:firethorn_jelly"}, 3},
 	{"nod", "ethereal:crystal_spike", 1},
@@ -42,6 +45,7 @@ lucky_block:add_blocks({
 	{"dro", {"ethereal:axe_crystal"}},
 	{"nod", "ethereal:fire_flower", 1},
 	{"dro", {"ethereal:sword_crystal"}},
+	{"nod", "ethereal:basandra_bush_stem", 1},
 	{"dro", {"ethereal:pick_crystal"}},
 	{"sch", "birchtree", 0, false},
 	{"dro", {"ethereal:fish_raw"}},

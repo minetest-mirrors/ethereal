@@ -1,6 +1,21 @@
 
 local S = ethereal.intllib
 
+-- basandra wood
+minetest.register_node("ethereal:basandra_wood", {
+	description = S("Basandra Wood"),
+	tiles = {"ethereal_basandra_bush_wood.png"},
+	paramtype2 = "facedir",
+	is_ground_content = false,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1},
+	sounds = default.node_sound_wood_defaults(),
+	on_place = minetest.rotate_node
+})
+
+minetest.register_craft({
+	output = "ethereal:basandra_wood 1",
+	recipe = {{"ethereal:basandra_bush_stem"}}
+})
 
 -- sakura trunk
 minetest.register_node("ethereal:sakura_trunk", {

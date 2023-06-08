@@ -22,6 +22,11 @@ THE SOFTWARE.
 
 Textures by TenPlus1 (CC0) unless listed below...
 
+Based on default_leaves.png (Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+  ethereal_frost_leaves.png [edited by TenPlus1]
+  ethereal_yellow_leaves.png [edited by TenPlus1]
+  ethereal_basandra_leaves.png [edited by TenPlus1]
+
 Textures by BlueTangs Rock (CC BY-SA 3.0):
   ethereal_seaweed.png
   ethereal_fish_angler.png

@@ -1,6 +1,25 @@
 
 local S = ethereal.intllib
 
+-- Basandra Bush Sapling
+minetest.register_node("ethereal:basandra_bush_sapling", {
+	description = S("Basandra Bush Sapling"),
+	drawtype = "plantlike",
+	tiles = {"ethereal_basandra_bush_sapling.png"},
+	inventory_image = "ethereal_basandra_bush_sapling.png",
+	wield_image = "ethereal_basandra_bush_sapling.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
+	},
+	groups = {snappy = 2, dig_immediate = 3, attached_node = 1, ethereal_sapling = 1,
+			sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	grown_height = 2
+})
 
 -- Bamboo Sprout
 minetest.register_node("ethereal:bamboo_sprout", {
@@ -88,6 +107,10 @@ end
 local path = minetest.get_modpath("ethereal") .. "/schematics/"
 
 -- grow tree functions
+
+function ethereal.grow_basandra_bush(pos)
+	add_tree(pos, 1, 0, 1, ethereal.basandrabush)
+end
 
 function ethereal.grow_yellow_tree(pos)
 	add_tree(pos, 4, 0, 4, ethereal.yellowtree)
@@ -201,7 +224,11 @@ ethereal.grow_sapling = function(pos, node)
 	end
 
 	-- Check if Ethereal Sapling is growing on correct substrate
-	if node.name == "ethereal:yellow_tree_sapling"
+	if node.name == "ethereal:basandra_bush_sapling"
+	and under == "ethereal:fiery_dirt" then
+		ethereal.grow_basandra_bush(pos)
+
+	elseif node.name == "ethereal:yellow_tree_sapling"
 	and minetest.get_item_group(under, "soil") > 0 then
 		ethereal.grow_yellow_tree(pos)
 

@@ -19,7 +19,7 @@ TODO:
 
 #### Lucky Blocks
 
-It provides 60 new lucky blocks if the mod is detected.
+It provides 63 new lucky blocks if the mod is detected.
 
 ## Technical info
 -----------------
@@ -105,6 +105,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Fixed willow leaves scaling and forced schematic trunk placement
  - Add 11 new lucky blocks
  - Caverealms' glow bait reduces wait time when fishing
+ - Add Basandra Bush and wood items, Add Spore Grass
 
 #### 1.29
  - Use "stratum" to generate mesa biome for stripey goodness
