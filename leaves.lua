@@ -492,6 +492,7 @@ minetest.register_node("ethereal:basandra_bush_stem", {
 	description = S("Basandra Bush Stem"),
 	drawtype = "plantlike",
 	visual_scale = 1.41,
+	walkable = false,
 	damage_per_second = 2,
 	tiles = {"ethereal_basandra_bush_stem.png"},
 	inventory_image = "ethereal_basandra_bush_stem.png",
