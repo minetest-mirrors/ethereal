@@ -433,10 +433,9 @@ local use_rod = function(itemstack, player, pointed_thing)
 	end
 
 	-- Add wear to fishing rod (65 uses)
-	local item = player:get_wielded_item()
+	itemstack:add_wear(65535 / 65)
 
-	item:add_wear(65535 / 65)
-	player:set_wielded_item(item)
+	return itemstack
 end
 
 
