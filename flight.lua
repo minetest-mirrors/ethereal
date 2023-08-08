@@ -1,23 +1,17 @@
 local flight_secs = minetest.settings:get("ethereal.flightpotion_duration") or (5 * 60)
 local timer_check = 5 -- seconds per check
 local S = ethereal.intllib
-local is_50 = minetest.has_feature("object_use_texture_alpha")
 
 
 local function get_timer(user)
 
 	if not user then return end
 
-	if is_50 then
+	local meta = user:get_meta()
 
-		local meta = user:get_meta()
+	if not meta then return "" end
 
-		if not meta then return "" end
-
-		return meta:get_string("ethereal:fly_timer") or ""
-	else
-		return user:get_attribute("ethereal:fly_timer") or ""
-	end
+	return meta:get_string("ethereal:fly_timer") or ""
 end
 
 
@@ -28,14 +22,9 @@ end
 
 local function set_timer(user, timer)
 
-	if is_50 then
+	local meta = user:get_meta() ; if not meta then return end
 
-		local meta = user:get_meta() ; if not meta then return end
-
-		meta:set_string("ethereal:fly_timer", timer)
-	else
-		user:set_attribute("ethereal:fly_timer", timer)
-	end
+	meta:set_string("ethereal:fly_timer", timer)
 end
 
 
