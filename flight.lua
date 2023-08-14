@@ -1,6 +1,6 @@
 local flight_secs = minetest.settings:get("ethereal.flightpotion_duration") or (5 * 60)
 local timer_check = 5 -- seconds per check
-local S = ethereal.intllib
+local S = ethereal.translate
 
 
 local function get_timer(user)

@@ -1,5 +1,5 @@
 
-local S = ethereal.intllib
+local S = ethereal.translate
 
 -- Spore Grass
 minetest.register_node("ethereal:spore_grass", {

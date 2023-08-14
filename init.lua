@@ -7,7 +7,7 @@
 ]]
 
 
-ethereal = {version = "20221230"}
+ethereal = {version = "20230814"}
 
 
 local function setting(stype, name, default)
@@ -83,15 +83,8 @@ if input then
 end
 
 
--- Intllib
-local S
-if minetest.get_translator then
-	S = minetest.get_translator("ethereal")
-else
-	S = function(s) return s end
-end
-ethereal.intllib = S
-
+-- Translation support
+ethereal.translate = minetest.get_translator("ethereal")
 
 -- Falling node function
 ethereal.check_falling = minetest.check_for_falling or nodeupdate

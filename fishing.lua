@@ -4,7 +4,7 @@
 
 ]]--
 
-local S = ethereal.intllib
+local S = ethereal.translate
 
 local fish_items = {
 	"ethereal:fish_bluefin",

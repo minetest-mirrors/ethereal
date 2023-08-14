@@ -42,7 +42,6 @@ Also those more as optional:
 * Lucky Block `lucky_block`
 * doors
 * moreblocks
-* intllib (only need on older engines)
 * toolranks
 
 #### Settings and Biome List

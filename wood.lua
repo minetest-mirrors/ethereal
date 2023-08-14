@@ -1,5 +1,5 @@
 
-local S = ethereal.intllib
+local S = ethereal.translate
 
 -- basandra wood
 minetest.register_node("ethereal:basandra_wood", {
