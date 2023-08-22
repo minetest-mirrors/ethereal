@@ -146,6 +146,10 @@ minetest.register_node("ethereal:flight_potion", {
 
 	on_use = function(itemstack, user, pointed_thing)
 
+		if user.is_fake_player then
+			return
+		end
+
 		-- get privs
 		local name = user:get_player_name()
 		local privs = minetest.get_player_privs(name)
