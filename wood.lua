@@ -13,7 +13,7 @@ minetest.register_node("ethereal:basandra_wood", {
 })
 
 minetest.register_craft({
-	output = "ethereal:basandra_wood 1",
+	output = "ethereal:basandra_wood 2",
 	recipe = {{"ethereal:basandra_bush_stem"}}
 })
 
