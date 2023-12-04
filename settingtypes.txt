@@ -41,3 +41,5 @@ ethereal.mediterranean (Mediterranean biome, 1 = Enable / 0 = Disable) int 1
 ethereal.flightpotion_duration (Flight Potion Duration) int 300
 
 ethereal.clear_default_biomes (Clear Default Biomes and Decoration) bool true
+
+ethereal.abundant_onions (Abundant Onions) bool true

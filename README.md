@@ -105,6 +105,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Add 11 new lucky blocks
  - Caverealms' glow bait reduces wait time when fishing
  - Add Basandra Bush and wood items, Add Spore Grass
+ - Add 'ethereal.abundant_onions' setting (default: true)
 
 #### 1.29
  - Use "stratum" to generate mesa biome for stripey goodness
