@@ -359,15 +359,15 @@ local use_rod = function(itemstack, player, pointed_thing)
 
 				if r < 86 then
 
-					item = find_item(fish_items, pos)
+					item = find_item(fish_items, rodpos)
 
 				elseif r > 85 and r < 96 then
 
-					item = find_item(junk_items, pos)
+					item = find_item(junk_items, rodpos)
 
 				else
 
-					item = find_item(bonus_items, pos)
+					item = find_item(bonus_items, rodpos)
 				end
 
 				-- split into name and number (wear level or number of items)
