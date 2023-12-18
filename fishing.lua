@@ -121,12 +121,15 @@ end
 -- fishing bob entity
 minetest.register_entity("ethereal:bob_entity", {
 
-	textures = {"ethereal_fishing_bob.png"},
-	visual_size = {x = 0.5, y = 0.5},
-	collisionbox = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1},
-	physical = false,
-	pointable = false,
-	static_save = false,
+	initial_properties = {
+		textures = {"ethereal_fishing_bob.png"},
+		visual_size = {x = 0.5, y = 0.5},
+		collisionbox = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1},
+		physical = false,
+		pointable = false,
+		static_save = false
+	},
+
 	timer = 0,
 
 	on_step = function(self, dtime)
@@ -262,7 +265,7 @@ else -- already cast and waiting for fish
 				else
 					-- waiting over, bob that bobber and play splash sound
 					self.bob = true
-					self.patience = 1.5 -- timeframe to catch fish after bob
+					self.patience = 1.4 -- timeframe to catch fish after bob
 					self.timer = 0
 
 					self.object:set_velocity({x = 0, y = -1, z = 0})
@@ -352,6 +355,7 @@ local use_rod = function(itemstack, player, pointed_thing)
 
 				local item
 				local r = random(100)
+				local rodpos = ent.object:get_pos() or pos
 
 				if r < 86 then
 
