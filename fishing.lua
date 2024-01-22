@@ -13,7 +13,7 @@ local fish_items = {
 	"ethereal:fish_plaice",
 	"ethereal:fish_salmon",
 	{"ethereal:fish_clownfish", "savanna"},
-	{"ethereal:fish_pike", "grassy"},
+	{"ethereal:fish_pike", "grassland_ocean"},
 	{"ethereal:fish_flathead", "jungle"},
 	{"ethereal:fish_pufferfish", "desert_ocean"},
 	{"ethereal:fish_cichlid", "junglee_ocean"},
@@ -36,7 +36,9 @@ local fish_items = {
 	{"ethereal:fish_redsnapper", "ocean"},
 	{"ethereal:fish_squid", "ocean"},
 	{"ethereal:fish_shrimp", "ocean"},
-	{"ethereal:fish_carp", "swamp"}
+	{"ethereal:fish_carp", "swamp"},
+	{"ethereal:fish_tetra", "grayness_ocean"},
+	{"ethereal:fish_mackerel", "glacier_ocean"}
 }
 -- grassland_ocean, desert_ocean, sakura_ocean, mesa_ocean, coniferous_forest_ocean,
 -- taiga_ocean, frost_ocean, deciduous_forest_ocean, grayness_ocean, grassytwo_ocean,
