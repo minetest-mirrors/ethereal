@@ -274,7 +274,7 @@ minetest.register_lbm({
 		local def_down = minetest.registered_nodes[minetest.get_node(pos_down).name] or {}
 
 		if (def_up.liquidtype == nil or def_up.liquidtype ~= "none")
-		and def_down.name == "default:sand" then
+		and (def_down.name == "default:sand" or def_down.name == "ethereal:sandy") then
 
 			minetest.set_node(pos_down, {name = node.name .. "_rooted"})
 
@@ -371,16 +371,16 @@ if ethereal.sealife == 1 then
 
 				if sel == 1 then
 
-					minetest.swap_node(pos, {name = "ethereal:seaweed_rooted",
+					minetest.set_node(pos, {name = "ethereal:seaweed_rooted",
 							param2 = 16})
 
 				elseif sel == 6 then
 
-					minetest.swap_node(pos_up, {name = "ethereal:sponge_wet"})
+					minetest.set_node(pos_up, {name = "ethereal:sponge_wet"})
 
 				elseif sel > 1 then
 
-					minetest.swap_node(pos, {name = "ethereal:coral" .. sel .. "_rooted"})
+					minetest.set_node(pos, {name = "ethereal:coral" .. sel .. "_rooted"})
 				end
 			end
 		end
@@ -427,8 +427,7 @@ minetest.register_node("ethereal:sponge", {
 		-- get water nodes within range
 		local num = minetest.find_nodes_in_area(
 			{x = pos.x - 3, y = pos.y - 3, z = pos.z - 3},
-			{x = pos.x + 3, y = pos.y + 3, z = pos.z + 3},
-			{"group:water"})
+			{x = pos.x + 3, y = pos.y + 3, z = pos.z + 3}, {"group:water"})
 
 		-- no water
 		if #num == 0 then return end
@@ -437,12 +436,12 @@ minetest.register_node("ethereal:sponge", {
 		for _, w in pairs(num) do
 
 			if not minetest.is_protected(pos, name) then
-				minetest.swap_node(w, {name = "ethereal:sponge_air"})
+				minetest.set_node(w, {name = "ethereal:sponge_air"})
 			end
 		end
 
 		-- replace dry sponge with wet sponge
-		minetest.swap_node(pos, {name = "ethereal:sponge_wet"})
+		minetest.set_node(pos, {name = "ethereal:sponge_wet"})
 	end
 })
 
