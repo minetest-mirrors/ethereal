@@ -101,6 +101,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Fix fishing biome checks
  - Increase bamboo leaf decay radius
  - Switch ethereal coral to new plantlike_rooted drawtype (thanks Niklp)
+ - Switch seaweed to new plantlike_rooted drawtype (thanks Niklp)
 
 ### 1.30
  - New fish textures by SirroBzeroone and BlueTangs Rock
