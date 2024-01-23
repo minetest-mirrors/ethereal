@@ -94,8 +94,11 @@ minetest.register_node("ethereal:seaweed_rooted", {
 	on_dig = function(pos, node, digger)
 
 		local p2 = node.param2 or 16
-		local num = math.floor(p2 / 16)
-		local inv = digger:get_inventory()
+		local num = math.max(1, math.floor(p2 / 16))
+		local inv = digger and digger:get_inventory()
+
+		if not inv then return end
+
 		local stack = ItemStack("ethereal:seaweed " .. tonumber(num))
 		local leftover = inv:add_item("main", stack)
 		local count = leftover:get_count()
