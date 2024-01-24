@@ -37,7 +37,7 @@ minetest.register_node("ethereal:seaweed", {
 				return
 			end
 
-			if def_down.name ~= "default:sand" then
+			if def_down.name ~= "default:sand" and def_down.name ~= "ethereal:sandy" then
 				return
 			end
 
@@ -68,16 +68,16 @@ minetest.register_node("ethereal:seaweed_rooted", {
 	wield_image = "ethereal_seaweed.png",
 	paramtype = "light",
 	paramtype2 = "leveled",
-	walkable = false,
-	climbable = true,
-	drowning = 1,
+	light_source = 3,
 	selection_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}, -- sand node
-			{-0.3, 0.5, -0.3, 0.3, 3.5, 0.3} -- seaweed
-		}
+				{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+				{-2/16, 0.5, -2/16, 2/16, 3.5, 2/16},
+		},
 	},
+	node_dig_prediction = "default:sand",
+	node_placement_prediction = "",
 	post_effect_color = {a = 64, r = 100, g = 100, b = 200},
 	groups = {food_seaweed = 1, snappy = 3, flammable = 3, not_in_creative_inventory = 1},
 	on_use = minetest.item_eat(1),
@@ -371,8 +371,10 @@ if ethereal.sealife == 1 then
 
 				if sel == 1 then
 
+					local height = math.random(1, 6)
+
 					minetest.set_node(pos, {name = "ethereal:seaweed_rooted",
-							param2 = 16})
+							param2 = (height * 16)})
 
 				elseif sel == 6 then
 
