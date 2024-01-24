@@ -346,28 +346,35 @@ if ethereal.sealife == 1 then
 
 		action = function(pos, node)
 
-			local sel = math.random(6)
-			local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
-			local nod = minetest.get_node(pos_up).name
-
+			-- grow new seaweed using param2 values
 			if node.name == "ethereal:seaweed_rooted" then
 
-				local height = 0
+				local p2 = node.param2 or 16
+				local height = math.max(1, math.floor(p2 / 16))
 
-				while height < 14
-				and minetest.get_node(pos_up).name == "default:water_source" do
-					height = height + 1
-					pos_up.y = pos_up.y + 1
+				if height > 13 then
+					return
 				end
 
-				if height < 3 or height > 14 then
+				height = height + 1
+
+				local tpos = {x = pos.x, y = pos.y + height + 1, z = pos.z}
+
+				if minetest.get_node(tpos).name ~= "default:water_source" then
 					return
 				end
 
 				minetest.set_node(pos, {name = "ethereal:seaweed_rooted",
-						param2 = (height - 1) * 16})
+						param2 = (height * 16)})
 
-			elseif nod == "default:water_source" then
+				return
+			end
+
+			local sel = math.random(6)
+			local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
+			local nod = minetest.get_node(pos_up).name
+
+			if nod == "default:water_source" then
 
 				if sel == 1 then
 
