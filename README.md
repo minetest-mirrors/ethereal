@@ -102,6 +102,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Increase bamboo leaf decay radius
  - Switch ethereal coral to new plantlike_rooted drawtype (thanks Niklp)
  - Switch seaweed to new plantlike_rooted drawtype (thanks Niklp)
+ - Added 'ethereal.logs' setting that adds decorative fallen tree logs to biomes
 
 ### 1.30
  - New fish textures by SirroBzeroone and BlueTangs Rock
