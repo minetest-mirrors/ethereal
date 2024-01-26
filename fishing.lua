@@ -359,6 +359,9 @@ local use_rod = function(itemstack, player, pointed_thing)
 				local r = random(100)
 				local rodpos = ent.object:get_pos() or pos
 
+				-- lower position to be in water
+				rodpos.y = rodpos.y - 1
+
 				if r < 86 then
 
 					item = find_item(fish_items, rodpos)
