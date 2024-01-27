@@ -135,11 +135,11 @@ if not minetest.registered_nodes[tmp] then
 end
 
 -- was 'snowy' biome
-add_biome("coniferous_forest", 1, 40, 10, 40, ethereal.snowy,
+add_biome("coniferous_forest", 5, 40, 10, 40, ethereal.snowy,
 	nil, tmp, 1, "default:dirt", 2)
 
-add_biome("coniferous_forest_ocean", -192, 2, 10, 40, ethereal.snowy,
-	nil, "default:sand", 1, "default:sand", 2)
+add_biome("coniferous_forest_ocean", -192, 1, 10, 40, (ethereal.snowy or ethereal.frost),
+	nil, "default:silver_sand", 1, "default:sand", 2)
 
 if ethereal.snowy then
 	minetest.register_biome({
@@ -180,9 +180,6 @@ add_biome("frost_floatland", 1025, 1750, 10, 40, ethereal.frost,
 
 add_biome("frost", 1, 71, 10, 40, ethereal.frost,
 	nil, "ethereal:crystal_dirt", 1, "default:dirt", 3)
-
-add_biome("frost_ocean", -192, 2, 10, 40, ethereal.frost,
-	nil, "default:sand", 1, "default:sand", 2)
 
 
 add_biome("deciduous_forest", 3, 91, 13, 40, ethereal.grassy,

@@ -25,7 +25,7 @@ local fish_items = {
 	{"ethereal:fish_seahorse", "ocean"},
 	{"ethereal:fish_seahorse_green", "junglee_ocean"},
 	{"ethereal:fish_seahorse_pink", "mushroom_ocean"},
-	{"ethereal:fish_seahorse_blue", "frost_ocean"},
+	{"ethereal:fish_seahorse_blue", "coniferous_forest_ocean"},
 	{"ethereal:fish_seahorse_yellow", "desert_ocean"},
 	{"ethereal:fish_parrot", "desert"},
 	{"ethereal:fish_piranha", "jungle"},
