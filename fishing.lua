@@ -38,7 +38,7 @@ local fish_items = {
 	{"ethereal:fish_shrimp", "ocean"},
 	{"ethereal:fish_carp", "swamp"},
 	{"ethereal:fish_tetra", "grayness_ocean"},
-	{"ethereal:fish_mackerel", "glacier_ocean"}
+	{"ethereal:fish_mackerel", "glacier"}
 }
 -- grassland_ocean, desert_ocean, sakura_ocean, mesa_ocean, coniferous_forest_ocean,
 -- taiga_ocean, frost_ocean, deciduous_forest_ocean, grayness_ocean, grassytwo_ocean,
@@ -306,6 +306,8 @@ local find_item = function(list, pos)
 	local items = {}
 	local data= minetest.get_biome_data(pos)
 	local biome = data and minetest.get_biome_name(data.biome) or ""
+
+--print("--biome", biome)
 
 	for n = 1, #list do
 
