@@ -126,8 +126,7 @@ minetest.register_lbm({
 		local def_up = minetest.registered_nodes[minetest.get_node(pos_up).name] or {}
 		local def_down = minetest.registered_nodes[minetest.get_node(pos_down).name] or {}
 
-		if def_up.name == "ethereal:seaweed"
-		and (def_down.name == "default:sand" or def_down.name == "ethereal:sandy") then
+		if def_down.name == "default:sand" or def_down.name == "ethereal:sandy" then
 
 			local height = 0
 
