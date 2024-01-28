@@ -158,9 +158,6 @@ end
 add_biome("taiga", 40, 140, 10, 40, ethereal.alpine,
 	nil, "default:dirt_with_snow", 1, "default:dirt", 2)
 
-add_biome("taiga_ocean", -192, 1, 10, 40, ethereal.alpine,
-	nil, "default:sand", 1, "default:sand", 2)
-
 if ethereal.alpine then
 	minetest.register_biome({
 		name = "taiga_under",
