@@ -92,56 +92,42 @@ def.drop = {
 minetest.register_node("ethereal:strawberry_8", table.copy(def))
 
 
--- growing routine if farming redo isn't present
-if farming and farming.mod and farming.mod == "redo" then
+minetest.register_abm({
+	label = "Ethereal grow strawberry",
+	nodenames = {
+		"ethereal:strawberry_1", "ethereal:strawberry_2", "ethereal:strawberry_3",
+		"ethereal:strawberry_4", "ethereal:strawberry_5", "ethereal:strawberry_6",
+		"ethereal:strawberry_7"
+	},
+	neighbors = {"farming:soil_wet"},
+	interval = 9,
+	chance = 20,
+	catch_up = false,
 
-	-- add to registered_plants
-	farming.registered_plants["ethereal:strawberry"] = {
-		crop = "ethereal:strawberry",
-		seed = "ethereal:strawberry",
-		minlight = farming.min_light,
-		maxlight = farming.max_light,
-		steps = 8
-	}
+	action = function(pos, node)
 
-else
+		-- are we on wet soil?
+		pos.y = pos.y - 1
 
-	minetest.register_abm({
-		label = "Ethereal grow strawberry",
-		nodenames = {
-			"ethereal:strawberry_1", "ethereal:strawberry_2", "ethereal:strawberry_3",
-			"ethereal:strawberry_4", "ethereal:strawberry_5", "ethereal:strawberry_6",
-			"ethereal:strawberry_7"
-		},
-		neighbors = {"farming:soil_wet"},
-		interval = 9,
-		chance = 20,
-		catch_up = false,
-
-		action = function(pos, node)
-
-			-- are we on wet soil?
-			pos.y = pos.y - 1
-
-			if minetest.get_item_group(minetest.get_node(pos).name, "soil") < 3 then
-				return
-			end
-
-			pos.y = pos.y + 1
-
-			-- do we have enough light?
-			local light = minetest.get_node_light(pos)
-
-			if not light or light < 13 then
-				return
-			end
-
-			-- grow to next stage
-			local num = node.name:split("_")[2]
-
-			node.name = "ethereal:strawberry_" .. tonumber(num + 1)
-
-			minetest.swap_node(pos, node)
+		if minetest.get_item_group(minetest.get_node(pos).name, "soil") < 3 then
+			return
 		end
-	})
-end
+
+		pos.y = pos.y + 1
+
+		-- do we have enough light?
+		local light = minetest.get_node_light(pos)
+
+		if not light or light < 13 then
+			return
+		end
+
+		-- grow to next stage
+		local num = node.name:split("_")[2]
+
+		node.name = "ethereal:strawberry_" .. tonumber(num + 1)
+
+		minetest.swap_node(pos, node)
+	end
+})
+

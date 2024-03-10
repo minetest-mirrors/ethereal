@@ -7,7 +7,7 @@
 ]]
 
 
-ethereal = {version = "20240125"}
+ethereal = {version = "20240310"}
 
 
 local function setting(stype, name, default)
@@ -96,6 +96,11 @@ function ethereal.check_creative(name)
 	return creative_mode_cache or minetest.check_player_privs(name, {creative = true})
 end
 
+if minetest.get_modpath("farming") and farming.mod and farming.mod == "redo" then
+	-- farming redo already has strawberry included
+else
+	dofile(path .. "/strawberry.lua")
+end
 
 dofile(path .. "/plantlife.lua")
 dofile(path .. "/onion.lua")
@@ -106,7 +111,6 @@ dofile(path .. "/food.lua")
 dofile(path .. "/wood.lua")
 dofile(path .. "/leaves.lua")
 dofile(path .. "/sapling.lua")
-dofile(path .. "/strawberry.lua")
 dofile(path .. "/fishing.lua")
 dofile(path .. "/extra.lua")
 dofile(path .. "/sealife.lua")
@@ -146,5 +150,5 @@ if minetest.get_modpath("xanadu") then
 	dofile(path .. "/plantpack.lua")
 end
 
-
 print ("[MOD] Ethereal loaded")
+

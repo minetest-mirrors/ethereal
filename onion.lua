@@ -74,7 +74,7 @@ def.drop = {
 minetest.register_node("ethereal:onion_5", table.copy(def))
 
 
--- growing routine if farming redo isn't present
+-- register for use with farming redo growth routines if present
 if farming and farming.mod and farming.mod == "redo" then
 
 	-- add to registered_plants
@@ -126,3 +126,4 @@ else
 		end
 	})
 end
+
