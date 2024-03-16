@@ -103,6 +103,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Switch ethereal coral to new plantlike_rooted drawtype (thanks Niklp)
  - Switch seaweed to new plantlike_rooted drawtype (thanks Niklp)
  - Added 'ethereal.logs' setting that adds decorative fallen tree logs to biomes
+ - Added 'ethereal.sapling_protection_check' setting to use default sapling placement checks
 
 ### 1.30
  - New fish textures by SirroBzeroone and BlueTangs Rock

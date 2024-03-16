@@ -1,6 +1,24 @@
 
 local S = ethereal.translate
 
+-- Sapling protection check function
+local sapling_protection_check = minetest.settings:get_bool(
+		"ethereal.sapling_protection_check", false)
+
+local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
+
+	if sapling_protection_check then
+
+		-- check if grown tree area intersects any players protected area
+		return default.sapling_on_place(itemstack, placer, pointed_thing,
+			name, {x = -w, y = 1, z = -w}, {x = w, y = h, z = w}, 4)
+	end
+
+	-- place normally
+	return minetest.item_place_node(itemstack, placer, pointed_thing)
+end
+
+
 -- Basandra Bush Sapling
 minetest.register_node("ethereal:basandra_bush_sapling", {
 	description = S("Basandra Bush Sapling"),
@@ -18,8 +36,13 @@ minetest.register_node("ethereal:basandra_bush_sapling", {
 	groups = {snappy = 2, dig_immediate = 3, attached_node = 1, ethereal_sapling = 1,
 			sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-	grown_height = 2
+	grown_height = 2,
+	on_place = function(itemstack, placer, pointed_thing)
+		return prepare_on_place(itemstack, placer, pointed_thing,
+				"ethereal:basandra_bush_sapling", 1, 2)
+	end
 })
+
 
 -- Bamboo Sprout
 minetest.register_node("ethereal:bamboo_sprout", {
@@ -41,12 +64,16 @@ minetest.register_node("ethereal:bamboo_sprout", {
 		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 0, 4 / 16}
 	},
 	on_use = minetest.item_eat(2),
-	grown_height = 11
+	grown_height = 11,
+	on_place = function(itemstack, placer, pointed_thing)
+		return prepare_on_place(itemstack, placer, pointed_thing,
+				"ethereal:bamboo_sprout", 1, 18)
+	end
 })
 
 
 -- Register Saplings
-local register_sapling = function(name, desc, texture, height)
+local register_sapling = function(name, desc, texture, width, height)
 
 	minetest.register_node(name .. "_sapling", {
 		description = S(desc .. " Tree Sapling"),
@@ -67,25 +94,29 @@ local register_sapling = function(name, desc, texture, height)
 			ethereal_sapling = 1, attached_node = 1, sapling = 1
 		},
 		sounds = default.node_sound_leaves_defaults(),
-		grown_height = height
+		grown_height = height,
+		on_place = function(itemstack, placer, pointed_thing)
+			return prepare_on_place(itemstack, placer, pointed_thing,
+					name .. "_sapling", width, height)
+		end
 	})
 end
 
-register_sapling("ethereal:willow", "Willow", "ethereal_willow_sapling", 14)
-register_sapling("ethereal:yellow_tree", "Healing", "ethereal_yellow_tree_sapling", 19)
-register_sapling("ethereal:big_tree", "Big", "ethereal_big_tree_sapling", 7)
-register_sapling("ethereal:banana_tree", "Banana", "ethereal_banana_tree_sapling", 8)
-register_sapling("ethereal:frost_tree", "Frost", "ethereal_frost_tree_sapling", 19)
-register_sapling("ethereal:mushroom", "Mushroom", "ethereal_mushroom_sapling", 11)
-register_sapling("ethereal:palm", "Palm", "moretrees_palm_sapling", 9)
+register_sapling("ethereal:willow", "Willow", "ethereal_willow_sapling", 5, 14)
+register_sapling("ethereal:yellow_tree", "Healing", "ethereal_yellow_tree_sapling", 4, 19)
+register_sapling("ethereal:big_tree", "Big", "ethereal_big_tree_sapling", 4, 7)
+register_sapling("ethereal:banana_tree", "Banana", "ethereal_banana_tree_sapling", 3, 8)
+register_sapling("ethereal:frost_tree", "Frost", "ethereal_frost_tree_sapling", 4, 19)
+register_sapling("ethereal:mushroom", "Mushroom", "ethereal_mushroom_sapling", 4, 11)
+register_sapling("ethereal:palm", "Palm", "moretrees_palm_sapling", 4, 9)
 register_sapling("ethereal:giant_redwood", "Giant Redwood",
-		"ethereal_giant_redwood_sapling", 33)
-register_sapling("ethereal:redwood", "Redwood", "ethereal_redwood_sapling", 21)
-register_sapling("ethereal:orange_tree", "Orange", "ethereal_orange_tree_sapling", 6)
-register_sapling("ethereal:birch", "Birch", "moretrees_birch_sapling", 7)
-register_sapling("ethereal:sakura", "Sakura", "ethereal_sakura_sapling", 10)
-register_sapling("ethereal:lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 7)
-register_sapling("ethereal:olive_tree", "Olive", "ethereal_olive_tree_sapling", 10)
+		"ethereal_giant_redwood_sapling", 7, 33)
+register_sapling("ethereal:redwood", "Redwood", "ethereal_redwood_sapling", 4, 21)
+register_sapling("ethereal:orange_tree", "Orange", "ethereal_orange_tree_sapling", 2, 6)
+register_sapling("ethereal:birch", "Birch", "moretrees_birch_sapling", 2, 7)
+register_sapling("ethereal:sakura", "Sakura", "ethereal_sakura_sapling", 4, 10)
+register_sapling("ethereal:lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 2, 7)
+register_sapling("ethereal:olive_tree", "Olive", "ethereal_olive_tree_sapling", 3, 10)
 
 
 local add_tree = function (pos, ofx, ofy, ofz, schem, replace)
@@ -307,3 +338,4 @@ minetest.register_craft({
 	output = "ethereal:giant_redwood_sapling",
 	recipe = {{"ethereal:redwood_sapling", "ethereal:redwood_sapling"}}
 })
+
