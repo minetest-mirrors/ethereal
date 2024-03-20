@@ -305,7 +305,7 @@ add_node({"ethereal:crystal_dirt"}, 0.001, {"frost_floatlands"}, 1025, 1750,
 
 -- snow
 add_node({"ethereal:cold_dirt", "default:dirt_with_coniferous_litter"},
-	0.8, {"coniferous_forest"}, 4, 40, {"default:snow"}, nil, nil, nil, ethereal.snowy)
+	0.8, {"coniferous_forest"}, 20, 40, {"default:snow"}, nil, nil, nil, ethereal.snowy)
 
 add_node({"default:dirt_with_snow"}, 0.8, {"taiga"}, 40, 140,
 	{"default:snow"}, nil, nil, nil, ethereal.alpine)
