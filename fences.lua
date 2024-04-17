@@ -3,7 +3,6 @@ local S = ethereal.translate
 
 local door_mod = minetest.get_modpath("doors")
 
-
 local add_fence = function(name, node, desc, texture)
 
 	if default.register_fence then

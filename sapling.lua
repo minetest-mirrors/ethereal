@@ -153,7 +153,7 @@ end
 
 function ethereal.grow_banana_tree(pos)
 
-	if math.random(3) == 1 and minetest.find_node_near(pos, 1, {"farming:soil_wet"}) then
+	if math.random(2) == 1 and minetest.find_node_near(pos, 1, {"farming:soil_wet"}) then
 
 		add_tree(pos, 3, 0, 3, ethereal.bananatree,
 				{{"ethereal:banana", "ethereal:banana_bunch"}})

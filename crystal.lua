@@ -283,7 +283,7 @@ minetest.register_tool("ethereal:crystal_gilly_staff", {
 
 	on_use = function(itemstack, user, pointed_thing)
 
-		if user:get_breath() < 10 then
+		if user and user:get_breath() < 10 then
 			user:set_breath(10)
 		end
 	end

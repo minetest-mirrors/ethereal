@@ -7,7 +7,7 @@
 ]]
 
 
-ethereal = {version = "20240320"}
+ethereal = {version = "20240417"}
 
 
 local function setting(stype, name, default)

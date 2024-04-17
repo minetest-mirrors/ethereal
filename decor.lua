@@ -185,48 +185,28 @@ add_node({"default:sandstone"}, 0.002, {"sandstone_desert"}, 1, 100,
 add_node({"default:desert_sand"}, 0.005, {"desert"}, 1, 100,
 	{"default:cactus"}, 4, nil, nil, ethereal.desert)
 
--- wild red mushroom
-add_node({"ethereal:mushroom_dirt"}, 0.01, {"mushroom"}, 1, 100,
-	{"flowers:mushroom_red"}, nil, nil, nil, ethereal.mushroom)
-
 -- spore grass
 add_node({"ethereal:mushroom_dirt"}, 0.1, {"mushroom"}, 1, 100,
 	{"ethereal:spore_grass"}, nil, nil, nil, ethereal.mushroom)
 
-
-local list = {
-	{"junglee", {"ethereal:jungle_dirt", "default:dirt_with_rainforest_litter"}, ethereal.junglee},
-	{"deciduous_forest", {"default:dirt_with_grass"}, ethereal.grassy},
-	{"grassytwo", {"default:dirt_with_grass"}, ethereal.grassytwo},
-	{"prairie", {"ethereal:prairie_dirt"}, ethereal.prairie},
-	{"mushroom", {"ethereal:mushroom_dirt"}, ethereal.mushroom},
-	{"swamp", {"default:dirt_with_grass"}, ethereal.swamp}
-}
-
--- wild red and brown mushrooms
-for _, row in pairs(list) do
-
-	if row[3] == 1 then
-
-		minetest.register_decoration({
-			deco_type = "simple",
-			place_on = row[2],
-			sidelen = 16,
-			noise_params = {
-				offset = 0,
-				scale = 0.009,
-				spread = {x = 200, y = 200, z = 200},
-				seed = 2,
-				octaves = 3,
-				persist = 0.66
-			},
-			biomes = {row[1]},
-			y_min = 1,
-			y_max = 120,
-			decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"}
-		})
-	end
-end
+-- red and brown mushrooms
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = {
+		"default:dirt_with_rainforest_litter",
+		"default:dirt_with_grass",
+		"ethereal:prairie_dirt",
+		"ethereal:mushroom_dirt"
+	},
+	sidelen = 16,
+	fill_ratio = 0.01,
+	biomes = {
+		"junglee", "deciduous_forest", "grassytwo", "prairie", "swamp", "mushroom"
+	},
+	y_min = 1,
+	y_max = 120,
+	decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"}
+})
 
 -- jungle grass
 add_node({"ethereal:jungle_dirt", "default:dirt_with_rainforest_litter"},

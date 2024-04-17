@@ -524,7 +524,7 @@ minetest.register_node("ethereal:basandra_bush_leaves", {
 })
 
 -- compatibility check for new mt version with leafdecay function
-if minetest.registered_nodes["default:dirt_with_rainforest_litter"] then
+if default.register_leafdecay then
 
 	default.register_leafdecay({
 		trunks = {"default:tree"},
