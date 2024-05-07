@@ -7,7 +7,9 @@ lucky_block:add_schematics({
 	{"bananatree", ethereal.bananatree, {x = 3, y = 0, z = 3}},
 	{"orangetree", ethereal.orangetree, {x = 2, y = 0, z = 2}},
 	{"birchtree", ethereal.birchtree, {x = 2, y = 0, z = 2}},
-	{"basandrabush", ethereal.basandrabush, {x = 1, y = 0, z = 1}}
+	{"basandrabush", ethereal.basandrabush, {x = 1, y = 0, z = 1}},
+	{"mushroomone", ethereal.mushroomone, {x = 4, y = 0, z = 4}},
+	{"mushroomtwo", ethereal.mushroomtwo, {x = 1, y = 0, z = 1}},
 })
 
 lucky_block:add_blocks({
@@ -32,6 +34,7 @@ lucky_block:add_blocks({
 	{"dro", {"ethereal:willow_sapling"} ,5},
 	{"dro", {"ethereal:mushroom_sapling"} ,5},
 	{"dro", {"ethereal:palm_sapling"} ,5},
+	{"sch", "mushroomone", 0, false},
 	{"dro", {"ethereal:flight_potion"}, 1},
 	{"dro", {"ethereal:birch_sapling"} ,5},
 	{"dro", {"ethereal:redwood_sapling"} ,1},
@@ -42,6 +45,7 @@ lucky_block:add_blocks({
 	{"dro", {"ethereal:cold_dirt"}, 10},
 	{"dro", {"ethereal:mushroom_dirt"}, 10},
 	{"dro", {"ethereal:fiery_dirt"}, 10},
+	{"sch", "mushroomtwo", 0, false},
 	{"dro", {"ethereal:axe_crystal"}},
 	{"nod", "ethereal:fire_flower", 1},
 	{"dro", {"ethereal:sword_crystal"}},
@@ -64,6 +68,7 @@ lucky_block:add_blocks({
 		{name = "ethereal:bamboo_sprout", max = 10},
 		{name = "ethereal:banana_tree_sapling", max = 10},
 		{name = "ethereal:mushroom_sapling", max = 10},
+		{name = "ethereal:mushroom_brown_sapling", max = 10},
 		{name = "ethereal:frost_tree_sapling", max = 10},
 		{name = "ethereal:sakura_sapling", max = 10},
 		{name = "ethereal:willow_sapling", max = 10},

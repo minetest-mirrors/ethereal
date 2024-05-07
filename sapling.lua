@@ -108,6 +108,7 @@ register_sapling("ethereal:big_tree", "Big", "ethereal_big_tree_sapling", 4, 7)
 register_sapling("ethereal:banana_tree", "Banana", "ethereal_banana_tree_sapling", 3, 8)
 register_sapling("ethereal:frost_tree", "Frost", "ethereal_frost_tree_sapling", 4, 19)
 register_sapling("ethereal:mushroom", "Mushroom", "ethereal_mushroom_sapling", 4, 11)
+register_sapling("ethereal:mushroom_brown", "Brown Mushroom", "ethereal_mushroom_brown_sapling", 1, 11)
 register_sapling("ethereal:palm", "Palm", "moretrees_palm_sapling", 4, 9)
 register_sapling("ethereal:giant_redwood", "Giant Redwood",
 		"ethereal_giant_redwood_sapling", 7, 33)
@@ -168,6 +169,10 @@ end
 
 function ethereal.grow_mushroom_tree(pos)
 	add_tree(pos, 4, 0, 4, ethereal.mushroomone)
+end
+
+function ethereal.grow_mushroom_brown_tree(pos)
+	add_tree(pos, 1, 0, 1, ethereal.mushroomtwo)
 end
 
 function ethereal.grow_palm_tree(pos)
@@ -278,6 +283,10 @@ ethereal.grow_sapling = function(pos, node)
 	elseif node.name == "ethereal:mushroom_sapling"
 	and under == "ethereal:mushroom_dirt" then
 		ethereal.grow_mushroom_tree(pos)
+
+	elseif node.name == "ethereal:mushroom_brown_sapling"
+	and under == "ethereal:mushroom_dirt" then
+		ethereal.grow_mushroom_brown_tree(pos)
 
 	elseif node.name == "ethereal:palm_sapling"
 	and under == "default:sand" then

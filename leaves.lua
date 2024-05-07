@@ -393,6 +393,27 @@ minetest.register_craft({
 	burntime = 10
 })
 
+-- brown mushroom tops
+minetest.register_node("ethereal:mushroom_brown", {
+	description = S("Brown Mushroom Cap"),
+	tiles = {"ethereal_mushroom_block_brown.png"},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, leafdecay = 3},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:mushroom_brown_sapling"}, rarity = 15},
+			{items = {"ethereal:mushroom_brown"}}
+		}
+	},
+	sounds = default.node_sound_wood_defaults()
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "ethereal:mushroom_brown",
+	burntime = 10
+})
+
 -- mushroom pore (spongelike material found inside giant shrooms)
 minetest.register_node("ethereal:mushroom_pore", {
 	description = S("Mushroom Pore"),
@@ -599,7 +620,10 @@ if default.register_leafdecay then
 
 	default.register_leafdecay({
 		trunks = {"ethereal:mushroom_trunk"},
-		leaves = {"ethereal:mushroom", "ethereal:mushroom_pore"},
-		radius = 3
+		leaves = {
+			"ethereal:mushroom", "ethereal:mushroom_brown", "ethereal:mushroom_pore",
+			"ethereal:lightstring"
+		},
+		radius = 4
 	})
 end

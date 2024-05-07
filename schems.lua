@@ -17,6 +17,7 @@ dofile(path .. "palmtree.lua")
 dofile(path .. "pinetree.lua")
 dofile(path .. "yellowtree.lua")
 dofile(path .. "mushroomone.lua")
+dofile(path .. "mushroomtwo.lua")
 dofile(path .. "willow.lua")
 dofile(path .. "bigtree.lua")
 dofile(path .. "redwood_tree.lua")
@@ -81,9 +82,13 @@ add_schem({"ethereal:crystal_dirt"}, 0.01, {"frost", "frost_floatland"}, 1, 1750
 	"ethereal:crystal_dirt", 8)
 
 -- giant mushroom
-add_schem("ethereal:mushroom_dirt", 0.02, {"mushroom"}, 1, 100,
+add_schem("ethereal:mushroom_dirt", 0.02, {"mushroom"}, 3, 25,
 	ethereal.mushroomone, ethereal.mushroom, nil,
 	"ethereal:mushroom_dirt", 8)
+
+-- giant brown mushroom
+add_schem("ethereal:mushroom_dirt", 0.02, {"mushroom"}, 26, 50,
+	ethereal.mushroomtwo, ethereal.mushroom, nil, nil, nil, "random")
 
 -- small lava crater
 add_schem("ethereal:fiery_dirt", 0.01, {"fiery"}, 1, 100,

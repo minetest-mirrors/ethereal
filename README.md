@@ -19,7 +19,7 @@ TODO:
 
 #### Lucky Blocks
 
-It provides 63 new lucky blocks if the mod is detected.
+It provides 65 new lucky blocks if the mod is detected.
 
 ## Technical info
 -----------------
@@ -104,6 +104,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Switch seaweed to new plantlike_rooted drawtype (thanks Niklp)
  - Added 'ethereal.logs' setting that adds decorative fallen tree logs to biomes
  - Added 'ethereal.sapling_protection_check' setting to use default sapling placement checks
+ - Added alternative giant brown mushroom to higher elevations in mushroom biome
 
 ### 1.30
  - New fish textures by SirroBzeroone and BlueTangs Rock

@@ -111,6 +111,13 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = "ethereal:mushroom_brown",
+	recipe = {
+		{"flowers:mushroom_brown", "flowers:mushroom_brown"},
+		{"flowers:mushroom_brown", "flowers:mushroom_brown"}
+	}
+})
 
 -- X pattern craft recipes (5x 'a' in X pattern gives 5 of 'b')
 if ethereal.xcraft == true then
