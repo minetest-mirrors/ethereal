@@ -14,6 +14,18 @@ local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
 			name, {x = -w, y = 1, z = -w}, {x = w, y = h, z = w}, 4)
 	end
 
+	-- Position of sapling
+	local pos = pointed_thing.under
+	local node = minetest.get_node_or_nil(pos)
+	local pdef = node and minetest.registered_nodes[node.name]
+
+	-- Check if node clicked on has it's own on_rightclick function
+	if pdef and pdef.on_rightclick
+	and not (placer and placer:is_player()
+	and placer:get_player_control().sneak) then
+		return pdef.on_rightclick(pos, node, placer, itemstack, pointed_thing)
+	end
+
 	-- place normally
 	return minetest.item_place_node(itemstack, placer, pointed_thing)
 end
