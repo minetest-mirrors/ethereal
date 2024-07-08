@@ -70,6 +70,7 @@ setting("number", "sakura", 1)
 setting("number", "tundra", 1)
 setting("number", "mediterranean", 1)
 setting("number", "logs", 1)
+setting("bool", "wood_rotate", true)
 
 
 local path = minetest.get_modpath("ethereal")

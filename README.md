@@ -105,6 +105,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Added 'ethereal.logs' setting that adds decorative fallen tree logs to biomes
  - Added 'ethereal.sapling_protection_check' setting to use default sapling placement checks
  - Added alternative giant brown mushroom to higher elevations in mushroom biome
+ - Added 'ethereal.wood_rotate' setting to enable/disable directional placement of wood in ethereal
 
 ### 1.30
  - New fish textures by SirroBzeroone and BlueTangs Rock
