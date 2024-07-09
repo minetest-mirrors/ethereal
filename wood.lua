@@ -1,19 +1,28 @@
 
 local S = ethereal.translate
-local wood_place = ethereal.wood_rotate and minetest.rotate_node
-local p2 = 0; if wood_place then p2 = nil end
+
+-- helper function
+
+local function add_wood(name, def)
+
+	if ethereal.wood_rotate then
+		def.on_place = minetest.rotate_node
+	else
+		def.place_param2 = 0
+	end
+
+	minetest.register_node(name, def)
+end
 
 -- basandra
 
-minetest.register_node("ethereal:basandra_wood", {
+add_wood("ethereal:basandra_wood", {
 	description = S("Basandra Wood"),
 	tiles = {"ethereal_basandra_bush_wood.png"},
 	paramtype2 = "facedir",
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = default.node_sound_wood_defaults(),
-	on_place = wood_place,
-	place_param2 = p2
+	sounds = default.node_sound_wood_defaults()
 })
 
 minetest.register_craft({
@@ -36,15 +45,13 @@ minetest.register_node("ethereal:sakura_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:sakura_wood", {
+add_wood("ethereal:sakura_wood", {
 	description = S("Sakura Wood"),
 	tiles = {"ethereal_sakura_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -67,15 +74,13 @@ minetest.register_node("ethereal:willow_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:willow_wood", {
+add_wood("ethereal:willow_wood", {
 	description = S("Willow Wood"),
 	tiles = {"ethereal_willow_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -98,15 +103,13 @@ minetest.register_node("ethereal:redwood_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:redwood_wood", {
+add_wood("ethereal:redwood_wood", {
 	description = S("Redwood Wood"),
 	tiles = {"ethereal_redwood_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -129,15 +132,13 @@ minetest.register_node("ethereal:frost_tree", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:frost_wood", {
+add_wood("ethereal:frost_wood", {
 	description = S("Frost Wood"),
 	tiles = {"ethereal_frost_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -161,15 +162,13 @@ minetest.register_node("ethereal:yellow_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:yellow_wood", {
+add_wood("ethereal:yellow_wood", {
 	description = S("Healing Tree Wood"),
 	tiles = {"ethereal_yellow_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -192,15 +191,13 @@ minetest.register_node("ethereal:palm_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:palm_wood", {
+add_wood("ethereal:palm_wood", {
 	description = S("Palm Wood"),
 	tiles = {"moretrees_palm_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -223,15 +220,13 @@ minetest.register_node("ethereal:banana_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:banana_wood", {
+add_wood("ethereal:banana_wood", {
 	description = S("Banana Wood"),
 	tiles = {"ethereal_banana_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -293,15 +288,13 @@ minetest.register_node("ethereal:birch_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:birch_wood", {
+add_wood("ethereal:birch_wood", {
 	description = S("Birch Wood"),
 	tiles = {"moretrees_birch_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
@@ -357,15 +350,13 @@ minetest.register_node("ethereal:olive_trunk", {
 	on_place = minetest.rotate_node
 })
 
-minetest.register_node("ethereal:olive_wood", {
+add_wood("ethereal:olive_wood", {
 	description = S("Olive Wood"),
 	tiles = {"ethereal_olive_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = wood_place,
-	place_param2 = p2
+	paramtype2 = "facedir"
 })
 
 minetest.register_craft({
