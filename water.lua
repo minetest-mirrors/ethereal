@@ -8,7 +8,7 @@ minetest.register_node("ethereal:icebrick", {
 	tiles = {"ethereal_brick_ice.png"},
 	paramtype = "light",
 	is_ground_content = false,
-	groups = {cracky = 3, puts_out_fire = 1, cools_lava = 1},
+	groups = {cracky = 3, puts_out_fire = 1, cools_lava = 1, slippery = 3},
 	sounds = default.node_sound_glass_defaults()
 })
 

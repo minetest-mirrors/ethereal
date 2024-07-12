@@ -76,7 +76,7 @@ do_stair(
 	"Ice Brick",
 	"icebrick",
 	"ethereal:icebrick",
-	{cracky = 3, puts_out_fire = 1, cools_lava = 1},
+	{cracky = 3, puts_out_fire = 1, cools_lava = 1, slippery = 3},
 	{"ethereal_brick_ice.png"},
 	default.node_sound_glass_defaults())
 
