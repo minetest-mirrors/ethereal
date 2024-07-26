@@ -4,10 +4,10 @@ local S = ethereal.translate
 
 -- wild onion
 minetest.register_craftitem("ethereal:wild_onion_plant", {
-	description = S("Wild Onion"),
+	description = S("Wild Onion") .. " (♥2)",
 	inventory_image = "ethereal_wild_onion.png",
 	wield_image = "ethereal_wild_onion.png",
-	groups = {food_onion = 1, flammable = 2},
+	groups = {food_onion = 1, flammable = 2, eatable = 2},
 	on_use = minetest.item_eat(2),
 
 	on_place = function(itemstack, placer, pointed_thing)

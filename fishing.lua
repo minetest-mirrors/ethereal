@@ -551,14 +551,16 @@ for n = 1, #fish do
 
 	local usage
 	local groups
+	local moredesc = ""
 
 	if fish[n][3] > 0 then
 		usage = minetest.item_eat(fish[n][3])
-		groups = {food_fish_raw = 1, ethereal_fish = 1}
+		groups = {food_fish_raw = 1, ethereal_fish = 1, eatable = fish[n][3]}
+		moredesc =  " (♥" .. fish[n][3] .. ")"
 	end
 
 	minetest.register_craftitem("ethereal:fish_" .. fish[n][2], {
-		description = S(fish[n][1]),
+		description = S(fish[n][1]) .. moredesc,
 		inventory_image = "ethereal_fish_" .. fish[n][2] .. ".png",
 		on_use = usage,
 		groups = groups
@@ -572,10 +574,10 @@ minetest.override_item("ethereal:fish_tetra", {light_source = 3})
 
 -- cooked fish
 minetest.register_craftitem(":ethereal:fish_cooked", {
-	description = S("Cooked Fish"),
+	description = S("Cooked Fish") .. " (♥5)",
 	inventory_image = "ethereal_fish_cooked.png",
 	wield_image = "ethereal_fish_cooked.png",
-	groups = {food_fish = 1, flammable = 3},
+	groups = {food_fish = 1, flammable = 3, eatable = 5},
 	on_use = minetest.item_eat(5)
 })
 
@@ -588,10 +590,11 @@ minetest.register_craft({
 
 -- Sashimi
 minetest.register_craftitem("ethereal:sashimi", {
-	description = S("Sashimi"),
+	description = S("Sashimi") .. " (♥4)",
 	inventory_image = "ethereal_sashimi.png",
 	wield_image = "ethereal_sashimi.png",
-	on_use = minetest.item_eat(4)
+	on_use = minetest.item_eat(4),
+	groups = {eatable = 4}
 })
 
 minetest.register_craft({

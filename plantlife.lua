@@ -187,9 +187,9 @@ minetest.register_node("ethereal:fern", {
 
 -- Boston Ferns sometimes drop edible Tubers (heals 1/2 heart when eaten)
 minetest.register_craftitem("ethereal:fern_tubers", {
-	description = S("Fern Tubers"),
+	description = S("Fern Tubers") .. " (♥1)",
 	inventory_image = "ethereal_fern_tubers.png",
-	groups = {food_tuber = 1, flammable = 2},
+	groups = {food_tuber = 1, flammable = 2, eatable = 1},
 	on_use = minetest.item_eat(1)
 })
 

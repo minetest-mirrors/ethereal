@@ -4,10 +4,10 @@ local S = ethereal.translate
 
 -- Strawberry (can also be planted as seed)
 minetest.register_craftitem("ethereal:strawberry", {
-	description = S("Strawberry"),
+	description = S("Strawberry") .. " (♥1)",
 	inventory_image = "ethereal_strawberry.png",
 	wield_image = "ethereal_strawberry.png",
-	groups = {food_strawberry = 1, food_berry = 1, flammable = 2},
+	groups = {food_strawberry = 1, food_berry = 1, flammable = 2, eatable = 1},
 	on_use = minetest.item_eat(1),
 
 	on_place = function(itemstack, placer, pointed_thing)

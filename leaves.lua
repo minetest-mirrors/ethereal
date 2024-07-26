@@ -164,7 +164,7 @@ minetest.register_node("ethereal:bananaleaves", {
 
 -- healing tree leaves
 minetest.register_node("ethereal:yellowleaves", {
-	description = S("Healing Tree Leaves"),
+	description = S("Healing Tree Leaves") .. " (♥1)",
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_yellow_leaves.png"},
@@ -173,7 +173,7 @@ minetest.register_node("ethereal:yellowleaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1},
+	groups = {snappy = 3, leafdecay = 3, leaves = 1, eatable = 1},
 	drop = {
 		max_items = 1,
 		items = {
