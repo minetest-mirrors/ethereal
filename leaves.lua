@@ -164,7 +164,7 @@ minetest.register_node("ethereal:bananaleaves", {
 
 -- healing tree leaves
 minetest.register_node("ethereal:yellowleaves", {
-	description = S("Healing Tree Leaves") .. " (♥1)",
+	description = S("Healing Tree Leaves"),
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_yellow_leaves.png"},

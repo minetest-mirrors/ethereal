@@ -7,7 +7,7 @@
 ]]
 
 
-ethereal = {version = "20240417"}
+ethereal = {version = "20240726"}
 
 
 local function setting(stype, name, default)
@@ -95,6 +95,27 @@ ethereal.check_falling = minetest.check_for_falling or nodeupdate
 local creative_mode_cache = minetest.settings:get_bool("creative_mode")
 function ethereal.check_creative(name)
 	return creative_mode_cache or minetest.check_player_privs(name, {creative = true})
+end
+
+-- helper function to add {eatable} group to food items
+local mod_tt_base = minetest.get_modpath("tt_base") -- mod does similar to infotext
+
+function ethereal.add_eatable(item, hp)
+
+	local def = minetest.registered_items[item]
+
+	if def then
+
+		local grps = def.groups or {}
+
+		grps.eatable = hp ; grps.flammable = 2
+
+		if mod_tt_base == nil then
+			def.description = def.description .. " (♥" .. hp .. ")"
+		end
+
+		minetest.override_item(item, {description = def.description, groups = grps})
+	end
 end
 
 if minetest.get_modpath("farming") and farming.mod and farming.mod == "redo" then

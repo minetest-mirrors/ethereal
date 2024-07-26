@@ -4,7 +4,7 @@ local S = ethereal.translate
 
 -- Seaweed
 minetest.register_node("ethereal:seaweed", {
-	description = S("Seaweed") .. " (♥1)",
+	description = S("Seaweed"),
 	drawtype = "plantlike",
 	tiles = {"ethereal_seaweed.png"},
 	inventory_image = "ethereal_seaweed.png",
@@ -18,7 +18,7 @@ minetest.register_node("ethereal:seaweed", {
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
 	post_effect_color = {a = 64, r = 100, g = 100, b = 200},
-	groups = {food_seaweed = 1, snappy = 3, flammable = 3, eatable = 1},
+	groups = {food_seaweed = 1, snappy = 3},
 	on_use = minetest.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 
@@ -57,6 +57,8 @@ minetest.register_node("ethereal:seaweed", {
 		return minetest.item_place_node(itemstack, placer, pointed_thing)
 	end
 })
+
+ethereal.add_eatable("ethereal:seaweed", 1)
 
 minetest.register_node("ethereal:seaweed_rooted", {
 	description = S("Seaweed"),
