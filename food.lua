@@ -24,10 +24,7 @@ minetest.register_node("ethereal:banana", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = function(pos, placer)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:banana", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:banana", param2 = 1})
 	end
 })
 
@@ -55,9 +52,7 @@ minetest.register_node("ethereal:banana_bunch", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = function(pos, placer)
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:banana_bunch", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:banana_bunch", param2 = 1})
 	end
 })
 
@@ -116,10 +111,7 @@ minetest.register_node("ethereal:orange", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = function(pos, placer)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:orange", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:orange", param2 = 1})
 	end
 })
 
@@ -178,10 +170,7 @@ minetest.register_node("ethereal:coconut", {
 	sounds = default.node_sound_wood_defaults(),
 
 	after_place_node = function(pos, placer)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:coconut", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:coconut", param2 = 1})
 	end
 })
 
@@ -247,10 +236,7 @@ minetest.register_node("ethereal:golden_apple", {
 	end,
 
 	after_place_node = function(pos, placer, itemstack)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:golden_apple", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:golden_apple", param2 = 1})
 	end
 })
 
@@ -357,10 +343,7 @@ minetest.register_node("ethereal:lemon", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = function(pos, placer)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:lemon", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:lemon", param2 = 1})
 	end
 })
 
@@ -442,10 +425,7 @@ minetest.register_node("ethereal:olive", {
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_place_node = function(pos, placer)
-
-		if placer:is_player() then
-			minetest.set_node(pos, {name = "ethereal:olive", param2 = 1})
-		end
+		minetest.set_node(pos, {name = "ethereal:olive", param2 = 1})
 	end
 })
 
