@@ -12,7 +12,7 @@ local do_stair = function(description, name, node, groups, texture, sound)
 
 	if stairs_redo then
 
-		stairs.register_all(name, node,	groups, texture, S(description), sound)
+		stairs.register_all(name, node,	groups, texture, S(description), sound, true)
 
 	elseif stairs_plus then
 
@@ -41,7 +41,7 @@ local do_stair = function(description, name, node, groups, texture, sound)
 	else
 
 		stairs.register_stair_and_slab(name, node, groups, texture,
-				S(description .. " Stair"), S(description .. " Slab"), sound)
+				S(description .. " Stair"), S(description .. " Slab"), sound, true)
 	end
 end
 
