@@ -757,9 +757,21 @@ if minetest.registered_nodes["default:coral_green"] then
 end
 
 
--- register async mapgen script
-if minetest.register_mapgen_script then
-	minetest.register_mapgen_script(minetest.get_modpath("ethereal") .. "/decor_on_generated.lua")
-else
-	dofile(minetest.get_modpath("ethereal") .. "/decor_on_generated.lua")
+-- illumishrooms using underground decoration placement
+local function add_illumishroom(low, high, nodename)
+
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:stone_with_coal"},
+		sidelen = 16,
+		fill_ratio = 0.5,
+		y_max = high,
+		y_min = low,
+		flags = "force_placement, all_floors",
+		decoration = nodename
+	})
 end
+
+add_illumishroom(-1000, -30, "ethereal:illumishroom")
+add_illumishroom(-2000, -1000, "ethereal:illumishroom2")
+add_illumishroom(-3000, -2000, "ethereal:illumishroom3")

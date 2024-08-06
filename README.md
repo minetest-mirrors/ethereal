@@ -97,6 +97,11 @@ several examples are at the documentation of [api.txt](api.txt) file.
 A huge thanks to Chinchow who was the inspiration behind Ethereal and everyone
 who helped make this mod bigger and better throughout it's release :)
 
+### 1.32
+ - Add {eatable} groups to food items
+ - Use underground decoration placement for illumishrooms to improve performance
+ - Use worldalign textures for stairs
+
 ### 1.31
  - Fix fishing biome checks
  - Increase bamboo leaf decay radius
