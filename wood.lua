@@ -1,7 +1,7 @@
 
-local S = ethereal.translate
+local S = minetest.get_translator("ethereal")
 
--- helper function
+-- register wood and placement helper
 
 local function add_wood(name, def)
 
@@ -145,7 +145,6 @@ minetest.register_craft({
 	output = "ethereal:frost_wood 4",
 	recipe = {{"ethereal:frost_tree"}}
 })
-
 
 -- healing
 
@@ -314,12 +313,10 @@ minetest.register_node("ethereal:bamboo", {
 	sunlight_propagates = true,
 	walkable = true,
 	selection_box = {
-		type = "fixed",
-		fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
+		type = "fixed", fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
 	},
 	collision_box = {
-		type = "fixed",
-		fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
+		type = "fixed", fixed = {-0.15, -0.5, -0.15, 0.15, 0.5, 0.15}
 	},
 	groups = {choppy = 3, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
@@ -363,4 +360,3 @@ minetest.register_craft({
 	output = "ethereal:olive_wood 4",
 	recipe = {{"ethereal:olive_trunk"}}
 })
-

@@ -101,6 +101,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Add {eatable} groups to food items
  - Use underground decoration placement for illumishrooms to improve performance
  - Use worldalign textures for stairs
+ - Tidy and tweak code to run on Minetest 5.1 and above
 
 ### 1.31
  - Fix fishing biome checks

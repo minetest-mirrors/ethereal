@@ -1,5 +1,9 @@
 
+-- ethereal schematic path
+
 local epath = minetest.get_modpath("ethereal") .. "/schematics/"
+
+-- add schematics
 
 lucky_block:add_schematics({
 	{"pinetree", ethereal.pinetree, {x = 3, y = 0, z = 3}},
@@ -11,6 +15,8 @@ lucky_block:add_schematics({
 	{"mushroomone", ethereal.mushroomone, {x = 4, y = 0, z = 4}},
 	{"mushroomtwo", ethereal.mushroomtwo, {x = 1, y = 0, z = 1}},
 })
+
+-- add lucky blocks
 
 lucky_block:add_blocks({
 	{"sch", "basandrabush", 0, false},
