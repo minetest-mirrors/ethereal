@@ -219,7 +219,7 @@ register_decoration(1, {
 -- jungle grass
 
 register_decoration(ethereal.junglee, {
-	place_on = {"ethereal:jungle_dirt", "default:dirt_with_rainforest_litter"},
+	place_on = {"default:dirt_with_rainforest_litter"},
 	fill_ratio = 0.1,
 	biomes = {"junglee"},
 	decoration = "default:junglegrass"})

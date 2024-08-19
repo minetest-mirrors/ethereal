@@ -172,7 +172,7 @@ register_decoration(ethereal.grayness, {
 -- default large pine tree for lower elevation
 
 register_decoration(ethereal.snowy, {
-	place_on = "ethereal:dirt_with_coniferous_litter",
+	place_on = "default:dirt_with_coniferous_litter",
 	fill_ratio = 0.025,
 	biomes = {"coniferous_forest"},
 	y_min = 10, y_max = 40,
