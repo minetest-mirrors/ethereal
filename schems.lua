@@ -31,311 +31,340 @@ dofile(path .. "lemon_tree.lua")
 dofile(path .. "olive_tree.lua")
 dofile(path .. "basandra_bush.lua")
 
--- add chematic helper function
+-- register decoration helper
 
-local function add_schem(a, b, c, d, e, f, g, h, i, j, k)
+local function register_decoration(enabled, def)
 
-	if g ~= 1 then return end -- add if setting is 1
+	if enabled ~= 1 then return end
 
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = a,
-		sidelen = 80,
-		fill_ratio = b,
-		biomes = c,
-		y_min = d,
-		y_max = e,
-		schematic = f,
-		flags = "place_center_x, place_center_z",
-		replacements = h,
-		spawn_by = i,
-		num_spawn_by = j,
-		rotation = k
-	})
+	def.sidelen = def.sidelen or 80 -- some handy defaults
+	def.deco_type = "schematic"
+	def.y_min = def.y_min or 1
+	def.y_max = def.y_max or 100
+	def.flags = def.flags or "place_center_x, place_center_z"
+
+	minetest.register_decoration(def)
 end
 
 -- igloo
 
-add_schem("default:snowblock", 0.0005, {"glacier"}, 3, 50,
-	ethereal.igloo, ethereal.glacier, nil, "default:snowblock", 8, "random")
+register_decoration(ethereal.glacier, {
+	place_on = "default:snowblock",
+	fill_ratio = 0.0005,
+	biomes = {"glacier"},
+	y_min = 3, y_max = 50,
+	schematic = ethereal.igloo,
+	spawn_by = "default:snowblock", num_spawn_by = 8,
+	rotation = "random"})
 
 -- sakura tree
 
-add_schem({"ethereal:bamboo_dirt"}, 0.001, {"sakura"}, 7, 100,
-	ethereal.sakura_tree, ethereal.sakura, nil,
-	"ethereal:bamboo_dirt", 6)
+register_decoration(ethereal.sakura, {
+	place_on = "ethereal:bamboo_dirt",
+	fill_ratio = 0.001,
+	biomes = {"sakura"},
+	y_min = 7, y_max = 100,
+	schematic = ethereal.sakura_tree,
+	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6})
 
 -- redwood tree
 
-add_schem({"default:dirt_with_dry_grass"}, 0.0025, {"mesa"}, 1, 100,
-	ethereal.redwood_tree, ethereal.mesa, nil,
-	"default:dirt_with_dry_grass", 8)
+register_decoration(ethereal.mesa, {
+	place_on = "default:dirt_with_dry_grass",
+	fill_ratio = 0.0025,
+	biomes = {"mesa"},
+	schematic = ethereal.redwood_tree,
+	flags = "place_center_x, place_center_z",
+	spawn_by = "default:dirt_with_dry_grass", num_spawn_by = 8})
 
 -- banana tree
 
-add_schem({"ethereal:grove_dirt"}, 0.015, {"grove"}, 1, 100,
-	ethereal.bananatree, ethereal.grove)
+register_decoration(ethereal.grove, {
+	place_on = "ethereal:grove_dirt",
+	fill_ratio = 0.015,
+	biomes = {"grove"},
+	schematic = ethereal.bananatree})
 
 -- healing tree
 
-add_schem({"default:dirt_with_snow"}, 0.01, {"taiga"}, 120, 140,
-	ethereal.yellowtree, ethereal.alpine, nil, "default:dirt_with_snow", 8)
+register_decoration(ethereal.alpine, {
+	place_on = "default:dirt_with_snow",
+	fill_ratio = 0.01,
+	biomes = {"taiga"},
+	y_min = 120, y_max = 140,
+	schematic = ethereal.yellowtree,
+	spawn_by = "default:dirt_with_snow", num_spawn_by = 8})
 
 -- crystal frost tree
 
-add_schem({"ethereal:crystal_dirt"}, 0.01, {"frost", "frost_floatland"}, 1, 1750,
-	ethereal.frosttrees, ethereal.frost, nil,
-	"ethereal:crystal_dirt", 8)
+register_decoration(ethereal.frost, {
+	place_on = "ethereal:crystal_dirt",
+	fill_ratio = 0.01,
+	biomes = {"frost", "frost_floatland"},
+	y_min = 1, y_max = 1750,
+	schematic = ethereal.frosttrees,
+	spawn_by = "ethereal:crystal_dirt", num_spawn_by = 8})
 
--- giant mushroom
+-- giant red mushroom
 
-add_schem("ethereal:mushroom_dirt", 0.02, {"mushroom"}, 3, 25,
-	ethereal.mushroomone, ethereal.mushroom, nil,
-	"ethereal:mushroom_dirt", 8)
+register_decoration(ethereal.mushroom, {
+	place_on = "ethereal:mushroom_dirt",
+	fill_ratio = 0.02,
+	biomes = {"mushroom"},
+	y_min = 3, y_max = 25,
+	schematic = ethereal.mushroomone,
+	spawn_by = "ethereal:mushroom_dirt", num_spawn_by = 8})
 
 -- giant brown mushroom
 
-add_schem("ethereal:mushroom_dirt", 0.02, {"mushroom"}, 26, 50,
-	ethereal.mushroomtwo, ethereal.mushroom, nil, nil, nil, "random")
+register_decoration(ethereal.mushroom, {
+	place_on = "ethereal:mushroom_dirt",
+	fill_ratio = 0.02,
+	biomes = {"mushroom"},
+	y_min = 26, y_max = 50,
+	schematic = ethereal.mushroomtwo,
+	rotation = "random"})
 
 -- small lava crater
 
-add_schem("ethereal:fiery_dirt", 0.01, {"fiery"}, 1, 100,
-	ethereal.volcanom, ethereal.fiery, nil, "ethereal:fiery_dirt", 8)
+register_decoration(ethereal.fiery, {
+	place_on = "ethereal:fiery_dirt",
+	fill_ratio = 0.01,
+	biomes = {"fiery"},
+	schematic = ethereal.volcanom,
+	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 6})
 
 -- large lava crater
 
-add_schem("ethereal:fiery_dirt", 0.003, {"fiery"}, 1, 100,
-	ethereal.volcanol, ethereal.fiery, nil, "ethereal:fiery_dirt", 8, "random")
+register_decoration(ethereal.fiery, {
+	place_on = "ethereal:fiery_dirt",
+	fill_ratio = 0.003,
+	biomes = {"fiery"},
+	schematic = ethereal.volcanol,
+	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 8,
+	rotation = "random"})
 
 -- basandra bush
 
-add_schem("ethereal:fiery_dirt", 0.03, {"fiery"}, 1, 100,
-	ethereal.basandrabush, ethereal.fiery)
+register_decoration(ethereal.fiery, {
+	place_on = "ethereal:fiery_dirt",
+	fill_ratio = 0.03,
+	biomes = {"fiery"},
+	schematic = ethereal.basandrabush})
 
 -- default jungle tree
 
-add_schem({"ethereal:jungle_dirt", "default:dirt_with_rainforest_litter"},
-	0.08, {"junglee"}, 1, 100, dpath .. "jungle_tree.mts", ethereal.junglee)
+register_decoration(ethereal.junglee, {
+	place_on = "default:dirt_with_rainforest_litter",
+	fill_ratio = 0.08,
+	biomes = {"junglee"},
+	schematic = dpath .. "jungle_tree.mts"})
 
 -- willow tree
 
-add_schem({"ethereal:gray_dirt"}, 0.02, {"grayness"}, 1, 100,
-	ethereal.willow, ethereal.grayness, nil, "ethereal:gray_dirt", 6)
+register_decoration(ethereal.grayness, {
+	place_on = "ethereal:gray_dirt",
+	fill_ratio = 0.02,
+	biomes = {"grayness"},
+	schematic = ethereal.willow,
+	spawn_by = "ethereal:gray_dirt", num_spawn_by = 6})
 
 -- default large pine tree for lower elevation
 
-add_schem({"ethereal:cold_dirt", "default:dirt_with_coniferous_litter"},
-	0.025, {"coniferous_forest"}, 10, 40, dpath .. "pine_tree.mts", ethereal.snowy)
+register_decoration(ethereal.snowy, {
+	place_on = "ethereal:dirt_with_coniferous_litter",
+	fill_ratio = 0.025,
+	biomes = {"coniferous_forest"},
+	y_min = 10, y_max = 40,
+	schematic = dpath .. "pine_tree.mts"})
 
 -- small pine for higher elevation
 
-add_schem({"default:dirt_with_snow"}, 0.025, {"taiga"}, 40, 140,
-	ethereal.pinetree, ethereal.alpine)
+register_decoration(ethereal.alpine, {
+	place_on = {"default:dirt_with_snow"},
+	fill_ratio = 0.025,
+	biomes = {"taiga"},
+	y_min = 40, y_max = 140,
+	schematic = ethereal.pinetree})
 
 -- default apple tree
 
-add_schem({"default:dirt_with_grass"}, 0.025, {"jumble", "deciduous_forest"}, 1, 100,
-	dpath .. "apple_tree.mts", ethereal.grassy)
+register_decoration(ethereal.grassy, {
+	place_on = "default:dirt_with_grass",
+	fill_ratio = 0.025,
+	biomes = {"jumble", "deciduous_forest"},
+	schematic = dpath .. "apple_tree.mts"})
 
 -- big old tree
 
-add_schem({"default:dirt_with_grass"}, 0.001, {"jumble"}, 1, 100,
-	ethereal.bigtree, ethereal.jumble, nil, "default:dirt_with_grass", 8)
+register_decoration(ethereal.jumble, {
+	place_on = "default:dirt_with_grass",
+	fill_ratio = 0.001,
+	biomes = {"jumble"},
+	schematic = ethereal.bigtree,
+	spawn_by = "default:dirt_with_grass", num_spawn_by = 8})
 
 -- default aspen tree
 
-add_schem({"default:dirt_with_grass"}, 0.02, {"grassytwo"}, 1, 50,
-	dpath .. "aspen_tree.mts", ethereal.jumble)
+register_decoration(ethereal.grassytwo, {
+	place_on = "default:dirt_with_grass",
+	fill_ratio = 0.02,
+	biomes = {"grassytwo"},
+	y_min = 1, y_max = 50,
+	schematic = dpath .. "aspen_tree.mts"})
 
 -- birch tree
 
-add_schem({"default:dirt_with_grass"}, 0.02, {"grassytwo"}, 50, 100,
-	ethereal.birchtree, ethereal.grassytwo)
+register_decoration(ethereal.grassytwo, {
+	place_on = "default:dirt_with_grass",
+	fill_ratio = 0.02,
+	biomes = {"grassytwo"},
+	y_min = 50, y_max = 100,
+	schematic = ethereal.birchtree})
 
 -- orange tree
 
-add_schem({"ethereal:prairie_dirt"}, 0.01, {"prairie"}, 1, 100,
-	ethereal.orangetree, ethereal.prairie)
+register_decoration(ethereal.prairie, {
+	place_on = "ethereal:prairie_dirt",
+	fill_ratio = 0.01,
+	biomes = {"prairie"},
+	schematic = ethereal.orangetree})
 
 -- default acacia tree
 
-add_schem({"default:dry_dirt_with_dry_grass",
-	"default:dirt_with_dry_grass"}, 0.004, {"savanna"}, 1, 100,
-	dpath .. "acacia_tree.mts", ethereal.savanna)
+register_decoration(ethereal.savanna, {
+	place_on = {"default:dry_dirt_with_dry_grass", "default:dirt_with_dry_grass"},
+	fill_ratio = 0.004,
+	biomes = {"savanna"},
+	schematic = dpath .. "acacia_tree.mts"})
 
 -- palm tree
 
-add_schem("default:sand", 0.0025, {"desert_ocean", "plains_ocean", "sandclay",
-	"sandstone_ocean", "mesa_ocean", "grove_ocean", "deciduous_forest_ocean"}, 1, 1,
-	ethereal.palmtree, 1)
+register_decoration(1, {
+	place_on = "default:sand",
+	fill_ratio = 0.0025,
+	biomes = {"desert_ocean", "plains_ocean", "sandclay", "sandstone_ocean",
+			"mesa_ocean", "grove_ocean", "deciduous_forest_ocean"},
+	y_min = 1, y_max = 1,
+	schematic = ethereal.palmtree})
 
 -- bamboo tree
 
-add_schem({"ethereal:bamboo_dirt"}, 0.025, {"bamboo"}, 1, 100,
-	ethereal.bambootree, ethereal.bamboo)
+register_decoration(ethereal.bamboo, {
+	place_on = "ethereal:bamboo_dirt",
+	fill_ratio = 0.025,
+	biomes = {"bamboo"},
+	schematic = ethereal.bambootree})
 
 -- bush
 
-add_schem({"ethereal:bamboo_dirt"}, 0.08, {"bamboo"}, 1, 100, ethereal.bush,
-	ethereal.bamboo)
+register_decoration(ethereal.bamboo, {
+	place_on = "ethereal:bamboo_dirt",
+	fill_ratio = 0.08,
+	biomes = {"bamboo"},
+	schematic = ethereal.bush,
+	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6})
 
 -- vine tree
 
-add_schem({"default:dirt_with_grass"}, 0.02, {"swamp"}, 1, 100,
-	ethereal.vinetree, ethereal.swamp)
+register_decoration(ethereal.swamp, {
+	place_on = "default:dirt_with_grass",
+	fill_ratio = 0.02,
+	biomes = {"swamp"},
+	schematic = ethereal.vinetree})
 
 -- lemon tree
 
-add_schem({"ethereal:grove_dirt"}, 0.002, {"mediterranean"}, 5, 50,
-	ethereal.lemontree, ethereal.mediterranean)
+register_decoration(ethereal.mediterranean, {
+	place_on = "ethereal:grove_dirt",
+	fill_ratio = 0.002,
+	biomes = {"mediterranean"},
+	y_min = 5, y_max = 50,
+	schematic = ethereal.lemontree})
 
 -- olive tree
 
-add_schem({"ethereal:grove_dirt"}, 0.002, {"mediterranean"}, 5, 35,
-	ethereal.olivetree, ethereal.mediterranean)
+register_decoration(ethereal.mediterranean, {
+	place_on = "ethereal:grove_dirt",
+	fill_ratio = 0.002,
+	biomes = {"mediterranean"},
+	y_min = 5, y_max = 35,
+	schematic = ethereal.olivetree})
 
 -- default large cactus
 
-if ethereal.desert == 1 then
-
-	minetest.register_decoration({
-		deco_type = "schematic",
-		place_on = {"default:desert_sand"},
-		sidelen = 80,
-		noise_params = {
-			offset = -0.0005,
-			scale = 0.0015,
-			spread = {x = 200, y = 200, z = 200},
-			seed = 230,
-			octaves = 3,
-			persist = 0.6
-		},
-		biomes = {"desert"},
-		y_min = 5,
-		y_max = 31000,
-		schematic = dpath .. "large_cactus.mts",
-		flags = "place_center_x",
-		rotation = "random",
-	})
-end
+register_decoration(ethereal.desert, {
+	place_on = {"default:desert_sand"},
+	noise_params = {
+		offset = -0.0005, scale = 0.0015, spread = {x = 200, y = 200, z = 200},
+		seed = 230, octaves = 3, persist = 0.6},
+	biomes = {"desert"},
+	y_min = 5, y_max = 100,
+	schematic = dpath .. "large_cactus.mts",
+	flags = "place_center_x",
+	rotation = "random"})
 
 -- default bush
 
-minetest.register_decoration({
-	deco_type = "schematic",
+register_decoration(1, {
 	place_on = {"default:dirt_with_grass", "default:dirt_with_snow"},
 	sidelen = 16,
 	noise_params = {
-		offset = -0.004,
-		scale = 0.01,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 137,
-		octaves = 3,
-		persist = 0.7,
-	},
+		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
+		seed = 137, octaves = 3, persist = 0.7},
 	biomes = {"deciduous_forest", "grassytwo", "jumble"},
-	y_min = 1,
-	y_max = 31000,
-	schematic = dpath .. "bush.mts",
-	flags = "place_center_x, place_center_z"
-})
+	schematic = dpath .. "bush.mts"})
 
 -- default acacia bush
 
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = {
-		"default:dirt_with_dry_grass", "default:dry_dirt_with_dry_grass"},
+register_decoration(1, {
+	place_on = {"default:dirt_with_dry_grass", "default:dry_dirt_with_dry_grass"},
 	sidelen = 16,
 	noise_params = {
-		offset = -0.004,
-		scale = 0.01,
-		spread = {x = 100, y = 100, z = 100},
-		seed = 90155,
-		octaves = 3,
-		persist = 0.7,
-	},
+		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
+		seed = 90155, octaves = 3, persist = 0.7},
 	biomes = {"savanna", "mesa"},
-	y_min = 1,
-	y_max = 31000,
-	schematic = dpath .. "acacia_bush.mts",
-	flags = "place_center_x, place_center_z"
-})
+	schematic = dpath .. "acacia_bush.mts"})
 
 -- default pine bush
 
-if minetest.registered_nodes["default:pine_bush"] then
-
-	minetest.register_decoration({
-		name = "default:pine_bush",
-		deco_type = "schematic",
-		place_on = {"default:dirt_with_snow"},
-		sidelen = 16,
-		noise_params = {
-			offset = -0.004,
-			scale = 0.01,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 137,
-			octaves = 3,
-			persist = 0.7,
-		},
-		biomes = {"taiga"},
-		y_max = 31000,
-		y_min = 4,
-		schematic = dpath .. "pine_bush.mts",
-		flags = "place_center_x, place_center_z"
-	})
-end
+register_decoration((minetest.registered_nodes["default:pine_bush"] and 1), {
+	name = "default:pine_bush",
+	place_on = {"default:dirt_with_snow"},
+	sidelen = 16,
+	noise_params = {
+		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
+		seed = 137, octaves = 3, persist = 0.7},
+	biomes = {"taiga"},
+	y_min = 4, y_max = 120,
+	schematic = dpath .. "pine_bush.mts"})
 
 -- default blueberry bush
 
-if minetest.registered_nodes["default:blueberry_bush_leaves"] then
-
-	minetest.register_decoration({
-		name = "default:blueberry_bush",
-		deco_type = "schematic",
-		place_on = {
-			"default:dirt_with_coniferous_litter", "default:dirt_with_snow"},
-		sidelen = 16,
-		noise_params = {
-			offset = -0.004,
-			scale = 0.01,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 697,
-			octaves = 3,
-			persist = 0.7,
-		},
-		biomes = {"coniferous_forest", "taiga"},
-		y_max = 31000,
-		y_min = 1,
-		place_offset_y = 1,
-		schematic = dpath .. "blueberry_bush.mts",
-		flags = "place_center_x, place_center_z"
-	})
-end
+register_decoration((minetest.registered_nodes["default:blueberry_bush_leaves"] and 1), {
+	name = "default:blueberry_bush",
+	place_on = {"default:dirt_with_coniferous_litter", "default:dirt_with_snow"},
+	sidelen = 16,
+	noise_params = {
+		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
+		seed = 697, octaves = 3, persist = 0.7},
+	biomes = {"coniferous_forest", "taiga"},
+	place_offset_y = 1,
+	schematic = dpath .. "blueberry_bush.mts"})
 
 -- place waterlily in beach areas
 
-minetest.register_decoration({
-	deco_type = "schematic",
+register_decoration(1, {
 	place_on = {"default:sand"},
 	sidelen = 16,
 	noise_params = {
-		offset = -0.12,
-		scale = 0.3,
-		spread = {x = 200, y = 200, z = 200},
-		seed = 33,
-		octaves = 3,
-		persist = 0.7
-	},
-	biomes = {"desert_ocean", "plains_ocean", "sandclay",
-		"mesa_ocean", "grove_ocean", "deciduous_forest_ocean", "swamp_ocean"},
-	y_min = 0,
-	y_max = 0,
+		offset = -0.12, scale = 0.3, spread = {x = 200, y = 200, z = 200},
+		seed = 33, octaves = 3, persist = 0.7},
+	biomes = {"desert_ocean", "plains_ocean", "sandclay", "mesa_ocean", "grove_ocean",
+			"deciduous_forest_ocean", "swamp_ocean"},
+	y_min = 0, y_max = 0,
 	schematic = ethereal.waterlily,
-	rotation = "random"
-})
+	rotation = "random"})
 
 -- coral reef
 
@@ -346,130 +375,86 @@ if ethereal.reefs == 1 then
 	minetest.override_item("default:coral_orange", {groups = {crumbly = 3}})
 	minetest.override_item("default:coral_brown", {groups = {crumbly = 3}})
 
-	minetest.register_decoration({
-		deco_type = "schematic",
+	register_decoration(1, {
 		place_on = {"default:sand"},
 		noise_params = {
-			offset = -0.15,
-			scale = 0.1,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 7013,
-			octaves = 3,
-			persist = 1,
-		},
+			offset = -0.15, scale = 0.1, spread = {x = 100, y = 100, z = 100},
+			seed = 7013, octaves = 3, persist = 1},
 		biomes = {"desert_ocean", "grove_ocean"},
-		y_min = -8,
-		y_max = -2,
+		y_min = -8, y_max = -2,
 		schematic = path .. "corals.mts",
-		flags = "place_center_x, place_center_z",
-		rotation = "random"
-	})
+		rotation = "random"})
 end
 
 -- tree logs
 
 if ethereal.logs == 1 then
 
-if ethereal.grassy == 1 or ethereal.prairie == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.prairie, {
 		name = "default:apple_log",
-		deco_type = "schematic",
 		place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
 		place_offset_y = 1,
 		sidelen = 16,
 		fill_ratio = 0.001,
 		biomes = {"deciduous_forest", "jumble", "swamp", "prairie"},
-		y_max = 100,
-		y_min = 1,
 		schematic = dpath .. "apple_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
-		num_spawn_by = 8
+		spawn_by = {"default:dirt_with_grass", "ethereal:prairie_dirt"}, num_spawn_by = 8
 	})
-end
 
-if ethereal.junglee == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.junglee, {
 		name = "default:jungle_log",
-		deco_type = "schematic",
 		place_on = {"default:dirt_with_rainforest_litter"},
 		place_offset_y = 1,
 		sidelen = 80,
 		fill_ratio = 0.005,
 		biomes = {"junglee"},
-		y_max = 100,
-		y_min = 1,
 		schematic = dpath .. "jungle_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "default:dirt_with_rainforest_litter",
-		num_spawn_by = 8
+		spawn_by = "default:dirt_with_rainforest_litter", num_spawn_by = 8
 	})
-end
 
-if ethereal.snowy == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.snowy, {
 		name = "default:pine_log",
-		deco_type = "schematic",
 		place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 		place_offset_y = 1,
 		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"taiga", "coniferous_forest"},
-		y_max = 100,
-		y_min = 4,
+		y_min = 4, y_max = 100,
 		schematic = dpath .. "pine_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
 		spawn_by = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 		num_spawn_by = 8
 	})
-end
 
-if ethereal.savanna == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.savanna, {
 		name = "default:acacia_log",
 		deco_type = "schematic",
 		place_on = {"default:dry_dirt_with_dry_grass"},
 		place_offset_y = 1,
 		sidelen = 16,
 		noise_params = {
-			offset = 0,
-			scale = 0.001,
-			spread = {x = 250, y = 250, z = 250},
-			seed = 2,
-			octaves = 3,
-			persist = 0.66
-		},
+			offset = 0, scale = 0.001, spread = {x = 250, y = 250, z = 250},
+			seed = 2, octaves = 3, persist = 0.66},
 		biomes = {"savanna"},
-		y_max = 100,
-		y_min = 1,
 		schematic = dpath .. "acacia_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "default:dry_dirt_with_dry_grass",
-		num_spawn_by = 8
+		spawn_by = "default:dry_dirt_with_dry_grass", num_spawn_by = 8
 	})
-end
 
-if ethereal.plains == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.plains, {
 		name = "ethereal:scorched_log",
-		deco_type = "schematic",
 		place_on = {"ethereal:dry_dirt"},
 		place_offset_y = 1,
 		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"plains"},
-		y_max = 100,
-		y_min = 4,
-
+		y_min = 4, y_max = 100,
 		schematic = {
 			size = {x = 3, y = 1, z = 1},
 			data = {
@@ -480,24 +465,17 @@ if ethereal.plains == 1 then
 		},
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "ethereal:dry_dirt",
-		num_spawn_by = 8
+		spawn_by = "ethereal:dry_dirt", num_spawn_by = 8
 	})
-end
 
-if ethereal.grove == 1 then
-
-	minetest.register_decoration({
+	register_decoration(ethereal.grove, {
 		name = "ethereal:banana_log",
-		deco_type = "schematic",
 		place_on = {"ethereal:grove_dirt"},
 		place_offset_y = 1,
 		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"grove"},
-		y_max = 100,
-		y_min = 4,
-
+		y_min = 4, y_max = 100,
 		schematic = {
 			size = {x = 3, y = 1, z = 1},
 			data = {
@@ -508,9 +486,6 @@ if ethereal.grove == 1 then
 		},
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "ethereal:grove_dirt",
-		num_spawn_by = 8
+		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8
 	})
 end
-
-end -- end if ethereal.logs

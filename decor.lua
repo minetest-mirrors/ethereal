@@ -257,7 +257,7 @@ register_decoration(1, {
 
 register_decoration(ethereal.sakura, {
 	place_on = {"ethereal:bamboo_dirt"},
-	fill_ratio = 0.25,
+	fill_ratio = 0.025,
 	biomes = {"sakura"},
 	decoration = "ethereal:lilac"})
 
