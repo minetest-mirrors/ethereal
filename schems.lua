@@ -243,7 +243,7 @@ register_decoration(ethereal.savanna, {
 register_decoration(1, {
 	place_on = "default:sand",
 	fill_ratio = 0.0025,
-	biomes = {"desert_ocean", "plains_ocean", "sandclay", "sandstone_ocean",
+	biomes = {"desert_ocean", "plains_ocean", "sandstone_ocean",
 			"mesa_ocean", "grove_ocean", "deciduous_forest_ocean"},
 	y_min = 1, y_max = 1,
 	schematic = ethereal.palmtree})
@@ -360,7 +360,7 @@ register_decoration(1, {
 	noise_params = {
 		offset = -0.12, scale = 0.3, spread = {x = 200, y = 200, z = 200},
 		seed = 33, octaves = 3, persist = 0.7},
-	biomes = {"desert_ocean", "plains_ocean", "sandclay", "mesa_ocean", "grove_ocean",
+	biomes = {"desert_ocean", "plains_ocean", "mesa_ocean", "grove_ocean",
 			"deciduous_forest_ocean", "swamp_ocean"},
 	y_min = 0, y_max = 0,
 	schematic = ethereal.waterlily,

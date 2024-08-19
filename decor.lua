@@ -307,6 +307,13 @@ register_decoration(ethereal.alpine, {
 	biomes = {"taiga"},
 	decoration = "default:snow"})
 
+register_decoration(1, {
+	place_on = {"ethereal:cold_dirt"},
+	fill_ratio = 0.4,
+	y_min = 2, y_max = 40,
+	biomes = {"cold_grass"},
+	decoration = "default:snow"})
+
 -- wild onion and setting
 
 local abundant = minetest.settings:get_bool("ethereal.abundant_onions") ~= false
@@ -541,7 +548,7 @@ local function register_fern_decoration(seed, length)
 			offset = 0, scale = 0.2, spread = {x = 100, y = 100, z = 100},
 			seed = seed, octaves = 3, persist = 0.7
 		},
-		y_min = 6, y_max = 100,
+		y_min = 3, y_max = 100,
 		decoration = "default:fern_" .. length})
 end
 
