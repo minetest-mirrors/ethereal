@@ -9,6 +9,10 @@ local function register_biome(enabled, def)
 	def.node_dungeon_alt = def.node_dungeon and "" or "default:mossycobble"
 	def.node_dungeon_stair = def.node_dungeon_stair or "stairs:stair_cobble"
 
+	if def.y_min > 0 and def.node_riverbed == nil then
+		def.node_riverbed = "default:sand" ; def.depth_riverbed = 2
+	end
+
 	minetest.register_biome(def)
 end
 
