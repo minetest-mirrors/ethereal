@@ -14,6 +14,10 @@ local function register_biome(enabled, def)
 	end
 
 	minetest.register_biome(def)
+
+--[[print('{"name": "' .. def.name .. '", "heat_point": ' ..def.heat_point .. ', "humidity_point": '
+	.. def.humidity_point .. ', "y_min": ' .. def.y_min .. ', "y_max": ' .. def.y_max .. '}')]]
+
 end
 
 -- mountain
