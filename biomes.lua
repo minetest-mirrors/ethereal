@@ -112,7 +112,7 @@ register_biome(ethereal.mesa, {
 
 register_biome(ethereal.snowy, {
 	name = "coniferous_forest",
-	heat_point = 45, humidity_point = 70, y_min = 6, y_max = 100,
+	heat_point = 45, humidity_point = 70, y_min = 6, y_max = 140,
 	node_top = "default:dirt_with_coniferous_litter", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 2})
 
@@ -123,7 +123,7 @@ register_biome(ethereal.snowy, {
 	node_filler = "default:sand", depth_filler = 3,
 	vertical_blend = 1})
 
-register_biome((ethereal.snowy or ethereal.frost), {
+register_biome(ethereal.snowy, {
 	name = "coniferous_forest_ocean",
 	heat_point = 45, humidity_point = 70, y_min = -255, y_max = 3,
 	node_top = "default:sand", depth_top = 1,

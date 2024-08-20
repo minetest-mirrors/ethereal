@@ -180,7 +180,7 @@ register_decoration(ethereal.snowy, {
 
 -- small pine for higher elevation
 
-register_decoration(ethereal.alpine, {
+register_decoration(ethereal.snowy, {
 	place_on = {"default:dirt_with_snow"},
 	fill_ratio = 0.025,
 	biomes = {"taiga"},
