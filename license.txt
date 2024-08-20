@@ -22,6 +22,21 @@ THE SOFTWARE.
 
 Textures by TenPlus1 (CC0) unless listed below...
 
+Textures by NameNotQuality (CC0):
+  ethereal_bamboo_floor.png
+  ethereal_banana_leaf.png
+  ethereal_basandra_bush_wood.png
+  ethereal_blue_marble.png
+  ethereal_blue_marble_tile.png
+
+Textures based on default minetest wood by alerikaisattera (CC BY-SA 3.0):
+  ethereal_birch_wood_alt.png
+  ethereal_redwood_wood.png
+  ethereal_banana_wood_alt.png
+  ethereal_olive_wood_alt.png
+  ethereal_palm_wood_alt.png
+  ethereal_sakura_wood.png
+
 Based on pilzmod_giant_mushroom_brown_side.png (CC BY-SA 3.0) by Phseiff
   ethereal_mushroom_block_brown.png
 
@@ -129,7 +144,19 @@ Texture by ZonerDarkRevention (CC0)
   ethereal_hearty_stew.png
 
 Textures by VanessaE (CC-BY-SA 4.0)
-  moretrees_*.png
+  moretrees_acacia_leaves.png
+  moretrees_birch_wood.png
+  moretrees_palm_trunk.png
+  moretrees_birch_leaves.png
+  moretrees_coconut.png
+  moretrees_palm_trunk_top.png
+  moretrees_birch_sapling.png
+  moretrees_coconut_slice.png
+  moretrees_palm_wood.png
+  moretrees_birch_trunk.png
+  moretrees_palm_leaves.png
+  moretrees_birch_trunk_top.png
+  moretrees_palm_sapling.png
   ethereal_banana_wood.png (edited)
   ethereal_olive_wood.png (edited)
 
