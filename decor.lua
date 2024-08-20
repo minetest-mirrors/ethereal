@@ -695,7 +695,7 @@ local function add_illumishroom(low, high, nodename)
 		decoration = nodename})
 end
 
-add_illumishroom(-1000, -30, "ethereal:illumishroom")
+add_illumishroom(-1000, -50, "ethereal:illumishroom")
 add_illumishroom(-2000, -1000, "ethereal:illumishroom2")
 add_illumishroom(-3000, -2000, "ethereal:illumishroom3")
 
