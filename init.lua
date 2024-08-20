@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20240816"}
+ethereal = {version = "20240820"}
 
 -- setting helper
 
@@ -164,12 +164,6 @@ if minetest.get_modpath("bonemeal") then
 else -- or return to where it came from
 	minetest.register_alias("ethereal:bone", "default:dirt")
 	minetest.register_alias("ethereal:bonemeal", "default:dirt")
-end
-
--- Xanadu specific decoration
-
-if minetest.get_modpath("xanadu") then
-	dofile(path .. "/plantpack.lua")
 end
 
 print ("[MOD] Ethereal loaded")
