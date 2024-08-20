@@ -148,7 +148,7 @@ register_decoration(ethereal.fiery, {
 
 register_decoration(ethereal.fiery, {
 	place_on = "ethereal:fiery_dirt",
-	fill_ratio = 0.03,
+	fill_ratio = 0.03, place_offset_y = -1,
 	biomes = {"fiery"},
 	schematic = ethereal.basandrabush})
 
@@ -172,19 +172,19 @@ register_decoration(ethereal.grayness, {
 -- default large pine tree for lower elevation
 
 register_decoration(ethereal.snowy, {
-	place_on = "default:dirt_with_coniferous_litter",
+	place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.025,
-	biomes = {"coniferous_forest"},
-	y_min = 10, y_max = 40,
+	biomes = {"coniferous_forest", "taiga"},
+	y_min = 4, y_max = 50,
 	schematic = dpath .. "pine_tree.mts"})
 
 -- small pine for higher elevation
 
 register_decoration(ethereal.snowy, {
-	place_on = {"default:dirt_with_snow"},
+	place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.025,
-	biomes = {"taiga"},
-	y_min = 40, y_max = 140,
+	biomes = {"coniferous_forest", "taiga"},
+	y_min = 50, y_max = 140,
 	schematic = ethereal.pinetree})
 
 -- default apple tree

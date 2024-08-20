@@ -177,7 +177,7 @@ register_decoration(ethereal.fiery, {
 
 -- snowy grass
 
-register_decoration((ethereal.grayness or ethereal.snowy), {
+register_decoration(ethereal.snowy, {
 	place_on = {"ethereal:gray_dirt", "ethereal:cold_dirt",
 			"default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.05,
@@ -302,7 +302,7 @@ register_decoration(ethereal.frost, { -- chance of something edible so high up
 register_decoration(ethereal.snowy, {
 	place_on = {"default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.8,
-	y_min = 20, y_max = 40,
+	y_min = 20, y_max = 140,
 	biomes = {"coniferous_forest"},
 	decoration = "default:snow"})
 
