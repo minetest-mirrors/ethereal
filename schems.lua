@@ -141,14 +141,14 @@ register_decoration(ethereal.fiery, {
 	fill_ratio = 0.003,
 	biomes = {"fiery"},
 	schematic = ethereal.volcanol,
-	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 8,
+	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 4,
 	rotation = "random"})
 
 -- basandra bush
 
 register_decoration(ethereal.fiery, {
 	place_on = "ethereal:fiery_dirt",
-	fill_ratio = 0.03, place_offset_y = -1,
+	fill_ratio = 0.04,
 	biomes = {"fiery"},
 	schematic = ethereal.basandrabush})
 
