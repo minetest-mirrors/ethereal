@@ -23,19 +23,38 @@ THE SOFTWARE.
 Textures by TenPlus1 (CC0) unless listed below...
 
 Textures by NameNotQuality (CC0):
+  ethereal_olive_leaves.png
+
+Textures by TenPlus1 and resized/edited by NameNotQuality (CC0):
   ethereal_bamboo_floor.png
   ethereal_banana_leaf.png
   ethereal_basandra_bush_wood.png
   ethereal_blue_marble.png
   ethereal_blue_marble_tile.png
+  ethereal_redwood_wood.png
+  ethereal_redwood_trunk.png
+  ethereal_redwood_trunk_top.png
+  ethereal_sakura_trunk.png
+  ethereal_sakura_trunk_top.png
+  ethereal_sakura_wood.png
+  ethereal_willow_trunk.png
+  ethereal_willow_trunk_top.png
+  ethereal_willow_wood.png
+
+Textures by Felfa and resized/edited by NameNotQuality (CC0):
+  ethereal_lemon_leaves.png
+  ethereal_olive_trunk.png
+  ethereal_olive_trunk_top.png
+  ethereal_orange_leaves.png
 
 Textures based on default minetest wood by alerikaisattera (CC BY-SA 3.0):
   ethereal_birch_wood_alt.png
-  ethereal_redwood_wood.png
+  ethereal_redwood_wood_alt.png
   ethereal_banana_wood_alt.png
   ethereal_olive_wood_alt.png
   ethereal_palm_wood_alt.png
-  ethereal_sakura_wood.png
+  ethereal_sakura_wood_alt.png
+  ethereal_willow_wood_alt.png
 
 Based on pilzmod_giant_mushroom_brown_side.png (CC BY-SA 3.0) by Phseiff
   ethereal_mushroom_block_brown.png
@@ -167,8 +186,12 @@ Based on default snow texture by Gambit (CC BY-SA 3.0):
   ethereal_brick_snow.png [edited by philipmi]
 
 Textures by Felfa (CC0)
-  olive*.png
-  lemon*.png
+  ethereal_olive_trunk_32px.png
+  ethereal_olive_trunk_top_32px.png
+  ethereal_olive_leaves_32px.png
+  ethereal_olive_fruit.png
+  ethereal_lemon.png
+  ethereal_lemon_leaves.png
 
 Textures by Isaiah658 (CC0)
    ethereal_lemonade.png
