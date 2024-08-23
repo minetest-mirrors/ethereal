@@ -26,7 +26,6 @@ Textures by NameNotQuality (CC0):
   ethereal_olive_leaves.png
 
 Textures by TenPlus1 and resized/edited by NameNotQuality (CC0):
-  ethereal_bamboo_floor.png
   ethereal_banana_leaf.png
   ethereal_basandra_bush_wood.png
   ethereal_blue_marble.png
