@@ -60,7 +60,7 @@ minetest.register_node("ethereal:basandra_bush_sapling", {
 
 minetest.register_node("ethereal:bamboo_sprout", {
 	description = S("Bamboo Sprout"),
-	drawtype = "plantlike",
+	drawtype = "plantlike", visual_scale = 0.4,
 	tiles = {"ethereal_bamboo_sprout.png"},
 	inventory_image = "ethereal_bamboo_sprout.png",
 	wield_image = "ethereal_bamboo_sprout.png",
@@ -73,7 +73,7 @@ minetest.register_node("ethereal:bamboo_sprout", {
 	},
 	sounds = default.node_sound_defaults(),
 	selection_box = {
-		type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 0, 4 / 16}
+		type = "fixed", fixed = {-3 / 16, -0.4, -3 / 16, 3 / 16, 0, 3 / 16}
 	},
 	on_use = minetest.item_eat(2),
 	grown_height = 11,
