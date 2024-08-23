@@ -148,7 +148,7 @@ register_decoration(ethereal.fiery, {
 
 register_decoration(ethereal.fiery, {
 	place_on = "ethereal:fiery_dirt",
-	fill_ratio = 0.04,
+	fill_ratio = 0.03,
 	biomes = {"fiery"},
 	schematic = ethereal.basandrabush})
 
