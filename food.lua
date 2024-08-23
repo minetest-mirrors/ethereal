@@ -1,5 +1,13 @@
 
+-- translator and mod check
+
 local S = minetest.get_translator("ethereal")
+local mod_fredo = minetest.get_modpath("farming")
+		and farming and farming.mod and farming.mod == "redo"
+
+-- replacement bowl
+
+local bowl = mod_fredo and "farming:bowl" or "ethereal:bowl"
 
 -- Banana
 
@@ -248,7 +256,7 @@ minetest.register_craftitem("ethereal:hearty_stew", {
 	description = S("Hearty Stew"),
 	inventory_image = "ethereal_hearty_stew.png",
 	wield_image = "ethereal_hearty_stew.png",
-	on_use = minetest.item_eat(10, "ethereal:bowl")
+	on_use = minetest.item_eat(10, bowl)
 })
 
 ethereal.add_eatable("ethereal:hearty_stew", 10)
@@ -558,7 +566,7 @@ minetest.register_craft({
 minetest.register_craftitem("ethereal:teriyaki_beef", {
 	description = S("Teriyaki Beef"),
 	inventory_image = "ethereal_teriyaki_beef.png",
-	on_use = minetest.item_eat(12, "ethereal:bowl")
+	on_use = minetest.item_eat(12, bowl)
 })
 
 ethereal.add_eatable("ethereal:teriyaki_beef", 12)
@@ -582,7 +590,7 @@ minetest.register_craftitem("ethereal:mushroom_soup", {
 	description = S("Mushroom Soup"),
 	inventory_image = "ethereal_mushroom_soup.png",
 	groups = {drink = 1},
-	on_use = minetest.item_eat(5, "ethereal:bowl")
+	on_use = minetest.item_eat(5, bowl)
 })
 
 ethereal.add_eatable("ethereal:mushroom_soup", 5)

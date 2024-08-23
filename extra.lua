@@ -268,17 +268,15 @@ minetest.register_craft({
 	}
 })
 
--- Wooden Bowl
-
-minetest.register_craftitem("ethereal:bowl", {
-	description = S("Bowl"),
-	inventory_image = "ethereal_bowl.png",
-	groups = {food_bowl = 1, flammable = 2}
-})
-
--- dont add bowl recipe if farming redo already has one
+-- wooden bowl, dont add bowl if farming redo already has one
 
 if not minetest.registered_items["farming:bowl"] then
+
+	minetest.register_craftitem("ethereal:bowl", {
+		description = S("Bowl"),
+		inventory_image = "ethereal_bowl.png",
+		groups = {food_bowl = 1, flammable = 2}
+	})
 
 	minetest.register_craft({
 		output = "ethereal:bowl 4",
