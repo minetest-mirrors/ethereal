@@ -164,10 +164,10 @@ Textures based on default_grass.png and default_grass_side.png by TumeniNodes (C
   ethereal_green_moss.png
 
 Texture by ZonerDarkRevention (CC0)
-  ethereal_crystal_spike.png [edited by TenPlus1]
-  ethereal_bowl.png [edited by TenPlus1]
-  ethereal_teriyaki_beef.png [edited by TenPlus1]
-  ethereal_hearty_stew.png
+  ethereal_bowl.png_32px
+  ethereal_crystal_spike_32px.png [edited by TenPlus1]
+  ethereal_teriyaki_beef_32px.png [edited by TenPlus1]
+  ethereal_hearty_stew_32px.png
 
 Textures by VanessaE (CC-BY-SA 4.0)
   moretrees_acacia_leaves.png
