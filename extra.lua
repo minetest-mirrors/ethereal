@@ -285,6 +285,8 @@ if not minetest.registered_items["farming:bowl"] then
 			{"", "group:wood", ""}
 		}
 	})
+else
+	minetest.register_alias("ethereal:bowl", "farming:bowl")
 end
 
 -- stone Ladder
