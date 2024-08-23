@@ -25,6 +25,14 @@ Textures by TenPlus1 (CC0) unless listed below...
 Textures by NameNotQuality (CC0):
   ethereal_olive_leaves.png
 
+Textures by Jeterel from OpenGameArt.org (CC0):
+  ethereal_banana_bread.png
+
+Textures by SickleMoon and edited by TenPlus1 (CC0):
+   ethereal_illumishroom_red.png
+   ethereal_illumishroom_green.png
+   ethereal_illumishroom_cyan.png
+
 Textures by TenPlus1 and resized/edited by NameNotQuality (CC0):
   ethereal_banana_leaf.png
   ethereal_basandra_bush_wood.png
