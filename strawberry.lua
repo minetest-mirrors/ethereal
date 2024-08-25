@@ -79,7 +79,7 @@ def.tiles = {"ethereal_strawberry_7.png"}
 def.drop = {
 	items = {
 		{items = {"ethereal:strawberry 1"}, rarity = 1},
-		{items = {"ethereal:strawberry 2"}, rarity = 3}
+		{items = {"ethereal:strawberry 1"}, rarity = 3}
 	}
 }
 minetest.register_node("ethereal:strawberry_7", table.copy(def))
