@@ -22,6 +22,9 @@ THE SOFTWARE.
 
 Textures by TenPlus1 (CC0) unless listed below...
 
+Textures by Hugues Ross (CC BY-SA 4.0):
+  ethereal_strawberry*.png
+
 Textures by NameNotQuality (CC0):
   ethereal_olive_leaves.png
 
