@@ -73,7 +73,7 @@ minetest.register_node("ethereal:bamboo_sprout", {
 	},
 	sounds = default.node_sound_defaults(),
 	selection_box = {
-		type = "fixed", fixed = {-3 / 16, -0.4, -3 / 16, 3 / 16, 0, 3 / 16}
+		type = "fixed", fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -0.1, 3 / 16}
 	},
 	on_use = minetest.item_eat(2),
 	grown_height = 11,
