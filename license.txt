@@ -119,19 +119,19 @@ Textures by Epoxum (CC0)
   ethereal_sushi_*.png
 
 Based on candle textures and coloured by wRothbard (CC0):
-  ethereal_candle_black*.png
-  ethereal_candle_blue*.png
-  ethereal_candle_cyan*.png
-  ethereal_candle_dark_green*.png
-  ethereal_candle_dark_grey*.png
-  ethereal_candle_green*.png
-  ethereal_candle_grey*.png
-  ethereal_candle_magenta*.png
-  ethereal_candle_orange*.png
-  ethereal_candle_pink*.png
-  ethereal_candle_red*.png
-  ethereal_candle_violet*.png
-  ethereal_candle_yellow*.png
+  ethereal_candle_black.png
+  ethereal_candle_blue.png
+  ethereal_candle_cyan.png
+  ethereal_candle_dark_green.png
+  ethereal_candle_dark_grey.png
+  ethereal_candle_green.png
+  ethereal_candle_grey.png
+  ethereal_candle_magenta.png
+  ethereal_candle_orange.png
+  ethereal_candle_pink.png
+  ethereal_candle_red.png
+  ethereal_candle_violet.png
+  ethereal_candle_yellow.png
 
 Based on default tool textures by BlockMen in Minetest (CC BY-SA 3.0):
   ethereal_crystal_pick.png
