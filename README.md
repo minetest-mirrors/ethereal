@@ -102,6 +102,8 @@ who helped make this mod bigger and better throughout it's release :)
  - Use underground decoration placement for illumishrooms to improve performance
  - Use worldalign textures for stairs
  - Tidy and tweak code to run on Minetest 5.1 and above
+ - Replace 32px textures with 16px variants so items do not look mismatched
+ - Add new biome layout so that specific biomes aren't too large or small
 
 ### 1.31
  - Fix fishing biome checks

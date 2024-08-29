@@ -243,7 +243,7 @@ register_decoration(1, {
 		"ethereal:prairie_dirt", "ethereal:grove_dirt", "ethereal:bamboo_dirt"},
 	fill_ratio = 0.35,
 	biomes = {"deciduous_forest", "grassytwo", "jumble", "junglee", "grove", "prairie",
-			"mediterranean", "bamboo", "sakura"},
+			"mediterranean", "bamboo"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 			"default:grass_5"}})
 
@@ -255,10 +255,11 @@ register_decoration(1, {
 
 -- lilac
 
-register_decoration(ethereal.sakura, {
+register_decoration(ethereal.bamboo, {
 	place_on = {"ethereal:bamboo_dirt"},
 	fill_ratio = 0.025,
-	biomes = {"sakura"},
+	y_min = 3, y_max = 35,
+	biomes = {"bamboo"},
 	decoration = "ethereal:lilac"})
 
 -- marram grass

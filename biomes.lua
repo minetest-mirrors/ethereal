@@ -78,18 +78,12 @@ register_biome(ethereal.desert, {
 
 register_biome(ethereal.bamboo, {
 	name = "bamboo",
-	heat_point = 45, humidity_point = 45, y_min = 25, y_max = 70,
+	heat_point = 45, humidity_point = 45, y_min = 3, y_max = 70,
 	node_top = "ethereal:bamboo_dirt", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
-register_biome(ethereal.sakura, {
-	name = "sakura",
-	heat_point = 45, humidity_point = 45, y_min = 3, y_max = 25,
-	node_top = "ethereal:bamboo_dirt", depth_top = 1,
-	node_filler = "default:dirt", depth_filler = 3})
-
-register_biome(ethereal.sakura, {
-	name = "sakura_ocean",
+register_biome(ethereal.bamboo, {
+	name = "bamboo_ocean",
 	heat_point = 45, humidity_point = 45, y_min = -192, y_max = 2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
@@ -334,13 +328,13 @@ register_biome(ethereal.mediterranean, {
 
 register_biome(ethereal.mushroom, {
 	name = "mushroom",
-	heat_point = 45, humidity_point = 85, y_min = 3, y_max = 50,
+	heat_point = 45, humidity_point = 90, y_min = 3, y_max = 50,
 	node_top = "ethereal:mushroom_dirt", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
 register_biome(ethereal.mushroom, {
 	name = "mushroom_ocean",
-	heat_point = 45, humidity_point = 85, y_min = -192, y_max = 2,
+	heat_point = 45, humidity_point = 90, y_min = -192, y_max = 2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 

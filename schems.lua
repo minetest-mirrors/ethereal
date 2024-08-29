@@ -59,11 +59,11 @@ register_decoration(ethereal.glacier, {
 
 -- sakura tree
 
-register_decoration(ethereal.sakura, {
+register_decoration(ethereal.bamboo, {
 	place_on = "ethereal:bamboo_dirt",
-	fill_ratio = 0.001,
-	biomes = {"sakura"},
-	y_min = 7, y_max = 100,
+	fill_ratio = 0.002,
+	biomes = {"bamboo"},
+	y_min = 7, y_max = 35,
 	schematic = ethereal.sakura_tree,
 	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6})
 
@@ -253,6 +253,7 @@ register_decoration(1, {
 register_decoration(ethereal.bamboo, {
 	place_on = "ethereal:bamboo_dirt",
 	fill_ratio = 0.025,
+	y_min = 36, y_max = 70,
 	biomes = {"bamboo"},
 	schematic = ethereal.bambootree})
 
@@ -261,6 +262,7 @@ register_decoration(ethereal.bamboo, {
 register_decoration(ethereal.bamboo, {
 	place_on = "ethereal:bamboo_dirt",
 	fill_ratio = 0.08,
+	y_min = 35, y_max = 70,
 	biomes = {"bamboo"},
 	schematic = ethereal.bush,
 	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6})
