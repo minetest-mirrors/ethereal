@@ -308,7 +308,7 @@ minetest.register_node("ethereal:slime_mold", {
 	buildable_to = true,
 	floodable = true,
 	drop = {},
-	groups = {crumbly = 3, flammable = 1},
+	groups = {crumbly = 3, flammable = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed", fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
