@@ -206,6 +206,15 @@ register_decoration(ethereal.mushroom, {
 	biomes = {"mushroom"},
 	decoration = "ethereal:spore_grass"})
 
+-- slime mold
+
+register_decoration(ethereal.mushroom, {
+	place_on = {"default:sand"},
+	fill_ratio = 0.1,
+	y_min = 2, y_max = 6,
+	biomes = {"mushroom_beach"},
+	decoration = "ethereal:slime_mold"})
+
 -- red & brown mushroom
 
 register_decoration(1, {
