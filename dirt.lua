@@ -298,9 +298,8 @@ minetest.register_craft({
 
 minetest.register_node("ethereal:slime_mold", {
 	description = S("Slime Mold"),
-	drawtype = "nodebox",
+	drawtype = "raillike",
 	paramtype = "light",
-	paramtype2 = "facedir",
 	tiles = {"ethereal_slime_mold.png"},
 	inventory_image = "ethereal_slime_mold.png",
 	wield_image = "ethereal_slime_mold.png",
@@ -311,11 +310,8 @@ minetest.register_node("ethereal:slime_mold", {
 	drop = {},
 	groups = {crumbly = 3, flammable = 1},
 	sounds = default.node_sound_leaves_defaults(),
-	node_box = {
-		type = "fixed", fixed = {-0.5, -31 / 64, -0.5, 0.5, -15 / 32, 0.5}
-	},
 	selection_box = {
-		type = "fixed", fixed = {-0.5, -31 / 64, -0.5, 0.5, -15 / 32, 0.5}
+		type = "fixed", fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	}
 })
 
