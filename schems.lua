@@ -109,7 +109,7 @@ register_decoration(ethereal.frost, {
 
 register_decoration(ethereal.mushroom, {
 	place_on = "ethereal:mushroom_dirt",
-	fill_ratio = 0.02,
+	fill_ratio = 0.018, sidelen = 8,
 	biomes = {"mushroom"},
 	y_min = 3, y_max = 25,
 	schematic = ethereal.mushroomone,
@@ -123,6 +123,7 @@ register_decoration(ethereal.mushroom, {
 	biomes = {"mushroom"},
 	y_min = 26, y_max = 50,
 	schematic = ethereal.mushroomtwo,
+	spawn_by = "ethereal:mushroom_dirt", num_spawn_by = 6,
 	rotation = "random"})
 
 -- small lava crater
@@ -402,27 +403,23 @@ if ethereal.logs == 1 then
 		schematic = dpath .. "apple_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = {"default:dirt_with_grass", "ethereal:prairie_dirt"}, num_spawn_by = 8
-	})
+		spawn_by = {"default:dirt_with_grass", "ethereal:prairie_dirt"}, num_spawn_by = 8})
 
 	register_decoration(ethereal.junglee, {
 		name = "default:jungle_log",
 		place_on = {"default:dirt_with_rainforest_litter"},
 		place_offset_y = 1,
-		sidelen = 80,
 		fill_ratio = 0.005,
 		biomes = {"junglee"},
 		schematic = dpath .. "jungle_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "default:dirt_with_rainforest_litter", num_spawn_by = 8
-	})
+		spawn_by = "default:dirt_with_rainforest_litter", num_spawn_by = 8})
 
 	register_decoration(ethereal.snowy, {
 		name = "default:pine_log",
 		place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 		place_offset_y = 1,
-		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"taiga", "coniferous_forest"},
 		y_min = 4, y_max = 100,
@@ -430,8 +427,7 @@ if ethereal.logs == 1 then
 		flags = "place_center_x",
 		rotation = "random",
 		spawn_by = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
-		num_spawn_by = 8
-	})
+		num_spawn_by = 8})
 
 	register_decoration(ethereal.savanna, {
 		name = "default:acacia_log",
@@ -446,14 +442,12 @@ if ethereal.logs == 1 then
 		schematic = dpath .. "acacia_log.mts",
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "default:dry_dirt_with_dry_grass", num_spawn_by = 8
-	})
+		spawn_by = "default:dry_dirt_with_dry_grass", num_spawn_by = 8})
 
 	register_decoration(ethereal.plains, {
 		name = "ethereal:scorched_log",
 		place_on = {"ethereal:dry_dirt"},
 		place_offset_y = 1,
-		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"plains"},
 		y_min = 4, y_max = 100,
@@ -467,14 +461,12 @@ if ethereal.logs == 1 then
 		},
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "ethereal:dry_dirt", num_spawn_by = 8
-	})
+		spawn_by = "ethereal:dry_dirt", num_spawn_by = 8})
 
 	register_decoration(ethereal.grove, {
 		name = "ethereal:banana_log",
 		place_on = {"ethereal:grove_dirt"},
 		place_offset_y = 1,
-		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"grove"},
 		y_min = 4, y_max = 100,
@@ -488,6 +480,5 @@ if ethereal.logs == 1 then
 		},
 		flags = "place_center_x",
 		rotation = "random",
-		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8
-	})
+		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8})
 end
