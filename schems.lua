@@ -87,13 +87,14 @@ register_decoration(ethereal.grove, {
 
 -- healing tree
 
-register_decoration(ethereal.alpine, {
-	place_on = "default:dirt_with_snow",
+register_decoration(1, {
+	place_on = "default:snow",
 	fill_ratio = 0.01,
-	biomes = {"taiga"},
-	y_min = 120, y_max = 140,
+	biomes = {"mountain"},
+	y_min = 150, y_max = 160,
 	schematic = ethereal.yellowtree,
-	spawn_by = "default:dirt_with_snow", num_spawn_by = 8})
+	spawn_by = "default:snow", num_spawn_by = 8,
+	flags = "place_center_x, place_center_z, force_placement"})
 
 -- crystal frost tree
 
