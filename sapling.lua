@@ -60,7 +60,7 @@ minetest.register_node("ethereal:basandra_bush_sapling", {
 
 minetest.register_node("ethereal:bamboo_sprout", {
 	description = S("Bamboo Sprout"),
-	drawtype = "plantlike", visual_scale = 0.4,
+	drawtype = "plantlike",
 	tiles = {"ethereal_bamboo_sprout.png"},
 	inventory_image = "ethereal_bamboo_sprout.png",
 	wield_image = "ethereal_bamboo_sprout.png",
