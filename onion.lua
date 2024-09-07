@@ -20,6 +20,7 @@ ethereal.add_eatable("ethereal:wild_onion_plant", 2)
 -- Onion definition
 
 local def = {
+	description = S("Wild Onion") .. S(" Crop"),
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_1.png"},
 	paramtype = "light",

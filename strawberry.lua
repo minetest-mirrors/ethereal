@@ -20,6 +20,7 @@ ethereal.add_eatable("ethereal:strawberry", 1)
 -- Strawberry definition
 
 local def = {
+	description = S("Strawberry") .. S(" Crop"),
 	drawtype = "plantlike",
 	tiles = {"ethereal_strawberry_1.png"},
 	paramtype = "light",
