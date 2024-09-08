@@ -27,6 +27,8 @@ Textures by Hugues Ross (CC BY-SA 4.0):
 
 Textures by NameNotQuality (CC0):
   ethereal_olive_leaves.png
+  ethereal_lemon_leaves.png
+  ethereal_frost_wood.png
 
 Textures by Jeterel from OpenGameArt.org (CC0):
   ethereal_banana_bread.png
@@ -52,7 +54,6 @@ Textures by TenPlus1 and resized/edited by NameNotQuality (CC0):
   ethereal_willow_wood.png
 
 Textures by Felfa and resized/edited by NameNotQuality (CC0):
-  ethereal_lemon_leaves.png
   ethereal_olive_trunk.png
   ethereal_olive_trunk_top.png
   ethereal_orange_leaves.png
@@ -152,7 +153,7 @@ Based on tree textures by ElementW (CC BY-SA 3.0):
 
 Based on wood texture by BlockMen (CC BY-SA 3.0):
   ethereal_yellow_wood.png [edited by alerikaisattera]
-  ethereal_frost_wood.png [edited by alerikaisattera]
+  ethereal_frost_wood_alt.png [edited by alerikaisattera]
 
 Based on bottle texture by Thomas-S (CC BY-SA 3.0):
   ethereal_flight_potion.png
