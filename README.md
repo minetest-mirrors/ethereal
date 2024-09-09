@@ -56,6 +56,7 @@ Also those more as optional:
 | ethereal.lilywalk              | Lilypads are walkable             | bool | true |
 | ethereal.xcraft                | Enable X-Craft cheats             | bool | true |
 | ethereal.flight                | Enable Flight Potion              | bool | true |
+| ethereal.leaf_particles        | Enable falling lead particles     | bool | true |
 | ethereal.glacier               | Glacier biome, 1=on / 0=off       | int  | 1 |
 | ethereal.bambo                 | Bamboo biome, 1=on / 0=off        | int  | 1 |
 | ethereal.mesa                  | Mesa biome, 1=on / 0=off          | int  | 1 |
@@ -104,6 +105,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Tidy and tweak code to run on Minetest 5.1 and above
  - Replace 32px textures with 16px variants so items do not look mismatched
  - Add new biome layout so that specific biomes aren't too large or small
+ - Add falling leaf particles with setting to disable
 
 ### 1.31
  - Fix fishing biome checks
