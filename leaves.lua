@@ -603,9 +603,9 @@ decay({"ethereal:olive_trunk"}, {"ethereal:olive_leaves", "ethereal:olive"}, 3)
 decay({"ethereal:mushroom_trunk"}, {"ethereal:mushroom", "ethereal:mushroom_brown",
 		"ethereal:mushroom_pore", "ethereal:lightstring"}, 4)
 
-if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
+-- falling leaf particles
 
-	-- falling leaf effect
+if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 	local leaf_list = {
 		{"ethereal:frost_leaves", "331b37", 9},

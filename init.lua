@@ -165,4 +165,10 @@ else -- or return to where it came from
 	minetest.register_alias("ethereal:bonemeal", "default:dirt")
 end
 
+-- ambience lite
+
+if minetest.get_modpath("ambience") then
+	dofile(path .. "/ambience.lua")
+end
+
 print ("[MOD] Ethereal loaded")

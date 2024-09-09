@@ -214,3 +214,9 @@ Created by XSSheep (CC BY-SA 4.0 - https://minecraft.curseforge.com/projects/pix
 
 Sound by I_q (Attribution 3.0) https://freesound.org/people/l_q/sounds/440956/
   ethereal_casting_rod.ogg
+
+Sounds by eZZin (CC0) https://freesound.org/people/eZZin/sounds/667122/
+  ethereal_mushroom.ogg
+
+Sound by Kostrava (CC0) https://freesound.org/people/Kostrava/sounds/333988/
+  ethereal_crystal.ogg
