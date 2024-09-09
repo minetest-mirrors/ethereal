@@ -29,6 +29,9 @@ Textures by NameNotQuality (CC0):
   ethereal_olive_leaves.png
   ethereal_lemon_leaves.png
   ethereal_frost_wood.png
+  ethereal_frost_tree.png
+  ethereal_frost_tree_top.png
+
 
 Textures by Jeterel from OpenGameArt.org (CC0):
   ethereal_banana_bread.png
@@ -146,8 +149,6 @@ Based on texture by ElementW (CC BY-SA 3.0):
 Based on tree textures by ElementW (CC BY-SA 3.0):
   ethereal_yellow_tree.png
   ethereal_yellow_tree_top.pngethereal_fish_plaice.png
-  ethereal_frost_tree.png
-  ethereal_frost_tree_top.png
   ethereal_scorched_tree.png
   ethereal_scorched_tree_top.png
 
