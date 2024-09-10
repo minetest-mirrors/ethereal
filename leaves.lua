@@ -638,20 +638,20 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 		action = function(pos, node)
 
-			local tex = "ethereal_falling_leaf.png"
-			local glow = nil
-			local can_fall = false
+			local text, glow
 
 			for n = 1, #leaf_list do
 
 				if node.name == leaf_list[n][1] then
-					tex = tex .. "^[multiply:#" .. leaf_list[n][2] .. "70"
-					glow = leaf_list[n][3]
-					can_fall = true ; break
+
+					text = "ethereal_falling_leaf.png^[multiply:#"
+							.. leaf_list[n][2] .. "70"
+
+					glow = leaf_list[n][3] ; break
 				end
 			end
 
-			if can_fall then
+			if text then
 
 				minetest.add_particlespawner({
 					amount = 2,
@@ -667,7 +667,7 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 					minsize = 0.5,
 					maxsize = 1.5,
 					collisiondetection = false,
-					texture = tex,
+					texture = text,
 					vertical = true,
 					glow = glow
 				})

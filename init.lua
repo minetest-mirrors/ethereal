@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20240829"}
+ethereal = {version = "20240910"}
 
 -- setting helper
 

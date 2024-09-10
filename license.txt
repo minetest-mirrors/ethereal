@@ -31,7 +31,9 @@ Textures by NameNotQuality (CC0):
   ethereal_frost_wood.png
   ethereal_frost_tree.png
   ethereal_frost_tree_top.png
-
+  ethereal_yellow_tree.png
+  ethereal_yellow_tree_top.png
+  ethereal_yellow_wood.png
 
 Textures by Jeterel from OpenGameArt.org (CC0):
   ethereal_banana_bread.png
@@ -147,13 +149,11 @@ Based on texture by ElementW (CC BY-SA 3.0):
   bucket_cactus.png
 
 Based on tree textures by ElementW (CC BY-SA 3.0):
-  ethereal_yellow_tree.png
-  ethereal_yellow_tree_top.pngethereal_fish_plaice.png
   ethereal_scorched_tree.png
   ethereal_scorched_tree_top.png
 
 Based on wood texture by BlockMen (CC BY-SA 3.0):
-  ethereal_yellow_wood.png [edited by alerikaisattera]
+  ethereal_yellow_wood_alt.png [edited by alerikaisattera]
   ethereal_frost_wood_alt.png [edited by alerikaisattera]
 
 Based on bottle texture by Thomas-S (CC BY-SA 3.0):
