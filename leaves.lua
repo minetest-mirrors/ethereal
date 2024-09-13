@@ -654,7 +654,7 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 			if text then
 
 				minetest.add_particlespawner({
-					amount = 2,
+					amount = 1,
 					time = 2,
 					minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
 					maxpos = {x = pos.x + 1, y = pos.y, z = pos.z + 1},
@@ -662,10 +662,10 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 					maxvel = {x = 0.8, y = -3, z = 0.8},
 					minacc = {x = -0.1, y = -1, z = -0.1},
 					mixacc = {x = 0.2, y = -3, z = 0.2},
-					minexptime = 2,
+					minexptime = 5,
 					maxexptime = 10,
-					minsize = 0.5,
-					maxsize = 1.5,
+					minsize = 3,
+					maxsize = 5,
 					collisiondetection = false,
 					texture = text,
 					vertical = true,
