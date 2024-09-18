@@ -200,8 +200,8 @@ local function add_candle(col, dcol)
 	minetest.register_node("ethereal:candle" .. col, {
 		description = S(dcol .. "Candle"),
 		drawtype = "plantlike",
-		inventory_image = "ethereal_candle" .. col .. ".png^[sheet:1x4:0,0",
-		wield_image = "ethereal_candle" .. col .. ".png^[sheet:1x4:0,0",
+		inventory_image = "ethereal_candle" .. col .. "_static.png",
+		wield_image = "ethereal_candle" .. col .. "_static.png",
 		tiles = {
 			{
 				name = "ethereal_candle" .. col .. ".png",
