@@ -666,7 +666,7 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 					maxexptime = 10,
 					minsize = 3,
 					maxsize = 4,
-					collisiondetection = false,
+					collisiondetection = true, collision_removal = true,
 					texture = text,
 					vertical = true,
 					glow = glow
