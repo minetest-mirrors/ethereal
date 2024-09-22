@@ -315,6 +315,29 @@ minetest.register_node("ethereal:slime_mold", {
 	}
 })
 
+-- how slime molds spread
+
+minetest.register_abm({
+	label = "Slime mold spread",
+	nodenames = {"ethereal:slime_mold"},
+	neighbors = {"ethereal:spore_grass"},
+	interval = 15,
+	chance = 4,
+	catch_up = false,
+
+	action = function(pos, node)
+
+		local near = minetest.find_node_near(pos, 1, {"ethereal:spore_grass"})
+
+		if near then
+
+			minetest.swap_node(near, {name = "ethereal:slime_mold"})
+
+			minetest.sound_play("default_gravel_dug", {pos = pos, gain = 0.5}, true)
+		end
+	end
+})
+
 -- slime block
 
 minetest.register_node("ethereal:slime_block", {
