@@ -365,8 +365,3 @@ minetest.register_craft({
 		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"}
 	}
 })
-
-minetest.register_craft({
-	output = "ethereal:slime_mold 9",
-	recipe = {{"ethereal:slime_block"}}
-})
