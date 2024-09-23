@@ -308,7 +308,7 @@ minetest.register_node("ethereal:slime_mold", {
 	buildable_to = true,
 	floodable = true,
 	drop = {},
-	groups = {crumbly = 3, flammable = 1, attached_node = 1},
+	groups = {crumbly = 3, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed", fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
@@ -320,20 +320,29 @@ minetest.register_node("ethereal:slime_mold", {
 minetest.register_abm({
 	label = "Slime mold spread",
 	nodenames = {"ethereal:slime_mold"},
-	neighbors = {"ethereal:spore_grass"},
+	neighbors = {"ethereal:spore_grass", "ethereal:fire_flower"},
 	interval = 15,
 	chance = 4,
 	catch_up = false,
 
 	action = function(pos, node)
 
+		if minetest.find_node_near(pos, 1, {"ethereal:fire_flower"}) then
+
+			minetest.sound_play("fire_extinguish_flame",
+					{pos = pos, gain = 0.2, max_hear_distance = 5}, true)
+
+			minetest.remove_node(pos) ; return
+		end
+
 		local near = minetest.find_node_near(pos, 1, {"ethereal:spore_grass"})
 
 		if near then
 
-			minetest.swap_node(near, {name = "ethereal:slime_mold"})
+			minetest.sound_play("default_gravel_dug",
+					{pos = near, gain = 0.5, max_hear_distance = 5}, true)
 
-			minetest.sound_play("default_gravel_dug", {pos = pos, gain = 0.5}, true)
+			minetest.set_node(near, {name = "ethereal:slime_mold"})
 		end
 	end
 })
@@ -352,7 +361,7 @@ minetest.register_craft({
 	output = "ethereal:slime_block",
 	recipe = {
 		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"},
-		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"},
+		{"ethereal:slime_mold", "ethereal:fire_dust", "ethereal:slime_mold"},
 		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"}
 	}
 })
