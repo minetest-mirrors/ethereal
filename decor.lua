@@ -13,19 +13,6 @@ local function register_decoration(enabled, def)
 	minetest.register_decoration(def)
 end
 
--- wild cotton added in 5.3.0
-
-register_decoration(1, {
-	name = "farming:cotton_wild",
-	place_on = {"default:dry_dirt_with_dry_grass"},
-	sidelen = 16,
-	noise_params = {
-		offset = -0.1, scale = 0.1, spread = {x = 50, y = 50, z = 50},
-		seed = 4242, octaves = 3, persist = 0.7
-	},
-	biomes = {"savanna"},
-	decoration = "farming:cotton_wild"})
-
 -- water pools in swamp areas
 
 register_decoration(1, {
@@ -82,178 +69,13 @@ register_decoration(ethereal.plains, {
 	biomes = {"plains"},
 	decoration = "ethereal:scorched_tree", height_max = 6})
 
---= Farming Redo plants (place food before decoration)
-
-if farming and farming.mod and farming.mod == "redo" then
-
-print ("[MOD] Ethereal - Farming Redo detected")
-
--- potato
-
-register_decoration(ethereal.junglee, {
-	place_on = {"default:dirt_with_rainforest_litter"},
-	fill_ratio = 0.002,
-	biomes = {"junglee"},
-	decoration = "farming:potato_3"})
-
--- carrot, cucumber, potato, tomato, corn, coffee, raspberry, rhubarb
-
-register_decoration(ethereal.grassytwo, {
-	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.002,
-	biomes = {"grassytwo"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3",
-			"farming:vanilla_7", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-			"farming:blackberry_4", "farming:raspberry_4", "farming:rhubarb_3",
-			"farming:blueberry_4", "farming:cabbage_6", "farming:lettuce_5",
-			"farming:sunflower_8", "farming:asparagus_4"}})
-
-register_decoration(ethereal.grassy, {
-	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.002,
-	biomes = {"grassyland"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3",
-			"farming:vanilla_7", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-			"farming:blackberry_4", "farming:raspberry_4", "farming:rhubarb_3",
-			"farming:blueberry_4", "farming:cabbage_6", "farming:lettuce_5",
-			"farming:sunflower_8", "farming:eggplant_3"}})
-
-register_decoration(ethereal.jumble, {
-	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.002,
-	biomes = {"jumble"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3",
-			"farming:vanilla_7", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-			"farming:blackberry_4", "farming:raspberry_4", "farming:rhubarb_3",
-			"farming:blueberry_4", "farming:cabbage_6", "farming:lettuce_5",
-			"farming:spinach_3"}})
-
-register_decoration(ethereal.prairie, {
-	place_on = {"ethereal:prairie_dirt"},
-	fill_ratio = 0.025,
-	biomes = {"prairie"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3",
-			"farming:parsley_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5",
-			"farming:blackberry_4", "farming:raspberry_4", "farming:rhubarb_3",
-			"farming:blueberry_4", "farming:pea_5", "farming:beetroot_5",
-			"farming:sunflower_8"}})
-
-register_decoration(ethereal.mediterranean, {
-	place_on = {"ethereal:grove_dirt"},
-	fill_ratio = 0.002,
-	biomes = {"mediterranean"},
-	decoration = "farming:parsley_3"})
-
--- melon and pumpkin
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
-	fill_ratio = 0.004,
-	y_min = 1, y_max = 2,
-	biomes = {"junglee", "deciduous_forest", "grassytwo", "jumble", "swamp"},
-	decoration = {"farming:melon_8", "farming:pumpkin_8"},
-	spawn_by = "group:water", num_spawn_by = 1})
-
--- mint
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter",
-			"ethereal:bamboo_dirt"},
-	fill_ratio = 0.005,
-	y_min = 1, y_max = 75,
-	decoration = "farming:mint_4",
-	spawn_by = {"group:water", "group:sand"}, num_spawn_by = 1})
-
--- green beans
-
-register_decoration(ethereal.grassytwo, {
-	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.002,
-	biomes = {"grassytwo"},
-	decoration = "farming:beanbush"})
-
--- grape bushel
-
-register_decoration((ethereal.grassy or ethereal.grassytwo or ethereal.prairie), {
-	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
-	fill_ratio = 0.001,
-	biomes = {"grassland", "grassytwo", "prairie"},
-	decoration = "farming:grapebush"})
-
--- chili, garlic, pepper, onion, hemp, soy, ginger
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt",
-			"default:dirt_with_rainforest_litter"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0, scale = 0.004, spread = {x = 100, y = 100, z = 100},
-		seed = 760, octaves = 3, persist = 0.6
-	},
-	y_min = 5, y_max = 45,
-	decoration = {
-		"farming:chili_8", "farming:garlic_5", "farming:pepper_5", "farming:pepper_6",
-		"farming:onion_5", "farming:hemp_7", "farming:pepper_7", "farming:soy_5",
-		"farming:ginger"},
-	spawn_by = "group:tree", num_spawn_by = 1})
-
--- pineapple, soy
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_dry_grass"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0, scale = 0.003, spread = {x = 100, y = 100, z = 100},
-		seed = 917, octaves = 3, persist = 0.6
-	},
-	y_min = 18, y_max = 30,
-	decoration = {"farming:pineapple_8", "farming:soy_5"}})
-
--- artichoke
-
-register_decoration(1, {
-	place_on = {"ethereal:grove_dirt"},
-	sidelen = 16,
-	noise_params = {
-		offset = 0, scale = 0.004, spread = {x = 100, y = 100, z = 100},
-		seed = 448, octaves = 3, persist = 0.6
-	},
-	y_min = 15, y_max = 40,
-	decoration = {"farming:artichoke_5"},
-	spawn_by = "group:tree", num_spawn_by = 1})
-
-end -- end farming
-
 -- dry shrub
 
 register_decoration(ethereal.plains, {
-	place_on = {"ethereal:dry_dirt"},
+	place_on = {"ethereal:dry_dirt", "default:sand", "default:desert_sand",
+			"default:sandstone", "default:dirt_with_dry_grass"},
 	fill_ratio = 0.015,
-	biomes = {"plains"},
-	decoration = "default:dry_shrub"})
-
-register_decoration(ethereal.grassy, {
-	place_on = {"default:sand"},
-	fill_ratio = 0.015,
-	biomes = {"deciduous_forest_ocean"},
-	decoration = "default:dry_shrub"})
-
-register_decoration(ethereal.desert, {
-	place_on = {"default:desert_sand"},
-	fill_ratio = 0.015,
-	biomes = {"desert"},
-	decoration = "default:dry_shrub"})
-
-register_decoration(ethereal.sandstone, {
-	place_on = {"default:sandstone"},
-	fill_ratio = 0.015,
-	biomes = {"sandstone_desert"},
-	decoration = "default:dry_shrub"})
-
-register_decoration(ethereal.mesa, {
-	place_on = {"default:dirt_with_dry_grass"},
-	fill_ratio = 0.015,
-	biomes = {"mesa"},
+	biomes = {"plains", "deciduous_forest_ocean", "desert", "sandstone_desert", "mesa"},
 	decoration = "default:dry_shrub"})
 
 -- dry grass
@@ -279,17 +101,16 @@ register_decoration(ethereal.caves, {
 	y_min = 5, y_max = 42,
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_shrub"}})
 
--- flowers & strawberry
+-- flowers
 
 register_decoration(ethereal.grassy, {
 	place_on = {"default:dirt_with_grass"},
 	fill_ratio = 0.025,
 	biomes = {"deciduous_forest", "grassytwo"},
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow",
-			"flowers:geranium", "flowers:rose", "flowers:tulip",
-			"flowers:viola", "ethereal:strawberry_7"}})
+			"flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola"}})
 
--- prairie flowers & strawberry
+-- prairie flowers
 
 register_decoration(ethereal.prairie, {
 	place_on = {"ethereal:prairie_dirt"},
@@ -297,7 +118,7 @@ register_decoration(ethereal.prairie, {
 	biomes = {"prairie"},
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow",
 			"flowers:geranium", "flowers:rose", "flowers:tulip",
-			"flowers:viola", "ethereal:strawberry_7", "flowers:chrysanthemum_green",
+			"flowers:viola", "flowers:chrysanthemum_green",
 			"flowers:tulip_black"}})
 
 -- crystal spike & grass
@@ -332,7 +153,7 @@ register_decoration(ethereal.sandstone, {
 	place_on = {"default:sandstone"},
 	fill_ratio = 0.002,
 	biomes = {"sandstone_desert"},
-	decoration = "default:cactus", height_max = 3})
+	decoration = "default:cactus", height_max = 2})
 
 register_decoration(ethereal.desert, {
 	place_on = {"default:desert_sand"},
@@ -394,15 +215,9 @@ register_decoration(1, {
 		"ethereal:prairie_dirt", "ethereal:grove_dirt", "ethereal:bamboo_dirt"},
 	fill_ratio = 0.35,
 	biomes = {"deciduous_forest", "grassytwo", "jumble", "junglee", "grove", "prairie",
-			"mediterranean", "bamboo"},
+			"mediterranean", "bamboo", "grassland", "swamp"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 			"default:grass_5"}})
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.35,
-	biomes = {"grassland", "swamp"},
-	decoration = {"default:grass_3", "default:grass_4"}})
 
 -- lilac
 
