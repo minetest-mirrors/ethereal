@@ -52,9 +52,10 @@ register_decoration(ethereal.glacier, {
 	place_on = "default:snowblock",
 	fill_ratio = 0.0005,
 	biomes = {"glacier"},
-	y_min = 3, y_max = 50,
+	y_min = 3, y_max = 30, place_offset_y = -1,
 	schematic = ethereal.igloo,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
+	flags = "place_center_x, place_center_z, force_placement",
 	rotation = "random"})
 
 -- sakura tree
@@ -159,7 +160,7 @@ register_decoration(ethereal.fiery, {
 register_decoration(ethereal.junglee, {
 	place_on = "default:dirt_with_rainforest_litter",
 	fill_ratio = 0.08,
-	biomes = {"junglee"},
+	biomes = {"rainforest"},
 	schematic = dpath .. "jungle_tree.mts"})
 
 -- willow tree
@@ -411,7 +412,7 @@ if ethereal.logs == 1 then
 		place_on = {"default:dirt_with_rainforest_litter"},
 		place_offset_y = 1,
 		fill_ratio = 0.005,
-		biomes = {"junglee"},
+		biomes = {"rainforest"},
 		schematic = dpath .. "jungle_log.mts",
 		flags = "place_center_x",
 		rotation = "random",

@@ -52,6 +52,27 @@ register_decoration(1, {
 	flags = "force_placement"
 })
 
+-- farming redo check, salt crystal if found, strawberry if not
+
+if minetest.get_modpath("farming") and farming.mod and farming.mod == "redo" then
+
+	register_decoration(ethereal.glacier, {
+		place_on = "default:silver_sand",
+		fill_ratio = 0.001,
+		y_min = 4, y_max = 100,
+		decoration = "farming:salt_crystal"})
+else
+	register_decoration(1, {
+		place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0, scale = 0.002, spread = {x = 100, y = 100, z = 100},
+			seed = 143, octaves = 3, persist = 0.6
+		},
+		y_min = 15, y_max = 55,
+		decoration = "ethereal:strawberry_7"})
+end
+
 -- firethorn shrub
 
 register_decoration(ethereal.glacier, {
@@ -185,7 +206,7 @@ register_decoration(1, {
 			"ethereal:prairie_dirt", "ethereal:mushroom_dirt"},
 	sidelen = 16,
 	fill_ratio = 0.01,
-	biomes = {"junglee", "deciduous_forest", "grassytwo", "prairie", "swamp", "mushroom"},
+	biomes = {"rainforest", "deciduous_forest", "grassytwo", "prairie", "swamp", "mushroom"},
 	decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"}})
 
 -- jungle grass
@@ -193,7 +214,7 @@ register_decoration(1, {
 register_decoration(ethereal.junglee, {
 	place_on = {"default:dirt_with_rainforest_litter"},
 	fill_ratio = 0.1,
-	biomes = {"junglee"},
+	biomes = {"rainforest"},
 	decoration = "default:junglegrass"})
 
 register_decoration(ethereal.jumble, {
@@ -214,7 +235,7 @@ register_decoration(1, {
 	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter",
 		"ethereal:prairie_dirt", "ethereal:grove_dirt", "ethereal:bamboo_dirt"},
 	fill_ratio = 0.35,
-	biomes = {"deciduous_forest", "grassytwo", "jumble", "junglee", "grove", "prairie",
+	biomes = {"deciduous_forest", "grassytwo", "jumble", "rainforest", "grove", "prairie",
 			"mediterranean", "bamboo", "grassland", "swamp"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 			"default:grass_5"}})
@@ -299,11 +320,11 @@ register_decoration(1, {
 
 -- papyrus
 
-register_decoration((ethereal.grassy or ethereal.junglee or ethereal.swamp), {
+register_decoration(1, {
 	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
 	fill_ratio = 0.1,
 	y_min = 1, y_max = 1,
-	biomes = {"deciduous_forest", "junglee", "swamp"},
+	biomes = {"deciduous_forest", "rainforest", "swamp"},
 	decoration = "default:papyrus", height_max = 4,
 	spawn_by = "default:water_source", num_spawn_by = 1})
 
@@ -458,7 +479,7 @@ if minetest.get_modpath("fireflies") then
 				"ethereal:cold_dirt", "prairie"},
 		place_offset_y = 2,
 		fill_ratio = 0.0005,
-		biomes = {"deciduous_forest", "grassytwo", "coniferous_forest", "junglee",
+		biomes = {"deciduous_forest", "grassytwo", "coniferous_forest", "rainforest",
 				"swamp"},
 		y_min = -1, y_max = 200,
 		decoration = "fireflies:hidden_firefly"})
@@ -484,7 +505,7 @@ register_decoration(1, {
 		offset = -4, scale = 4, spread = {x = 50, y = 50, z = 50},
 		seed = 7013, octaves = 3, persist = 0.7,
 	},
-	biomes = {"desert_ocean", "savanna_ocean", "junglee_ocean"},
+	biomes = {"desert_ocean", "savanna_ocean", "rainforest_ocean"},
 	y_min = -8, y_max = -2,
 	flags = "force_placement",
 	decoration = {"default:coral_green", "default:coral_pink", "default:coral_cyan",
@@ -579,7 +600,7 @@ if minetest.get_modpath("xanadu") then
 				"ethereal:grove_dirt", "ethereal:jungle_grass", "ethereal:gray_dirt",
 				"default:dirt_with_rainforest_litter"},
 		sidelen = 16, fill_ratio = 0.005,
-		biomes = {"prairie", "deciduous_forest", "grassytwo", "grove", "junglee",
+		biomes = {"prairie", "deciduous_forest", "grassytwo", "grove", "rainforest",
 				"grayness", "jumble"},
 		decoration = {"xanadu:shrub_kerria", "xanadu:shrub_spicebush"}})
 
@@ -588,7 +609,7 @@ if minetest.get_modpath("xanadu") then
 	register_decoration(1, {
 		place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
 		sidelen = 16, fill_ratio = 0.007,
-		biomes = {"junglee", "jumble"},
+		biomes = {"rainforest", "jumble"},
 		decoration = {"xanadu:rainforest_guzmania", "xanadu:rainforest_devil",
 				"xanadu:rainforest_lazarus", "xanadu:rainforest_lollipop",
 				"xanadu:mushroom_woolly"}})
@@ -632,7 +653,7 @@ if minetest.get_modpath("xanadu") then
 				"default:sand", "default:desert_sand", "ethereal:bamboo_dirt",
 				"default:dirt_with_rainforest_litter"},
 		sidelen = 16, fill_ratio = 0.004,
-		biomes = {"mushroom", "prairie", "grayness", "plains", "desert", "junglee",
+		biomes = {"mushroom", "prairie", "grayness", "plains", "desert", "rainforest",
 				"deciduous_forest", "grassytwo", "jumble", "coniferous_forest", "taiga",
 				"fiery", "mesa", "bamboo"},
 		decoration = {"xanadu:spooky_thornbush", "xanadu:spooky_baneberry"}})

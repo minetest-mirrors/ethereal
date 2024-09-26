@@ -45,7 +45,7 @@ register_biome(1, {
 register_biome(1, {
 	name = "grassland_under",
 	node_cave_liquid = {"default:water_source", "default:lava_source"},
-	heat_point = 50, humidity_point = 55, y_min = -31000, y_max = -256})
+	heat_point = 50, humidity_point = 35, y_min = -31000, y_max = -256})
 
 -- desert
 
@@ -209,14 +209,14 @@ register_biome(ethereal.grayness, {
 
 register_biome(ethereal.grayness, {
 	name = "grayness_ocean",
-	heat_point = 10, humidity_point = 10, y_min = -18, y_max = 2,
+	heat_point = 15, humidity_point = 30, y_min = -18, y_max = 2,
 	node_top = "default:silver_sand", depth_top = 2,
 	node_filler = "default:sand", depth_filler = 2,
 	node_stone = "ethereal:blue_marble"})
 
 register_biome(ethereal.grayness, {
 	name = "grayness_under",
-	heat_point = 10, humidity_point = 10, y_min = -31000, y_max = -256,
+	heat_point = 15, humidity_point = 30, y_min = -31000, y_max = -256,
 	node_cave_liquid = {"default:water_source", "default:lava_source"}})
 
 -- grassy two
@@ -261,22 +261,22 @@ register_biome(ethereal.jumble, {
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 
--- jungle
+-- rainforest
 
 register_biome(ethereal.junglee, {
-	name = "junglee",
+	name = "rainforest",
 	heat_point = 86, humidity_point = 65, y_min = 1, y_max = 71,
 	node_top = "default:dirt_with_rainforest_litter", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
 register_biome(ethereal.junglee, {
-	name = "junglee_ocean",
+	name = "rainforest_ocean",
 	heat_point = 86, humidity_point = 65, y_min = -192, y_max = 2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 
 register_biome(ethereal.junglee, {
-	name = "junglee_under",
+	name = "rainforest_under",
 	heat_point = 86, humidity_point = 65, y_min = -31000, y_max = -256,
 	node_cave_liquid = {"default:water_source", "default:lava_source"}})
 
