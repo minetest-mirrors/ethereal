@@ -271,7 +271,7 @@ register_biome(ethereal.junglee, {
 
 register_biome(ethereal.junglee, {
 	name = "rainforest_ocean",
-	heat_point = 86, humidity_point = 65, y_min = -192, y_max = 2,
+	heat_point = 86, humidity_point = 65, y_min = -192, y_max = 0,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 

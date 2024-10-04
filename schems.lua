@@ -175,20 +175,38 @@ register_decoration(ethereal.grayness, {
 -- default large pine tree for lower elevation
 
 register_decoration(ethereal.snowy, {
-	place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
+	place_on = {"default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.025,
-	biomes = {"coniferous_forest", "taiga"},
+	biomes = {"coniferous_forest"},
 	y_min = 4, y_max = 50,
 	schematic = dpath .. "pine_tree.mts"})
 
--- small pine for higher elevation
+-- default small pine tree for higher elevation
 
 register_decoration(ethereal.snowy, {
-	place_on = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
+	place_on = {"default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.025,
-	biomes = {"coniferous_forest", "taiga"},
+	biomes = {"coniferous_forest"},
 	y_min = 50, y_max = 140,
-	schematic = ethereal.pinetree})
+	schematic = dpath .. "small_pine_tree.mts"})--ethereal.pinetree})
+
+-- default large snowy pine tree for lower elevation
+
+register_decoration(ethereal.alpine, {
+	place_on = {"default:dirt_with_snow"},
+	fill_ratio = 0.025,
+	biomes = {"taiga"},
+	y_min = 4, y_max = 50,
+	schematic = dpath .. "snowy_pine_tree_from_sapling.mts"})
+
+-- default small snowy pine for higher elevation
+
+register_decoration(ethereal.snowy, {
+	place_on = {"default:dirt_with_snow"},
+	fill_ratio = 0.025,
+	biomes = {"taiga"},
+	y_min = 50, y_max = 140,
+	schematic = dpath .. "snowy_small_pine_tree_from_sapling.mts"})--ethereal.pinetree})
 
 -- default apple tree
 
@@ -282,7 +300,7 @@ register_decoration(ethereal.swamp, {
 
 register_decoration(ethereal.mediterranean, {
 	place_on = "ethereal:grove_dirt",
-	fill_ratio = 0.002,
+	fill_ratio = 0.01,
 	biomes = {"mediterranean"},
 	y_min = 5, y_max = 50,
 	schematic = ethereal.lemontree})
@@ -291,9 +309,9 @@ register_decoration(ethereal.mediterranean, {
 
 register_decoration(ethereal.mediterranean, {
 	place_on = "ethereal:grove_dirt",
-	fill_ratio = 0.002,
+	fill_ratio = 0.01,
 	biomes = {"mediterranean"},
-	y_min = 5, y_max = 35,
+	y_min = 5, y_max = 45,
 	schematic = ethereal.olivetree})
 
 -- default large cactus

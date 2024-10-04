@@ -125,9 +125,9 @@ register_decoration(ethereal.caves, {
 -- flowers
 
 register_decoration(ethereal.grassy, {
-	place_on = {"default:dirt_with_grass"},
+	place_on = {"default:dirt_with_grass", "ethereal:grove_dirt"},
 	fill_ratio = 0.025,
-	biomes = {"deciduous_forest", "grassytwo"},
+	biomes = {"deciduous_forest", "grassytwo", "mediterranean"},
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow",
 			"flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola"}})
 
