@@ -14,14 +14,14 @@ local function add_stratum(y_min, y_max, node)
 	})
 end
 
--- add baked clay layers (mesa biome is between 1 and 71)
+-- add baked clay layers (mesa biome is between 20 and 71)
 
-add_stratum(5, 10, "bakedclay:red")
-add_stratum(15, 20, "bakedclay:grey")
-add_stratum(25, 30, "bakedclay:red")
-add_stratum(35, 40, "bakedclay:grey")
-add_stratum(45, 50, "bakedclay:red")
-add_stratum(55, 60, "bakedclay:grey")
+for n = 0, 5 do
+
+	add_stratum(20 + (n * 9), 21 + (n * 9), "bakedclay:brown")
+	add_stratum(22 + (n * 9), 23 + (n * 9), "bakedclay:grey")
+	add_stratum(25 + (n * 9), 26 + (n * 9), "bakedclay:red")
+end
 
 -- scatter ore helper
 

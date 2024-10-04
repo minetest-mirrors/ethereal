@@ -254,6 +254,14 @@ if not minetest.get_modpath("bakedclay") then
 		is_ground_content = ethereal.cavedirt,
 		sounds = default.node_sound_stone_defaults()
 	})
+
+	minetest.register_node(":bakedclay:brown", {
+		description = S("Brown Baked Clay"),
+		tiles = {"baked_clay_brown.png"},
+		groups = {cracky = 3},
+		is_ground_content = ethereal.cavedirt,
+		sounds = default.node_sound_stone_defaults()
+	})
 end
 
 -- Quicksand (new style, sinking inside shows yellow effect

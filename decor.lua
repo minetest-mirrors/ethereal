@@ -67,8 +67,7 @@ else
 		sidelen = 16,
 		noise_params = {
 			offset = 0, scale = 0.002, spread = {x = 100, y = 100, z = 100},
-			seed = 143, octaves = 3, persist = 0.6
-		},
+			seed = 143, octaves = 3, persist = 0.6},
 		y_min = 15, y_max = 55,
 		decoration = "ethereal:strawberry_7"})
 end
@@ -99,6 +98,13 @@ register_decoration(ethereal.plains, {
 	biomes = {"plains", "deciduous_forest_ocean", "desert", "sandstone_desert", "mesa"},
 	decoration = "default:dry_shrub"})
 
+register_decoration(ethereal.plains, {
+	place_on = {"default:desert_sand", "default:dirt_with_dry_grass", "bakedclay:red",
+			"bakedclay:grey", "bakedclay:brown", "bakedclay:orange"},
+	fill_ratio = 0.015,
+	biomes = {"mesa_beach", "mesa_redwood", "mesa"},
+	decoration = "default:dry_shrub"})
+
 -- dry grass
 
 register_decoration(ethereal.savanna, {
@@ -111,7 +117,7 @@ register_decoration(ethereal.savanna, {
 register_decoration(ethereal.mesa, {
 	place_on = {"default:dirt_with_dry_grass"},
 	fill_ratio = 0.10,
-	biomes = {"mesa"},
+	biomes = {"mesa_redwood"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
 
@@ -167,6 +173,12 @@ register_decoration(ethereal.snowy, {
 	fill_ratio = 0.05,
 	biomes = {"grayness", "coniferous_forest"},
 	decoration = "ethereal:snowygrass"})
+
+register_decoration(ethereal.snowy, {
+	place_on = {"default:silver_sand"},
+	fill_ratio = 0.025,
+	biomes = {"cold_desert"},
+	decoration = {"default:dry_shrub", "ethereal:snowygrass"} })
 
 -- cactus
 

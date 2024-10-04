@@ -92,13 +92,28 @@ register_biome(ethereal.bamboo, {
 
 register_biome(ethereal.mesa, {
 	name = "mesa",
-	heat_point = 25, humidity_point = 10, y_min = 1, y_max = 71,
+	heat_point = 25, humidity_point = 10, y_min = 18, y_max = 71,
+	node_top = "bakedclay:orange", depth_top = 1,
+	node_filler = "bakedclay:orange", depth_filler = 15,
+	node_riverbed = "default:desert_sand", depth_riverbed = 2})
+
+register_biome(ethereal.mesa, {
+	name = "mesa_redwood",
+	heat_point = 25, humidity_point = 10, y_min = 11, y_max = 17,
 	node_top = "default:dirt_with_dry_grass", depth_top = 1,
-	node_filler = "bakedclay:orange", depth_filler = 15})
+	node_filler = "bakedclay:orange", depth_filler = 15,
+	node_riverbed = "default:desert_sand", depth_riverbed = 2})
+
+register_biome(ethereal.mesa, {
+	name = "mesa_beach",
+	heat_point = 25, humidity_point = 10, y_min = -1, y_max = 10,
+	node_top = "default:desert_sand", depth_top = 1,
+	node_filler = "bakedclay:orange", depth_filler = 2,
+	node_riverbed = "default:desert_sand", depth_riverbed = 2})
 
 register_biome(ethereal.mesa, {
 	name = "mesa_ocean",
-	heat_point = 25, humidity_point = 10, y_min = -192, y_max = 2,
+	heat_point = 25, humidity_point = 10, y_min = -192, y_max = -2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 
@@ -497,7 +512,8 @@ register_biome(1, {
 	name = "cold_desert",
 	heat_point = 20, humidity_point = 85, y_min = 4, y_max = 100,
 	node_top = "default:silver_sand", depth_top = 1,
-	node_filler = "default:silver_sand", depth_filler = 1})
+	node_filler = "default:silver_sand", depth_filler = 1,
+	node_riverbed = "default:silver_sand", depth_riverbed = 2})
 
 register_biome(1, {
 	name = "cold_desert_ocean",
