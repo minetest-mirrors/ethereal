@@ -55,7 +55,7 @@ register_biome(ethereal.desert, {
 	node_top = "default:desert_sand", depth_top = 1,
 	node_filler = "default:desert_sand", depth_filler = 3,
 	node_stone = "default:desert_stone",
-	node_dungeon_alt = "",
+	node_dungeon_alt = "default:desert_cobble",
 	node_dungeon = "default:desert_stone",
 	node_dungeon_stair = "stairs:stair_desert_stone"})
 
@@ -65,7 +65,7 @@ register_biome(ethereal.desert, {
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2,
 	node_stone = "default:desert_stone",
-	node_dungeon_alt = "",
+	node_dungeon_alt = "default:desert_cobble",
 	node_dungeon = "default:desert_stone",
 	node_dungeon_stair = "stairs:stair_desert_stone"})
 
@@ -95,21 +95,30 @@ register_biome(ethereal.mesa, {
 	heat_point = 25, humidity_point = 10, y_min = 18, y_max = 71,
 	node_top = "bakedclay:orange", depth_top = 1,
 	node_filler = "bakedclay:orange", depth_filler = 15,
-	node_riverbed = "default:desert_sand", depth_riverbed = 2})
+	node_riverbed = "default:desert_sand", depth_riverbed = 2,
+	node_dungeon_alt = "default:desert_sandstone",
+	node_dungeon = "default:desert_sandstone_brick",
+	node_dungeon_stair = "stairs:stair_desert_sandstone_brick"})
 
 register_biome(ethereal.mesa, {
 	name = "mesa_redwood",
 	heat_point = 25, humidity_point = 10, y_min = 11, y_max = 17,
 	node_top = "default:dirt_with_dry_grass", depth_top = 1,
 	node_filler = "bakedclay:orange", depth_filler = 15,
-	node_riverbed = "default:desert_sand", depth_riverbed = 2})
+	node_riverbed = "default:desert_sand", depth_riverbed = 2,
+	node_dungeon_alt = "",
+	node_dungeon = "default:desert_sandstone",
+	node_dungeon_stair = "stairs:stair_desert_sandstone"})
 
 register_biome(ethereal.mesa, {
 	name = "mesa_beach",
 	heat_point = 25, humidity_point = 10, y_min = -1, y_max = 10,
 	node_top = "default:desert_sand", depth_top = 1,
 	node_filler = "bakedclay:orange", depth_filler = 2,
-	node_riverbed = "default:desert_sand", depth_riverbed = 2})
+	node_riverbed = "default:desert_sand", depth_riverbed = 2,
+	node_dungeon_alt = "",
+	node_dungeon = "default:desert_sandstone",
+	node_dungeon_stair = "stairs:stair_desert_sandstone"})
 
 register_biome(ethereal.mesa, {
 	name = "mesa_ocean",
@@ -212,7 +221,10 @@ register_biome(ethereal.caves, {
 	name = "caves",
 	heat_point = 70, humidity_point = 5, y_min = 4, y_max = 41,
 	node_top = "default:desert_stone", depth_top = 3,
-	node_filler = "air", depth_filler = 8})
+	node_filler = "air", depth_filler = 8,
+	node_dungeon_alt = "",
+	node_dungeon = "default:desert_cobble",
+	node_dungeon_stair = "stairs:stair_desert_cobble"})
 
 -- grayness
 
@@ -224,14 +236,17 @@ register_biome(ethereal.grayness, {
 
 register_biome(ethereal.grayness, {
 	name = "grayness_ocean",
-	heat_point = 15, humidity_point = 30, y_min = -18, y_max = 2,
+	heat_point = 15, humidity_point = 30, y_min = -22, y_max = 2,
 	node_top = "default:silver_sand", depth_top = 2,
 	node_filler = "default:sand", depth_filler = 2,
-	node_stone = "ethereal:blue_marble"})
+	node_stone = "ethereal:blue_marble",
+	node_dungeon_alt = "",
+	node_dungeon = "ethereal:blue_marble",
+	node_dungeon_stair = "stairs:stair_blue_marble"})
 
 register_biome(ethereal.grayness, {
 	name = "grayness_under",
-	heat_point = 15, humidity_point = 30, y_min = -31000, y_max = -256,
+	heat_point = 15, humidity_point = 30, y_min = -31000, y_max = -23,
 	node_cave_liquid = {"default:water_source", "default:lava_source"}})
 
 -- grassy two
@@ -387,7 +402,10 @@ register_biome(ethereal.plains, {
 	name = "plains",
 	heat_point = 74, humidity_point = 23, y_min = 3, y_max = 25,
 	node_top = "ethereal:dry_dirt", depth_top = 1,
-	node_filler = "default:dirt", depth_filler = 3})
+	node_filler = "default:dirt", depth_filler = 3,
+	node_dungeon_alt = "",
+	node_dungeon = "ethereal:dry_dirt",
+	node_dungeon_stair = "stairs:stair_dry_dirt"})
 
 register_biome(ethereal.plains, {
 	name = "plains_ocean",
@@ -451,7 +469,7 @@ register_biome(ethereal.glacier, {
 	node_water_top = "default:ice", depth_water_top = 10,
 	node_river_water = "default:ice",
 	node_riverbed = "default:gravel", depth_riverbed = 2,
-	node_dungeon = "ethereal:icebrick",
+	node_dungeon = "ethereal:icebrick", node_dungeon_alt = "default:ice",
 	node_dungeon_stair = "stairs:stair_ice"})
 
 register_biome(ethereal.glacier, {
