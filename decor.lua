@@ -168,8 +168,7 @@ register_decoration(ethereal.fiery, {
 -- snowy grass
 
 register_decoration(ethereal.snowy, {
-	place_on = {"ethereal:gray_dirt", "ethereal:cold_dirt",
-			"default:dirt_with_coniferous_litter"},
+	place_on = {"ethereal:gray_dirt", "default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.05,
 	biomes = {"grayness", "coniferous_forest"},
 	decoration = "ethereal:snowygrass"})
@@ -315,9 +314,9 @@ register_decoration(ethereal.alpine, {
 
 register_decoration(1, {
 	place_on = {"ethereal:cold_dirt"},
-	fill_ratio = 0.4,
+	fill_ratio = 0.8,
 	y_min = 2, y_max = 40,
-	biomes = {"cold_grass"},
+	biomes = {"snowy_grassland"},
 	decoration = "default:snow"})
 
 -- wild onion and setting
@@ -488,7 +487,7 @@ if minetest.get_modpath("fireflies") then
 		name = "fireflies:firefly_low",
 		place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter",
 				"default:dirt_with_rainforest_litter", "default:dirt",
-				"ethereal:cold_dirt", "prairie"},
+				"ethereal:prairie_dirt"},
 		place_offset_y = 2,
 		fill_ratio = 0.0005,
 		biomes = {"deciduous_forest", "grassytwo", "coniferous_forest", "rainforest",

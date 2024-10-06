@@ -1,7 +1,7 @@
 
 local S = minetest.get_translator("ethereal")
 
--- set leaftype (0 for block, 1 for plantlike)
+-- set leaftype (0 for plantlike, 1 for block)
 
 local leaftype = "plantlike"
 local leafscale = 1.4

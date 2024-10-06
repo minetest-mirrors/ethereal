@@ -374,12 +374,13 @@ register_decoration((minetest.registered_nodes["default:pine_bush"] and 1), {
 
 register_decoration((minetest.registered_nodes["default:blueberry_bush_leaves"] and 1), {
 	name = "default:blueberry_bush",
-	place_on = {"default:dirt_with_coniferous_litter", "default:dirt_with_snow"},
+	place_on = {"default:dirt_with_coniferous_litter", "default:dirt_with_snow",
+			"ethereal:cold_dirt"},
 	sidelen = 16,
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 697, octaves = 3, persist = 0.7},
-	biomes = {"coniferous_forest", "taiga"},
+	biomes = {"coniferous_forest", "taiga", "snowy_grassland"},
 	place_offset_y = 1,
 	schematic = dpath .. "blueberry_bush.mts"})
 

@@ -23,7 +23,7 @@ minetest.register_craft({
 	type = "cooking",
 	output = "ethereal:dry_dirt",
 	recipe = "default:dirt",
-	cooktime = 3,
+	cooktime = 3
 })
 
 -- ethereal dirt types

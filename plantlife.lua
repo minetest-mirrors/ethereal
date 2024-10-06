@@ -21,7 +21,7 @@ minetest.register_node("ethereal:spore_grass", {
 	}
 })
 
--- Firethorn (poisonous when eaten raw, must be crushed and washed water 1st)
+-- Firethorn (poisonous when eaten raw, must be crushed and washed with water 1st)
 
 minetest.register_node("ethereal:firethorn", {
 	description = S("Firethorn Shrub"),
