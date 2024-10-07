@@ -12,13 +12,14 @@ minetest.register_node("ethereal:thin_ice", {
 	is_ground_content = false,
 	paramtype = "light",
 	drawtype = "nodebox",
+	drop = {},
 	node_box = {
 		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
 	},
 	collision_box = {
 		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
 	},
-	groups = {cracky = 3, cools_lava = 1, slippery = 3},
+	groups = {cracky = 3, crumbly = 3, cools_lava = 1, slippery = 3},
 	sounds = default.node_sound_glass_defaults(),
 
 	on_walk_over = function(pos, node, player)
