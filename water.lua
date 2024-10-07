@@ -1,6 +1,38 @@
 
 local S = minetest.get_translator("ethereal")
 
+-- Thin Ice
+
+minetest.register_node("ethereal:thin_ice", {
+	description = S("Thin Ice"),
+	tiles = {"default_ice.png^[opacity:80"},
+	inventory_image = "default_ice.png^[opacity:80",
+	wield_image = "default_ice.png^[opacity:80",
+	use_texture_alpha = "blend",
+	is_ground_content = false,
+	paramtype = "light",
+	drawtype = "nodebox",
+	node_box = {
+		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
+	},
+	collision_box = {
+		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
+	},
+	groups = {cracky = 3, cools_lava = 1, slippery = 3},
+	sounds = default.node_sound_glass_defaults(),
+
+	on_walk_over = function(pos, node, player)
+
+		if math.random(50) == 13 then -- ice breaks if player unlucky
+
+			minetest.sound_play("default_ice_dug",
+					{pos = pos, gain = 0.5, pitch = 1.4, max_hear_distance = 5}, true)
+
+			minetest.remove_node(pos)
+		end
+	end
+})
+
 -- Ice Brick
 
 minetest.register_node("ethereal:icebrick", {
@@ -43,13 +75,12 @@ minetest.register_craft({
 	}
 })
 
--- If Crystal Spike or Snow near Water, change Water to Ice
+-- If Crystal Spike or Snowblock near Water, change Water to Ice
 
 minetest.register_abm({
 	label = "Ethereal freeze water",
 	nodenames = {
-		"ethereal:crystal_spike", "default:snow", "default:snowblock",
-		"ethereal:snowbrick"
+		"ethereal:crystal_spike", "default:snowblock", "ethereal:snowbrick"
 	},
 	neighbors = {"default:water_source", "default:river_water_source"},
 	interval = 15,
@@ -72,7 +103,7 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Ethereal melt snow/ice",
 	nodenames = {
-		"default:ice", "default:snowblock", "default:snow",
+		"default:ice", "default:snowblock", "default:snow", "ethereal:thin_ice",
 		"default:dirt_with_snow", "ethereal:snowbrick", "ethereal:icebrick"
 	},
 	neighbors = {
@@ -98,7 +129,8 @@ minetest.register_abm({
 		or node.name == "ethereal:snowbrick" then
 			minetest.swap_node(pos, {name = water_node .. "_source"})
 
-		elseif node.name == "default:snow" then
+		elseif node.name == "default:snow"
+		or node.name == "ethereal:thin_ice" then
 			minetest.swap_node(pos, {name = water_node .. "_flowing"})
 
 		elseif node.name == "default:dirt_with_snow" then

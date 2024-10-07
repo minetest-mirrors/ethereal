@@ -13,6 +13,17 @@ local function register_decoration(enabled, def)
 	minetest.register_decoration(def)
 end
 
+-- think ice
+
+register_decoration(ethereal.frost, {
+	place_on = {"default:silver_sand"},
+	fill_ratio = 1.0,
+	y_min = 0, y_max = 0,
+	decoration = "ethereal:thin_ice",
+	biomes = {"frost_ocean"},
+	place_offset_y = 1
+})
+
 -- water pools in swamp areas
 
 register_decoration(1, {

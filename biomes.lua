@@ -180,13 +180,19 @@ register_biome(ethereal.frost, {
 	name = "frost_floatland",
 	heat_point = 5, humidity_point = 60, y_min = 1025, y_max = 1750,
 	node_top = "ethereal:crystal_dirt", depth_top = 1,
-	node_filler = "default:dirt", depth_filler = 1})
+	node_filler = "default:dirt", depth_filler = 2})
 
 register_biome(ethereal.frost, {
 	name = "frost",
-	heat_point = 5, humidity_point = 60, y_min = 1, y_max = 71,
+	heat_point = 5, humidity_point = 60, y_min = 2, y_max = 71,
 	node_top = "ethereal:crystal_dirt", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
+
+register_biome(ethereal.frost, {
+	name = "frost_ocean",
+	heat_point = 5, humidity_point = 60, y_min = -192, y_max = 1,
+	node_top = "default:silver_sand", depth_top = 1,
+	node_filler = "default:sand", depth_filler = 3})
 
 -- snowy grassland (inbetween frost and taiga/jumble)
 
