@@ -308,7 +308,7 @@ register_decoration(ethereal.swamp, {
 
 register_decoration(ethereal.mediterranean, {
 	place_on = "ethereal:grove_dirt",
-	fill_ratio = 0.01,
+	fill_ratio = 0.004,
 	biomes = {"mediterranean"},
 	y_min = 5, y_max = 50,
 	schematic = ethereal.lemontree})
@@ -317,7 +317,7 @@ register_decoration(ethereal.mediterranean, {
 
 register_decoration(ethereal.mediterranean, {
 	place_on = "ethereal:grove_dirt",
-	fill_ratio = 0.01,
+	fill_ratio = 0.004,
 	biomes = {"mediterranean"},
 	y_min = 5, y_max = 45,
 	schematic = ethereal.olivetree})
@@ -361,12 +361,12 @@ register_decoration(1, {
 
 register_decoration((minetest.registered_nodes["default:pine_bush"] and 1), {
 	name = "default:pine_bush",
-	place_on = {"default:dirt_with_snow"},
+	place_on = {"default:dirt_with_snow", "default:cold_dirt"},
 	sidelen = 16,
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 137, octaves = 3, persist = 0.7},
-	biomes = {"taiga"},
+	biomes = {"taiga", "snowy_grassland"},
 	y_min = 4, y_max = 120,
 	schematic = dpath .. "pine_bush.mts"})
 
