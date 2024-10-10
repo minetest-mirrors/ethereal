@@ -139,7 +139,7 @@ register_sapling("ethereal:olive_tree", "Olive", "ethereal_olive_tree_sapling", 
 
 local function add_tree(pos, schem, replace)
 
-	minetest.swap_node(pos, {name = "air"})
+--	minetest.swap_node(pos, {name = "air"})
 
 	minetest.place_schematic(pos, schem, "random", replace, false,
 			"place_center_x, place_center_z")

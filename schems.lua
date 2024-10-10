@@ -95,9 +95,9 @@ register_decoration(ethereal.grove, {
 -- healing tree
 
 register_decoration(1, {
-	place_on = "default:snow",
+	place_on = {"default:snow", "default:snowblock"},
 	fill_ratio = 0.01, y_min = 150, y_max = 160,
-	biomes = {"mountain"},
+	biomes = {"mountain", "glacier"},
 	schematic = ethereal.yellowtree,
 	spawn_by = "default:snow", num_spawn_by = 8,
 	flags = "place_center_x, place_center_z, force_placement"})
