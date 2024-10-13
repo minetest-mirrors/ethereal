@@ -106,6 +106,8 @@ who helped make this mod bigger and better throughout it's release :)
  - Replace 32px textures with 16px variants so items do not look mismatched
  - Add new biome layout so that specific biomes aren't too large or small
  - Add falling leaf particles with setting to disable
+ - Add 'ethereal.old_biomes' setting to stay with older biome settings and not use
+   the new layout for compatibility if wanted.
 
 ### 1.31
  - Fix fishing biome checks
