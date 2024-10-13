@@ -225,19 +225,22 @@ register_biome(ethereal.frost, {
 
 -- snowy grassland (inbetween frost and taiga/jumble)
 
-register_biome(1, {
-	name = "snowy_grassland",
-	heat_point = 15, humidity_point = 58, y_min = 3, y_max = 30,
-	node_top = "ethereal:cold_dirt", depth_top = 1,
-	node_filler = "default:dirt", depth_filler = 3})
+if not old then -- was not available in old biomes
 
-register_biome(1, {
-	name = "snowy_grassland_ocean",
-	node_dust = "default:snow",
-	heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
-	node_top = "default:sand", depth_top = 1,
-	node_filler = "default:sand", depth_filler = 3,
-	vertical_blend = 1})
+	register_biome(1, {
+		name = "snowy_grassland",
+		heat_point = 15, humidity_point = 58, y_min = 3, y_max = 30,
+		node_top = "ethereal:cold_dirt", depth_top = 1,
+		node_filler = "default:dirt", depth_filler = 3})
+
+	register_biome(1, {
+		name = "snowy_grassland_ocean",
+		node_dust = "default:snow",
+		heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
+		node_top = "default:sand", depth_top = 1,
+		node_filler = "default:sand", depth_filler = 3,
+		vertical_blend = 1})
+end
 
 -- deciduous forest
 
@@ -605,7 +608,7 @@ register_biome(ethereal.tundra, {
 
 -- Cold desert (was heat, humidity 40,0, changed to 20,85 to fill biome gap)
 
-if not old then -- wasnt available in old biomes
+if not old then -- was not available in old biomes
 
 	register_biome(1, {
 		name = "cold_desert",
