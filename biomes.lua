@@ -13,6 +13,8 @@ local function register_biome(enabled, def)
 		def.node_riverbed = "default:sand" ; def.depth_riverbed = 2
 	end
 
+	if def.y_min > 0 then def.vertical_blend = 1 end
+
 	minetest.register_biome(def)
 
 --[[print('{"name": "' .. def.name .. '", "heat_point": ' ..def.heat_point .. ', "humidity_point": '
