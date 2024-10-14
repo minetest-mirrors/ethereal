@@ -223,25 +223,6 @@ register_biome(ethereal.frost, {
 	node_top = "default:silver_sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 3})
 
--- snowy grassland (inbetween frost and taiga/jumble)
-
-if not old then -- was not available in old biomes
-
-	register_biome(1, {
-		name = "snowy_grassland",
-		heat_point = 15, humidity_point = 58, y_min = 3, y_max = 30,
-		node_top = "ethereal:cold_dirt", depth_top = 1,
-		node_filler = "default:dirt", depth_filler = 3})
-
-	register_biome(1, {
-		name = "snowy_grassland_ocean",
-		node_dust = "default:snow",
-		heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
-		node_top = "default:sand", depth_top = 1,
-		node_filler = "default:sand", depth_filler = 3,
-		vertical_blend = 1})
-end
-
 -- deciduous forest
 
 register_biome(ethereal.grassy, {
@@ -606,18 +587,20 @@ register_biome(ethereal.tundra, {
 	heat_point = 0, humidity_point = 40, y_max = -256, y_min = -31000,
 	node_cave_liquid = {"default:water_source", "default:lava_source"}})
 
--- Cold desert (was heat, humidity 40,0, changed to 20,85 to fill biome gap)
+-- only register when using new mapgen
 
-if not old then -- was not available in old biomes
+if not old then
 
-	register_biome(1, {
+	-- cold desert
+
+	register_biome(ethereal.cold_desert, {
 		name = "cold_desert",
 		heat_point = 20, humidity_point = 85, y_min = 4, y_max = 100,
 		node_top = "default:silver_sand", depth_top = 1,
 		node_filler = "default:silver_sand", depth_filler = 1,
 		node_riverbed = "default:silver_sand", depth_riverbed = 2})
 
-	register_biome(1, {
+	register_biome(ethereal.cold_desert, {
 		name = "cold_desert_ocean",
 		heat_point = 20, humidity_point = 85, y_min = -255, y_max = 3,
 		node_top = "default:sand", depth_top = 1,
@@ -625,8 +608,24 @@ if not old then -- was not available in old biomes
 		node_cave_liquid = "default:water_source",
 		vertical_blend = 1})
 
-	register_biome(1, {
+	register_biome(ethereal.cold_desert, {
 		name = "cold_desert_under",
 		node_cave_liquid = {"default:water_source", "default:lava_source"},
 		heat_point = 20, humidity_point = 85, y_min = -31000, y_max = -256})
+
+	-- snowy grassland (inbetween frost and taiga/jumble)
+
+	register_biome(ethereal.snowy_grassland, {
+		name = "snowy_grassland",
+		heat_point = 15, humidity_point = 58, y_min = 3, y_max = 30,
+		node_top = "ethereal:cold_dirt", depth_top = 1,
+		node_filler = "default:dirt", depth_filler = 3})
+
+	register_biome(ethereal.snowy_grassland, {
+		name = "snowy_grassland_ocean",
+		node_dust = "default:snow",
+		heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
+		node_top = "default:sand", depth_top = 1,
+		node_filler = "default:sand", depth_filler = 3,
+		vertical_blend = 1})
 end
