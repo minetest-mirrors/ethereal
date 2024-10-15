@@ -102,12 +102,13 @@ who helped make this mod bigger and better throughout it's release :)
  - Add {eatable} groups to food items
  - Use underground decoration placement for illumishrooms to improve performance
  - Use worldalign textures for stairs
- - Tidy and tweak code to run on Minetest 5.1 and above
+ - Tidy and tweak code to run on Minetest 5.2 and above
  - Replace 32px textures with 16px variants so items do not look mismatched
  - Add new biome layout so that specific biomes aren't too large or small
  - Add falling leaf particles with setting to disable
  - Add 'ethereal.old_biomes' setting to stay with older biome settings and not use
    the new layout for compatibility if wanted.
+ - Update settings.
 
 ### 1.31
  - Fix fishing biome checks
