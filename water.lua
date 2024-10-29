@@ -110,7 +110,7 @@ minetest.register_abm({
 	neighbors = {
 		"fire:basic_flame", "default:lava_source", "default:lava_flowing",
 		"default:furnace_active", "default:torch", "default:torch_wall",
-		"default:torch_ceiling"
+		"default:torch_ceiling", "fire:permanent_flame"
 	},
 	interval = 7,
 	chance = 4,
