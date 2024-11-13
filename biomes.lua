@@ -109,7 +109,7 @@ register_biome(ethereal.mesa, {
 	name = "mesa",
 	heat_point = 25, humidity_point = old and 28 or 10,
 	y_min = 18, y_max = 71,
-	node_top = "bakedclay:orange", depth_top = 1,
+	node_top = old and "default:dirt_with_dry_grass" or "bakedclay:orange", depth_top = 1,
 	node_filler = "bakedclay:orange", depth_filler = 15,
 	node_riverbed = "default:desert_sand", depth_riverbed = 2,
 	node_dungeon_alt = "default:desert_sandstone",
