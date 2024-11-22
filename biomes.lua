@@ -6,7 +6,7 @@ local function register_biome(enabled, def)
 	if enabled ~= 1 then return end
 
 	def.node_dungeon = def.node_dungeon or "default:cobble"
-	def.node_dungeon_alt = def.node_dungeon and "" or "default:mossycobble"
+	def.node_dungeon_alt = def.node_dungeon_alt or "default:mossycobble"
 	def.node_dungeon_stair = def.node_dungeon_stair or "stairs:stair_cobble"
 
 	if def.y_max > 0 and def.node_riverbed == nil then
@@ -530,7 +530,8 @@ register_biome(ethereal.glacier, {
 	node_water_top = "default:ice", depth_water_top = 10,
 	node_river_water = "default:ice",
 	node_riverbed = "default:gravel", depth_riverbed = 2,
-	node_dungeon = "ethereal:icebrick", node_dungeon_alt = "default:ice",
+	node_dungeon = "ethereal:icebrick",
+	node_dungeon_alt = "default:ice",
 	node_dungeon_stair = "stairs:stair_ice"})
 
 register_biome(ethereal.glacier, {

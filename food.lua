@@ -631,7 +631,7 @@ minetest.register_craftitem("ethereal:jellyfish_salad", {
 	on_use = minetest.item_eat(6)
 })
 
-ethereal.add_eatable("ethereal:jellyfish_salad", 4)
+ethereal.add_eatable("ethereal:jellyfish_salad", 6)
 
 minetest.register_craft({
 	output = "ethereal:jellyfish_salad",
@@ -685,7 +685,7 @@ minetest.register_craftitem("ethereal:fish_n_chips", {
 	on_use = minetest.item_eat(6)
 })
 
-ethereal.add_eatable("ethereal:fish_n_chips", 4)
+ethereal.add_eatable("ethereal:fish_n_chips", 6)
 
 minetest.register_craft({
 	output = "ethereal:fish_n_chips",
