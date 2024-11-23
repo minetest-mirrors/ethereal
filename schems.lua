@@ -46,6 +46,10 @@ local function register_decoration(enabled, def)
 	minetest.register_decoration(def)
 end
 
+-- old biome setting (when enabled old heat/humidity values are used)
+
+local old = minetest.settings:get_bool("ethereal.old_biomes")
+
 -- igloo
 
 register_decoration(ethereal.glacier, {
@@ -96,10 +100,10 @@ register_decoration(ethereal.grove, {
 
 register_decoration(1, {
 	place_on = {"default:snow", "default:snowblock"},
-	fill_ratio = 0.01, y_min = 150, y_max = 160,
-	biomes = {"mountain", "glacier"},
+	fill_ratio = 0.01, y_min = old and 120 or 150, y_max = old and 140 or 160,
+	biomes = old and {"taiga"} or {"mountain", "glacier"},
 	schematic = ethereal.yellowtree,
-	spawn_by = "default:snow", num_spawn_by = 8,
+	spawn_by = old and "default:dirt_with_snow" or "default:snow", num_spawn_by = 8,
 	flags = "place_center_x, place_center_z, force_placement"})
 
 -- crystal frost tree
