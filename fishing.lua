@@ -511,7 +511,7 @@ minetest.register_craft({
 
 local fish = {
 	{"Blue Fin", "bluefin", 2},
-	{"Blue Ram Chichlid", "blueram", 2},
+	{"Blue Ram Cichlid", "blueram", 2},
 	{"Common Carp", "carp", 2},
 	{"Cod", "cod", 2},
 	{"Redtail Catfish", "catfish", 2},

@@ -647,7 +647,7 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 					minvel = {x = -0.8, y = -1, z = -0.8},
 					maxvel = {x = 0.8, y = -3, z = 0.8},
 					minacc = {x = -0.1, y = -1, z = -0.1},
-					mixacc = {x = 0.2, y = -3, z = 0.2},
+					maxacc = {x = 0.2, y = -3, z = 0.2},
 					minexptime = 5,
 					maxexptime = 10,
 					minsize = 3,
