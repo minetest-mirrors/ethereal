@@ -519,7 +519,7 @@ local fish = {
 	{"Northern Pike", "pike", 2},
 	{"Dusky Flathead", "flathead", 2},
 	{"Plaice", "plaice", 2},
-	{"Tiger Pufferfish", "pufferfish", -2},
+	{"Tiger Pufferfish", "pufferfish", -16},
 	{"Coy", "coy", 2},
 	{"European Flounder", "flounder", 2},
 	{"Atlantic Salmon", "salmon", 2},
@@ -551,7 +551,7 @@ for n = 1, #fish do
 	local usage
 	local groups = nil
 
-	if fish[n][3] > 0 then
+	if fish[n][3] ~= 0 then
 		usage = minetest.item_eat(fish[n][3])
 		groups = {food_fish_raw = 1, ethereal_fish = 1}
 	end
@@ -571,6 +571,10 @@ end
 -- Make Neon Tetra glow slightly
 
 minetest.override_item("ethereal:fish_tetra", {light_source = 3})
+
+-- Pufferfish changes so it cannot be used in generic recipes
+
+minetest.override_item("ethereal:fish_pufferfish", {groups = {flammable = 2}})
 
 -- Worm
 
