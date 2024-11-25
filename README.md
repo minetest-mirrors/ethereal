@@ -109,6 +109,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Add 'ethereal.old_biomes' setting to stay with older biome settings and not use
    the new layout for compatibility if wanted.
  - Update settings.
+ - Candles use [multiply for colour.
 
 ### 1.31
  - Fix fishing biome checks
