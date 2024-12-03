@@ -30,6 +30,7 @@ dofile(path .. "igloo.lua")
 dofile(path .. "lemon_tree.lua")
 dofile(path .. "olive_tree.lua")
 dofile(path .. "basandra_bush.lua")
+dofile(path .. "desertstone_spike.lua")
 
 -- register decoration helper
 
@@ -50,6 +51,16 @@ end
 
 local old = minetest.settings:get_bool("ethereal.old_biomes")
 
+-- desertstone spike
+
+register_decoration(ethereal.caves, {
+	place_on = "default:desert_stone",
+	fill_ratio = 0.01, y_min = 5, y_max = 42,
+	biomes = {"caves"},
+	schematic = ethereal.desertstone_spike,
+	spawn_by = "default:desert_stone", num_spawn_by = 8,
+	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+
 -- igloo
 
 register_decoration(ethereal.glacier, {
@@ -58,8 +69,7 @@ register_decoration(ethereal.glacier, {
 	biomes = {"glacier"},
 	schematic = ethereal.igloo, place_offset_y = -1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement",
-	rotation = "random"})
+	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
 
 -- sakura tree
 

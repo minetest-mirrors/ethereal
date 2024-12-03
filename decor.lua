@@ -13,7 +13,7 @@ local function register_decoration(enabled, def)
 	minetest.register_decoration(def)
 end
 
--- think ice
+-- thin ice
 
 register_decoration(ethereal.frost, {
 	place_on = {"default:silver_sand"},
@@ -55,7 +55,7 @@ register_decoration(1, {
 
 if minetest.get_modpath("farming") and farming.mod and farming.mod == "redo" then
 
-	register_decoration(ethereal.glacier, {
+	register_decoration(ethereal.cold_desert, {
 		place_on = "default:silver_sand",
 		fill_ratio = 0.001, y_min = 4, y_max = 100,
 		decoration = "farming:salt_crystal"})
@@ -76,6 +76,14 @@ register_decoration(ethereal.glacier, {
 	biomes = {"glacier"},
 	decoration = "ethereal:firethorn"})
 
+-- caverealm icicle
+
+register_decoration((minetest.get_modpath("caverealms") and 1), {
+	place_on = "default:snowblock",
+	fill_ratio = 0.008, y_min = 3, y_max = 30,
+	biomes = {"glacier"},
+	decoration = "caverealms:icicle_up"})
+
 -- scorched tree
 
 register_decoration(ethereal.plains, {
@@ -88,9 +96,11 @@ register_decoration(ethereal.plains, {
 
 register_decoration(ethereal.plains, {
 	place_on = {"ethereal:dry_dirt", "default:sand", "default:desert_sand",
-			"default:sandstone", "default:dirt_with_dry_grass"},
+			"default:sandstone", "default:dirt_with_dry_grass",
+			"default:permafrost_with_stones"},
 	fill_ratio = 0.015,
-	biomes = {"plains", "deciduous_forest_ocean", "desert", "sandstone_desert", "mesa"},
+	biomes = {"plains", "deciduous_forest_ocean", "desert", "sandstone_desert", "mesa",
+			"tundra"},
 	decoration = "default:dry_shrub"})
 
 register_decoration(ethereal.plains, {
@@ -368,6 +378,17 @@ register_decoration(1, {
 	sidelen = 16, fill_ratio = 0.2, y_min = 3, y_max = 100,
 	decoration = {"default:fern_1", "default:fern_2", "default:fern_3"} })
 
+-- stone with yellow algae
+
+register_decoration(minetest.get_modpath("caverealms") and ethereal.tundra, {
+	place_on = {"default:permafrost_with_stones"},
+	sidelen = 4, y_min = 3, y_max = 50,
+	noise_params = {offset = -0.2, scale = 1.0, spread = {x = 100, y = 100, z = 100},
+			seed = 1920, octaves = 3, persist = 0.5},
+	biomes = {"tundra"},
+	decoration = "caverealms:stone_with_algae", place_offset_y = -1,
+	flags = "force_placement"})
+
 -- Tundra moss
 
 register_decoration(ethereal.tundra, {
@@ -589,11 +610,11 @@ if minetest.get_modpath("xanadu") then
 				"ethereal:gray_dirt", "ethereal:dirt_with_snow", "ethereal:prairie_dirt",
 				"ethereal:grove_dirt", "ethereal:dry_dirt", "ethereal:fiery_dirt",
 				"default:sand", "default:desert_sand", "ethereal:bamboo_dirt",
-				"default:dirt_with_rainforest_litter"},
+				"default:dirt_with_rainforest_litter", "default:permafrost_with_stones"},
 		sidelen = 16, fill_ratio = 0.004,
 		biomes = {"mushroom", "prairie", "grayness", "plains", "desert", "rainforest",
 				"deciduous_forest", "grassytwo", "jumble", "coniferous_forest", "taiga",
-				"fiery", "mesa", "bamboo"},
+				"fiery", "mesa", "bamboo", "tundra"},
 		decoration = {"xanadu:spooky_thornbush", "xanadu:spooky_baneberry"}})
 end
 
