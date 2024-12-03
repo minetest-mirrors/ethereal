@@ -53,7 +53,7 @@ local old = minetest.settings:get_bool("ethereal.old_biomes")
 
 -- desertstone spike
 
-register_decoration(ethereal.caves, {
+register_decoration(minetest.get_modpath("stairs") and ethereal.caves, {
 	place_on = "default:desert_stone",
 	fill_ratio = 0.01, y_min = 5, y_max = 42,
 	biomes = {"caves"},
