@@ -1,9 +1,10 @@
 
 local _ = {name = "air", param1 = 0}
 local ds = {name = "default:desert_stone", param1 = 255, param2 = 0}
-local s0 = {name = "stairs:stair_outer_desert_stone", param1 = 255, param2 = 0}
-local s2 = {name = "stairs:stair_outer_desert_stone", param1 = 255, param2 = 2}
-local s3 = {name = "stairs:stair_outer_desert_stone", param1 = 255, param2 = 3}
+local dc = {name = "default:desert_cobble", param1 = 255, param2 = 0}
+local s0 = {name = "stairs:stair_outer_desert_cobble", param1 = 255, param2 = 0}
+local s2 = {name = "stairs:stair_outer_desert_cobble", param1 = 255, param2 = 2}
+local s3 = {name = "stairs:stair_outer_desert_cobble", param1 = 255, param2 = 3}
 local et = {name = "ethereal:etherium_ore", param1 = 128}
 
 ethereal.desertstone_spike = {
@@ -17,7 +18,7 @@ ethereal.desertstone_spike = {
 	data = {
 
 	et, ds,
-	ds, s0,
+	dc, s0,
 	s3, _,
 
 	ds, ds,
