@@ -167,47 +167,30 @@ minetest.register_abm({
 	end
 })
 
--- when enabled, drop torches that are touching water
+-- when enabled, override torches so they drop when touching water
 
 if ethereal.torchdrop == true and not minetest.get_modpath("real_torch") then
 
-	minetest.register_abm({
-		label = "Ethereal drop torch",
-		nodenames = {"default:torch", "default:torch_wall", "default:torch_ceiling"},
-		neighbors = {"group:water"},
-		interval = 5,
-		chance = 1,
-		catch_up = false,
+	local function on_flood(pos, oldnode, newnode)
 
-		action = function(pos, node)
+		minetest.add_item(pos, ItemStack("default:torch 1"))
 
-			local num = #minetest.find_nodes_in_area(
-					{x = pos.x - 1, y = pos.y, z = pos.z},
-					{x = pos.x + 1, y = pos.y, z = pos.z}, {"group:water"})
+		local def = minetest.registered_items[newnode.name]
 
-			if num == 0 then
+		if def and def.groups and def.groups.water and def.groups.water > 0 then
 
-				num = num + #minetest.find_nodes_in_area(
-						{x = pos.x, y = pos.y, z = pos.z - 1},
-						{x = pos.x, y = pos.y, z = pos.z + 1}, {"group:water"})
-			end
-
-			if num == 0 then
-
-				num = num + #minetest.find_nodes_in_area(
-						{x = pos.x, y = pos.y + 1, z = pos.z},
-						{x = pos.x, y = pos.y + 1, z = pos.z}, {"group:water"})
-			end
-
-			if num > 0 then
-
-				minetest.set_node(pos, {name = "air"})
-
-				minetest.sound_play("fire_extinguish_flame",
-						{pos = pos, gain = 0.2, max_hear_distance = 10}, true)
-
-				minetest.add_item(pos, {name = "default:torch"})
-			end
+			minetest.sound_play("default_cool_lava",
+					{pos = pos, max_hear_distance = 10, gain = 0.1}, true)
 		end
-	})
+
+		return false -- remove node
+	end
+
+	local function torch_override(name)
+		minetest.override_item("default:" .. name, {on_flood = on_flood})
+	end
+
+	torch_override("torch")
+	torch_override("torch_wall")
+	torch_override("torch_ceiling")
 end
