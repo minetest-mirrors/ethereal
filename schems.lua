@@ -495,3 +495,33 @@ if ethereal.logs == 1 then
 		rotation = "random",
 		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8})
 end
+
+-- deep see fumerole / vent
+
+register_decoration(minetest.get_modpath("nether") and 1, {
+	name = "nether:fumarole",
+	place_on = {"default:sand"},
+	sidelen = 16, y_min = -192, y_max = -45,
+	fill_ratio = 0.0001,
+	schematic = {
+		size = {x = 1, y = 2, z = 2},
+		data = {
+			{name = "default:lava_source", param1 = 255, force_place = true},
+			{name = "nether:fumarole", param1 = 255, force_place = true},
+			{name = "default:sand", param1 = 192, force_place = true},
+			{name = "ethereal:sandy", param1 = 192, force_place = true},
+		}
+	},
+	place_offset_y = -1,
+	spawn_by = {"default:water_source"}, num_spawn_by = 8})
+
+if minetest.get_modpath("nether") then
+
+	minetest.register_lbm({
+		name = ":nether:extra_fumarole_timer",
+		nodenames = {"nether:fumarole"},
+		run_at_every_load = false,
+
+		action = function(pos) minetest.get_node_timer(pos):start(10) end
+	})
+end

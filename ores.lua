@@ -68,7 +68,7 @@ add_ore("default:stone_with_copper", "default:desert_stone", 9*9*9, 5, 3, -31000
 
 -- Coral Sand
 
-add_ore("ethereal:sandy", "default:sand", 10*10*10, 24, 4, -100, -10)
+add_ore("ethereal:sandy", "default:sand", 10*10*10, 24, 4, -45, -10)
 
 -- Etherium
 
