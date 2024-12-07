@@ -10,7 +10,7 @@ ethereal.olivetree = {
 	size = {x = 8, y = 9, z = 7},
 
 	yslice_prob = {
-		{ypos = 1, prob = 127},
+		{ypos = 2, prob = 127},
 	},
 
 	data = {
@@ -46,8 +46,8 @@ ethereal.olivetree = {
 	_,_,_,_,_,_,_,_,
 
 	_,_,_,T,T,_,_,_,
-	_,_,_,t,t,_,_,_,
-	_,_,_,t,t,_,_,_,
+	_,_,_,T,T,_,_,_,
+	_,_,_,T,T,_,_,_,
 	_,_,L,t,t,_,_,_,
 	_,o,L,t,t,t,L,_,
 	_,L,L,t,t,L,o,_,

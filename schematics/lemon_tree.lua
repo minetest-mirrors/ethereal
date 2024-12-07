@@ -36,9 +36,9 @@ ethereal.lemontree = {
 	_,L,L,L,_,
 
 	_,_,T,_,_,
-	_,_,t,_,_,
-	_,_,t,_,_,
-	l,e,t,l,l,
+	_,_,T,_,_,
+	_,_,T,_,_,
+	l,e,T,l,l,
 	L,L,t,L,l,
 	l,L,t,L,L,
 	L,L,L,l,L,
