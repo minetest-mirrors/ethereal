@@ -31,6 +31,7 @@ dofile(path .. "lemon_tree.lua")
 dofile(path .. "olive_tree.lua")
 dofile(path .. "basandra_bush.lua")
 dofile(path .. "desertstone_spike.lua")
+dofile(path .. "desertstone_under_spike.lua")
 
 -- register decoration helper
 
@@ -55,11 +56,20 @@ local old = minetest.settings:get_bool("ethereal.old_biomes")
 
 register_decoration(minetest.get_modpath("stairs") and ethereal.caves, {
 	place_on = "default:desert_stone",
-	fill_ratio = 0.01, y_min = 5, y_max = 42,
+	sidelen = 16, fill_ratio = 0.01, y_min = 5, y_max = 42,
 	biomes = {"caves"},
 	schematic = ethereal.desertstone_spike,
 	spawn_by = "default:desert_stone", num_spawn_by = 8,
 	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+
+-- desertstone under spike
+
+register_decoration(ethereal.caves, {
+	place_on = "default:stone",
+	sidelen = 16, fill_ratio = 0.01, y_min = 5, y_max = 42,
+	biomes = {"caves"},
+	schematic = ethereal.desertstone_under_spike,
+	flags = "place_center_x, place_center_z, all_floors", rotation = "random"})
 
 -- igloo
 

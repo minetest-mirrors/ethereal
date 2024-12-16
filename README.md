@@ -19,7 +19,7 @@ TODO:
 
 #### Lucky Blocks
 
-It provides 65 new lucky blocks if the mod is detected.
+It provides 66 new lucky blocks if the mod is detected.
 
 ## Technical info
 -----------------
@@ -110,6 +110,7 @@ who helped make this mod bigger and better throughout it's release :)
    the new layout for compatibility if wanted.
  - Update settings.
  - Candles use [multiply for colour.
+ - Add desert stone spikes to caves biome, and stone spikes underneath.
 
 ### 1.31
  - Fix fishing biome checks

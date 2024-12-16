@@ -14,6 +14,7 @@ lucky_block:add_schematics({
 	{"basandrabush", ethereal.basandrabush, {x = 1, y = 0, z = 1}},
 	{"mushroomone", ethereal.mushroomone, {x = 4, y = 0, z = 4}},
 	{"mushroomtwo", ethereal.mushroomtwo, {x = 1, y = 0, z = 1}},
+	{"underspike", ethereal.desertstone_under_spike, {x = 1, y = 0, z = 1}},
 })
 
 -- add lucky blocks
@@ -62,6 +63,7 @@ lucky_block:add_blocks({
 	{"dro", {"ethereal:shovel_crystal"}},
 	{"dro", {"ethereal:fishing_rod_baited"}},
 	{"exp"},
+	{"sch", "underspike", 0, false},
 	{"dro", {"ethereal:fire_dust"}, 2},
 	{"exp", 4},
 	{"dro", {"ethereal:crystal_gilly_staff"}},
