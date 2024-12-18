@@ -1,6 +1,8 @@
 
 local S = minetest.get_translator("ethereal")
 
+local math_random = math.random
+
 -- override default dirt (to stop caves cutting away dirt)
 
 minetest.override_item("default:dirt", {is_ground_content = ethereal.cavedirt})
@@ -64,7 +66,7 @@ end
 
 -- flower spread, also crystal and fire flower regeneration
 
-local flower_spread = function(pos, node)
+local function flower_spread(pos, node)
 
 	if (minetest.get_node_light(pos) or 0) < 13 then return end
 
@@ -83,7 +85,7 @@ local flower_spread = function(pos, node)
 		if #grass > 4
 		and not minetest.find_node_near(pos, 4, {"ethereal:crystal_spike"}) then
 
-			pos = grass[math.random(#grass)]
+			pos = grass[math_random(#grass)]
 
 			pos.y = pos.y - 1
 
@@ -105,7 +107,7 @@ local flower_spread = function(pos, node)
 		if #grass > 8
 		and not minetest.find_node_near(pos, 4, {"ethereal:fire_flower"}) then
 
-			pos = grass[math.random(#grass)]
+			pos = grass[math_random(#grass)]
 
 			pos.y = pos.y - 1
 
@@ -137,7 +139,7 @@ local flower_spread = function(pos, node)
 
 	if #seedling > 0 then
 
-		pos = seedling[math.random(#seedling)]
+		pos = seedling[math_random(#seedling)]
 
 		pos.y = pos.y + 1
 
@@ -149,7 +151,7 @@ end
 
 -- grow papyrus up to 4 high and bamboo up to 8 high
 
-local grow_papyrus = function(pos, node)
+local function grow_papyrus(pos, node)
 
 	local oripos = pos.y
 	local high = 4
