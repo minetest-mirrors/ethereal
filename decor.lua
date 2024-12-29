@@ -13,6 +13,15 @@ local function register_decoration(enabled, def)
 	minetest.register_decoration(def)
 end
 
+-- ponds
+
+register_decoration(ethereal.mesa, {
+	place_on = {"group:bakedclay"},
+	sidelen = 32, fill_ratio = 0.003, y_min = 18, y_max = 72,
+	biomes = {"mesa"},
+	decoration = {"ethereal:pond"},
+	spawn_by = "group:bakedclay", num_spawn_by = 8})
+
 -- thin ice
 
 register_decoration(ethereal.frost, {

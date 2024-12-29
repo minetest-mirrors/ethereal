@@ -32,6 +32,7 @@ dofile(path .. "olive_tree.lua")
 dofile(path .. "basandra_bush.lua")
 dofile(path .. "desertstone_spike.lua")
 dofile(path .. "desertstone_under_spike.lua")
+dofile(path .. "pond.lua")
 
 -- register decoration helper
 

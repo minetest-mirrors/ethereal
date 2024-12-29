@@ -236,7 +236,7 @@ if not minetest.get_modpath("bakedclay") then
 	minetest.register_node(":bakedclay:red", {
 		description = S("Red Baked Clay"),
 		tiles = {"baked_clay_red.png"},
-		groups = {cracky = 3},
+		groups = {cracky = 3, bakedclay = 1},
 		is_ground_content = ethereal.cavedirt,
 		sounds = default.node_sound_stone_defaults()
 	})
@@ -244,7 +244,7 @@ if not minetest.get_modpath("bakedclay") then
 	minetest.register_node(":bakedclay:orange", {
 		description = S("Orange Baked Clay"),
 		tiles = {"baked_clay_orange.png"},
-		groups = {cracky = 3},
+		groups = {cracky = 3, bakedclay = 1},
 		is_ground_content = ethereal.cavedirt,
 		sounds = default.node_sound_stone_defaults()
 	})
@@ -252,7 +252,7 @@ if not minetest.get_modpath("bakedclay") then
 	minetest.register_node(":bakedclay:grey", {
 		description = S("Grey Baked Clay"),
 		tiles = {"baked_clay_grey.png"},
-		groups = {cracky = 3},
+		groups = {cracky = 3, bakedclay = 1},
 		is_ground_content = ethereal.cavedirt,
 		sounds = default.node_sound_stone_defaults()
 	})
@@ -260,7 +260,7 @@ if not minetest.get_modpath("bakedclay") then
 	minetest.register_node(":bakedclay:brown", {
 		description = S("Brown Baked Clay"),
 		tiles = {"baked_clay_brown.png"},
-		groups = {cracky = 3},
+		groups = {cracky = 3, bakedclay = 1},
 		is_ground_content = ethereal.cavedirt,
 		sounds = default.node_sound_stone_defaults()
 	})
