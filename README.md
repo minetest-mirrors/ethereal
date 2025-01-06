@@ -111,6 +111,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Update settings.
  - Candles use [multiply for colour.
  - Add desert stone spikes to caves biome, and stone spikes underneath.
+ - Add pond schematic for generation in flat mesa areas, add new pond lucky blocks.
 
 ### 1.31
  - Fix fishing biome checks
