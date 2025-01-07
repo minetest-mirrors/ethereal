@@ -65,6 +65,22 @@ lucky_block:add_blocks({
 	{"dro", {"ethereal:fishing_rod_baited"}},
 	{"exp"},
 	{"sch", "underspike", 0, false},
+	{"sch", "underspike", 0, false, {
+		{"default:cobble", "default:desert_cobble"},
+		{"default:stone", "default:desert_stone"}
+	}},
+	{"sch", "underspike", 0, false, {
+		{"default:cobble", "default:sandstone"},
+		{"default:stone", "default:sandstonebrick"}
+	}},
+	{"sch", "underspike", 0, false, {
+		{"default:cobble", "default:desert_sandstone"},
+		{"default:stone", "default:desert_sandstone_brick"}
+	}},
+	{"sch", "underspike", 0, false, {
+		{"default:cobble", "default:silver_sandstone"},
+		{"default:stone", "default:silver_sandstone_brick"}
+	}},
 	{"dro", {"ethereal:fire_dust"}, 2},
 	{"exp", 4},
 	{"dro", {"ethereal:crystal_gilly_staff"}},
