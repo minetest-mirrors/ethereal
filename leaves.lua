@@ -618,8 +618,8 @@ if minetest.settings:get_bool("ethereal.leaf_particles") ~= false then
 		label = "Ethereal falling leaves",
 		nodenames = {"group:leaves"},
 		neighbors = {"air"},
-		interval = 7,
-		chance = 50,
+		interval = 9,
+		chance = 75,
 		catch_up = false,
 
 		action = function(pos, node)
