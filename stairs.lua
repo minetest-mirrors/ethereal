@@ -1,5 +1,5 @@
 
--- translation and mod check
+-- translation and mod checks
 
 local S = minetest.get_translator("ethereal")
 local stairs_mod = minetest.get_modpath("stairs")
@@ -8,7 +8,7 @@ local stairs_plus = minetest.global_exists("stairsplus")
 
 -- register stair function (stair mod will be auto-selected)
 
-local do_stair = function(description, name, node, groups, texture, sound)
+local function do_stair(description, name, node, groups, texture, sound)
 
 	if stairs_redo then
 
@@ -16,9 +16,7 @@ local do_stair = function(description, name, node, groups, texture, sound)
 
 	elseif stairs_plus then
 
-		local mod = "ethereal"
-
-		stairsplus:register_all(mod, name, node, {
+		stairsplus:register_all("ethereal", name, node, {
 			description = S(description),
 			tiles = texture,
 			groups = groups,
@@ -27,18 +25,19 @@ local do_stair = function(description, name, node, groups, texture, sound)
 
 		-- aliases need to be set for previous stairs to avoid unknown nodes
 		minetest.register_alias_force("stairs:stair_" .. name,
-				mod .. ":stair_" .. name)
+				"ethereal:stair_" .. name)
 
 		minetest.register_alias_force("stairs:stair_outer_" .. name,
-				mod .. ":stair_" .. name .. "_outer")
+				"ethereal:stair_" .. name .. "_outer")
 
 		minetest.register_alias_force("stairs:stair_inner_" .. name,
-				mod .. ":stair_" .. name .. "_inner")
+				"ethereal:stair_" .. name .. "_inner")
 
 		minetest.register_alias_force("stairs:slab_"  .. name,
-				mod .. ":slab_"  .. name)
+				"ethereal:slab_"  .. name)
 
-	else
+	elseif stairs_mod then
+
 		stairs.register_stair_and_slab(name, node, groups, texture,
 				S(description .. " Stair"), S(description .. " Slab"), sound, true)
 	end
@@ -76,7 +75,7 @@ do_stair(
 	{"ethereal_brick_snow.png"},
 	default.node_sound_dirt_defaults({
 		footstep = {name = "default_snow_footstep", gain = 0.25},
-		dug = {name = "default_snow_footstep", gain = 0.75},
+		dug = {name = "default_snow_footstep", gain = 0.75}
 	}))
 
 do_stair(
