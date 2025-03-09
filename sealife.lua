@@ -4,6 +4,7 @@ local S = minetest.get_translator("ethereal")
 -- local math functions
 
 local math_floor, math_max, math_random = math.floor, math.max, math.random
+
 -- Seaweed
 
 minetest.register_node("ethereal:seaweed", {

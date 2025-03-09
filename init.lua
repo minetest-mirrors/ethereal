@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20241014"}
+ethereal = {version = "20250209"}
 
 -- setting helper
 
@@ -73,13 +73,13 @@ setting("bool", "wood_rotate", true)
 
 local path = minetest.get_modpath("ethereal")
 
--- Load settings.conf file if found [DEPRECATED]
+--[[ Load settings.conf file if found [DEPRECATED]
 
 local input = io.open(path.."/settings.conf", "r")
 
 if input then
 	dofile(path .. "/settings.conf") ; input:close() ; input = nil
-end
+end ]]
 
 -- Falling node function
 
