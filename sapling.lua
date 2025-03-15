@@ -317,7 +317,7 @@ minetest.register_abm({
 	interval = 10,
 	chance = 50,
 	catch_up = false,
-	action = ethereal.grow_sapling -- (pos, node)
+	action = ethereal.grow_sapling
 })
 
 -- 2x redwood saplings make 1x giant redwood sapling
