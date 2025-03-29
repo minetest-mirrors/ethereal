@@ -1,6 +1,34 @@
 
 local S = minetest.get_translator("ethereal")
 
+-- Cactus flower
+
+minetest.register_node("ethereal:cactus_flower", {
+	description = S("Cactus Flower"),
+	drawtype = "plantlike",
+	tiles = {"ethereal_cactus_flower.png"},
+	inventory_image = "ethereal_cactus_flower.png",
+	wield_image = "ethereal_cactus_flower.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	waving = 1,
+	walkable = false,
+	buildable_to = true,
+	groups = {snappy = 3, attached_node = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 3 / 16, 4 / 16}
+	},
+	on_use = minetest.item_eat(1)
+})
+
+ethereal.add_eatable("ethereal:cactus_flower", 1)
+
+minetest.register_craft({
+	output = "dye:violet 2",
+	recipe = {{"ethereal:cactus_flower"}}
+})
+
 -- Spore Grass
 
 minetest.register_node("ethereal:spore_grass", {

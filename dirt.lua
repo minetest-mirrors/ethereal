@@ -189,6 +189,41 @@ local function grow_papyrus(pos, node)
 
 end
 
+-- override gros cactus function
+
+function default.grow_cactus(pos, node)
+
+	if node.param2 >= 4 then return end
+
+	pos.y = pos.y - 1
+
+	if minetest.get_item_group(minetest.get_node(pos).name, "sand") == 0 then
+		return
+	end
+
+	pos.y = pos.y + 1
+
+	local height = 0
+
+	while node.name == "default:cactus" and height < 4 do
+		height = height + 1
+		pos.y = pos.y + 1
+		node = minetest.get_node(pos)
+	end
+
+	if height == 4 or node.name ~= "air" then return end
+
+	if minetest.get_node_light(pos) < 13 then return end
+
+	if math.random(100 - (height * 15)) == 1 then
+		minetest.set_node(pos, {name = "ethereal:cactus_flower"})
+	else
+		minetest.set_node(pos, {name = "default:cactus"})
+	end
+
+	return true
+end
+
 -- override abm function
 
 local function override_abm(name, redef)
