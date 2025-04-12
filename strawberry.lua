@@ -66,12 +66,6 @@ minetest.register_node("ethereal:strawberry_5", table.copy(def))
 -- stage 6
 
 def.tiles = {"ethereal_strawberry_6.png"}
-def.drop = {
-	items = {
-		{items = {"ethereal:strawberry 1"}, rarity = 2},
-		{items = {"ethereal:strawberry 2"}, rarity = 3}
-	}
-}
 minetest.register_node("ethereal:strawberry_6", table.copy(def))
 
 -- stage 7
@@ -79,8 +73,8 @@ minetest.register_node("ethereal:strawberry_6", table.copy(def))
 def.tiles = {"ethereal_strawberry_7.png"}
 def.drop = {
 	items = {
-		{items = {"ethereal:strawberry 1"}, rarity = 1},
-		{items = {"ethereal:strawberry 1"}, rarity = 3}
+		{items = {"ethereal:strawberry"}, rarity = 2},
+		{items = {"ethereal:strawberry"}, rarity = 3}
 	}
 }
 minetest.register_node("ethereal:strawberry_7", table.copy(def))
@@ -95,7 +89,9 @@ def.selection_box = {
 def.drop = {
 	items = {
 		{items = {"ethereal:strawberry 2"}, rarity = 1},
-		{items = {"ethereal:strawberry 3"}, rarity = 3}
+		{items = {"ethereal:strawberry"}, rarity = 2},
+		{items = {"ethereal:strawberry"}, rarity = 3},
+		{items = {"ethereal:strawberry"}, rarity = 4}
 	}
 }
 minetest.register_node("ethereal:strawberry_8", table.copy(def))

@@ -58,7 +58,7 @@ def.tiles = {"ethereal_wild_onion_4.png"}
 def.drop = {
 	items = {
 		{items = {"ethereal:wild_onion_plant"}, rarity = 1},
-		{items = {"ethereal:wild_onion_plant 2"}, rarity = 3},
+		{items = {"ethereal:wild_onion_plant"}, rarity = 3},
 	}
 }
 minetest.register_node("ethereal:onion_4", table.copy(def))
@@ -73,7 +73,8 @@ def.selection_box = {
 def.drop = {
 	items = {
 		{items = {"ethereal:wild_onion_plant 2"}, rarity = 1},
-		{items = {"ethereal:wild_onion_plant 3"}, rarity = 2},
+		{items = {"ethereal:wild_onion_plant"}, rarity = 2},
+		{items = {"ethereal:wild_onion_plant"}, rarity = 3}
 	}
 }
 minetest.register_node("ethereal:onion_5", table.copy(def))
