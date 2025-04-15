@@ -26,7 +26,7 @@ minetest.register_node("ethereal:thin_ice", {
 
 	on_walk_over = function(pos, node, player)
 
-		if math_random(50) == 13 then -- ice breaks if player unlucky
+		if math_random(13) == 1 then -- ice breaks if player unlucky
 
 			minetest.sound_play("default_ice_dug",
 					{pos = pos, gain = 0.5, pitch = 1.4, max_hear_distance = 5}, true)
