@@ -58,6 +58,12 @@ do_stair(
 	default.node_sound_stone_defaults())
 
 do_stair(
+	"Blue Marble Brick", "blue_marble_brick", "ethereal:blue_marble_brick",
+	{cracky = 1},
+	{"ethereal_blue_marble_brick.png"},
+	default.node_sound_stone_defaults())
+
+do_stair(
 	"Crystal Block", "crystal_block", "ethereal:crystal_block",
 	{cracky = 1, level = 2, puts_out_fire = 1, cools_lava = 1},
 	{"ethereal_crystal_block.png"},

@@ -6,6 +6,7 @@ local S = minetest.get_translator("ethereal")
 minetest.register_node("ethereal:blue_marble", {
 	description = S("Blue Marble"),
 	tiles = {"ethereal_blue_marble.png"},
+	is_ground_content = false,
 	groups = {cracky = 1, stone = 1},
 	sounds = default.node_sound_stone_defaults()
 })
@@ -13,6 +14,7 @@ minetest.register_node("ethereal:blue_marble", {
 minetest.register_node("ethereal:blue_marble_tile", {
 	description = S("Blue Marble Tile"),
 	tiles = {"ethereal_blue_marble_tile.png"},
+	is_ground_content = false,
 	groups = {cracky = 1, stone = 1},
 	sounds = default.node_sound_stone_defaults()
 })
@@ -23,6 +25,24 @@ minetest.register_craft({
 		{"ethereal:blue_marble", "ethereal:blue_marble", "ethereal:blue_marble"},
 		{"ethereal:blue_marble", "ethereal:blue_marble", "ethereal:blue_marble"},
 		{"ethereal:blue_marble", "ethereal:blue_marble", "ethereal:blue_marble"}
+	}
+})
+
+minetest.register_node("ethereal:blue_marble_brick", {
+	description = S("Blue Marble Brick"),
+	paramtype2 = "facedir",
+	place_param2 = 0,
+	tiles = {"ethereal_blue_marble_brick.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, stone = 1},
+	sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_craft({
+	output = "ethereal:blue_marble_brick 4",
+	recipe = {
+		{"ethereal:blue_marble", "ethereal:blue_marble"},
+		{"ethereal:blue_marble", "ethereal:blue_marble"}
 	}
 })
 
