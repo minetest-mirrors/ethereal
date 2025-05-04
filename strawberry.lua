@@ -1,14 +1,14 @@
 
-local S = minetest.get_translator("ethereal")
+local S = core.get_translator("ethereal")
 
 -- Strawberry (can also be planted directly as seed)
 
-minetest.register_craftitem("ethereal:strawberry", {
+core.register_craftitem("ethereal:strawberry", {
 	description = S("Strawberry"),
 	inventory_image = "ethereal_strawberry.png",
 	wield_image = "ethereal_strawberry.png",
 	groups = {food_strawberry = 1, food_berry = 1},
-	on_use = minetest.item_eat(1),
+	on_use = core.item_eat(1),
 
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "ethereal:strawberry_1")
@@ -41,32 +41,32 @@ local def = {
 
 --stage 1
 
-minetest.register_node("ethereal:strawberry_1", table.copy(def))
+core.register_node("ethereal:strawberry_1", table.copy(def))
 
 -- stage 2
 
 def.tiles = {"ethereal_strawberry_2.png"}
-minetest.register_node("ethereal:strawberry_2", table.copy(def))
+core.register_node("ethereal:strawberry_2", table.copy(def))
 
 -- stage 3
 
 def.tiles = {"ethereal_strawberry_3.png"}
-minetest.register_node("ethereal:strawberry_3", table.copy(def))
+core.register_node("ethereal:strawberry_3", table.copy(def))
 
 -- stage 4
 
 def.tiles = {"ethereal_strawberry_4.png"}
-minetest.register_node("ethereal:strawberry_4", table.copy(def))
+core.register_node("ethereal:strawberry_4", table.copy(def))
 
 -- stage 5
 
 def.tiles = {"ethereal_strawberry_5.png"}
-minetest.register_node("ethereal:strawberry_5", table.copy(def))
+core.register_node("ethereal:strawberry_5", table.copy(def))
 
 -- stage 6
 
 def.tiles = {"ethereal_strawberry_6.png"}
-minetest.register_node("ethereal:strawberry_6", table.copy(def))
+core.register_node("ethereal:strawberry_6", table.copy(def))
 
 -- stage 7
 
@@ -77,7 +77,7 @@ def.drop = {
 		{items = {"ethereal:strawberry"}, rarity = 3}
 	}
 }
-minetest.register_node("ethereal:strawberry_7", table.copy(def))
+core.register_node("ethereal:strawberry_7", table.copy(def))
 
 -- stage 8 (final)
 
@@ -94,11 +94,11 @@ def.drop = {
 		{items = {"ethereal:strawberry"}, rarity = 4}
 	}
 }
-minetest.register_node("ethereal:strawberry_8", table.copy(def))
+core.register_node("ethereal:strawberry_8", table.copy(def))
 
 -- register Abm to grow strawberry (this file wont be loaded if farming redo active)
 
-minetest.register_abm({
+core.register_abm({
 	label = "Ethereal grow strawberry",
 	nodenames = {
 		"ethereal:strawberry_1", "ethereal:strawberry_2", "ethereal:strawberry_3",
@@ -115,20 +115,20 @@ minetest.register_abm({
 		-- are we on wet soil?
 		pos.y = pos.y - 1
 
-		if minetest.get_item_group(minetest.get_node(pos).name, "soil") < 3 then
+		if core.get_item_group(core.get_node(pos).name, "soil") < 3 then
 			return
 		end
 
 		pos.y = pos.y + 1
 
 		-- do we have enough light?
-		local light = minetest.get_node_light(pos) or 0 ; if light < 13 then return end
+		local light = core.get_node_light(pos) or 0 ; if light < 13 then return end
 
 		-- grow to next stage
 		local num = node.name:split("_")[2]
 
 		node.name = "ethereal:strawberry_" .. tonumber(num + 1)
 
-		minetest.swap_node(pos, node)
+		core.swap_node(pos, node)
 	end
 })

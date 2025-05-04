@@ -1,10 +1,10 @@
 
 -- translation and mod checks
 
-local S = minetest.get_translator("ethereal")
-local stairs_mod = minetest.get_modpath("stairs")
+local S = core.get_translator("ethereal")
+local stairs_mod = core.get_modpath("stairs")
 local stairs_redo = stairs_mod and stairs.mod and stairs.mod == "redo"
-local stairs_plus = minetest.global_exists("stairsplus")
+local stairs_plus = core.global_exists("stairsplus")
 
 -- register stair function (stair mod will be auto-selected)
 
@@ -24,16 +24,16 @@ local function do_stair(description, name, node, groups, texture, sound)
 		})
 
 		-- aliases need to be set for previous stairs to avoid unknown nodes
-		minetest.register_alias_force("stairs:stair_" .. name,
+		core.register_alias_force("stairs:stair_" .. name,
 				"ethereal:stair_" .. name)
 
-		minetest.register_alias_force("stairs:stair_outer_" .. name,
+		core.register_alias_force("stairs:stair_outer_" .. name,
 				"ethereal:stair_" .. name .. "_outer")
 
-		minetest.register_alias_force("stairs:stair_inner_" .. name,
+		core.register_alias_force("stairs:stair_inner_" .. name,
 				"ethereal:stair_" .. name .. "_inner")
 
-		minetest.register_alias_force("stairs:slab_"  .. name,
+		core.register_alias_force("stairs:slab_"  .. name,
 				"ethereal:slab_"  .. name)
 
 	elseif stairs_mod then
