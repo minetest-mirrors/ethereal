@@ -744,8 +744,16 @@ core.register_craft({
 	output = "ethereal:agar_powder 3",
 	recipe = {
 		{"group:food_seaweed", "group:food_seaweed", "group:food_seaweed"},
-		{"bucket:bucket_water", "bucket:bucket_water", "default:torch"},
+		{"bucket:bucket_water", "bucket:bucket_water", "ethereal:fire_dust"}
+	},
+	replacements = {{"bucket:bucket_water", "bucket:bucket_empty 2"}}
+})
+
+core.register_craft({
+	output = "ethereal:agar_powder 3",
+	recipe = {
+		{"group:food_seaweed", "group:food_seaweed", "group:food_seaweed"},
 		{"bucket:bucket_water", "bucket:bucket_water", "default:torch"}
 	},
-	replacements = {{"bucket:bucket_water", "bucket:bucket_empty 4"}}
+	replacements = {{"bucket:bucket_water", "bucket:bucket_empty 2"}}
 })
