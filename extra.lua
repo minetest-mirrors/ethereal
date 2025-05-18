@@ -466,8 +466,7 @@ core.register_tool("ethereal:light_staff", {
 		local pname = user:get_player_name()
 
 		if core.is_protected(pos, pname) then
-			core.record_protection_violation(pos, pname)
-			return
+			core.record_protection_violation(pos, pname) ; return
 		end
 
 		local node = core.get_node(pos).name

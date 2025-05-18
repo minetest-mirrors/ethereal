@@ -19,7 +19,7 @@ TODO:
 
 #### Lucky Blocks
 
-It provides 66 new lucky blocks if the mod is detected.
+It provides 68 new lucky blocks if the mod is detected.
 
 ## Technical info
 -----------------
