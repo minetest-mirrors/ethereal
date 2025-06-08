@@ -160,7 +160,7 @@ function ethereal.grow_yellow_tree(pos)
 end
 
 function ethereal.grow_big_tree(pos)
-	add_tree(pos, ethereal.bigtree)
+	add_tree(pos, ethereal.bigtree_from_sapling)
 end
 
 function ethereal.grow_banana_tree(pos)
@@ -175,11 +175,11 @@ function ethereal.grow_banana_tree(pos)
 end
 
 function ethereal.grow_frost_tree(pos)
-	add_tree(pos, ethereal.frosttrees)
+	add_tree(pos, ethereal.frosttrees_from_sapling)
 end
 
 function ethereal.grow_mushroom_tree(pos)
-	add_tree(pos, ethereal.mushroomone)
+	add_tree(pos, ethereal.mushroomone_from_sapling)
 end
 
 function ethereal.grow_mushroom_brown_tree(pos)
@@ -191,15 +191,15 @@ function ethereal.grow_palm_tree(pos)
 end
 
 function ethereal.grow_willow_tree(pos)
-	add_tree(pos, ethereal.willow)
+	add_tree(pos, ethereal.willow_from_sapling)
 end
 
 function ethereal.grow_redwood_tree(pos)
-	add_tree(pos, ethereal.redwood_small_tree)
+	add_tree(pos, ethereal.redwood_small_tree_from_sapling)
 end
 
 function ethereal.grow_giant_redwood_tree(pos)
-	add_tree(pos, ethereal.redwood_tree)
+	add_tree(pos, ethereal.redwood_tree_from_sapling)
 end
 
 function ethereal.grow_orange_tree(pos)
@@ -230,7 +230,7 @@ function ethereal.grow_lemon_tree(pos)
 end
 
 function ethereal.grow_olive_tree(pos)
-	add_tree(pos, ethereal.olivetree)
+	add_tree(pos, ethereal.olivetree_from_sapling)
 end
 
 -- return True if sapling has enough height room to grow
