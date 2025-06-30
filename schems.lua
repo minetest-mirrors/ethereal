@@ -32,6 +32,7 @@ dofile(path .. "olive_tree.lua")
 dofile(path .. "basandra_bush.lua")
 dofile(path .. "desertstone_spike.lua")
 dofile(path .. "desertstone_under_spike.lua")
+dofile(path .. "mangrove_tree.lua")
 dofile(path .. "pond.lua")
 
 -- register decoration helper
@@ -52,6 +53,35 @@ end
 -- old biome setting (when enabled old heat/humidity values are used)
 
 local old = core.settings:get_bool("ethereal.old_biomes")
+
+-- mangrove tree and waterlily
+
+register_decoration(ethereal.mangrove, {
+	place_on = {"ethereal:mud"},
+	sidelen = 80, fill_ratio = 0.023, y_min = -1, y_max = 6,
+	biomes = {"mangrove", "mangrove_shore"},
+	schematic = ethereal.mangrove_tree_2,
+	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+
+register_decoration(ethereal.mangrove, {
+	place_on = {"ethereal:mud"},
+	sidelen = 80, fill_ratio = 0.023, y_min = 1, y_max = 6,
+	biomes = {"MangroveSwamp","MangroveSwamp_shore"},
+	schematic = ethereal.mangrove_tree,
+	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+
+register_decoration(ethereal.mangrove, {
+	place_on = {"ethereal:mud"},
+	sidelen = 16, fill_ratio = 0.035, y_min = 0, y_max = 0,
+	biomes = {"mangrove_shore"},
+	schematic = {
+		size = {x = 1, y = 3, z = 1},
+		data = {
+			{name = "ethereal:mud", param1 = 255},
+			{name = "default:water_source", param1 = 255},
+			{name = "flowers:waterlily", param1 = 255},
+		}
+	}, rotation = "random"})
 
 -- desertstone spike
 

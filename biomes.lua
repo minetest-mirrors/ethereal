@@ -629,4 +629,31 @@ if not old then
 		node_top = "default:sand", depth_top = 1,
 		node_filler = "default:sand", depth_filler = 3,
 		vertical_blend = 1})
+
+	-- mangrove
+
+	register_biome(ethereal.mangrove, {
+		name = "mangrove",
+		heat_point = 94, humidity_point = 95, y_min = 1, y_max = 5,
+		node_top = "ethereal:mud", depth_top = 1,
+		node_filler = "ethereal:mud", depth_filler = 3,
+		node_riverbed = "default:dirt", depth_riverbed = 2
+	})
+
+	register_biome(ethereal.mangrove, {
+		name = "mangrove_shore",
+		heat_point = 94, humidity_point = 95, y_min = -5, y_max = 0,
+		node_top = "ethereal:mud", depth_top = 1,
+		node_filler = "ethereal:mud", depth_filler = 3,
+		node_riverbed = "default:dirt", depth_riverbed = 2
+	})
+
+	register_biome(ethereal.mangrove, {
+		name = "mangrove_ocean",
+		heat_point = 94, humidity_point = 95, y_min = -15, y_max = -6,
+		node_top = "default:dirt", depth_top = 1,
+		node_filler = "default:dirt", depth_filler = 3,
+		node_riverbed = "default:gravel", depth_riverbed = 2,
+		vertical_blend = 1
+	})
 end

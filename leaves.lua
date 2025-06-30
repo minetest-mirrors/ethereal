@@ -389,6 +389,30 @@ core.register_node("ethereal:olive_leaves", {
 	after_place_node = default.after_place_leaves
 })
 
+-- mangrove tree leaves
+
+core.register_node("ethereal:mangrove_leaves", {
+	description = S("Mangrove Leaves"),
+	drawtype = leaftype,
+	visual_scale = leafscale,
+	tiles = {"mcl_mangrove_leaves.png"},
+	inventory_image = "mcl_mangrove_leaves.png",
+	wield_image = "mcl_mangrove_leaves.png",
+	paramtype = "light",
+	walkable = ethereal.leafwalk,
+	waving = 1,
+	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:mangrove_sapling"}, rarity = 25},
+			{items = {"ethereal:mangrove_leaves"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = default.after_place_leaves
+})
+
 -- red mushroom top
 
 core.register_node("ethereal:mushroom", {
@@ -589,6 +613,9 @@ decay({"ethereal:olive_trunk"}, {"ethereal:olive_leaves", "ethereal:olive"}, 3)
 decay({"ethereal:mushroom_trunk"}, {"ethereal:mushroom", "ethereal:mushroom_brown",
 		"ethereal:mushroom_pore", "ethereal:lightstring"}, 4)
 
+decay({"ethereal:mangrove_tree"}, {"ethereal:mangrove_leaves", "ethereal:mangrove_roots",
+		"ethereal:vine"}, 4)
+
 -- falling leaf particles
 
 if core.settings:get_bool("ethereal.leaf_particles") ~= false then
@@ -607,6 +634,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		{"ethereal:birch_leaves", "274527"},
 		{"ethereal:palmleaves", "2b6000"},
 		{"ethereal:bamboo_leaves", "445811"},
+		{"ethereal:mangrove_leaves", "6a7039"},
 		{"default:acacia_leaves", "296600"},
 		{"default:aspen_leaves", "395d16"},
 		{"default:jungleleaves", "141e10"},

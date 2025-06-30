@@ -15,7 +15,8 @@ lucky_block:add_schematics({
 	{"mushroomone", ethereal.mushroomone, {x = 4, y = 0, z = 4}},
 	{"mushroomtwo", ethereal.mushroomtwo, {x = 1, y = 0, z = 1}},
 	{"underspike", ethereal.desertstone_under_spike, {x = 1, y = 0, z = 1}},
-	{"ethereal_pond", ethereal.pond, {x = 6, y = 2, z = 7}}
+	{"ethereal_pond", ethereal.pond, {x = 6, y = 2, z = 7}},
+	{"mangrovetree", ethereal.mangrove_tree, {x = 5, y = 0, z = 5}},
 })
 
 -- add lucky blocks
@@ -98,7 +99,8 @@ lucky_block:add_blocks({
 		{name = "ethereal:sakura_sapling", max = 10},
 		{name = "ethereal:willow_sapling", max = 10},
 		{name = "ethereal:lemon_tree_sapling", max = 10},
-		{name = "ethereal:olive_tree_sapling", max = 10}
+		{name = "ethereal:olive_tree_sapling", max = 10},
+		{name = "ethereal:mangrove_sapling", max = 10}
 	}},
 	{"flo", 5, {"ethereal:blue_marble_tile"}, 2},
 	{"flo", 5, {"ethereal:blue_marble_brick"}, 2},
@@ -171,6 +173,7 @@ lucky_block:add_blocks({
 		{name = "ethereal:hearty_stew", max = 1},
 	}},
 	{"sch", "ethereal_pond", 0, false},
+	{"sch", "mangrovetree", 0, false},
 	{"sch", "ethereal_pond", 0, false, {
 		{"default:river_water_source", "default:lava_source"},
 		{"default:clay", "default:stone"},
@@ -272,3 +275,5 @@ local paper_house = {
 lucky_block:add_schematics({
 	{"paper_house", paper_house, {x = 2, y = 0, z = 2}}
 })
+
+lucky_block:add_blocks({ {"sch", "paper_house", 1, false} })

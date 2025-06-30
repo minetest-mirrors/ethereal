@@ -410,3 +410,20 @@ core.register_craft({
 		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"}
 	}
 })
+
+-- mud
+
+core.register_node("ethereal:mud", {
+	description = S("Mud"),
+	tiles = {"default_dirt.png^[colorize:#0b080680"},
+	is_ground_content = ethereal.cavedirt,
+	groups = {crumbly = 3, soil = 1},
+	soil = {
+		base = "ethereal:mud",
+		dry = "farming:soil",
+		wet = "farming:soil_wet"
+	},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.25}
+	})
+})

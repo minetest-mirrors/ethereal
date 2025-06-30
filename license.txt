@@ -22,6 +22,9 @@ THE SOFTWARE.
 
 Textures by TenPlus1 (CC0) unless listed below...
 
+Textures by XSSeep (CC BY-SA 4.0):
+  mcl_mangrove_*.png
+
 Textures by Hugues Ross (CC BY-SA 4.0):
   ethereal_strawberry*.png
   ethereal_wild_onion*.png

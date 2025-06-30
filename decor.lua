@@ -634,3 +634,18 @@ register_decoration(1, {
 	sidelen = 16, fill_ratio = 0.004,
 	biomes = {"grassland"},
 	decoration = {"xanadu:poppy"}})
+
+-- mangrove swamp deco
+
+register_decoration(ethereal.mangrove, {
+	place_on = "ethereal:mud",
+	fill_ratio = 0.008,
+	biomes = {"mangrove"},
+	decoration = "ethereal:bamboo", height_max = 4})
+
+register_decoration(ethereal.mangrove, {
+	place_on = {"ethereal:mud"},
+	sidelen = 16, fill_ratio = 0.25, y_min = 1, y_max = 7,
+	biomes = {"mangrove", "mangrove_shore"},
+	decoration = {"default:dry_bush", "default:junglegrass", "default:grass_5",
+			"default:fern_1", "default:fern_2", "default:fern_3" } })

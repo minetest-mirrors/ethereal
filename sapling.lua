@@ -31,6 +31,33 @@ local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
 	return core.item_place_node(itemstack, placer, pointed_thing)
 end
 
+-- Mangrove
+
+core.register_node("ethereal:mangrove_sapling", {
+	description = S("Mangrove Sapling"),
+	drawtype = "plantlike",
+	tiles = {"mcl_mangrove_propagule.png"},
+	inventory_image = "mcl_mangrove_propagule.png",
+	wield_image = "mcl_mangrove_propagule.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	groups = {
+		snappy = 3, attached_node = 1, flammable = 2,
+		dig_immediate = 3, ethereal_sapling = 1, sapling = 1,
+	},
+	sounds = default.node_sound_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -0.1, 3 / 16}
+	},
+	grown_height = 14,
+
+	on_place = function(itemstack, placer, pointed_thing)
+		return prepare_on_place(itemstack, placer, pointed_thing,
+				"ethereal:mangrove_sapling", 5, 14)
+	end
+})
+
 -- Basandra Bush Sapling
 
 core.register_node("ethereal:basandra_bush_sapling", {
@@ -150,6 +177,10 @@ end
 local path = core.get_modpath("ethereal") .. "/schematics/"
 
 -- global tree grow functions
+
+function ethereal.grow_mangrove_tree(pos)
+	add_tree(pos, ethereal.mangrove_tree)
+end
 
 function ethereal.grow_basandra_bush(pos)
 	add_tree(pos, ethereal.basandrabush)
@@ -304,6 +335,9 @@ function ethereal.grow_sapling(pos, node)
 
 	elseif node.name == "ethereal:olive_tree_sapling"
 	and under == "ethereal:grove_dirt" then ethereal.grow_olive_tree(pos)
+
+	elseif node.name == "ethereal:mangrove_sapling"
+	and under == "ethereal:mud" then ethereal.grow_mangrove_tree(pos)
 
 	elseif node.name == "ethereal:lemon_tree_sapling"
 	and under == "ethereal:grove_dirt" then ethereal.grow_lemon_tree(pos) end

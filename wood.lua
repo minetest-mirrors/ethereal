@@ -72,6 +72,65 @@ core.register_craft({
 	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
 })
 
+-- Mangrove
+
+tmp = "ethereal:mangrove_tree"
+
+core.register_node(tmp, {
+	description = S("Mangrove Trunk"),
+	tiles = {
+		"mcl_mangrove_log_top.png",
+		"mcl_mangrove_log_top.png",
+		"mcl_mangrove_log.png"
+	},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+	on_place = core.rotate_node
+})
+
+add_wood("ethereal:mangrove_wood", {
+	description = S("Mangrove Wood"),
+	tiles = {"mcl_mangrove_planks.png"},
+	is_ground_content = false,
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir"
+})
+
+core.register_craft({
+	output = "ethereal:mangrove_wood 4", recipe = {{tmp}}
+})
+
+core.register_node("ethereal:all_faces_mangrove_trunk", {
+	description = S("All-faces") .. " " .. S("Mangrove Trunk"),
+	tiles = {"mcl_mangrove_log_top.png"},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults()
+})
+
+core.register_craft({
+	output = "ethereal:all_faces_mangrove_trunk 8",
+	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+})
+
+-- mangrove roots
+
+core.register_node("ethereal:mangrove_roots", {
+	description = S("Mangrove Roots"),
+	waving = 0,
+	place_param2 = 1, -- Prevent leafdecay for placed nodes
+	tiles = {
+		"mcl_mangrove_roots_top.png",
+		"mcl_mangrove_roots_side.png",
+		"mcl_mangrove_roots_side.png",
+	},
+	paramtype = "light",
+	drawtype = "allfaces_optional",
+	groups = {snappy = 3, choppy = 3, flammable = 3},
+	sounds = default.node_sound_wood_defaults(),
+})
+
 -- willow
 
 tmp = "ethereal:willow_trunk"
