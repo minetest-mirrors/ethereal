@@ -101,6 +101,7 @@ who helped make this mod bigger and better throughout it's release :)
 
 ### 1.33
  - Added Mangrove biome (based on mineclonia)
+ - Added Mangrove wooden doors, fences, stairs
  - Added new lucky blocks
 
 ### 1.32
