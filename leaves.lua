@@ -11,13 +11,24 @@ if ethereal.leaftype ~= 0 then
 	leafscale = 1.0
 end
 
+-- leaf texture helper
+
+local function l_tex(tex)
+
+	if leaftype == "allfaces_optional" then
+		return core.inventorycube(tex) -- 3d
+	end
+
+	return tex -- plantlike
+end
+
 -- default apple tree leaves
 
 core.override_item("default:leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
-	inventory_image = "default_leaves.png",
-	wield_image = "default_leaves.png",
+	inventory_image = l_tex("default_leaves.png"),
+	wield_image = l_tex("default_leaves.png"),
 	walkable = ethereal.leafwalk
 })
 
@@ -33,8 +44,8 @@ core.register_craft({
 core.override_item("default:jungleleaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
-	inventory_image = "default_jungleleaves.png",
-	wield_image = "default_jungleleaves.png",
+	inventory_image = l_tex("default_jungleleaves.png"),
+	wield_image = l_tex("default_jungleleaves.png"),
 	walkable = ethereal.leafwalk
 })
 
@@ -43,8 +54,8 @@ core.override_item("default:jungleleaves", {
 core.override_item("default:pine_needles", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
-	inventory_image = "default_pine_needles.png",
-	wield_image = "default_pine_needles.png",
+	inventory_image = l_tex("default_pine_needles.png"),
+	wield_image = l_tex("default_pine_needles.png"),
 	walkable = ethereal.leafwalk,
 	drop = {
 		max_items = 1,
@@ -60,8 +71,8 @@ core.override_item("default:pine_needles", {
 
 core.override_item("default:acacia_leaves", {
 	drawtype = leaftype,
-	inventory_image = "default_acacia_leaves.png",
-	wield_image = "default_acacia_leaves.png",
+	inventory_image = l_tex("default_acacia_leaves.png"),
+	wield_image = l_tex("default_acacia_leaves.png"),
 	visual_scale = leafscale,
 	walkable = ethereal.leafwalk
 })
@@ -70,13 +81,13 @@ core.override_item("default:acacia_leaves", {
 
 core.override_item("default:aspen_leaves", {
 	drawtype = leaftype,
-	inventory_image = "default_aspen_leaves.png",
-	wield_image = "default_aspen_leaves.png",
+	inventory_image = l_tex("default_aspen_leaves.png"),
+	wield_image = l_tex("default_aspen_leaves.png"),
 	visual_scale = leafscale,
 	walkable = ethereal.leafwalk
 })
 
--- willow twig
+-- willow twig (always shows as plantlike)
 
 core.register_node("ethereal:willow_twig", {
 	description = S("Willow Twig"),
@@ -107,8 +118,8 @@ core.register_node("ethereal:redwood_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_redwood_leaves.png"},
-	inventory_image = "ethereal_redwood_leaves.png",
-	wield_image = "ethereal_redwood_leaves.png",
+	inventory_image = l_tex("ethereal_redwood_leaves.png"),
+	wield_image = l_tex("ethereal_redwood_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -131,8 +142,8 @@ core.register_node("ethereal:orange_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_orange_leaves.png"},
-	inventory_image = "ethereal_orange_leaves.png",
-	wield_image = "ethereal_orange_leaves.png",
+	inventory_image = l_tex("ethereal_orange_leaves.png"),
+	wield_image = l_tex("ethereal_orange_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -155,8 +166,8 @@ core.register_node("ethereal:bananaleaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_banana_leaf.png"},
-	inventory_image = "ethereal_banana_leaf.png",
-	wield_image = "ethereal_banana_leaf.png",
+	inventory_image = l_tex("ethereal_banana_leaf.png"),
+	wield_image = l_tex("ethereal_banana_leaf.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -179,8 +190,8 @@ core.register_node("ethereal:yellowleaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_yellow_leaves.png"},
-	inventory_image = "ethereal_yellow_leaves.png",
-	wield_image = "ethereal_yellow_leaves.png",
+	inventory_image = l_tex("ethereal_yellow_leaves.png"),
+	wield_image = l_tex("ethereal_yellow_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -205,8 +216,8 @@ core.register_node("ethereal:palmleaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"moretrees_palm_leaves.png"},
-	inventory_image = "moretrees_palm_leaves.png",
-	wield_image = "moretrees_palm_leaves.png",
+	inventory_image = l_tex("moretrees_palm_leaves.png"),
+	wield_image = l_tex("moretrees_palm_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -229,8 +240,8 @@ core.register_node("ethereal:birch_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"moretrees_birch_leaves.png"},
-	inventory_image = "moretrees_birch_leaves.png",
-	wield_image = "moretrees_birch_leaves.png",
+	inventory_image = l_tex("moretrees_birch_leaves.png"),
+	wield_image = l_tex("moretrees_birch_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -253,8 +264,8 @@ core.register_node("ethereal:frost_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_frost_leaves.png"},
-	inventory_image = "ethereal_frost_leaves.png",
-	wield_image = "ethereal_frost_leaves.png",
+	inventory_image = l_tex("ethereal_frost_leaves.png"),
+	wield_image = l_tex("ethereal_frost_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -278,8 +289,8 @@ core.register_node("ethereal:bamboo_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_bamboo_leaves.png"},
-	inventory_image = "ethereal_bamboo_leaves.png",
-	wield_image = "ethereal_bamboo_leaves.png",
+	inventory_image = l_tex("ethereal_bamboo_leaves.png"),
+	wield_image = l_tex("ethereal_bamboo_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -302,8 +313,8 @@ core.register_node("ethereal:sakura_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_sakura_leaves.png"},
-	inventory_image = "ethereal_sakura_leaves.png",
-	wield_image = "ethereal_sakura_leaves.png",
+	inventory_image = l_tex("ethereal_sakura_leaves.png"),
+	wield_image = l_tex("ethereal_sakura_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -324,8 +335,8 @@ core.register_node("ethereal:sakura_leaves2", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_sakura_leaves2.png"},
-	inventory_image = "ethereal_sakura_leaves2.png",
-	wield_image = "ethereal_sakura_leaves2.png",
+	inventory_image = l_tex("ethereal_sakura_leaves2.png"),
+	wield_image = l_tex("ethereal_sakura_leaves2.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -348,8 +359,8 @@ core.register_node("ethereal:lemon_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_lemon_leaves.png"},
-	inventory_image = "ethereal_lemon_leaves.png",
-	wield_image = "ethereal_lemon_leaves.png",
+	inventory_image = l_tex("ethereal_lemon_leaves.png"),
+	wield_image = l_tex("ethereal_lemon_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -372,8 +383,8 @@ core.register_node("ethereal:olive_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"ethereal_olive_leaves.png"},
-	inventory_image = "ethereal_olive_leaves.png",
-	wield_image = "ethereal_olive_leaves.png",
+	inventory_image = l_tex("ethereal_olive_leaves.png"),
+	wield_image = l_tex("ethereal_olive_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
@@ -396,8 +407,8 @@ core.register_node("ethereal:mangrove_leaves", {
 	drawtype = leaftype,
 	visual_scale = leafscale,
 	tiles = {"mcl_mangrove_leaves.png"},
-	inventory_image = "mcl_mangrove_leaves.png",
-	wield_image = "mcl_mangrove_leaves.png",
+	inventory_image = l_tex("mcl_mangrove_leaves.png"),
+	wield_image = l_tex("mcl_mangrove_leaves.png"),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
