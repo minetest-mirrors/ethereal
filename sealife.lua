@@ -87,10 +87,6 @@ core.register_node("ethereal:seaweed_rooted", {
 	on_use = core.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_dig_node = function(pos, node, metadata, digger)
-		core.set_node(pos, {name = "default:sand"})
-	end,
-
 	on_place = function(itemstack, placer, pointed_thing) -- do not place rooted seaweed
 		return itemstack
 	end,
@@ -107,11 +103,14 @@ core.register_node("ethereal:seaweed_rooted", {
 		local leftover = inv:add_item("main", stack)
 		local count = leftover:get_count()
 
-		core.set_node(pos, {name = "default:sand"})
+		if math.random(2) == 1 then
+			core.set_node(pos, {name = "default:sand"})
+		else
+			core.set_node(pos, {name = "ethereal:sandy"})
+		end
 
 		if count > 0 then
-			pos.y = pos.y + 1
-			core.add_item(pos, "ethereal:seaweed " .. tonumber(count))
+			pos.y = pos.y + 1 ; core.add_item(pos, "ethereal:seaweed " .. tonumber(count))
 		end
 	end
 })
@@ -197,7 +196,12 @@ local function register_coral(name, description, texture)
 		local res = core.node_dig(pos, node, digger)
 
 		if res == true then
-			core.set_node(pos, {name = "default:sand"})
+
+			if math.random(2) == 1 then
+				core.set_node(pos, {name = "default:sand"})
+			else
+				core.set_node(pos, {name = "ethereal:sandy"})
+			end
 		end
 
 		return res
@@ -312,6 +316,18 @@ core.register_craft({
 		{"ethereal:slime_mold", "ethereal:slime_mold", "ethereal:slime_mold"},
 	}
 })
+
+if core.get_modpath("bonemeal") then
+
+	minetest.register_craft({
+		output = "ethereal:sandy",
+		recipe = {
+			{"bonemeal:mulch", "bonemeal:mulch", "bonemeal:mulch"},
+			{"bonemeal:mulch", "default:silver_sand", "bonemeal:mulch"},
+			{"bonemeal:mulch", "bonemeal:mulch", "bonemeal:mulch"}
+		}
+	})
+end
 
 -- randomly generate coral or seaweed and have seaweed grow up to 14 high
 

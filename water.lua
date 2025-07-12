@@ -101,6 +101,30 @@ core.register_abm({
 	end
 })
 
+core.register_abm({
+	label = "Ethereal thin ice",
+	nodenames = {"default:snow"},
+	neighbors = {"default:water_source", "default:river_water_source"},
+	interval = 15,
+	chance =  4,
+	catch_up = false,
+
+	action = function(pos, node)
+
+		local near = core.find_node_near(pos, 1,
+				{"default:water_source", "default:river_water_source"})
+
+		if near then
+
+			near.y = near.y + 1
+
+			if core.get_node(near).name == "air" then
+				core.swap_node(near, {name = "ethereal:thin_ice"})
+			end
+		end
+	end
+})
+
 -- If Heat Source near Ice or Snow then melt.
 
 core.register_abm({
