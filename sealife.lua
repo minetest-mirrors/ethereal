@@ -27,6 +27,20 @@ core.register_node("ethereal:seaweed", {
 
 	on_place = function(itemstack, placer, pointed_thing)
 
+		if pointed_thing.type == "node" then
+
+			local under = core.get_node(pointed_thing.under)
+
+			-- am I right-clicking on something that has a custom on_place set?
+			-- thanks to Krock for helping with this issue :)
+			local def = core.registered_nodes[under.name]
+
+			if placer and itemstack and def and def.on_rightclick then
+				return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
+						pointed_thing)
+			end
+		end
+
 		local pname = placer:get_player_name()
 		local pos = pointed_thing.above
 		local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
@@ -163,6 +177,20 @@ local coral_nodes = {}
 local function register_coral(name, description, texture)
 
 	local function plantlike_on_place(itemstack, placer, pointed_thing)
+
+		if pointed_thing.type == "node" then
+
+			local under = core.get_node(pointed_thing.under)
+
+			-- am I right-clicking on something that has a custom on_place set?
+			-- thanks to Krock for helping with this issue :)
+			local def = core.registered_nodes[under.name]
+
+			if placer and itemstack and def and def.on_rightclick then
+				return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
+						pointed_thing)
+			end
+		end
 
 		local pname = placer:get_player_name()
 		local pos = pointed_thing.above
