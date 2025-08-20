@@ -66,7 +66,7 @@ register_decoration(ethereal.mangrove, {
 register_decoration(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
 	sidelen = 80, fill_ratio = 0.023, y_min = 1, y_max = 6,
-	biomes = {"MangroveSwamp","MangroveSwamp_shore"},
+	biomes = {"mangrove", "mangrove_shore"},
 	schematic = ethereal.mangrove_tree,
 	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
 
@@ -404,7 +404,7 @@ register_decoration((core.registered_nodes["default:pine_bush"] and 1), {
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 137, octaves = 3, persist = 0.7},
-	biomes = {"taiga", "snowy_grassland"},
+	biomes = {"taiga", old and "taiga" or "snowy_grassland"},
 	schematic = dpath .. "pine_bush.mts"})
 
 -- default blueberry bush
@@ -417,7 +417,7 @@ register_decoration((core.registered_nodes["default:blueberry_bush_leaves"] and 
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 697, octaves = 3, persist = 0.7},
-	biomes = {"coniferous_forest", "taiga", "snowy_grassland"},
+	biomes = {"coniferous_forest", "taiga", old and "taiga" or "snowy_grassland"},
 	schematic = dpath .. "blueberry_bush.mts", place_offset_y = 1})
 
 -- place waterlily in beach areas

@@ -590,7 +590,13 @@ register_biome(ethereal.tundra, {
 
 -- only register when using new mapgen
 
-if not old then
+if old then
+
+	-- when using old biome layout, new biomes are disabled
+	ethereal.cold_desert = 0
+	ethereal.snowy_grassland = 0
+	ethereal.mangrove = 0
+else
 
 	-- cold desert
 

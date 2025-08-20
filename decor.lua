@@ -13,6 +13,10 @@ local function register_decoration(enabled, def)
 	core.register_decoration(def)
 end
 
+-- old biome setting (when enabled new biomes arent available)
+
+local old = core.settings:get_bool("ethereal.old_biomes")
+
 -- ponds
 
 register_decoration(ethereal.mesa, {
@@ -185,7 +189,7 @@ register_decoration(ethereal.snowy, {
 	biomes = {"grayness"},
 	decoration = "ethereal:snowygrass"})
 
-register_decoration(ethereal.snowy, {
+register_decoration(ethereal.cold_desert, {
 	place_on = {"default:silver_sand"},
 	fill_ratio = 0.025,
 	biomes = {"cold_desert"},
@@ -308,7 +312,7 @@ register_decoration(ethereal.alpine, {
 	biomes = {"taiga"},
 	decoration = "default:snow"})
 
-register_decoration(1, {
+register_decoration(ethereal.snowy_grassland, {
 	place_on = {"ethereal:cold_dirt"},
 	fill_ratio = 0.8, y_min = 2, y_max = 40,
 	biomes = {"snowy_grassland"},
@@ -493,7 +497,7 @@ register_decoration(1, {
 	noise_params = {offset = -0.04, scale = 0.1, spread = {x = 200, y = 200, z = 200},
 			seed = 87112, octaves = 3, persist = 0.7},
 	biomes = {"frost_ocean", "deciduous_forest_ocean", "sandstone_desert_ocean",
-			"swamp_ocean", "snowy_grassland_ocean"},
+			"swamp_ocean", old and "swamp_ocean" or "snowy_grassland_ocean"},
 	flags = "force_placement",
 	decoration = "default:sand_with_kelp", place_offset_y = -1,
 	param2 = 48, param2_max = 96})
