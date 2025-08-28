@@ -107,6 +107,8 @@ core.register_node("ethereal:seaweed_rooted", {
 
 	on_dig = function(pos, node, digger)
 
+		if core.is_protected(pos, digger:get_player_name()) then return end
+
 		local p2 = node.param2 or 16
 		local num = math_max(1, math_floor(p2 / 16))
 		local inv = digger and digger:get_inventory()
