@@ -15,7 +15,7 @@ lucky_block:add_schematics({
 	{"mushroomone", ethereal.mushroomone, {x = 4, y = 0, z = 4}},
 	{"mushroomtwo", ethereal.mushroomtwo, {x = 1, y = 0, z = 1}},
 	{"underspike", ethereal.desertstone_under_spike, {x = 1, y = 0, z = 1}},
-	{"ethereal_pond", ethereal.pond, {x = 6, y = 2, z = 7}},
+	{"ethereal_pond", ethereal.pond, {x = 6, y = 1, z = 7}},
 	{"mangrovetree", ethereal.mangrove_tree, {x = 5, y = 0, z = 5}},
 })
 

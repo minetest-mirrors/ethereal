@@ -1,15 +1,15 @@
 
 local _ = {name = "air", param1 = 0}
-local a = {name = "air", param1 = 255, force_place = true}
-local w = {name = "default:river_water_source", param1 = 255, force_place = true}
-local C = {name = "default:clay", param1 = 255, force_place = true}
-local D = {name = "default:dirt", param1 = 255, force_place = true}
-local M = {name = "default:mossycobble", param1 = 127, force_place = true}
-local e = {name = "ethereal:bush2", param1 = 127, force_place = true}
-local f = {name = "default:fern_1", param1 = 127, force_place = true}
-local g = {name = "default:fern_2", param1 = 127, force_place = true}
-local h = {name = "default:fern_3", param1 = 127, force_place = true}
-local i = {name = "default:grass_4", param1 = 127, force_place = true}
+local a = {name = "air", param1 = 255}
+local w = {name = "default:river_water_source", param1 = 255}
+local C = {name = "default:clay", param1 = 255}
+local D = {name = "default:dirt", param1 = 255}
+local M = {name = "default:mossycobble", param1 = 127}
+local e = {name = "ethereal:bush2", param1 = 127}
+local f = {name = "default:fern_1", param1 = 127}
+local g = {name = "default:fern_2", param1 = 127}
+local h = {name = "default:fern_3", param1 = 127}
+local i = {name = "default:grass_4", param1 = 127}
 
 
 ethereal.pond = {
@@ -89,7 +89,7 @@ core.register_abm({
 
 			pos.y = pos.y - 1
 
-			core.place_schematic(pos, ethereal.pond, "random", nil, false,
+			core.place_schematic(pos, ethereal.pond, "random", nil, true,
 					"place_center_x, place_center_z")
 		end
 	end
