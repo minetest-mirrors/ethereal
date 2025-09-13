@@ -118,7 +118,7 @@ core.register_craft({
 
 core.register_node("ethereal:mangrove_roots", {
 	description = S("Mangrove Roots"),
-	waving = 0,
+	waving = 0, walkable = false, climbable = true,
 	place_param2 = 1, -- Prevent leafdecay for placed nodes
 	tiles = {
 		"mcl_mangrove_roots_top.png",
