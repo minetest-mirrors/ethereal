@@ -4,13 +4,13 @@ local w = {name = "ethereal:vine", prob = 254, param2 = 2}
 local W = {name = "ethereal:vine", prob = 254, param2 = 5}
 local v = {name = "ethereal:vine", prob = 254, param2 = 4}
 local V = {name = "ethereal:vine", prob = 254, param2 = 3}
-local l = {name = "ethereal:mangrove_leaves", prob = 254}
+local l = {name = "ethereal:mangrove_leaves", prob = 254, param2 = 0}
 local t = {name = "ethereal:mangrove_tree", prob = 254, param2 = 8}
 local T = {name = "ethereal:mangrove_tree", prob = 254, param2 = 2}
 local i = {name = "ethereal:mangrove_tree", prob = 254, param2 = 18}
 local I = {name = "ethereal:mangrove_tree", prob = 254, param2 = 0}
 local m = {name = "ethereal:mangrove_tree", prob = 254, param2 = 12}
-local r = {name = "ethereal:mangrove_roots", prob = 254}
+local r = {name = "ethereal:mangrove_roots", prob = 254, param2 = 0}
 
 ethereal.mangrove_tree = {
 
@@ -184,8 +184,8 @@ local v = {name = "ethereal:vine", prob = 254, param2 = 4}
 local V = {name = "ethereal:vine", prob = 254, param2 = 2}
 local w = {name = "ethereal:vine", prob = 254, param2 = 3}
 local W = {name = "ethereal:vine", prob = 254, param2 = 5}
-local r = {name = "ethereal:mangrove_roots", prob = 254, param2 = 1}
-local l = {name = "ethereal:mangrove_leaves", prob = 254, param2 = 1}
+local r = {name = "ethereal:mangrove_roots", prob = 254, param2 = 0}
+local l = {name = "ethereal:mangrove_leaves", prob = 254, param2 = 0}
 local t = {name = "ethereal:mangrove_tree", prob = 254, param2 = 6}
 local T = {name = "ethereal:mangrove_tree", prob = 254, param2 = 0}
 local i = {name = "ethereal:mangrove_tree", prob = 254, param2 = 12}
