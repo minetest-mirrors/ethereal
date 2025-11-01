@@ -196,7 +196,8 @@ end
 core.register_craftitem("ethereal:palm_wax", {
 	description = S("Palm Wax"),
 	inventory_image = "ethereal_palm_wax.png",
-	wield_image = "ethereal_palm_wax.png"
+	wield_image = "ethereal_palm_wax.png",
+	groups = {wax = 1}
 })
 
 core.register_craft({
@@ -297,8 +298,8 @@ core.register_craft({
 	output = "ethereal:candle 2",
 	recipe = {
 		{"farming:string"},
-		{"ethereal:palm_wax"},
-		{"ethereal:palm_wax"}
+		{"group:wax"},
+		{"group:wax"}
 	}
 })
 
