@@ -67,6 +67,8 @@ local replace_with = {
 	"air", "air", "air", "air", "default:dry_grass_2", "default:dry_shrub",
 	"default:grass_2", "default:fern_1", "air", "air", "default:dry_shrub"}
 
+local pond_chance = tonumber(core.settings:get("ethereal.pond_chance")) or 1
+
 core.register_abm({
 	label = "Ethereal pond",
 	nodenames = {"ethereal:pond"},
@@ -85,7 +87,7 @@ core.register_abm({
 				{x = pos.x - radius, y = pos.y, z = pos.z - radius},
 				{x = pos.x + radius, y = pos.y, z = pos.z + radius}, "group:bakedclay")
 
-		if num > 200 then
+		if num > 200 and math.random(pond_chance) == 1 then
 
 			pos.y = pos.y - 1
 

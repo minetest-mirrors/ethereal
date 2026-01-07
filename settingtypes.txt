@@ -49,3 +49,5 @@ ethereal.abundant_onions (Abundant Onions) bool true
 ethereal.sapling_protection_check (Check for area protection before placing sapling) bool false
 
 ethereal.old_biomes (Use old biome settings) bool false
+
+ethereal.pond_chance (Chance of mesa pond spawning) int 1
