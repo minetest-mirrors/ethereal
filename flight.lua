@@ -9,11 +9,9 @@ local timer_check = 5 -- seconds per check
 
 local function get_timer(user)
 
-	if not user then return end
+	local meta = user and user:get_meta()
 
-	local meta = user:get_meta() ; if not meta then return "" end
-
-	return meta:get_string("ethereal:fly_timer") or ""
+	return meta and meta:get_string("ethereal:fly_timer") or ""
 end
 
 -- do we have fly privs
@@ -56,10 +54,7 @@ local function ethereal_set_flight(user)
 
 	-- if timer ran out then remove 'fly' privelage
 	if timer <= 0 and timer ~= -99 then
-
-		set_flight(user, nil)
-
-		return
+		set_flight(user, nil) ; return
 	end
 
 	local privs = core.get_player_privs(name)
@@ -101,10 +96,7 @@ core.register_on_joinplayer(function(player)
 
 		-- if timer is blank and player can already fly then default and return
 		if timer == "" and has_fly(name) then
-
-			set_timer(player, "-99")
-
-			return
+			set_timer(player, "-99") ; return
 		end
 
 		timer = tonumber(timer) or 0
@@ -119,7 +111,6 @@ core.register_on_joinplayer(function(player)
 				ethereal_set_flight(player)
 			end)
 		end
-
 	end, player)
 end)
 
