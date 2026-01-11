@@ -83,7 +83,7 @@ core.register_node("ethereal:fire_flower", {
 	walkable = false,
 	buildable_to = true,
 	damage_per_second = 2,
-	groups = {snappy = 1, oddly_breakable_by_hand = 3, igniter = 2},
+	groups = {snappy = 1, oddly_breakable_by_hand = 3, igniter = 2, falling_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed", fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 1 / 2, 5 / 16}
