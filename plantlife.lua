@@ -306,7 +306,7 @@ core.register_craft({
 
 -- moss helper function
 
-local function add_moss(typ, descr, texture, receipe_item)
+local function add_moss(typ, descr, texture, recipe_item)
 
 	core.register_node("ethereal:" .. typ .. "_moss", {
 		description = S(descr .. " Moss"),
@@ -318,7 +318,7 @@ local function add_moss(typ, descr, texture, receipe_item)
 
 	core.register_craft({
 		output = "ethereal:" .. typ .. "_moss",
-		recipe = {{"default:dirt", receipe_item}}
+		recipe = {{recipe_item, "default:dirt", recipe_item}}
 	})
 end
 
@@ -330,6 +330,7 @@ add_moss("fiery", "Fiery", "ethereal_grass_fiery_top.png", "ethereal:dry_shrub")
 add_moss("gray", "Gray", "ethereal_grass_gray_top.png", "ethereal:snowygrass")
 add_moss("green", "Green", "default_grass.png", "default:jungleleaves")
 add_moss("bamboo", "Bamboo", "ethereal_grass_bamboo_top.png", "ethereal:bamboo_leaves")
+add_moss("prairie", "Prairie", "ethereal_grass_prairie_top.png", "ethereal:orange_leaves")
 
 -- shroom helper function
 
