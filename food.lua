@@ -280,7 +280,7 @@ core.register_craftitem("ethereal:bucket_cactus", {
 	on_use = core.item_eat(2, "bucket:bucket_empty"),
 })
 
-ethereal.add_eatable("ethereal:bucket_cactus", 2)
+ethereal.add_eatable("ethereal:bucket_cactus", 2, 3)
 
 core.register_craft({
 	output = "ethereal:bucket_cactus",
@@ -381,7 +381,7 @@ core.register_node("ethereal:lemonade", {
 	sounds = default.node_sound_glass_defaults()
 })
 
-ethereal.add_eatable("ethereal:lemonade", 5)
+ethereal.add_eatable("ethereal:lemonade", 5, 3)
 
 core.register_craft({
 	output = "ethereal:lemonade",
@@ -573,7 +573,7 @@ core.register_craftitem("ethereal:mushroom_soup", {
 	on_use = core.item_eat(5, bowl)
 })
 
-ethereal.add_eatable("ethereal:mushroom_soup", 5)
+ethereal.add_eatable("ethereal:mushroom_soup", 5, 3)
 
 core.register_craft({
 	output = "ethereal:mushroom_soup",

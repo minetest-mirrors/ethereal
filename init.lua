@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20250630"}
+ethereal = {version = "20260122"}
 
 -- setting helper
 
@@ -96,7 +96,7 @@ end
 
 -- helper function to add {eatable} group to food items
 
-function ethereal.add_eatable(item, hp)
+function ethereal.add_eatable(item, hp, ftype)
 
 	local def = core.registered_items[item]
 
@@ -104,7 +104,7 @@ function ethereal.add_eatable(item, hp)
 
 		local groups = table.copy(def.groups) or {}
 
-		groups.eatable = hp ; groups.flammable = 2
+		groups.eatable = hp ; groups.flammable = 2 ; groups.food = ftype or 2
 
 		core.override_item(item, {groups = groups})
 	end
