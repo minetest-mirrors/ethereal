@@ -17,6 +17,21 @@ end
 
 local old = core.settings:get_bool("ethereal.old_biomes")
 
+-- magical forest grasses
+
+register_decoration(ethereal.magical_forest, {
+	place_on = "ethereal:magical_dirt",
+	fill_ratio = 0.2, y_min = 3, y_max = 42,
+	biomes = {"magical_forest"},
+	decoration = {"ethereal:magical_grass"} })
+
+register_decoration(ethereal.magical_forest, {
+	place_on = "ethereal:magical_dirt",
+	fill_ratio = 0.02, y_min = 3, y_max = 42,
+	biomes = {"magical_forest"},
+	decoration = {"flowers:rose", "flowers:geranium", "flowers:tulip", "ethereal:onion_4",
+			"flowers:danelion", "flowers;viola", "flowers:dandelion_yellow"} })
+
 -- ponds
 
 register_decoration(ethereal.mesa, {

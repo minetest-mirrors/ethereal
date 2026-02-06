@@ -19,7 +19,7 @@ TODO:
 
 #### Lucky Blocks
 
-It provides 68 new lucky blocks if the mod is detected.
+It provides 72 new lucky blocks if the mod is detected.
 
 ## Technical info
 -----------------
@@ -87,6 +87,7 @@ Also those more as optional:
 | ethereal.tundra                | Tundra biome, 1=on / 0=off        | int  | 1 |
 | ethereal.mediterranean         | Mediterranean biome, 1=on / 0=off | int  | 1 |
 | ethereal.mangrove              | Mangrove biome, 1=on / 0=off      | int  | 1 |
+| ethereal.magical_forest        | Magical forest biome, 1=on / 0=off| int  | 1 |
 | ethereal.flightpotion_duration | Flight Potion Duration seconds    | int  | 300 |
 | ethereal.pond_chance           | Chance of mesa pond appearing     | int  | 1 |
 
@@ -105,6 +106,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Added Mangrove wooden doors, fences, stairs
  - Added new lucky blocks
  - Added 'ethereal.pond_chance' when spawning ponds in Mesa biomes [Default: 1]
+ - Added Magical Forest biome
 
 ### 1.32
  - Add {eatable} groups to food items

@@ -596,6 +596,7 @@ if old then
 	ethereal.cold_desert = 0
 	ethereal.snowy_grassland = 0
 	ethereal.mangrove = 0
+	ethereal.magical_forest = 0
 else
 
 	-- cold desert
@@ -632,6 +633,21 @@ else
 		name = "snowy_grassland_ocean",
 		node_dust = "default:snow",
 		heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
+		node_top = "default:sand", depth_top = 1,
+		node_filler = "default:sand", depth_filler = 3,
+		vertical_blend = 1})
+
+	-- magical forest
+
+	register_biome(ethereal.magical_forest, {
+		name = "magical_forest",
+		heat_point = 40, humidity_point = 115, y_min = 3, y_max = 30,
+		node_top = "ethereal:magical_dirt", depth_top = 1,
+		node_filler = "default:dirt", depth_filler = 3})
+
+	register_biome(ethereal.magical_forest, {
+		name = "magical_forest_ocean",
+		heat_point = 40, humidity_point = 115, y_min = -192, y_max = 2,
 		node_top = "default:sand", depth_top = 1,
 		node_filler = "default:sand", depth_filler = 3,
 		vertical_blend = 1})

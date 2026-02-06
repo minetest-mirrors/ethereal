@@ -34,6 +34,8 @@ ethereal.tundra (Tundra biome, 1 = Enable / 0 = Disable) int 1
 ethereal.mediterranean (Mediterranean biome, 1 = Enable / 0 = Disable) int 1
 ethereal.cold_desert (Grey sand desert biome, 1 = Enable / 0 = Disable) int 1
 ethereal.snowy_grassland (Snowy grasslands biome, 1 = Enable / 0 = Disable) int 1
+ethereal.mangrove (Mangrove forest biome, 1 = Enable / 0 = Disable) int 1
+ethereal.magical_forest (Magical forest grasslands biome, 1 = Enable / 0 = Disable) int 1
 ethereal.sealife (Coral and Seaweed biome, 1 = Enable / 0 = Disable) int 1
 ethereal.reefs (MT5 Coral biome, 1 = Enable / 0 = Disable) int 1
 ethereal.logs (Tree log decor, 1 = Enable / 0 = Disable) int 1

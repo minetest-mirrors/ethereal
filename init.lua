@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20260122"}
+ethereal = {version = "20260206"}
 
 -- setting helper
 
@@ -66,6 +66,7 @@ setting("number", "mediterranean", 1)
 setting("number", "cold_desert", 1)
 setting("number", "snowy_grassland", 1)
 setting("number", "mangrove", 1)
+setting("number", "magical_forest", 1)
 setting("number", "sealife", 1)
 setting("number", "reefs", 1)
 setting("number", "logs", 1)

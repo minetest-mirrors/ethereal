@@ -54,6 +54,29 @@ end
 
 local old = core.settings:get_bool("ethereal.old_biomes")
 
+-- magical forest trees
+
+register_decoration(ethereal.magical_forest, {
+	place_on = "ethereal:magical_dirt",
+	fill_ratio = 0.01, y_min = 3, y_max = 42,
+	biomes = {"magical_forest"},
+	schematic = ethereal.birchtree,
+	replacements = { ["ethereal:birch_leaves"] = "ethereal:birch_leaves2" } })
+
+register_decoration(ethereal.magical_forest, {
+	place_on = "ethereal:magical_dirt",
+	fill_ratio = 0.01, y_min = 3, y_max = 42,
+	biomes = {"magical_forest"},
+	schematic = ethereal.birchtree,
+	replacements = { ["ethereal:birch_leaves"] = "ethereal:birch_leaves3" } })
+
+register_decoration(ethereal.magical_forest, {
+	place_on = "ethereal:magical_dirt",
+	fill_ratio = 0.01, y_min = 3, y_max = 42,
+	biomes = {"magical_forest"},
+	schematic = ethereal.birchtree,
+	replacements = { ["ethereal:birch_leaves"] = "ethereal:birch_leaves4" } })
+
 -- mangrove tree and waterlily
 
 register_decoration(ethereal.mangrove, {

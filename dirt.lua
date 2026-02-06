@@ -31,7 +31,8 @@ core.register_craft({
 -- ethereal dirt types
 
 local dirts = {
-	"Bamboo", "Jungle", "Grove", "Prairie", "Cold", "Crystal", "Mushroom", "Fiery", "Gray"
+	"Bamboo", "Jungle", "Grove", "Prairie", "Cold", "Crystal", "Mushroom", "Fiery",
+	"Gray", "Magical"
 }
 
 -- loop through and register dirts

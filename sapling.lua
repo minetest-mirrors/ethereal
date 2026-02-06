@@ -157,7 +157,7 @@ register_sapling("ethereal:giant_redwood", "Giant Redwood",
 		"ethereal_giant_redwood_sapling", 7, 33)
 register_sapling("ethereal:redwood", "Redwood", "ethereal_redwood_sapling", 4, 21)
 register_sapling("ethereal:orange_tree", "Orange", "ethereal_orange_tree_sapling", 2, 6)
-register_sapling("ethereal:birch", "Birch", "moretrees_birch_sapling", 2, 7)
+register_sapling("ethereal:birch", "Birch", "moretrees_birch_sapling", 2, 9)
 register_sapling("ethereal:sakura", "Sakura", "ethereal_sakura_sapling", 4, 10)
 register_sapling("ethereal:lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 2, 7)
 register_sapling("ethereal:olive_tree", "Olive", "ethereal_olive_tree_sapling", 3, 10)
@@ -242,6 +242,18 @@ function ethereal.grow_bamboo_tree(pos)
 end
 
 function ethereal.grow_birch_tree(pos)
+
+	if core.find_node_near(pos, 1, {"ethereal:magical_dirt"}) then
+
+		local num = math.random(4)
+
+		if num > 1 then
+			add_tree(pos, ethereal.birchtree,
+					{{"ethereal:birch_leaves", "ethereal:birch_leaves" .. num}})
+			return
+		end
+	end
+
 	add_tree(pos, ethereal.birchtree)
 end
 
@@ -328,7 +340,8 @@ function ethereal.grow_sapling(pos, node)
 	and under == "ethereal:bamboo_dirt" then ethereal.grow_bamboo_tree(pos)
 
 	elseif node.name == "ethereal:birch_sapling"
-	and under == "default:dirt_with_grass" then ethereal.grow_birch_tree(pos)
+	and (under == "default:dirt_with_grass"
+	or under == "ethereal:magical_dirt") then ethereal.grow_birch_tree(pos)
 
 	elseif node.name == "ethereal:sakura_sapling"
 	and under == "ethereal:bamboo_dirt" then ethereal.grow_sakura_tree(pos)
