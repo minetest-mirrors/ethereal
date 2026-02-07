@@ -299,61 +299,66 @@ function ethereal.grow_sapling(pos, node)
 	-- do we have enough height to grow sapling into tree?
 	if not height or not enough_height(pos, height) then return end
 
+	-- default ok and magic dirt check (can grow any ethereal sapling)
+	local ok = false ; if under == "ethereal:magical_dirt" then ok = true end
+
 	-- check if Ethereal Sapling is growing on correct substrate
 	if node.name == "ethereal:basandra_bush_sapling"
-	and under == "ethereal:fiery_dirt" then ethereal.grow_basandra_bush(pos)
+	and (under == "ethereal:fiery_dirt" or ok) then ethereal.grow_basandra_bush(pos)
 
 	elseif node.name == "ethereal:yellow_tree_sapling"
 	and core.get_item_group(under, "soil") > 0 then ethereal.grow_yellow_tree(pos)
 
 	elseif node.name == "ethereal:big_tree_sapling"
-	and under == "default:dirt_with_grass" then ethereal.grow_big_tree(pos)
+	and (under == "default:dirt_with_grass" or ok) then ethereal.grow_big_tree(pos)
 
 	elseif node.name == "ethereal:banana_tree_sapling"
-	and under == "ethereal:grove_dirt" then ethereal.grow_banana_tree(pos)
+	and (under == "ethereal:grove_dirt" or ok) then ethereal.grow_banana_tree(pos)
 
 	elseif node.name == "ethereal:frost_tree_sapling"
-	and under == "ethereal:crystal_dirt" then ethereal.grow_frost_tree(pos)
+	and (under == "ethereal:crystal_dirt" or ok) then ethereal.grow_frost_tree(pos)
 
 	elseif node.name == "ethereal:mushroom_sapling"
-	and under == "ethereal:mushroom_dirt" then ethereal.grow_mushroom_tree(pos)
+	and (under == "ethereal:mushroom_dirt" or ok) then ethereal.grow_mushroom_tree(pos)
 
 	elseif node.name == "ethereal:mushroom_brown_sapling"
-	and under == "ethereal:mushroom_dirt" then ethereal.grow_mushroom_brown_tree(pos)
+	and (under == "ethereal:mushroom_dirt" or ok) then
+			ethereal.grow_mushroom_brown_tree(pos)
 
 	elseif node.name == "ethereal:palm_sapling"
-	and under == "default:sand" then ethereal.grow_palm_tree(pos)
+	and (under == "default:sand" or ok) then ethereal.grow_palm_tree(pos)
 
 	elseif node.name == "ethereal:willow_sapling"
-	and under == "ethereal:gray_dirt" then ethereal.grow_willow_tree(pos)
+	and (under == "ethereal:gray_dirt" or ok) then ethereal.grow_willow_tree(pos)
 
 	elseif node.name == "ethereal:redwood_sapling"
-	and under == "default:dirt_with_dry_grass" then ethereal.grow_redwood_tree(pos)
+	and (under == "default:dirt_with_dry_grass" or ok) then
+			ethereal.grow_redwood_tree(pos)
 
 	elseif node.name == "ethereal:giant_redwood_sapling"
-	and under == "default:dirt_with_dry_grass" then ethereal.grow_giant_redwood_tree(pos)
+	and (under == "default:dirt_with_dry_grass" or ok) then
+			ethereal.grow_giant_redwood_tree(pos)
 
 	elseif node.name == "ethereal:orange_tree_sapling"
-	and under == "ethereal:prairie_dirt" then ethereal.grow_orange_tree(pos)
+	and (under == "ethereal:prairie_dirt" or ok) then ethereal.grow_orange_tree(pos)
 
 	elseif node.name == "ethereal:bamboo_sprout"
-	and under == "ethereal:bamboo_dirt" then ethereal.grow_bamboo_tree(pos)
+	and (under == "ethereal:bamboo_dirt" or ok) then ethereal.grow_bamboo_tree(pos)
 
 	elseif node.name == "ethereal:birch_sapling"
-	and (under == "default:dirt_with_grass"
-	or under == "ethereal:magical_dirt") then ethereal.grow_birch_tree(pos)
+	and (under == "default:dirt_with_grass" or ok) then ethereal.grow_birch_tree(pos)
 
 	elseif node.name == "ethereal:sakura_sapling"
-	and under == "ethereal:bamboo_dirt" then ethereal.grow_sakura_tree(pos)
+	and (under == "ethereal:bamboo_dirt" or ok) then ethereal.grow_sakura_tree(pos)
 
 	elseif node.name == "ethereal:olive_tree_sapling"
-	and under == "ethereal:grove_dirt" then ethereal.grow_olive_tree(pos)
+	and (under == "ethereal:grove_dirt" or ok) then ethereal.grow_olive_tree(pos)
 
 	elseif node.name == "ethereal:mangrove_sapling"
-	and under == "ethereal:mud" then ethereal.grow_mangrove_tree(pos)
+	and (under == "ethereal:mud" or ok) then ethereal.grow_mangrove_tree(pos)
 
 	elseif node.name == "ethereal:lemon_tree_sapling"
-	and under == "ethereal:grove_dirt" then ethereal.grow_lemon_tree(pos) end
+	and (under == "ethereal:grove_dirt" or ok) then ethereal.grow_lemon_tree(pos) end
 end
 
 -- grow saplings Abm

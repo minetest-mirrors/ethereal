@@ -266,6 +266,9 @@ birch_def.tiles = {tex}
 birch_def.inventory_image = l_tex(tex)
 birch_def.wield_image = l_tex(tex)
 birch_def.light_source = 2
+birch_def.description = S("Magical Birch Leaves")
+birch_def.drop.items[2].items = {"ethereal:birch_leaves2"}
+
 core.register_node("ethereal:birch_leaves2", table.copy(birch_def))
 
 -- style 2 (violet)
@@ -274,6 +277,7 @@ local tex = "moretrees_birch_leaves_white.png^[multiply:#da70d6"
 birch_def.tiles = {tex}
 birch_def.inventory_image = l_tex(tex)
 birch_def.wield_image = l_tex(tex)
+birch_def.drop.items[2].items = {"ethereal:birch_leaves3"}
 
 core.register_node("ethereal:birch_leaves3", table.copy(birch_def))
 
@@ -283,6 +287,7 @@ local tex = "moretrees_birch_leaves_white.png^[multiply:#da9100"
 birch_def.tiles = {tex}
 birch_def.inventory_image = l_tex(tex)
 birch_def.wield_image = l_tex(tex)
+birch_def.drop.items[2].items = {"ethereal:birch_leaves4"}
 
 core.register_node("ethereal:birch_leaves4", table.copy(birch_def))
 
