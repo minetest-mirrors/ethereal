@@ -630,9 +630,14 @@ end
 
 -- add leafdecay registrations
 
-decay({"default:tree"}, {"default:apple", "default:leaves", "ethereal:orange",
-		"ethereal:orange_leaves", "ethereal:lemon", "ethereal:lemon_leaves",
-		"ethereal:vine"}, 3)
+local nods = {"default:apple", "default:leaves", "ethereal:orange", "ethereal:vine",
+		"ethereal:orange_leaves", "ethereal:lemon", "ethereal:lemon_leaves"}
+
+if core.get_modpath("nature_classic") then
+	table.insert(nods, "nature:blossom")
+end
+
+decay({"default:tree"}, nods, 3)
 
 decay({"ethereal:willow_trunk"}, {"ethereal:willow_twig"}, 3)
 
