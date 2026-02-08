@@ -641,13 +641,13 @@ else
 
 	register_biome(ethereal.magical_forest, {
 		name = "magical_forest",
-		heat_point = 40, humidity_point = 115, y_min = 3, y_max = 30,
+		heat_point = 40, humidity_point = 120, y_min = 3, y_max = 30,
 		node_top = "ethereal:magical_dirt", depth_top = 1,
 		node_filler = "default:dirt", depth_filler = 3})
 
 	register_biome(ethereal.magical_forest, {
 		name = "magical_forest_ocean",
-		heat_point = 40, humidity_point = 115, y_min = -192, y_max = 2,
+		heat_point = 40, humidity_point = 120, y_min = -192, y_max = 2,
 		node_top = "default:sand", depth_top = 1,
 		node_filler = "default:sand", depth_filler = 3,
 		vertical_blend = 1})
