@@ -655,7 +655,8 @@ decay({"ethereal:palm_trunk"}, {"ethereal:palmleaves", "ethereal:coconut"}, 3)
 decay({"ethereal:banana_trunk"}, {"ethereal:bananaleaves", "ethereal:banana",
 		"ethereal:banana_bunch"}, 3)
 
-decay({"ethereal:birch_trunk"}, {"ethereal:birch_leaves"}, 3)
+decay({"ethereal:birch_trunk"}, {"ethereal:birch_leaves", "ethereal:birch_leaves2",
+		"ethereal:birch_leaves3", "ethereal:birch_leaves4"}, 3)
 
 decay({"ethereal:bamboo"}, {"ethereal:bamboo_leaves"}, 3)
 
