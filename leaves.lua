@@ -630,14 +630,17 @@ end
 
 -- add leafdecay registrations
 
-local nods = {"default:apple", "default:leaves", "ethereal:orange", "ethereal:vine",
-		"ethereal:orange_leaves", "ethereal:lemon", "ethereal:lemon_leaves"}
+core.after(0, function() -- wait until mods loaded for this one
 
-if core.get_modpath("nature_classic") then
-	table.insert(nods, "nature:blossom")
-end
+	local nods = {"default:apple", "default:leaves", "ethereal:orange", "ethereal:vine",
+			"ethereal:orange_leaves", "ethereal:lemon", "ethereal:lemon_leaves"}
 
-decay({"default:tree"}, nods, 3)
+	if core.get_modpath("nature_classic") and core.registered_nodes["nature:blossom"] then
+		table.insert(nods, "nature:blossom")
+	end
+
+	decay({"default:tree"}, nods, 3)
+end)
 
 decay({"ethereal:willow_trunk"}, {"ethereal:willow_twig"}, 3)
 
