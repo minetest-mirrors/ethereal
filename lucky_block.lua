@@ -218,7 +218,8 @@ lucky_block:add_blocks({
 		{"default:fern_2", "ethereal:coral3"},
 		{"default:fern_3", "ethereal:coral4"},
 		{"default:grass_4", "ethereal:seaweed"}
-	}}
+	}},
+	{"cus", lucky_block.dropsy, {item = "ethereal:worm", msg = "Worm Attack!"}}
 })
 
 if core.get_modpath("3d_armor") then
