@@ -301,7 +301,7 @@ core.register_lbm({
 	end
 })
 
--- Blua Coral
+-- Blue Coral
 
 register_coral("coral2", S("Blue Glow Coral"), "ethereal_coral_blue.png")
 

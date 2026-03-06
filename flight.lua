@@ -183,6 +183,6 @@ core.register_craft({
 	recipe = {
 		{"ethereal:etherium_dust", "ethereal:etherium_dust", "ethereal:etherium_dust"},
 		{"ethereal:etherium_dust", "ethereal:fire_dust", "ethereal:etherium_dust"},
-		{"ethereal:etherium_dust", "vessels:glass_bottle", "ethereal:etherium_dust"}
+		{"ethereal:birch_leaves4", "vessels:glass_bottle", "ethereal:birch_leaves4"}
 	}
 })
