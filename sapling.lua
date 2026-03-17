@@ -2,6 +2,7 @@
 -- translator and protection check setting
 
 local S = core.get_translator("ethereal")
+local get_node = core.get_node
 local sapling_protection_check = core.settings:get_bool(
 		"ethereal.sapling_protection_check", false)
 
@@ -18,8 +19,8 @@ local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
 
 	-- Position of sapling
 	local pos = pointed_thing.under
-	local node = core.get_node_or_nil(pos)
-	local pdef = node and core.registered_nodes[node.name]
+	local node = get_node(pos)
+	local pdef = core.registered_nodes[node.name]
 
 	-- Check if node clicked on has it's own on_rightclick function
 	if pdef and pdef.on_rightclick
@@ -292,7 +293,7 @@ function ethereal.grow_sapling(pos, node)
 	if (core.get_node_light(pos) or 0) < 13 then return end
 
 	-- get node below sapling
-	local under =  core.get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
+	local under =  get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
 	local def = core.registered_nodes[node.name] ; if not def then return end
 	local height = def.grown_height or 33
 

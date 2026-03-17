@@ -2,6 +2,7 @@
 local S = core.get_translator("ethereal")
 
 local math_random = math.random
+local get_node = core.get_node
 
 -- override default dirt (to stop caves cutting away dirt)
 
@@ -90,7 +91,7 @@ local function flower_spread(pos, node)
 
 			pos.y = pos.y - 1
 
-			if core.get_node(pos).name == "ethereal:crystal_dirt" then
+			if get_node(pos).name == "ethereal:crystal_dirt" then
 
 				pos.y = pos.y + 1
 
@@ -112,7 +113,7 @@ local function flower_spread(pos, node)
 
 			pos.y = pos.y - 1
 
-			if core.get_node(pos).name == "ethereal:fiery_dirt" then
+			if get_node(pos).name == "ethereal:fiery_dirt" then
 
 				pos.y = pos.y + 1
 
@@ -128,7 +129,7 @@ local function flower_spread(pos, node)
 
 	pos.y = pos.y - 1
 
-	local under = core.get_node(pos)
+	local under = get_node(pos)
 
 	-- make sure we have soil underneath
 	if core.get_item_group(under.name, "soil") == 0
@@ -171,7 +172,7 @@ local function grow_papyrus(pos, node)
 
 	local height = 0
 
-	while height < high and core.get_node(pos).name == node.name do
+	while height < high and get_node(pos).name == node.name do
 		height = height + 1
 		pos.y = pos.y + 1
 	end
@@ -198,7 +199,7 @@ function default.grow_cactus(pos, node)
 
 	pos.y = pos.y - 1
 
-	if core.get_item_group(core.get_node(pos).name, "sand") == 0 then
+	if core.get_item_group(get_node(pos).name, "sand") == 0 then
 		return
 	end
 
@@ -209,7 +210,7 @@ function default.grow_cactus(pos, node)
 	while node.name == "default:cactus" and height < 4 do
 		height = height + 1
 		pos.y = pos.y + 1
-		node = core.get_node(pos)
+		node = get_node(pos)
 	end
 
 	if height == 4 or node.name ~= "air" then return end

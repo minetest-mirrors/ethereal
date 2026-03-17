@@ -92,6 +92,8 @@ if farming and farming.mod and farming.mod == "redo" then
 		steps = 5
 	}
 else
+	local get_node = core.get_node
+
 	core.register_abm({
 		label = "Ethereal grow onion",
 		nodenames = {
@@ -108,7 +110,7 @@ else
 			-- are we on wet soil?
 			pos.y = pos.y - 1
 
-			if core.get_item_group(core.get_node(pos).name, "soil") < 3 then
+			if core.get_item_group(get_node(pos).name, "soil") < 3 then
 				return
 			end
 

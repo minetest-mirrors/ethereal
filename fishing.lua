@@ -125,6 +125,8 @@ end
 
 -- fishing bob entity
 
+local get_node = core.get_node
+
 core.register_entity("ethereal:bob_entity", {
 
 	initial_properties = {
@@ -141,7 +143,7 @@ core.register_entity("ethereal:bob_entity", {
 	on_step = function(self, dtime)
 
 		local pos = self.object:get_pos()
-		local node = core.get_node(pos)
+		local node = get_node(pos)
 		local def = core.registered_nodes[node.name]
 
 -- casting rod into water

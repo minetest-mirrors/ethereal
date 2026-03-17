@@ -1,5 +1,6 @@
 
 local S = core.get_translator("ethereal")
+local get_node = core.get_node
 
 -- Thin Ice
 
@@ -118,7 +119,7 @@ core.register_abm({
 
 			near.y = near.y + 1
 
-			if core.get_node(near).name == "air" then
+			if get_node(near).name == "air" then
 				core.swap_node(near, {name = "ethereal:thin_ice"})
 			end
 		end

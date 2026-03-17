@@ -98,6 +98,8 @@ core.register_node("ethereal:strawberry_8", table.copy(def))
 
 -- register Abm to grow strawberry (this file wont be loaded if farming redo active)
 
+local get_node = core.get_node
+
 core.register_abm({
 	label = "Ethereal grow strawberry",
 	nodenames = {
@@ -115,7 +117,7 @@ core.register_abm({
 		-- are we on wet soil?
 		pos.y = pos.y - 1
 
-		if core.get_item_group(core.get_node(pos).name, "soil") < 3 then
+		if core.get_item_group(get_node(pos).name, "soil") < 3 then
 			return
 		end
 

@@ -1,9 +1,10 @@
 
 local S = core.get_translator("ethereal")
 
--- local math functions
+-- local functions
 
 local math_floor, math_max, math_random = math.floor, math.max, math.random
+local get_node = core.get_node
 
 -- Seaweed
 
@@ -29,7 +30,7 @@ core.register_node("ethereal:seaweed", {
 
 		if pointed_thing.type == "node" then
 
-			local under = core.get_node(pointed_thing.under)
+			local under = get_node(pointed_thing.under)
 
 			-- am I right-clicking on something that has a custom on_place set?
 			-- thanks to Krock for helping with this issue :)
@@ -45,8 +46,8 @@ core.register_node("ethereal:seaweed", {
 		local pos = pointed_thing.above
 		local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local pos_down = {x = pos.x, y = pos.y - 1, z = pos.z}
-		local def_up = core.registered_nodes[core.get_node(pos_up).name] or {}
-		local def_down = core.registered_nodes[core.get_node(pos_down).name] or {}
+		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
+		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
 		if def_up.liquidtype == nil or def_up.liquidtype ~= "none" then
 
@@ -56,7 +57,7 @@ core.register_node("ethereal:seaweed", {
 				return
 			end
 
-			if core.get_node(pos_up).name == "default:water_source" then
+			if get_node(pos_up).name == "default:water_source" then
 
 				core.set_node(pos_down, {name = "ethereal:seaweed_rooted",
 						param2 = 16})
@@ -143,14 +144,14 @@ core.register_lbm({
 
 		local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local pos_down = {x = pos.x, y = pos.y - 1, z = pos.z}
-		local def_up = core.registered_nodes[core.get_node(pos_up).name] or {}
-		local def_down = core.registered_nodes[core.get_node(pos_down).name] or {}
+		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
+		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
 		if def_down.name == "default:sand" or def_down.name == "ethereal:sandy" then
 
 			local height = 0
 
-			while height < 14 and core.get_node(pos_up).name == "ethereal:seaweed" do
+			while height < 14 and get_node(pos_up).name == "ethereal:seaweed" do
 				core.remove_node(pos_up)
 				height = height + 1
 				pos_up.y = pos_up.y + 1
@@ -182,7 +183,7 @@ local function register_coral(name, description, texture)
 
 		if pointed_thing.type == "node" then
 
-			local under = core.get_node(pointed_thing.under)
+			local under = get_node(pointed_thing.under)
 
 			-- am I right-clicking on something that has a custom on_place set?
 			-- thanks to Krock for helping with this issue :)
@@ -198,8 +199,8 @@ local function register_coral(name, description, texture)
 		local pos = pointed_thing.above
 		local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local pos_down = {x = pos.x, y = pos.y - 1, z = pos.z}
-		local def_up = core.registered_nodes[core.get_node(pos_up).name] or {}
-		local def_down = core.registered_nodes[core.get_node(pos_down).name] or {}
+		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
+		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
 		if def_up.liquidtype == nil or def_up.liquidtype ~= "none" then
 
@@ -288,8 +289,8 @@ core.register_lbm({
 
 		local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
 		local pos_down = {x = pos.x, y = pos.y - 1, z = pos.z}
-		local def_up = core.registered_nodes[core.get_node(pos_up).name] or {}
-		local def_down = core.registered_nodes[core.get_node(pos_down).name] or {}
+		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
+		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
 		if (def_up.liquidtype == nil or def_up.liquidtype ~= "none")
 		and (def_down.name == "default:sand" or def_down.name == "ethereal:sandy") then
@@ -385,9 +386,7 @@ if ethereal.sealife == 1 then
 
 				local tpos = {x = pos.x, y = pos.y + height + 1, z = pos.z}
 
-				if core.get_node(tpos).name ~= "default:water_source" then
-					return
-				end
+				if get_node(tpos).name ~= "default:water_source" then return end
 
 				core.set_node(pos, {name = "ethereal:seaweed_rooted",
 						param2 = (height * 16)})
@@ -397,7 +396,7 @@ if ethereal.sealife == 1 then
 
 			local sel = math_random(6)
 			local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
-			local nod = core.get_node(pos_up).name
+			local nod = get_node(pos_up).name
 
 			if nod == "default:water_source" then
 
