@@ -87,8 +87,8 @@ core.register_abm({
 		"ethereal:crystal_spike", "default:snowblock", "ethereal:snowbrick"
 	},
 	neighbors = {"default:water_source", "default:river_water_source"},
-	interval = 15,
-	chance = 4,
+	interval = 17,
+	chance = 10,
 	catch_up = false,
 
 	action = function(pos, node)
@@ -106,8 +106,8 @@ core.register_abm({
 	label = "Ethereal thin ice",
 	nodenames = {"default:snow"},
 	neighbors = {"default:water_source", "default:river_water_source"},
-	interval = 15,
-	chance =  4,
+	interval = 16,
+	chance =  8,
 	catch_up = false,
 
 	action = function(pos, node)

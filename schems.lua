@@ -54,6 +54,19 @@ end
 
 local old = core.settings:get_bool("ethereal.old_biomes")
 
+-- ice spikes
+
+register_decoration(ethereal.glacier, {
+	place_on = "default:snowblock",
+	y_min = 3, y_max = 30, noise_params = {offset = 0.00040, scale = 0.001,
+			spread = vector.new(250, 250, 250), seed = 1133, octaves = 4,
+			persist = 0.67},
+	biomes = {"glacier"},
+	schematic = ethereal.desertstone_under_spike, place_offset_y = 1,
+	spawn_by = "default:snowblock", num_spawn_by = 8,
+	replacements = {{"default:cobble", "air"}, {"default:stone", "default:ice"}},
+	flags = "place_center_x, place_center_z, force_placement"})
+
 -- magical forest trees
 
 register_decoration(ethereal.magical_forest, {
@@ -129,7 +142,7 @@ register_decoration(ethereal.caves, {
 
 register_decoration(ethereal.glacier, {
 	place_on = "default:snowblock",
-	fill_ratio = 0.0005, y_min = 3, y_max = 30,
+	fill_ratio = 0.0002, y_min = 3, y_max = 30,
 	biomes = {"glacier"},
 	schematic = ethereal.igloo, place_offset_y = -1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
