@@ -145,25 +145,23 @@ core.register_abm({
 
 	action = function(pos, node)
 
-		local water_node = "default:water"
+		local water_node = pos.y > 2 and "default:river_water" or "default:water"
+		local new_node
 
-		if pos.y > 2 then
-			water_node = "default:river_water"
-		end
-
-		if node.name == "default:ice"
-		or node.name == "default:snowblock"
+		if node.name == "default:ice" or node.name == "default:snowblock"
 		or node.name == "ethereal:icebrick"
 		or node.name == "ethereal:snowbrick" then
-			core.swap_node(pos, {name = water_node .. "_source"})
-
+			new_node = water_node .. "_source"
 		elseif node.name == "default:snow"
 		or node.name == "ethereal:thin_ice" then
-			core.swap_node(pos, {name = water_node .. "_flowing"})
-
+			new_node = water_node .. "_flowing"
 		elseif node.name == "default:dirt_with_snow" then
-			core.swap_node(pos, {name = "default:dirt_with_grass"})
+			new_node = "default:dirt_with_grass"
+		else
+			return
 		end
+
+		core.swap_node(pos, {name = new_node})
 
 		ethereal.check_falling(pos)
 	end

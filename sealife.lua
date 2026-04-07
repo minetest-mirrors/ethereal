@@ -28,18 +28,17 @@ core.register_node("ethereal:seaweed", {
 
 	on_place = function(itemstack, placer, pointed_thing)
 
-		if pointed_thing.type == "node" then
+		if pointed_thing.type ~= "node" then return end
 
-			local under = get_node(pointed_thing.under)
+		local under = get_node(pointed_thing.under)
 
-			-- am I right-clicking on something that has a custom on_place set?
-			-- thanks to Krock for helping with this issue :)
-			local def = core.registered_nodes[under.name]
+		-- am I right-clicking on something that has a custom on_place set?
+		-- thanks to Krock for helping with this issue :)
+		local def = core.registered_nodes[under.name]
 
-			if placer and itemstack and def and def.on_rightclick then
-				return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
-						pointed_thing)
-			end
+		if placer and itemstack and def and def.on_rightclick then
+			return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
+					pointed_thing)
 		end
 
 		local pname = placer:get_player_name()
@@ -49,7 +48,7 @@ core.register_node("ethereal:seaweed", {
 		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
 		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
-		if def_up.liquidtype == nil or def_up.liquidtype ~= "none" then
+		if def_up.liquidtype ~= "none" then
 
 			if core.is_protected(pos, pname) then return end
 
@@ -59,8 +58,7 @@ core.register_node("ethereal:seaweed", {
 
 			if get_node(pos_up).name == "default:water_source" then
 
-				core.set_node(pos_down, {name = "ethereal:seaweed_rooted",
-						param2 = 16})
+				core.set_node(pos_down, {name = "ethereal:seaweed_rooted", param2 = 16})
 
 				if not ethereal.check_creative(pname) then
 					itemstack:take_item()
@@ -181,18 +179,17 @@ local function register_coral(name, description, texture)
 
 	local function plantlike_on_place(itemstack, placer, pointed_thing)
 
-		if pointed_thing.type == "node" then
+		if pointed_thing.type ~= "node" then return end
 
-			local under = get_node(pointed_thing.under)
+		local under = get_node(pointed_thing.under)
 
-			-- am I right-clicking on something that has a custom on_place set?
-			-- thanks to Krock for helping with this issue :)
-			local def = core.registered_nodes[under.name]
+		-- am I right-clicking on something that has a custom on_place set?
+		-- thanks to Krock for helping with this issue :)
+		local def = core.registered_nodes[under.name]
 
-			if placer and itemstack and def and def.on_rightclick then
-				return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
-						pointed_thing)
-			end
+		if placer and itemstack and def and def.on_rightclick then
+			return def.on_rightclick(pointed_thing.under, under, placer, itemstack,
+					pointed_thing)
 		end
 
 		local pname = placer:get_player_name()
@@ -202,7 +199,7 @@ local function register_coral(name, description, texture)
 		local def_up = core.registered_nodes[get_node(pos_up).name] or {}
 		local def_down = core.registered_nodes[get_node(pos_down).name] or {}
 
-		if def_up.liquidtype == nil or def_up.liquidtype ~= "none" then
+		if def_up.liquidtype ~= "none" then
 
 			if core.is_protected(pos, pname) then return end
 
@@ -394,11 +391,12 @@ if ethereal.sealife == 1 then
 				return
 			end
 
-			local sel = math_random(6)
 			local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
 			local nod = get_node(pos_up).name
 
 			if nod == "default:water_source" then
+
+				local sel = math_random(6)
 
 				if sel == 1 then
 

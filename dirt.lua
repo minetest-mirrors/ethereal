@@ -81,11 +81,10 @@ local function flower_spread(pos, node)
 
 	if num > 3 and node.name == "ethereal:crystalgrass" then
 
-		local grass = core.find_nodes_in_area_under_air(
-			pos0, pos1, {"ethereal:crystalgrass"})
+		local grass = core.find_nodes_in_area_under_air(pos0, pos1,
+				{"ethereal:crystalgrass"})
 
-		if #grass > 4
-		and not core.find_node_near(pos, 4, {"ethereal:crystal_spike"}) then
+		if #grass > 4 and not core.find_node_near(pos, 4, {"ethereal:crystal_spike"}) then
 
 			pos = grass[math_random(#grass)]
 
@@ -103,11 +102,10 @@ local function flower_spread(pos, node)
 
 	elseif num > 3 and node.name == "ethereal:dry_shrub" then
 
-		local grass = core.find_nodes_in_area_under_air(
-			pos0, pos1, {"ethereal:dry_shrub"})
+		local grass = core.find_nodes_in_area_under_air(pos0, pos1,
+				{"ethereal:dry_shrub"})
 
-		if #grass > 8
-		and not core.find_node_near(pos, 4, {"ethereal:fire_flower"}) then
+		if #grass > 8 and not core.find_node_near(pos, 4, {"ethereal:fire_flower"}) then
 
 			pos = grass[math_random(#grass)]
 
@@ -145,9 +143,9 @@ local function flower_spread(pos, node)
 
 		pos.y = pos.y + 1
 
-		if (core.get_node_light(pos) or 0) < 13 then return end
-
-		core.swap_node(pos, {name = node.name})
+		if (core.get_node_light(pos) or 0) >= 13 then
+			core.swap_node(pos, {name = node.name})
+		end
 	end
 end
 
@@ -156,17 +154,14 @@ end
 local function grow_papyrus(pos, node)
 
 	local oripos = pos.y
-	local high = 4
+	local high = (node.name == "ethereal:bamboo") and 8 or 4
 
 	pos.y = pos.y - 1
 
-	local nod = core.get_node_or_nil(pos)
+	local nod = core.get_node(pos)
 
-	if not nod
-	or core.get_item_group(nod.name, "soil") < 1
-	or core.find_node_near(pos, 3, {"group:water"}) == nil then return end
-
-	if node.name == "ethereal:bamboo" then high = 8 end
+	if core.get_item_group(nod.name, "soil") == 0
+	or not core.find_node_near(pos, 3, {"group:water"}) then return end
 
 	pos.y = pos.y + 1
 
@@ -177,9 +172,9 @@ local function grow_papyrus(pos, node)
 		pos.y = pos.y + 1
 	end
 
-	nod = core.get_node_or_nil(pos)
+	nod = core.get_node(pos)
 
-	if nod and nod.name == "air" and height < high then
+	if nod.name == "air" and height < high then
 
 		if node.name == "ethereal:bamboo" and height == (high - 1) then
 
@@ -188,7 +183,6 @@ local function grow_papyrus(pos, node)
 			core.swap_node(pos, {name = node.name})
 		end
 	end
-
 end
 
 -- override gros cactus function
@@ -217,7 +211,9 @@ function default.grow_cactus(pos, node)
 
 	if core.get_node_light(pos) < 13 then return end
 
-	if math.random(100 - (height * 15)) == 1 then
+	local chance = 100 - (height * 25)
+
+	if math.random(chance) == 1 then
 		core.set_node(pos, {name = "ethereal:cactus_flower"})
 	else
 		core.set_node(pos, {name = "default:cactus"})
@@ -265,6 +261,10 @@ override_abm("Mushroom spread", {
 	chance = 50, -- moved back to original chance from 150
 	nodenames = {"group:mushroom"}
 })
+
+--override_abm("Grow cactus", {
+--interval = 1, chance = 1 -- testing only
+--})
 
 -- Add Red, Orange and Grey baked clay if mod isn't active
 

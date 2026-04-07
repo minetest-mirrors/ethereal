@@ -289,15 +289,19 @@ end
 
 function ethereal.grow_sapling(pos, node)
 
+	-- sapling definition
+	local def = core.registered_nodes[node and node.name] ; if not def then return end
+
+	-- enough light to grow
 	if (core.get_node_light(pos) or 0) < 13 then return end
+
+	-- enought height to grow
+	local height = def.grown_height or 33
+
+	if not enough_height(pos, height) then return end
 
 	-- get node below sapling
 	local under =  get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
-	local def = core.registered_nodes[node.name] ; if not def then return end
-	local height = def.grown_height or 33
-
-	-- do we have enough height to grow sapling into tree?
-	if not height or not enough_height(pos, height) then return end
 
 	-- default ok and magic dirt check (can grow any ethereal sapling)
 	local ok = false ; if under == "ethereal:magical_dirt" then ok = true end

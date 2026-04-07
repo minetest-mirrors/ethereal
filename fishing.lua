@@ -94,7 +94,7 @@ local random = math.random -- yup we use this a lot
 
 -- global add item function
 
-ethereal.add_item = function(fish, junk, bonus)
+function ethereal.add_item(fish, junk, bonus)
 
 	if fish and fish ~= "" then table.insert(fish_items, fish) end
 
@@ -119,7 +119,8 @@ local function effect(pos)
 		size = random(),
 		collisiondetection = false,
 		vertical = false,
-		texture = "bubble.png"
+		texture = "bubble.png",
+		glow = 1
 	})
 end
 
@@ -135,7 +136,8 @@ core.register_entity("ethereal:bob_entity", {
 		collisionbox = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1},
 		physical = false,
 		pointable = false,
-		static_save = false
+		static_save = false,
+		glow = 2
 	},
 
 	timer = 0,
@@ -191,8 +193,7 @@ if not self.cast then
 			-- splash
 			effect(pos) ; effect(pos) ; effect(pos) ; effect(pos)
 
-			core.sound_play("default_water_footstep",
-					{pos = pos, gain = 0.1}, true)
+			core.sound_play("default_water_footstep", {pos = pos, gain = 0.1}, true)
 		end
 
 else -- already cast and waiting for fish
@@ -303,58 +304,47 @@ end -- if not self.cast
 
 -- narrow item list depending on biome
 
-local find_item = function(list, pos)
+local function find_item(list, pos)
 
-	local item
 	local items = {}
-	local data= core.get_biome_data(pos)
+	local data = core.get_biome_data(pos)
 	local biome = data and core.get_biome_name(data.biome) or ""
 
 --print("--biome", biome)
 
 	for n = 1, #list do
 
-		item = list[n]
+		local item = list[n]
 
 		if type(item) == "string" then
-
 			table.insert(items, item)
-
-		elseif type(item) == "table" then
-
-			if item[2] == "" or biome:find(item[2]) then
-				table.insert(items, item[1])
-			end
+		elseif type(item) == "table" and (item[2] == "" or biome:find(item[2])) then
+			table.insert(items, item[1])
 		end
 	end
 
 --print("==biome: " .. biome, dump(items))
 
-	if #items > 0 then return items[random(#items)] end
-
-	return ""
+	return #items > 0 and items[random(#items)] or ""
 end
 
 -- fishing rod function that throws pre bob, places bob and catches fish when it moves
 
-local use_rod = function(itemstack, player, pointed_thing)
+local function use_rod(itemstack, player, pointed_thing)
 
 	local pos = player:get_pos()
 	local objs = core.get_objects_inside_radius(pos, 15)
-	local found = true
-	local ent
 
-	-- loop through entities and look for bobs
+	-- look for already cast bobs
+
 	for n = 1, #objs do
 
-		ent = objs[n]:get_luaentity()
+		local ent = objs[n]:get_luaentity()
 
 		if ent and ent.fisher and ent.name == "ethereal:bob_entity"
-		and player:get_player_name() == ent.fisher then
+		and ent.fisher == player:get_player_name() then
 
-			found = false
-
-			if ent.bob == true then
+			if ent.bob then
 
 				local item
 				local r = random(100)
@@ -365,15 +355,10 @@ local use_rod = function(itemstack, player, pointed_thing)
 
 				-- chance between catching fish, bonuns item or junk
 				if r < 86 then
-
 					item = find_item(fish_items, rodpos)
-
 				elseif r > 85 and r < 96 then
-
 					item = find_item(junk_items, rodpos)
-
 				else
-
 					item = find_item(bonus_items, rodpos)
 				end
 
@@ -410,36 +395,20 @@ local use_rod = function(itemstack, player, pointed_thing)
 		end
 	end
 
-	-- loop through entities and look for bobs
-	for n = 1, #objs do
+	-- cast rod
 
-		ent = objs[n]:get_luaentity()
+	local playerpos = player:get_pos()
+	local dir = player:get_look_dir()
+	local pos = {x = playerpos.x, y = playerpos.y + 1.5, z = playerpos.z}
 
-		if ent and ent.fisher and ent.name == "ethereal:bob_entity"
-		and player:get_player_name() == ent.fisher then
+	core.sound_play("ethereal_casting_rod", {pos = pos, max_hear_distance = 10}, true)
 
-			found = false
+	-- place actual bob
+	local obj = core.add_entity(pos, "ethereal:bob_entity")
 
-			break
-		end
-	end
-
-	if found == true then
-
-		local playerpos = player:get_pos()
-		local dir = player:get_look_dir()
-		local pos = {x = playerpos.x, y = playerpos.y + 1.5, z = playerpos.z}
-
-		core.sound_play("ethereal_casting_rod",
-				{pos = pos, gain = 1.0, max_hear_distance = 10}, true)
-
-		-- place actual bob
-		local obj = core.add_entity(pos, "ethereal:bob_entity")
-
-		obj:set_velocity({x = dir.x * 8, y = dir.y * 8, z = dir.z * 8})
-		obj:set_acceleration({x = dir.x * -3, y = -9.8, z = dir.z * -3})
-		obj:get_luaentity().fisher = player and player:get_player_name()
-	end
+	obj:set_velocity({x = dir.x * 8, y = dir.y * 8, z = dir.z * 8})
+	obj:set_acceleration({x = dir.x * -3, y = -9.8, z = dir.z * -3})
+	obj:get_luaentity().fisher = player and player:get_player_name()
 
 	-- Add wear to fishing rod (65 uses)
 	itemstack:add_wear(65535 / 65)
@@ -449,7 +418,7 @@ end
 
 -- scan area for bobs that belong to player and remove
 
-local remove_bob = function(player)
+local function remove_bob(player)
 
 	local objs = core.get_objects_inside_radius(player:get_pos(), 15)
 	local name = player:get_player_name()

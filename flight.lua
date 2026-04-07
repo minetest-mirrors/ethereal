@@ -71,8 +71,7 @@ local function ethereal_set_flight(user)
 		core.chat_send_player(name, core.get_color_escape_sequence("#ff5500")
 				.. S("Flight timer about to expire!"))
 
-		core.sound_play("default_dig_dig_immediate",
-				{to_player = name, gain = 1.0}, true)
+		core.sound_play("default_dig_dig_immediate", {to_player = name}, true)
 	end
 
 	set_timer(user, timer) -- set update timer
