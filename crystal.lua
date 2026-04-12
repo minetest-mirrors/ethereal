@@ -34,17 +34,13 @@ core.register_node("ethereal:crystal_spike", {
 	damage_per_second = 1,
 	groups = {cracky = 1, falling_node = 1, puts_out_fire = 1, cools_lava = 1},
 	sounds = default.node_sound_glass_defaults(),
-	selection_box = {
-		type = "fixed", fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0, 5 / 16}
-	},
-	node_box = {
-		type = "fixed", fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0, 5 / 16}
-	},
+	selection_box = {type = "fixed", fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0, 5 / 16}},
+	node_box = {type = "fixed", fixed = {-5 / 16, -0.5, -5 / 16, 5 / 16, 0, 5 / 16}},
 
 	dropped_step = function(self, pos, dtime) -- custom function for builtin_item use
 
 		self.ctimer = (self.ctimer or 0) + dtime
-		if self.ctimer < 5.0 then return end -- 5 second timer
+		if self.ctimer < 5 then return end -- 5 second timer
 		self.ctimer = 0
 
 		if self.node_inside and self.node_inside.name ~= "default:water_source" then
@@ -55,20 +51,17 @@ core.register_node("ethereal:crystal_spike", {
 
 		if not objs or #objs ~= 2 then return end
 
-		local crystal, mese, ent = nil, nil, nil
+		local crystal, mese = nil, nil
 
 		for k, obj in pairs(objs) do
 
-			ent = obj:get_luaentity()
+			local ent = obj:get_luaentity()
 
 			if ent and ent.name == "__builtin:item" then
 
-				if ent.itemstring == "default:mese_crystal 2" and not mese then
-
+				if ent.itemstring == "default:mese_crystal 2" then
 					mese = obj
-
-				elseif ent.itemstring == "ethereal:crystal_spike 2" and not crystal then
-
+				elseif ent.itemstring == "ethereal:crystal_spike 2" then
 					crystal = obj
 				end
 			end

@@ -472,7 +472,7 @@ core.register_tool("ethereal:light_staff", {
 
 		local node = core.get_node(pos).name
 		local def = core.registered_nodes[node]
-		local stone = def and def.groups and def.groups.stone and def.groups.stone == 1
+		local stone = def and def.groups.stone and def.groups.stone == 1
 
 		if ethereal.lightstaff_recipes[node] or stone then
 
