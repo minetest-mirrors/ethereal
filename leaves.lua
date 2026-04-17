@@ -675,28 +675,28 @@ decay({"ethereal:mangrove_tree"}, {"ethereal:mangrove_leaves", "ethereal:mangrov
 if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 	local leaf_list = {
-		{"ethereal:frost_leaves", "331b37", 9},
-		{"ethereal:bananaleaves", "28581e"},
-		{"ethereal:lemon_leaves", "507c1e"},
-		{"ethereal:olive_leaves", "416531"},
-		{"ethereal:orange_leaves", "1a3b1b"},
-		{"ethereal:redwood_leaves", "15342a"},
-		{"ethereal:sakura_leaves", "c281a9"},
-		{"ethereal:sakura_leaves2", "d4cbac"},
-		{"ethereal:willow_twig", "0b9445"},
-		{"ethereal:yellowleaves", "8b5f00", 9},
-		{"ethereal:birch_leaves", "274527"},
-		{"ethereal:birch_leaves2", "259797", 2},
-		{"ethereal:birch_leaves3", "da70d6", 2},
-		{"ethereal:birch_leaves4", "da9100", 2},
-		{"ethereal:palmleaves", "2b6000"},
-		{"ethereal:bamboo_leaves", "445811"},
-		{"ethereal:mangrove_leaves", "6a7039"},
-		{"default:acacia_leaves", "296600"},
-		{"default:aspen_leaves", "395d16"},
-		{"default:jungleleaves", "141e10"},
-		{"default:pine_needles", "00280e"},
-		{"default:leaves", "223a20"}
+		["ethereal:frost_leaves"] = {"331b37", 9},
+		["ethereal:bananaleaves"] = {"28581e"},
+		["ethereal:lemon_leaves"] = {"507c1e"},
+		["ethereal:olive_leaves"] = {"416531"},
+		["ethereal:orange_leaves"] = {"1a3b1b"},
+		["ethereal:redwood_leaves"] = {"15342a"},
+		["ethereal:sakura_leaves"] = {"c281a9"},
+		["ethereal:sakura_leaves2"] = {"d4cbac"},
+		["ethereal:willow_twig"] = {"0b9445"},
+		["ethereal:yellowleaves"] = {"8b5f00", 9},
+		["ethereal:birch_leaves"] = {"274527"},
+		["ethereal:birch_leaves2"] = {"259797", 2},
+		["ethereal:birch_leaves3"] = {"da70d6", 2},
+		["ethereal:birch_leaves4"] = {"da9100", 2},
+		["ethereal:palmleaves"] = {"2b6000"},
+		["ethereal:bamboo_leaves"] = {"445811"},
+		["ethereal:mangrove_leaves"] = {"6a7039"},
+		["default:acacia_leaves"] = {"296600"},
+		["default:aspen_leaves"] = {"395d16"},
+		["default:jungleleaves"] = {"141e10"},
+		["default:pine_needles"] = {"00280e"},
+		["default:leaves"] = {"223a20"}
 	}
 
 	core.register_abm({
@@ -709,20 +709,9 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 		action = function(pos, node)
 
-			local text, glow
+			local prop = leaf_list[node.name]
 
-			for n = 1, #leaf_list do
-
-				if node.name == leaf_list[n][1] then
-
-					text = "ethereal_falling_leaf.png^[multiply:#"
-							.. leaf_list[n][2] .. "70"
-
-					glow = leaf_list[n][3] ; break
-				end
-			end
-
-			if text then
+			if prop then
 
 				core.add_particlespawner({
 					amount = 1,
@@ -737,10 +726,11 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 					maxexptime = 10,
 					minsize = 3,
 					maxsize = 4,
-					collisiondetection = true, collision_removal = true,
-					texture = text,
+					collisiondetection = true,
+					collision_removal = true,
+					texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1] .. "70",
 					vertical = true,
-					glow = glow
+					glow = prop[2]
 				})
 			end
 		end
