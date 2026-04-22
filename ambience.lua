@@ -15,10 +15,10 @@ ambience.add_set("ethereal_mushroom", {
 
 	sound_check = function(def)
 
-		local c = (def.totals["ethereal:mushroom_trunk"] or 0)
-		local d = (def.totals["ethereal:mushroom_dirt"] or 0)
-
-		if c > 30 and d > 70 then return "ethereal_mushroom" end
+		if (def.totals["ethereal:mushroom_trunk"] or 0) > 30
+		and (def.totals["ethereal:mushroom_dirt"] or 0) > 70 then
+			return "ethereal_mushroom"
+		end
 	end
 })
 
@@ -38,9 +38,9 @@ ambience.add_set("ethereal_crystal", {
 
 	sound_check = function(def)
 
-		local c = (def.totals["ethereal:crystal_spike"] or 0)
-		local d = (def.totals["ethereal:crystal_dirt"] or 0)
-
-		if c > 0 and d > 70 then return "ethereal_crystal" end
+		if (def.totals["ethereal:crystal_spike"] or 0) > 0
+		and (def.totals["ethereal:crystal_dirt"] or 0) > 70 then
+			return "ethereal_crystal"
+		end
 	end
 })

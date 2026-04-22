@@ -32,58 +32,6 @@ local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
 	return core.item_place_node(itemstack, placer, pointed_thing)
 end
 
--- Mangrove
-
-core.register_node("ethereal:mangrove_sapling", {
-	description = S("Mangrove Sapling"),
-	drawtype = "plantlike",
-	tiles = {"mcl_mangrove_propagule.png"},
-	inventory_image = "mcl_mangrove_propagule.png",
-	wield_image = "mcl_mangrove_propagule.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	groups = {
-		snappy = 3, attached_node = 1, flammable = 2,
-		dig_immediate = 3, ethereal_sapling = 1, sapling = 1,
-	},
-	sounds = default.node_sound_defaults(),
-	selection_box = {
-		type = "fixed", fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -0.1, 3 / 16}
-	},
-	grown_height = 14,
-
-	on_place = function(itemstack, placer, pointed_thing)
-		return prepare_on_place(itemstack, placer, pointed_thing,
-				"ethereal:mangrove_sapling", 5, 14)
-	end
-})
-
--- Basandra Bush Sapling
-
-core.register_node("ethereal:basandra_bush_sapling", {
-	description = S("Basandra Bush Sapling"),
-	drawtype = "plantlike",
-	tiles = {"ethereal_basandra_bush_sapling.png"},
-	inventory_image = "ethereal_basandra_bush_sapling.png",
-	wield_image = "ethereal_basandra_bush_sapling.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	selection_box = {
-		type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
-	},
-	groups = {snappy = 2, dig_immediate = 3, attached_node = 1, ethereal_sapling = 1,
-			sapling = 1},
-	sounds = default.node_sound_leaves_defaults(),
-	grown_height = 2,
-
-	on_place = function(itemstack, placer, pointed_thing)
-		return prepare_on_place(itemstack, placer, pointed_thing,
-				"ethereal:basandra_bush_sapling", 1, 2)
-	end
-})
-
 -- Bamboo Sprout
 
 core.register_node("ethereal:bamboo_sprout", {
@@ -114,9 +62,9 @@ core.register_node("ethereal:bamboo_sprout", {
 
 -- register Sapling helper
 
-local function register_sapling(name, desc, texture, width, height)
+local function add_sapling(name, desc, texture, width, height)
 
-	core.register_node(name .. "_sapling", {
+	core.register_node("ethereal:" .. name .. "_sapling", {
 		description = S(desc .. " Tree Sapling"),
 		drawtype = "plantlike",
 		tiles = {texture .. ".png"},
@@ -127,7 +75,7 @@ local function register_sapling(name, desc, texture, width, height)
 		is_ground_content = false,
 		walkable = false,
 		selection_box = {
-			type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+			type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 5 / 16, 4 / 16}
 		},
 		groups = {
 			snappy = 2, dig_immediate = 3, flammable = 2,
@@ -143,37 +91,36 @@ local function register_sapling(name, desc, texture, width, height)
 	})
 end
 
--- add saplings
+-- register saplings
 
-register_sapling("ethereal:willow", "Willow", "ethereal_willow_sapling", 5, 14)
-register_sapling("ethereal:yellow_tree", "Healing", "ethereal_yellow_tree_sapling", 4, 19)
-register_sapling("ethereal:big_tree", "Big", "ethereal_big_tree_sapling", 4, 7)
-register_sapling("ethereal:banana_tree", "Banana", "ethereal_banana_tree_sapling", 3, 8)
-register_sapling("ethereal:frost_tree", "Frost", "ethereal_frost_tree_sapling", 4, 19)
-register_sapling("ethereal:mushroom", "Mushroom", "ethereal_mushroom_sapling", 4, 11)
-register_sapling("ethereal:mushroom_brown", "Brown Mushroom",
-		"ethereal_mushroom_brown_sapling", 1, 11)
-register_sapling("ethereal:palm", "Palm", "moretrees_palm_sapling", 4, 9)
-register_sapling("ethereal:giant_redwood", "Giant Redwood",
-		"ethereal_giant_redwood_sapling", 7, 33)
-register_sapling("ethereal:redwood", "Redwood", "ethereal_redwood_sapling", 4, 21)
-register_sapling("ethereal:orange_tree", "Orange", "ethereal_orange_tree_sapling", 2, 6)
-register_sapling("ethereal:birch", "Birch", "moretrees_birch_sapling", 2, 9)
-register_sapling("ethereal:sakura", "Sakura", "ethereal_sakura_sapling", 4, 10)
-register_sapling("ethereal:lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 2, 7)
-register_sapling("ethereal:olive_tree", "Olive", "ethereal_olive_tree_sapling", 3, 10)
+add_sapling("basandra_bush", "Basandra Bush", "ethereal_basandra_bush_sapling", 1, 2)
+add_sapling("mangrove", "Mangrove", "mcl_mangrove_propagule", 5, 14)
+add_sapling("willow", "Willow", "ethereal_willow_sapling", 5, 14)
+add_sapling("yellow_tree", "Healing", "ethereal_yellow_tree_sapling", 4, 19)
+add_sapling("big_tree", "Big", "ethereal_big_tree_sapling", 4, 7)
+add_sapling("banana_tree", "Banana", "ethereal_banana_tree_sapling", 3, 8)
+add_sapling("frost_tree", "Frost", "ethereal_frost_tree_sapling", 4, 19)
+add_sapling("mushroom", "Mushroom", "ethereal_mushroom_sapling", 4, 11)
+add_sapling("mushroom_brown", "Brown Mushroom", "ethereal_mushroom_brown_sapling", 1, 11)
+add_sapling("palm", "Palm", "moretrees_palm_sapling", 4, 9)
+add_sapling("giant_redwood", "Giant Redwood", "ethereal_giant_redwood_sapling", 7, 33)
+add_sapling("redwood", "Redwood", "ethereal_redwood_sapling", 4, 21)
+add_sapling("orange_tree", "Orange", "ethereal_orange_tree_sapling", 2, 6)
+add_sapling("birch", "Birch", "moretrees_birch_sapling", 2, 9)
+add_sapling("sakura", "Sakura", "ethereal_sakura_sapling", 4, 10)
+add_sapling("lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 2, 7)
+add_sapling("olive_tree", "Olive", "ethereal_olive_tree_sapling", 3, 10)
 
 -- add tree schematic
 
 local function add_tree(pos, schem, replace)
 
-	core.swap_node(pos, {name = "air"})
-
-	core.place_schematic(pos, schem, "random", replace, false,
-			"place_center_x, place_center_z")
+	core.remove_node(pos)
+	core.place_schematic(
+			pos, schem, "random", replace, false, "place_center_x, place_center_z")
 end
 
--- get mod path and schematic folder
+-- path to schematics folder
 
 local path = core.get_modpath("ethereal") .. "/schematics/"
 

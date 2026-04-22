@@ -21,7 +21,7 @@ core.clear_registered_biomes()
 core.clear_registered_decorations()
 -- core.clear_registered_ores()
 
--- create list of default biomes to remove
+-- list of default biomes to remove
 
 local def_biomes = {
 	["rainforest"] = 1,
@@ -78,7 +78,7 @@ end
 
 -- loop through decorations
 
-for key, def in pairs(old_decor) do
+for _, def in pairs(old_decor) do
 
 	local can_add = true
 	local new_biomes = {}
@@ -86,27 +86,23 @@ for key, def in pairs(old_decor) do
 	if type(def.biomes) == "table" then
 
 		-- loop through decoration biomes, only re-add one's not on above list
-		for num, bio in pairs(def.biomes) do
+		for _, bio in pairs(def.biomes) do
 
 			if not def_biomes[bio] then table.insert(new_biomes, bio) end
 		end
 
-		-- if no biomes are left on new list, do not re-add decoration
-		if #new_biomes == 0 then can_add = false end
+		can_add = #new_biomes >= 0 -- dont add if no biomes remain
 
 	elseif type(def.biomes) == "string" then
 
-		if def_biomes[def.biomes] then
-			can_add = false
-		else
-			new_biomes = {def.biomes} -- convert to table
-		end
+		can_add = not def_biomes[def.biomes]
 
-	elseif not def.biomes then new_biomes = nil end -- keep it nil for re-adding
+		if can_add then new_biomes = {def.biomes} end -- convert to table
+	end
 
 	if can_add == true then
 
-		def.biomes = new_biomes
+		def.biomes = #new_biomes > 0 and new_biomes or nil
 
 		core.register_decoration(def)
 	end
