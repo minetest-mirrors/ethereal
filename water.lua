@@ -149,8 +149,7 @@ core.register_abm({
 		local new_node
 
 		if node.name == "default:ice" or node.name == "default:snowblock"
-		or node.name == "ethereal:icebrick"
-		or node.name == "ethereal:snowbrick" then
+		or node.name == "ethereal:icebrick" or node.name == "ethereal:snowbrick" then
 			new_node = water_node .. "_source"
 		elseif node.name == "default:snow"
 		or node.name == "ethereal:thin_ice" then

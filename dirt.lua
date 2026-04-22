@@ -68,6 +68,13 @@ end
 
 -- flower spread, also crystal and fire flower regeneration
 
+local items = {
+	["ethereal:crystalgrass"] = {
+			soil = "ethereal:crystal_dirt", item = "ethereal:crystal_spike", min = 4},
+	["ethereal:dry_shrub"] = {
+			soil = "ethereal:fiery_dirt", item = "ethereal:fire_flower", min = 8},
+}
+
 local function flower_spread(pos, node)
 
 	if (core.get_node_light(pos) or 0) < 13 then return end
@@ -79,51 +86,28 @@ local function flower_spread(pos, node)
 	-- stop flowers spreading too much just below top of map block
 	if core.find_node_near(pos, 2, "ignore") then return end
 
-	if num > 3 and node.name == "ethereal:crystalgrass" then
+	local check = items[node.name]
 
-		local grass = core.find_nodes_in_area_under_air(pos0, pos1,
-				{"ethereal:crystalgrass"})
+	if check and num > 3 then
 
-		if #grass > 4 and not core.find_node_near(pos, 4, {"ethereal:crystal_spike"}) then
+		local grass = core.find_nodes_in_area_under_air(pos0, pos1, {node.name})
 
-			pos = grass[math_random(#grass)]
-
-			pos.y = pos.y - 1
-
-			if get_node(pos).name == "ethereal:crystal_dirt" then
-
-				pos.y = pos.y + 1
-
-				core.swap_node(pos, {name = "ethereal:crystal_spike"})
-			end
-		end
-
-		return
-
-	elseif num > 3 and node.name == "ethereal:dry_shrub" then
-
-		local grass = core.find_nodes_in_area_under_air(pos0, pos1,
-				{"ethereal:dry_shrub"})
-
-		if #grass > 8 and not core.find_node_near(pos, 4, {"ethereal:fire_flower"}) then
+		if #grass > check.min and not core.find_node_near(pos, 4, {check.item}) then
 
 			pos = grass[math_random(#grass)]
 
 			pos.y = pos.y - 1
 
-			if get_node(pos).name == "ethereal:fiery_dirt" then
+			if get_node(pos).name == check.soil then
 
 				pos.y = pos.y + 1
 
-				core.swap_node(pos, {name = "ethereal:fire_flower"})
+				core.swap_node(pos, {name = check.item}) ; return
 			end
 		end
-
-		return
-
-	elseif num > 3 then
-		return
 	end
+
+	if num > 3 then return end
 
 	pos.y = pos.y - 1
 
@@ -193,9 +177,7 @@ function default.grow_cactus(pos, node)
 
 	pos.y = pos.y - 1
 
-	if core.get_item_group(get_node(pos).name, "sand") == 0 then
-		return
-	end
+	if core.get_item_group(get_node(pos).name, "sand") == 0 then return end
 
 	pos.y = pos.y + 1
 

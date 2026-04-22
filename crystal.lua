@@ -48,10 +48,7 @@ core.register_node("ethereal:crystal_spike", {
 		end
 
 		local objs = core.get_objects_inside_radius(pos, 0.8)
-
-		if not objs or #objs ~= 2 then return end
-
-		local crystal, mese = nil, nil
+		local crystal, mese
 
 		for k, obj in pairs(objs) do
 
@@ -59,22 +56,19 @@ core.register_node("ethereal:crystal_spike", {
 
 			if ent and ent.name == "__builtin:item" then
 
-				if ent.itemstring == "default:mese_crystal 2" then
-					mese = obj
-				elseif ent.itemstring == "ethereal:crystal_spike 2" then
-					crystal = obj
+				if ent.itemstring == "default:mese_crystal 2" then mese = obj
+				elseif ent.itemstring == "ethereal:crystal_spike 2" then crystal = obj
 				end
 			end
-		end
 
-		if mese and crystal then
+			if mese and crystal then
 
-			mese:remove()
-			crystal:remove()
+				mese:remove() ; crystal:remove()
 
-			core.add_item(pos, "ethereal:crystal_ingot")
+				core.add_item(pos, "ethereal:crystal_ingot")
 
-			return false
+				return false -- skip further checks
+			end
 		end
 	end
 })
@@ -220,7 +214,7 @@ function core.handle_node_drops(pos, drops, digger)
 		return old_handle_node_drops(pos, drops, digger)
 	end
 
-	return old_handle_node_drops(pos, {ItemStack(nn)}, digger)
+	return old_handle_node_drops(pos, {ItemStack(nn)}, digger) -- give actual node
 end
 
 -- Crystal Shovel
