@@ -124,7 +124,7 @@ else
 
 			node.name = "ethereal:onion_" .. tonumber(num + 1)
 
-			core.swap_node(pos, node)
+			core.set_node(pos, node)
 		end
 	})
 end

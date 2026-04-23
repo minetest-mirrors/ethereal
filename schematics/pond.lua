@@ -77,7 +77,7 @@ core.register_abm({
 	catch_up = false,
 	action = function(pos, node)
 
-		core.swap_node(pos, {name = replace_with[math_random(#replace_with)]})
+		core.set_node(pos, {name = replace_with[math_random(#replace_with)]})
 
 		local radius = 7
 

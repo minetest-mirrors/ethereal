@@ -131,6 +131,6 @@ core.register_abm({
 
 		node.name = "ethereal:strawberry_" .. tonumber(num + 1)
 
-		core.swap_node(pos, node)
+		core.set_node(pos, node)
 	end
 })

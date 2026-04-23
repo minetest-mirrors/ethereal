@@ -102,7 +102,7 @@ local function flower_spread(pos, node)
 
 				pos.y = pos.y + 1
 
-				core.swap_node(pos, {name = check.item}) ; return
+				core.set_node(pos, {name = check.item}) ; return
 			end
 		end
 	end
@@ -115,9 +115,7 @@ local function flower_spread(pos, node)
 
 	-- make sure we have soil underneath
 	if core.get_item_group(under.name, "soil") == 0
-	or under.name == "default:desert_sand" then
-		return
-	end
+	or under.name == "default:desert_sand" then return end
 
 	local seedling = core.find_nodes_in_area_under_air(pos0, pos1, {under.name})
 
@@ -128,7 +126,7 @@ local function flower_spread(pos, node)
 		pos.y = pos.y + 1
 
 		if (core.get_node_light(pos) or 0) >= 13 then
-			core.swap_node(pos, {name = node.name})
+			core.set_node(pos, {name = node.name})
 		end
 	end
 end
@@ -156,15 +154,13 @@ local function grow_papyrus(pos, node)
 		pos.y = pos.y + 1
 	end
 
-	nod = core.get_node(pos)
-
-	if nod.name == "air" and height < high then
+	if core.get_node(pos).name == "air" and height < high then
 
 		if node.name == "ethereal:bamboo" and height == (high - 1) then
 
 			ethereal.grow_bamboo_tree({x = pos.x, y = oripos, z = pos.z})
 		else
-			core.swap_node(pos, {name = node.name})
+			core.set_node(pos, {name = node.name})
 		end
 	end
 end

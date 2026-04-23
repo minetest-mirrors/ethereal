@@ -97,7 +97,7 @@ core.register_abm({
 				{"default:water_source", "default:river_water_source"})
 
 		if near then
-			core.swap_node(near, {name = "default:ice"})
+			core.set_node(near, {name = "default:ice"})
 		end
 	end
 })
@@ -120,7 +120,7 @@ core.register_abm({
 			near.y = near.y + 1
 
 			if get_node(near).name == "air" then
-				core.swap_node(near, {name = "ethereal:thin_ice"})
+				core.set_node(near, {name = "ethereal:thin_ice"})
 			end
 		end
 	end
@@ -160,7 +160,7 @@ core.register_abm({
 			return
 		end
 
-		core.swap_node(pos, {name = new_node})
+		core.set_node(pos, {name = new_node})
 
 		ethereal.check_falling(pos)
 	end
@@ -182,11 +182,11 @@ core.register_abm({
 	action = function(pos, node)
 
 		if node.name == "ethereal:dry_dirt" or node.name == "default:dry_dirt" then
-			core.swap_node(pos, {name = "default:dirt"})
+			core.set_node(pos, {name = "default:dirt"})
 		elseif node.name == "default:dirt_with_dry_grass" then
-			core.swap_node(pos, {name = "default:dirt_with_grass"})
+			core.set_node(pos, {name = "default:dirt_with_grass"})
 		else
-			core.swap_node(pos, {name = "default:dirt_with_dry_grass"})
+			core.set_node(pos, {name = "default:dirt_with_dry_grass"})
 		end
 	end
 })
