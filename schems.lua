@@ -338,6 +338,18 @@ register_decoration(ethereal.prairie, {
 	biomes = {"prairie"},
 	schematic = ethereal.orangetree})
 
+-- farming redo's kiwi tree
+
+local mod_fredo = core.get_modpath("farming") and farming.mod and farming.mod == "redo"
+
+register_decoration(mod_fredo and farming.kiwi ~= 0 and 1, {
+	place_on = "ethereal:prairie_dirt",
+	fill_ratio = 0.001,
+	biomes = {"prairie"},
+	schematic = farming.kiwi_vine, place_offset_y = 1,
+	spawn_by = {"ethereal:prairie_dirt"}, num_spawn_by = 8
+})
+
 -- default acacia tree
 
 register_decoration(ethereal.savanna, {
