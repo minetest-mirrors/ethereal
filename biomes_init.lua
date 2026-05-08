@@ -78,17 +78,36 @@ end
 
 -- loop through decorations
 
-for _, def in pairs(old_decor) do
+for key, def in pairs(old_decor) do
 
-	local biomes = type(def.biomes) == "table" and def.biomes or {def.biomes}
+	local can_add = true
 	local new_biomes = {}
 
-	-- loop through decoration biomes, only re-add one's not on above list
-	for _, bio in pairs(biomes) do
-		if not def_biomes[bio] then table.insert(new_biomes, bio) end
-	end
+	if type(def.biomes) == "table" then
 
-	if #new_biomes > 0 then
+		-- loop through decoration biomes, only re-add one's not on above list
+		for num, bio in pairs(def.biomes) do
+
+			if not def_biomes[bio] then table.insert(new_biomes, bio) end
+		end
+
+		-- if no biomes are left on new list, do not re-add decoration
+		if #new_biomes == 0 then can_add = false end
+
+	elseif type(def.biomes) == "string" then
+
+		if def_biomes[def.biomes] then
+			can_add = false
+		else
+			new_biomes = {def.biomes} -- convert to table
+		end
+
+	elseif not def.biomes then new_biomes = nil end -- keep it nil for re-adding
+
+	if can_add == true then
+
+		def.biomes = new_biomes
+
 		core.register_decoration(def)
 	end
 end
