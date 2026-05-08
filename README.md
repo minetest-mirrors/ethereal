@@ -107,6 +107,7 @@ who helped make this mod bigger and better throughout it's release :)
  - Added new lucky blocks
  - Added 'ethereal.pond_chance' when spawning ponds in Mesa biomes [Default: 1]
  - Added Magical Forest biome
+ - Refactored biome_init and decoration checks.
 
 ### 1.32
  - Add {eatable} groups to food items

@@ -8,7 +8,7 @@
 
 -- global
 
-ethereal = {version = "20260206"}
+ethereal = {version = "20260508"}
 
 -- setting helper
 
@@ -135,14 +135,13 @@ dofile(path .. "/extra.lua")
 dofile(path .. "/sealife.lua")
 dofile(path .. "/fences.lua")
 
-if core.settings:get_bool("ethereal.clear_default_biomes", true) then
-	dofile(path .. "/biomes_init.lua")
-end
-
+dofile(path .. "/biomes_init.lua")
 dofile(path .. "/biomes.lua")
+dofile(path .. "/decor_init.lua")
 dofile(path .. "/ores.lua")
 dofile(path .. "/schems.lua")
 dofile(path .. "/decor.lua")
+
 dofile(path .. "/compatibility.lua")
 dofile(path .. "/stairs.lua")
 
