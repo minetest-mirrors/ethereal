@@ -26,7 +26,7 @@ for key, def in pairs(ethereal.old_decor) do -- loop through old decoration
 
 			if def_deco[mod] then -- default decoration found
 
-				for _, biome in pairs(biomes) do -- loop through biomes
+				for __, biome in pairs(biomes) do -- loop through biomes
 
 					-- dont add if default decoration in a default biome found
 					if ethereal.def_biomes[biome] then
