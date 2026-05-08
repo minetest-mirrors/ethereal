@@ -341,6 +341,13 @@ register_biome(ethereal.junglee, {
 	node_filler = "default:dirt", depth_filler = 3})
 
 register_biome(ethereal.junglee, {
+	name = "rainforest_swamp",
+	heat_point = old and 30 or 86, humidity_point = old and 60 or 65,
+	y_min = -1, y_max = 0,
+	node_top = "default:dirt", depth_top = 1,
+	node_filler = "default:dirt", depth_filler = 3})
+
+register_biome(ethereal.junglee, {
 	name = "rainforest_ocean",
 	heat_point = old and 30 or 86, humidity_point = old and 60 or 65,
 	y_min = -192, y_max = 0,

@@ -18,7 +18,6 @@ for key, def in pairs(ethereal.old_decor) do -- loop through old decoration
 	if type(def.schematic) == "string" and def.schematic:find("default/schematics/") then
 		can_add = false
 	else
-		-- loop through decorations
 		for _, deco in pairs(deco_list) do -- loop through decorations
 
 			-- get mod name for decoration and biomes it appears in

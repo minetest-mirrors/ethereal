@@ -137,8 +137,10 @@ dofile(path .. "/fences.lua")
 
 dofile(path .. "/biomes_init.lua")
 dofile(path .. "/biomes.lua")
-dofile(path .. "/decor_init.lua")
+
 dofile(path .. "/ores.lua")
+
+dofile(path .. "/decor_init.lua")
 dofile(path .. "/schems.lua")
 dofile(path .. "/decor.lua")
 

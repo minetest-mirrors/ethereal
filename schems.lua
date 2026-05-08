@@ -256,6 +256,38 @@ register_decoration(ethereal.junglee, {
 	biomes = {"rainforest"},
 	schematic = dpath .. "jungle_tree.mts"})
 
+-- papyrus on dirt
+
+register_decoration(ethereal.junglee, {
+	name = "default:papyrus_on_dirt",
+	deco_type = "schematic",
+	place_on = {"default:dirt"},
+	sidelen = 16,
+	noise_params = {
+		offset = -0.3,
+		scale = 0.7,
+		spread = {x = 200, y = 200, z = 200},
+		seed = 354,
+		octaves = 3,
+		persist = 0.7
+	},
+	biomes = {"rainforest_swamp"},
+	y_min = 0, y_max = 0,
+	schematic = {
+		size = {x = 1, y = 7, z = 1},
+		data = {
+			{name = "default:dirt", prob = 255, force_place = true},
+			{name = "default:dirt", prob = 255, force_place = true},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+		},
+		yslice_prob = { {ypos = 2, prob = 127}, {ypos = 3, prob = 127} }
+	}
+})
+
 -- willow tree
 
 register_decoration(ethereal.grayness, {
