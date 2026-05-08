@@ -1,26 +1,13 @@
 
--- storage tables
+-- backup registered biomes then clear current
 
-ethereal.old_biomes = {}
-ethereal.old_decor = {}
-
--- backup registered biomes
+local old_biomes = {}
 
 for key, def in pairs(core.registered_biomes) do
-	ethereal.old_biomes[key] = def
+	old_biomes[key] = def
 end
-
--- backup registered decorations
-
-for key, def in pairs(core.registered_decorations) do
-	ethereal.old_decor[key] = def
-end
-
--- clear current biome data
 
 core.clear_registered_biomes()
-core.clear_registered_decorations()
--- core.clear_registered_ores()
 
 -- list of default biomes to remove
 
@@ -72,10 +59,12 @@ ethereal.def_biomes = {
 
 -- only re-register biomes that aren't on the list
 
-for key, def in pairs(ethereal.old_biomes) do
+for key, def in pairs(old_biomes) do
 
-	if not ethereal.def_biomes[key] then
+	if ethereal.def_biomes[key] then
+		--print("-- removed biome:", key)
+	else
 		core.register_biome(def)
--- print("-- re-regestering biome: ", def.name)
+		--print("-- registered biome:", key)
 	end
 end

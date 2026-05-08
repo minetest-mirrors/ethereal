@@ -228,16 +228,23 @@ register_biome(ethereal.frost, {
 register_biome(ethereal.grassy, {
 	name = "deciduous_forest",
 	heat_point = old and 13 or 60, humidity_point = old and 40 or 68,
-	y_min = 3, y_max = 91,
+	y_min = 1, y_max = 91,
 	node_top = "default:dirt_with_grass", depth_top = 1,
+	node_filler = "default:dirt", depth_filler = 3})
+
+register_biome(ethereal.grassy, {
+	name = "deciduous_forest_shore",
+	heat_point = old and 13 or 60, humidity_point = old and 40 or 68,
+	y_min = -1, y_max = 0,
+	node_top = "default:dirt", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
 register_biome(ethereal.grassy, {
 	name = "deciduous_forest_ocean",
 	heat_point = old and 13 or 60, humidity_point = old and 40 or 68,
-	y_min = -31000, y_max = 3,
-	node_top = "default:sand", depth_top = 2,
-	node_filler = "default:gravel", depth_filler = 1})
+	y_min = -255, y_max = -2,
+	node_top = "default:sand", depth_top = 1,
+	node_filler = "default:sand", depth_filler = 3})
 
 register_biome(ethereal.grassy, {
 	name = "deciduous_forest_under",
@@ -350,7 +357,7 @@ register_biome(ethereal.junglee, {
 register_biome(ethereal.junglee, {
 	name = "rainforest_ocean",
 	heat_point = old and 30 or 86, humidity_point = old and 60 or 65,
-	y_min = -192, y_max = 0,
+	y_min = -255, y_max = -2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 
@@ -478,14 +485,21 @@ register_biome(ethereal.plains, {
 register_biome(ethereal.savanna, {
 	name = "savanna",
 	heat_point = old and 55 or 89, humidity_point = old and 25 or 42,
-	y_min = 3, y_max = 50,
+	y_min = 1, y_max = 50,
 	node_top = "default:dry_dirt_with_dry_grass", depth_top = 1,
+	node_filler = "default:dry_dirt", depth_filler = 3})
+
+register_biome(ethereal.savanna, {
+	name = "savanna_shore",
+	heat_point = old and 55 or 89, humidity_point = old and 25 or 42,
+	y_min = -1, y_max = 0,
+	node_top = "default:dry_dirt", depth_top = 1,
 	node_filler = "default:dry_dirt", depth_filler = 3})
 
 register_biome(ethereal.savanna, {
 	name = "savanna_ocean",
 	heat_point = old and 55 or 89, humidity_point = old and 25 or 42,
-	y_min = -192, y_max = 2,
+	y_min = -255, y_max = -2,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 2})
 

@@ -1,7 +1,16 @@
+-- backup registered decorations then clear current
 
--- list of mod decorations to remove
+local old_decor = {}
 
-local def_deco = {
+for key, def in pairs(core.registered_decorations) do
+	old_decor[key] = def
+end
+
+core.clear_registered_decorations()
+
+-- list of default mods to remove from
+
+local default_mods = {
 	["default"] = 1,
 	["flowers"] = 1,
 	["butterflies"] = 1,
@@ -9,35 +18,37 @@ local def_deco = {
 	["farming"] = 1
 }
 
-for key, def in pairs(ethereal.old_decor) do -- loop through old decoration
+local function can_add(def)
+
+	if type(def.schematic) == "string" and def.schematic:find("/default/schematics/") then
+		return -- skip default schematics
+	end
 
 	local deco_list = type(def.decoration) == "table" and def.decoration or {def.decoration}
-	local can_add = true
+	local biomes = type(def.biomes) == "table" and def.biomes or {def.biomes}
 
-	-- dont re-register default schematics
-	if type(def.schematic) == "string" and def.schematic:find("default/schematics/") then
-		can_add = false
-	else
-		for _, deco in pairs(deco_list) do -- loop through decorations
+	for _, deco in pairs(deco_list) do
 
-			-- get mod name for decoration and biomes it appears in
-			local mod = deco and deco:split(":")[1]
-			local biomes = type(def.biomes) == "table" and def.biomes or {def.biomes}
+		local mod = deco and deco:split(":")[1]
 
-			if def_deco[mod] then -- default decoration found
+		if mod and default_mods[mod] then -- found a default mod
 
-				for __, biome in pairs(biomes) do -- loop through biomes
+			for __, biome in pairs(biomes) do
 
-					-- dont add if default decoration in a default biome found
-					if ethereal.def_biomes[biome] then
-						can_add = false
-					end
-				end
+				if ethereal.def_biomes[biome] then return end -- found a default biome
 			end
 		end
 	end
 
-	if can_add then
+	return true
+end
+
+for key, def in pairs(old_decor) do
+
+	if can_add(def) then
 		core.register_decoration(def)
+		--print("-- added decor:", dump(def.decoration), def.schematic)
+	else
+		--print("-- removed decor:", dump(def.decoration), def.schematic)
 	end
 end
