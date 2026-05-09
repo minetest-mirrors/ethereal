@@ -14,8 +14,7 @@ local default_mods = {
 	["default"] = 1,
 	["flowers"] = 1,
 	["butterflies"] = 1,
-	["fireflies"] = 1,
-	["farming"] = 1
+	["fireflies"] = 1
 }
 
 local function can_add(def)
