@@ -713,7 +713,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 			if prop then
 
-				core.add_particlespawner({
+				local def = {
 					amount = 1,
 					time = 2,
 					minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
@@ -731,7 +731,17 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 					texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1] .. "70",
 					vertical = true,
 					glow = prop[2]
-				})
+				}
+
+				if core.features.particlespawner_tweenable then
+					def.texture = "ethereal_falling_leaf_animated.png^[multiply:#"
+						.. prop[1] .. "70"
+					def.animation = {
+						type = 'vertical_frames', aspect_w = 16, aspect_h = 16, length = 1
+					}
+				end
+
+				core.add_particlespawner(def)
 			end
 		end
 	})
