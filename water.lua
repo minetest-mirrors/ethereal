@@ -16,12 +16,7 @@ core.register_node("ethereal:thin_ice", {
 	paramtype = "light",
 	drawtype = "nodebox",
 	drop = {},
-	node_box = {
-		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
-	},
-	collision_box = {
-		type = "fixed", fixed = {{-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
-	},
+	node_box = {type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -0.25, 0.5}},
 	groups = {cracky = 3, crumbly = 3, cools_lava = 1, slippery = 3},
 	sounds = default.node_sound_glass_defaults(),
 
@@ -83,9 +78,7 @@ core.register_craft({
 
 core.register_abm({
 	label = "Ethereal freeze water",
-	nodenames = {
-		"ethereal:crystal_spike", "default:snowblock", "ethereal:snowbrick"
-	},
+	nodenames = {"ethereal:crystal_spike", "default:snowblock", "ethereal:snowbrick"},
 	neighbors = {"default:water_source", "default:river_water_source"},
 	interval = 17,
 	chance = 10,

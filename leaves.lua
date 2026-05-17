@@ -696,7 +696,9 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		["default:aspen_leaves"] = {"395d16"},
 		["default:jungleleaves"] = {"141e10"},
 		["default:pine_needles"] = {"00280e"},
-		["default:leaves"] = {"223a20"}
+		["default:leaves"] = {"223a20"},
+		["xnether:purple_leaves"] = {"bf007b"},
+		["xnether:blue_leaves"] = {"44acda"}
 	}
 
 	core.register_abm({

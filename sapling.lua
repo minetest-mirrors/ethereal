@@ -228,8 +228,8 @@ end
 local function enough_height(pos, height)
 
 	return core.line_of_sight(
-		{x = pos.x, y = pos.y + 1, z = pos.z},
-		{x = pos.x, y = pos.y + height, z = pos.z})
+			{x = pos.x, y = pos.y + 1, z = pos.z},
+			{x = pos.x, y = pos.y + height, z = pos.z})
 end
 
 -- global function run by Abm
