@@ -353,6 +353,8 @@ add_moss("gray", "Gray", "ethereal_grass_gray_top.png", "ethereal:snowygrass")
 add_moss("green", "Green", "default_grass.png", "default:jungleleaves")
 add_moss("bamboo", "Bamboo", "ethereal_grass_bamboo_top.png", "ethereal:bamboo_leaves")
 add_moss("prairie", "Prairie", "ethereal_grass_prairie_top.png", "ethereal:orange_leaves")
+add_moss("cold", "Cold", "ethereal_grass_cold_top.png", "ethereal:pine_leaves")
+add_moss("magical", "Magical", "ethereal_grass_magical_top.png", "ethereal:magical_grass")
 
 -- shroom helper function
 
