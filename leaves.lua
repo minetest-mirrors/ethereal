@@ -99,7 +99,7 @@ core.register_node("ethereal:willow_twig", {
 	walkable = ethereal.leafwalk,
 	visual_scale = 1.4,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -123,7 +123,7 @@ core.register_node("ethereal:redwood_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -147,7 +147,7 @@ core.register_node("ethereal:orange_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -171,7 +171,7 @@ core.register_node("ethereal:bananaleaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -195,7 +195,7 @@ core.register_node("ethereal:yellowleaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, eatable = 1},
+	groups = {snappy = 3, leaves = 1, eatable = 1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -221,7 +221,7 @@ core.register_node("ethereal:palmleaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -245,7 +245,7 @@ local birch_def = {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -303,7 +303,7 @@ core.register_node("ethereal:frost_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, puts_out_fire = 1},
+	groups = {snappy = 3, leaves = 1, puts_out_fire = 1},
 	drop = {
 		max_items = 1,
 		items = {
@@ -328,7 +328,7 @@ core.register_node("ethereal:bamboo_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -352,7 +352,7 @@ core.register_node("ethereal:sakura_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -374,7 +374,7 @@ core.register_node("ethereal:sakura_leaves2", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -398,7 +398,7 @@ core.register_node("ethereal:lemon_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -422,7 +422,7 @@ core.register_node("ethereal:olive_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -446,7 +446,7 @@ core.register_node("ethereal:mangrove_leaves", {
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	waving = 1,
-	groups = {snappy = 3, leafdecay = 3, leaves = 1, flammable = 2},
+	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -463,7 +463,7 @@ core.register_node("ethereal:mangrove_leaves", {
 core.register_node("ethereal:mushroom", {
 	description = S("Mushroom Cap"),
 	tiles = {"ethereal_mushroom_block.png"},
-	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, leafdecay = 3},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -485,7 +485,7 @@ core.register_craft({
 core.register_node("ethereal:mushroom_brown", {
 	description = S("Brown Mushroom Cap"),
 	tiles = {"ethereal_mushroom_block_brown.png"},
-	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2, leafdecay = 3},
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -509,8 +509,7 @@ core.register_node("ethereal:mushroom_pore", {
 	tiles = {"ethereal_mushroom_pore.png"},
 	groups = {
 		snappy = 3, cracky = 3, choppy = 3, oddly_breakable_by_hand = 3,
-		flammable = 2, disable_jump = 1, fall_damage_add_percent = -100,
-		leafdecay = 3
+		flammable = 2, disable_jump = 1, fall_damage_add_percent = -100
 	},
 	sounds = default.node_sound_dirt_defaults()
 })

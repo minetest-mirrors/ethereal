@@ -125,7 +125,7 @@ local function flower_spread(pos, node)
 
 		pos.y = pos.y + 1
 
-		if (core.get_node_light(pos) or 0) >= 13 then
+		if (core.get_node_light(pos) or 0) > 12 then
 			core.set_node(pos, {name = node.name})
 		end
 	end
@@ -355,7 +355,7 @@ core.register_abm({
 		if core.find_node_near(pos, 1, {"ethereal:fire_flower"}) then
 
 			core.sound_play("fire_extinguish_flame",
-					{pos = pos, gain = 0.05, max_hear_distance = 3}, true)
+					{pos = pos, gain = 0.05, max_hear_distance = 5}, true)
 
 			core.remove_node(pos) ; return
 		end
@@ -365,7 +365,7 @@ core.register_abm({
 		if near then
 
 			core.sound_play("default_gravel_dug",
-					{pos = near, gain = 0.3, max_hear_distance = 3}, true)
+					{pos = near, gain = 0.3, max_hear_distance = 5}, true)
 
 			core.set_node(near, {name = "ethereal:slime_mold"})
 		end

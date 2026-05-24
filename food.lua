@@ -23,9 +23,7 @@ core.register_node("ethereal:banana", {
 	selection_box = {
 		type = "fixed", fixed = {-0.31, -0.5, -0.31, 0.31, 0.5, 0.31}
 	},
-	groups = {
-		food_banana = 1, fleshy = 3, dig_immediate = 3, leafdecay = 1, leafdecay_drop = 1
-	},
+	groups = {food_banana = 1, fleshy = 3, dig_immediate = 3, leafdecay_drop = 1},
 	drop = "ethereal:banana",
 	on_use = core.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
@@ -48,9 +46,7 @@ core.register_node("ethereal:banana_bunch", {
 	selection_box = {
 		type = "fixed", fixed = {-0.31, -0.5, -0.31, 0.31, 0.5, 0.31}
 	},
-	groups = {
-		fleshy = 3, dig_immediate = 3, leafdecay = 1, leafdecay_drop = 1
-	},
+	groups = {fleshy = 3, dig_immediate = 3, leafdecay_drop = 1},
 	drop = "ethereal:banana_bunch",
 	on_use = core.item_eat(6),
 	sounds = default.node_sound_leaves_defaults(),
@@ -102,10 +98,7 @@ core.register_node("ethereal:orange", {
 	selection_box = {
 		type = "fixed", fixed = {-0.27, -0.37, -0.27, 0.27, 0.44, 0.27}
 	},
-	groups = {
-		food_orange = 1, fleshy = 3, dig_immediate = 3,
-		leafdecay = 3, leafdecay_drop = 1
-	},
+	groups = {food_orange = 1, fleshy = 3, dig_immediate = 3, leafdecay_drop = 1},
 	drop = "ethereal:orange",
 	on_use = core.item_eat(4),
 	sounds = default.node_sound_leaves_defaults(),
@@ -162,8 +155,7 @@ core.register_node("ethereal:coconut", {
 	},
 	groups = {
 		food_coconut = 1, snappy = cgrp[1], oddly_breakable_by_hand = cgrp[2],
-		cracky = cgrp[1], choppy = cgrp[1], flammable = 1,
-		leafdecay = 3, leafdecay_drop = 1
+		cracky = cgrp[1], choppy = cgrp[1], flammable = 1, leafdecay_drop = 1
 	},
 	drop = cdrp,
 	sounds = default.node_sound_wood_defaults(),
@@ -217,9 +209,7 @@ core.register_node("ethereal:golden_apple", {
 	selection_box = {
 		type = "fixed", fixed = {-0.2, -0.37, -0.2, 0.2, 0.31, 0.2}
 	},
-	groups = {
-		fleshy = 3, dig_immediate = 3, leafdecay = 3,leafdecay_drop = 1, eatable = 2
-	},
+	groups = {fleshy = 3, dig_immediate = 3, leafdecay_drop = 1, eatable = 2},
 	drop = "ethereal:golden_apple",
 	sounds = default.node_sound_leaves_defaults(),
 	place_param2 = 1,
@@ -329,9 +319,7 @@ core.register_node("ethereal:lemon", {
 	selection_box = {
 		type = "fixed", fixed = {-0.27, -0.37, -0.27, 0.27, 0.44, 0.27}
 	},
-	groups = {
-		food_lemon = 1, fleshy = 3, dig_immediate = 3, leafdecay = 3, leafdecay_drop = 1
-	},
+	groups = {food_lemon = 1, fleshy = 3, dig_immediate = 3, leafdecay_drop = 1},
 	drop = "ethereal:lemon",
 	on_use = core.item_eat(3),
 	sounds = default.node_sound_leaves_defaults(),
@@ -409,7 +397,7 @@ core.register_node("ethereal:olive", {
 	selection_box = {
 		type = "fixed", fixed = {-0.1, -0.5, -0.1, 0.1, -0.3, 0.1}
 	},
-	groups = {fleshy = 3, dig_immediate = 3, leafdecay = 3, leafdecay_drop = 1},
+	groups = {food_olive = 1, fleshy = 3, dig_immediate = 3, leafdecay_drop = 1},
 	on_use = core.item_eat(1),
 	sounds = default.node_sound_leaves_defaults(),
 	place_param2 = 1
