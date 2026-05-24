@@ -86,6 +86,7 @@ core.register_node("ethereal:firethorn", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
+flora_substrate = {"ethereal:cold_dirt", "default:dirt_with_snow"},
 	groups = {snappy = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
