@@ -111,23 +111,29 @@ local function flower_spread(pos, node)
 
 	pos.y = pos.y - 1
 
-	local under = get_node(pos)
+	-- dont spread if we are on desert sand
+	if get_node(pos).name == "default:desert_sand" then return end
 
-	-- make sure we have soil underneath
-	if core.get_item_group(under.name, "soil") == 0
-	or under.name == "default:desert_sand" then return end
+	-- check for custom substrate to grow on, default to soil if none found
+	local plant_def = core.registered_nodes[node.name]
+	local substrate = plant_def and plant_def.flora_substrate or "group:soil"
+	local under = core.find_nodes_in_area(pos, pos, substrate)
 
-	local seedling = core.find_nodes_in_area_under_air(pos0, pos1, {under.name})
+	if #under == 0 then return end -- not on a substrate we can grow on
 
-	if #seedling > 0 then
+	local soils = core.find_nodes_in_area_under_air(pos0, pos1, substrate)
 
-		pos = seedling[math_random(#seedling)]
+	if #soils == 0 then return end -- no other soils we can spread to
 
-		pos.y = pos.y + 1
+	pos = soils[math_random(#soils)] -- set new position
 
-		if (core.get_node_light(pos) or 0) > 12 then
-			core.set_node(pos, {name = node.name})
-		end
+	if get_node(pos).name == "default:desert_sand" then return end -- double check
+
+	pos.y = pos.y + 1
+
+	-- we have enough light, go forth and spread
+	if (core.get_node_light(pos) or 0) > 12 then
+		core.set_node(pos, {name = node.name, param2 = node.param2})
 	end
 end
 
@@ -220,10 +226,10 @@ local function override_abm(name, redef)
 end
 
 override_abm("Flower spread", {
---interval = 1, chance = 1, -- testing only
+--interval = 2, chance = 1, -- testing only
 	chance = 96, -- moved back to original chance from 300
 	nodenames = {"group:flora"},
-	neighbors = {"group:soil"},
+	neighbors = {"air"},--{"group:soil"},
 	action = flower_spread
 })
 

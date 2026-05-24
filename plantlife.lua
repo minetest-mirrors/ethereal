@@ -15,6 +15,7 @@ minetest.register_node("ethereal:magical_grass", {
 	walkable = false,
 	buildable_to = true,
 	light_source = 1,
+flora_substrate = "ethereal:magical_dirt",
 	groups = {snappy = 3, flora = 1, attached_node = 1, grass = 1,
 		normal_grass = 1, flammable = 1},
 	sounds = default.node_sound_leaves_defaults(),
@@ -64,6 +65,7 @@ core.register_node("ethereal:spore_grass", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
+flora_substrate = "ethereal:mushroom_dirt",
 	groups = {snappy = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
@@ -251,6 +253,7 @@ core.register_node("ethereal:dry_shrub", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
+flora_substrate = "ethereal:fiery_dirt",
 	groups = {snappy = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
@@ -272,6 +275,7 @@ core.register_node("ethereal:snowygrass", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
+flora_substrate = "ethereal:gray_dirt",
 	groups = {snappy = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
@@ -293,6 +297,7 @@ core.register_node("ethereal:crystalgrass", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
+flora_substrate = "ethereal:crystal_dirt",
 	groups = {snappy = 3, flora = 1, attached_node = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
