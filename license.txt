@@ -215,6 +215,7 @@ Textures by Isaiah658 (CC0)
 
 Created by XSSheep (CC BY-SA 4.0 - https://minecraft.curseforge.com/projects/pixel-perfection-freshly-updated)
   default_apple_gold.png
+  ethereal_charcoal_block.png
 
 Created by EdgeLoopRepeat (CC0):
   ethereal_falling_leaf_animated.png

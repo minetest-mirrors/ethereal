@@ -423,13 +423,43 @@ core.register_craft({
 	output = "ethereal:charcoal_lump 2",
 	type = "cooking",
 	recipe = "group:tree",
-	cooktime = 8
+	cooktime = 6
 })
 
 core.register_craft({
 	type = "fuel",
 	recipe = "ethereal:charcoal_lump",
 	burntime = 30
+})
+
+-- Charcoal Block
+
+core.register_node("ethereal:charcoal_block", {
+	description = S("Charcoal Block"),
+	tiles = {"ethereal_charcoal_block.png"},
+	paramtype = "light",
+	groups = {cracky = 3},
+	sounds = default.node_sound_stone_defaults()
+})
+
+core.register_craft({
+	output = "ethereal:charcoal_block",
+	recipe = {
+		{"ethereal:charcoal_lump", "ethereal:charcoal_lump", "ethereal:charcoal_lump"},
+		{"ethereal:charcoal_lump", "ethereal:charcoal_lump", "ethereal:charcoal_lump"},
+		{"ethereal:charcoal_lump", "ethereal:charcoal_lump", "ethereal:charcoal_lump"}
+	}
+})
+
+core.register_craft({
+	output = "ethereal:charcoal_lump 9",
+	recipe = {{"ethereal:charcoal_block"}}
+})
+
+core.register_craft({
+	type = "fuel",
+	recipe = "charcoal:charcoal_block",
+	burntime = 270,
 })
 
 -- Make Torch from Charcoal Lump
