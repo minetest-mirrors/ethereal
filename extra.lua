@@ -459,7 +459,7 @@ core.register_craft({
 core.register_craft({
 	type = "fuel",
 	recipe = "charcoal:charcoal_block",
-	burntime = 270,
+	burntime = 280,
 })
 
 -- Make Torch from Charcoal Lump
