@@ -437,7 +437,7 @@ core.register_craft({
 core.register_node("ethereal:charcoal_block", {
 	description = S("Charcoal Block"),
 	tiles = {"ethereal_charcoal_block.png"},
-	paramtype = "light",
+	is_ground_content = false,
 	groups = {cracky = 3},
 	sounds = default.node_sound_stone_defaults()
 })
