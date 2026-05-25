@@ -61,7 +61,7 @@ register_decoration(ethereal.glacier, {
 	y_min = 3, y_max = 30, noise_params = {offset = 0.00040, scale = 0.001,
 			spread = vector.new(250, 250, 250), seed = 1133, octaves = 4,
 			persist = 0.67},
-	biomes = {"glacier"},
+	biomes = {"icesheet"},
 	schematic = ethereal.desertstone_under_spike, place_offset_y = 1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
 	replacements = {{"default:cobble", "air"}, {"default:stone", "default:ice"}},
@@ -143,7 +143,7 @@ register_decoration(ethereal.caves, {
 register_decoration(ethereal.glacier, {
 	place_on = "default:snowblock",
 	fill_ratio = 0.0002, y_min = 3, y_max = 30,
-	biomes = {"glacier"},
+	biomes = {"icesheet"},
 	schematic = ethereal.igloo, place_offset_y = -1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
 	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
@@ -188,7 +188,7 @@ register_decoration(ethereal.grove, {
 register_decoration(1, {
 	place_on = {"default:snow", "default:snowblock"},
 	fill_ratio = 0.01, y_min = old and 120 or 150, y_max = old and 140 or 160,
-	biomes = old and {"taiga"} or {"mountain", "glacier"},
+	biomes = old and {"taiga"} or {"mountain", "icesheet"},
 	schematic = ethereal.yellowtree,
 	spawn_by = old and "default:dirt_with_snow" or "default:snow", num_spawn_by = 8,
 	flags = "place_center_x, place_center_z, force_placement"})

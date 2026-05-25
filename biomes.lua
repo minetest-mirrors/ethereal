@@ -40,14 +40,21 @@ register_biome(1, {
 register_biome(1, {
 	name = "grassland",
 	heat_point = old and 45 or 50, humidity_point = old and 65 or 35,
-	y_min = 3, y_max = 71,
+	y_min = 6, y_max = 71,
 	node_top = "default:dirt_with_grass", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
 register_biome(1, {
+	name = "grassland_dunes",
+	heat_point = old and 45 or 50, humidity_point = old and 65 or 35,
+	y_min = 4, y_max = 5,
+	node_top = "default:sand", depth_top = 1,
+	node_filler = "default:sand", depth_filler = 2})
+
+register_biome(1, {
 	name = "grassland_ocean",
 	heat_point = old and 45 or 50, humidity_point = old and 65 or 35,
-	y_min = -192, y_max = 2,
+	y_min = -255, y_max = 3,
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 3})
 
@@ -541,7 +548,7 @@ register_biome(ethereal.fiery, {
 -- glacier
 
 register_biome(ethereal.glacier, {
-	name = "glacier",
+	name = "icesheet",
 	heat_point = 0, humidity_point = old and 50 or 73,
 	y_min = -8, y_max = 31000,
 	node_dust = "default:snowblock",
@@ -556,15 +563,15 @@ register_biome(ethereal.glacier, {
 	node_dungeon_stair = "stairs:stair_ice"})
 
 register_biome(ethereal.glacier, {
-	name = "glacier_ocean",
+	name = "icesheet_ocean",
 	heat_point = 0, humidity_point = old and 50 or 73,
-	y_min = -112, y_max = -9,
+	y_min = -255, y_max = -9,
 	node_dust = "default:snowblock",
 	node_top = "default:sand", depth_top = 1,
 	node_filler = "default:sand", depth_filler = 3})
 
 register_biome(ethereal.glacier, {
-	name = "glacier_under",
+	name = "icesheet_under",
 	heat_point = 0, humidity_point = old and 50 or 73,
 	y_max = -256, y_min = -31000,
 	node_cave_liquid = {"default:water_source", "default:lava_source"},
@@ -653,10 +660,16 @@ else
 	register_biome(ethereal.snowy_grassland, {
 		name = "snowy_grassland_ocean",
 		node_dust = "default:snow",
-		heat_point = 15, humidity_point = 58, y_min = -192, y_max = 2,
+		heat_point = 15, humidity_point = 58, y_min = -255, y_max = 2,
 		node_top = "default:sand", depth_top = 1,
 		node_filler = "default:sand", depth_filler = 3,
 		vertical_blend = 1})
+
+	register_biome(ethereal.snowy_grassland, {
+		name = "snowy_grassland_under",
+		node_cave_liquid = {"default:water_source", "default:lava_source"},
+		heat_point = 15, humidity_point = 58, y_min = -31000, y_max = -256,
+	})
 
 	-- magical forest
 

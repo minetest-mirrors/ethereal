@@ -8,7 +8,7 @@ ethereal.lilywalk (Lilypads are walkable) bool true
 ethereal.xcraft (Enable X-Craft cheats) bool true
 ethereal.flight (Enable Flight Potion) bool true
 
-ethereal.glacier (Glacier biome, 1 = Enable / 0 = Disable) int 1
+ethereal.glacier (Glacier/Icesheet biome, 1 = Enable / 0 = Disable) int 1
 ethereal.bambo (Bamboo biome, 1 = Enable / 0 = Disable) int 1
 ethereal.mesa (Mesa biome, 1 = Enable / 0 = Disable) int 1
 ethereal.alpine (Taiga biome, 1 = Enable / 0 = Disable) int 1

@@ -101,7 +101,7 @@ end
 register_decoration(ethereal.glacier, {
 	place_on = "default:snowblock",
 	fill_ratio = 0.001, y_min = 1, y_max = 30,
-	biomes = {"glacier"},
+	biomes = {"icesheet"},
 	decoration = "ethereal:firethorn"})
 
 -- caverealm icicle
@@ -109,7 +109,7 @@ register_decoration(ethereal.glacier, {
 register_decoration((core.get_modpath("caverealms") and 1), {
 	place_on = "default:snowblock",
 	fill_ratio = 0.008, y_min = 3, y_max = 30,
-	biomes = {"glacier"},
+	biomes = {"icesheet"},
 	decoration = "caverealms:icicle_up"})
 
 -- scorched tree
@@ -295,7 +295,7 @@ register_decoration(1, {
 	sidelen = 4, y_min = 3, y_max = 6,
 	noise_params = {offset = -0.7, scale = 3.0, spread = {x = 16, y = 16, z = 16},
 			seed = 513337, octaves = 1, persist = 0.0, flags = "absvalue, eased"},
-	biomes = {"coniferous_forest_dunes", "grassland_ocean"},
+	biomes = {"coniferous_forest_dunes", "grassland_dunes"},
 	decoration = {"default:marram_grass_1", "default:marram_grass_2",
 			"default:marram_grass_3"}})
 
