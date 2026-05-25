@@ -423,13 +423,13 @@ core.register_craft({
 	output = "ethereal:charcoal_lump 2",
 	type = "cooking",
 	recipe = "group:tree",
-	cooktime = 4
+	cooktime = 8
 })
 
 core.register_craft({
 	type = "fuel",
 	recipe = "ethereal:charcoal_lump",
-	burntime = 10
+	burntime = 30
 })
 
 -- Make Torch from Charcoal Lump
