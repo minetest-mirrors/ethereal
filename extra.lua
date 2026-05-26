@@ -459,7 +459,7 @@ core.register_craft({
 
 core.register_craft({
 	type = "fuel",
-	recipe = "charcoal:charcoal_block",
+	recipe = "ethereal:charcoal_block",
 	burntime = 280,
 })
 
