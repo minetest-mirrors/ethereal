@@ -248,13 +248,44 @@ register_decoration(ethereal.fiery, {
 	biomes = {"fiery"},
 	schematic = ethereal.basandrabush})
 
+-- Emergent jungle tree
+-- Due to 32 node height, altitude is limited and prescence depends on chunksize
+
+local chunksize
+if core.get_mapgen_chunksize then
+	local v = core.get_mapgen_chunksize()
+	chunksize = math.max(v.x, v.y, v.z)
+else
+	chunksize = tonumber(core.get_mapgen_setting("chunksize"))
+end
+
+if chunksize >= 5 then
+
+	register_decoration(ethereal.junglee, {
+		name = "default:emergent_jungle_tree",
+		place_on = {"default:dirt_with_rainforest_litter"},
+		noise_params = {
+			offset = 0.0,
+			scale = 0.0025,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2685,
+			octaves = 3,
+			persist = 0.7
+		},
+		biomes = {"rainforest"},
+		y_min = 1, y_max = 32,
+		schematic = dpath .. "emergent_jungle_tree.mts", rotation = "random",
+		place_offset_y = -4,
+	})
+end
+
 -- default jungle tree
 
 register_decoration(ethereal.junglee, {
 	place_on = "default:dirt_with_rainforest_litter",
 	fill_ratio = 0.08,
 	biomes = {"rainforest"},
-	schematic = dpath .. "jungle_tree.mts"})
+	schematic = dpath .. "jungle_tree.mts", rotation = "random"})
 
 -- papyrus on dirt
 
