@@ -409,7 +409,8 @@ core.register_craft({
 
 core.register_craftitem("ethereal:charcoal_lump", {
 	description = S("Lump of Charcoal"),
-	inventory_image = "ethereal_charcoal_lump.png"
+	inventory_image = "ethereal_charcoal_lump.png",
+	groups = {charcoal = 1}
 })
 
 core.register_craft({
@@ -467,7 +468,7 @@ core.register_craft({
 core.register_craft({
 	output = "default:torch 4",
 	recipe = {
-		{"ethereal:charcoal_lump"},
+		{"group:charcoal"},
 		{"default:stick"}
 	}
 })
