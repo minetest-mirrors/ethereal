@@ -228,3 +228,5 @@ Sounds by eZZin (CC0) https://freesound.org/people/eZZin/sounds/667122/
 
 Sound by Kostrava (CC0) https://freesound.org/people/Kostrava/sounds/333988/
   ethereal_crystal.ogg
+
+screenshot.jpg created using https://www.textstudio.com/
