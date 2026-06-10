@@ -91,7 +91,7 @@ core.override_item("default:aspen_leaves", {
 
 core.register_node("ethereal:willow_twig", {
 	description = S("Willow Twig"),
-	drawtype = "plantlike",
+	drawtype = leaftype,
 	tiles = {"ethereal_willow_twig.png"},
 	inventory_image = "ethereal_willow_twig.png",
 	wield_image = "ethereal_willow_twig.png",
