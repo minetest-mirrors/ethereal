@@ -87,22 +87,20 @@ core.override_item("default:aspen_leaves", {
 	walkable = ethereal.leafwalk
 })
 
--- willow twig (always shows as plantlike)
+-- willow twig
 
 local tex = "ethereal_willow_twig.png"
-local tex_inv = tex
 
 if ethereal.leaftype ~= 0 then
 	tex = "ethereal_willow_twig_allfaces.png"
-	tex_inv = l_tex("ethereal_willow_twig_allfaces.png")
 end
 
 core.register_node("ethereal:willow_twig", {
 	description = S("Willow Twig"),
 	drawtype = leaftype,
 	tiles = {tex},
-	inventory_image = tex_inv,
-	wield_image = tex_inv,
+	inventory_image = l_tex(tex),
+	wield_image = l_tex(tex),
 	paramtype = "light",
 	walkable = ethereal.leafwalk,
 	visual_scale = 1.4,
