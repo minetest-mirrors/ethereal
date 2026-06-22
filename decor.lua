@@ -120,6 +120,63 @@ register_decoration(ethereal.plains, {
 	biomes = {"plains"},
 	decoration = "ethereal:scorched_tree", height_max = 6})
 
+--== Changes from Asuna
+
+-- dry dirt patches
+
+register_decoration(1, {
+	place_on = {"default:dry_dirt_with_dry_grass"},
+	sidelen = 4,
+	noise_params = {offset = -1.5, scale = -1.5, spread = {x = 200, y = 200, z = 200},
+			seed = 329, octaves = 4, persist = 1.0},
+	biomes = {"plains"},
+	decoration = "default:dry_dirt", place_offset_y = -1,
+	flags = "force_placement"
+})
+
+-- rainforest litter in grove biome
+
+register_decoration(1, {
+	place_on = {"ethereal:grove_dirt"},
+	sidelen = 4,
+	noise_params = {offset = -0.0025, scale = 0.5, spread = {x = 100, y = 100, z = 100},
+			seed = 329, octaves = 1, persist = 1.0},
+	biomes = {"grove"},
+	decoration = "default:dirt_with_rainforest_litter", place_offset_y = -1,
+	flags = "force_placement"
+})
+
+-- scorched tree
+
+register_decoration(ethereal.fiery, {
+	place_on = {"ethereal:fiery_dirt"},
+	fill_ratio = 0.000275,
+	biomes = {"fiery"},
+	decoration = "ethereal:scorched_tree",
+	height_max = 6})
+
+-- fiery lava pits
+
+register_decoration(ethereal.fiery, {
+	place_on = {"ethereal:fiery_dirt"},
+	place_offset_y = -1,
+	spawn_by = "ethereal:fiery_dirt",
+	num_spawn_by = 7,
+	sidelen = 8,
+	noise_params = {
+		offset = 0.0125,
+		scale = 0.025,
+		spread = {x = 50, y = 50, z = 50},
+		seed = 909,
+		octaves = 2,
+		persist = 1.0
+	},
+	biomes = {"fiery"},
+	decoration = "default:lava_source",
+	flags = "force_placement"})
+
+--== End
+
 -- dry shrub
 
 register_decoration(ethereal.plains, {
@@ -236,7 +293,7 @@ register_decoration(ethereal.mushroom, {
 
 register_decoration(ethereal.mushroom, {
 	place_on = {"default:sand"},
-	fill_ratio = 0.1, y_min = 2, y_max = 6,
+	sidelen = 16, fill_ratio = 0.065, y_min = 1, y_max = 5,
 	biomes = {"mushroom_ocean"},
 	decoration = "ethereal:slime_mold"})
 
@@ -260,7 +317,7 @@ register_decoration(ethereal.junglee, {
 register_decoration(ethereal.jumble, {
 	place_on = {"default:dirt_with_grass"},
 	fill_ratio = 0.15,
-	biomes = {"jumble"},
+	biomes = {"jumble", "grove"},
 	decoration = "default:junglegrass"})
 
 register_decoration(ethereal.swamp, {

@@ -46,6 +46,7 @@ local function register_decoration(enabled, def)
 	def.y_min = def.y_min or 1
 	def.y_max = def.y_max or 100
 	def.flags = def.flags or "place_center_x, place_center_z"
+	def.rotation = def.rotation or "random"
 
 	core.register_decoration(def)
 end
@@ -97,14 +98,14 @@ register_decoration(ethereal.mangrove, {
 	sidelen = 80, fill_ratio = 0.023, y_min = -1, y_max = 6,
 	biomes = {"mangrove", "mangrove_shore"},
 	schematic = ethereal.mangrove_tree_2,
-	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+	flags = "place_center_x, place_center_z, force_placement"})
 
 register_decoration(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
 	sidelen = 80, fill_ratio = 0.023, y_min = 1, y_max = 6,
 	biomes = {"mangrove", "mangrove_shore"},
 	schematic = ethereal.mangrove_tree,
-	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+	flags = "place_center_x, place_center_z, force_placement"})
 
 register_decoration(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
@@ -117,7 +118,7 @@ register_decoration(ethereal.mangrove, {
 			{name = "default:water_source", param1 = 255},
 			{name = "flowers:waterlily", param1 = 255},
 		}
-	}, rotation = "random"})
+	}})
 
 -- desertstone spike
 
@@ -127,7 +128,7 @@ register_decoration(core.get_modpath("stairs") and ethereal.caves, {
 	biomes = {"caves"},
 	schematic = ethereal.desertstone_spike,
 	spawn_by = "default:desert_stone", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+	flags = "place_center_x, place_center_z, force_placement"})
 
 -- desertstone under spike
 
@@ -136,7 +137,7 @@ register_decoration(ethereal.caves, {
 	sidelen = 16, fill_ratio = 0.01, y_min = 5, y_max = 42,
 	biomes = {"caves"},
 	schematic = ethereal.desertstone_under_spike,
-	flags = "place_center_x, place_center_z, all_floors", rotation = "random"})
+	flags = "place_center_x, place_center_z, all_floors"})
 
 -- igloo
 
@@ -146,7 +147,7 @@ register_decoration(ethereal.glacier, {
 	biomes = {"icesheet"},
 	schematic = ethereal.igloo, place_offset_y = -1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement", rotation = "random"})
+	flags = "place_center_x, place_center_z, force_placement"})
 
 -- sakura tree
 
@@ -206,7 +207,15 @@ register_decoration(ethereal.frost, {
 
 register_decoration(ethereal.mushroom, {
 	place_on = "ethereal:mushroom_dirt",
-	fill_ratio = 0.018, sidelen = 8, y_min = 3, y_max = 25,
+	sidelen = 16,
+	noise_params = {
+		offset = 0.01,
+		scale = 0.0075,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 328,
+		octaves = 2,
+		persist = 0.6
+	},
 	biomes = {"mushroom"},
 	schematic = ethereal.mushroomone,
 	spawn_by = "ethereal:mushroom_dirt", num_spawn_by = 8})
@@ -215,30 +224,36 @@ register_decoration(ethereal.mushroom, {
 
 register_decoration(ethereal.mushroom, {
 	place_on = "ethereal:mushroom_dirt",
-	fill_ratio = 0.02, y_min = 26, y_max = 50,
+	sidelen = 16,
+	noise_params = {
+		offset = 0.005,
+		scale = 0.0075,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 329,
+		octaves = 2,
+		persist = 0.9
+	},
 	biomes = {"mushroom"},
 	schematic = ethereal.mushroomtwo,
-	spawn_by = "ethereal:mushroom_dirt", num_spawn_by = 6,
-	rotation = "random"})
+	spawn_by = "ethereal:mushroom_dirt", num_spawn_by = 6})
 
 -- small lava crater
 
 register_decoration(ethereal.fiery, {
 	place_on = "ethereal:fiery_dirt",
-	fill_ratio = 0.01,
+	fill_ratio = 0.003,
 	biomes = {"fiery"},
 	schematic = ethereal.volcanom,
-	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 6})
+	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 8})
 
 -- large lava crater
 
 register_decoration(ethereal.fiery, {
 	place_on = "ethereal:fiery_dirt",
-	fill_ratio = 0.003,
+	fill_ratio = 0.0013,
 	biomes = {"fiery"},
 	schematic = ethereal.volcanol,
-	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 4,
-	rotation = "random"})
+	spawn_by = "ethereal:fiery_dirt", num_spawn_by = 4})
 
 -- basandra bush
 
@@ -274,7 +289,7 @@ if chunksize >= 5 then
 		},
 		biomes = {"rainforest"},
 		y_min = 1, y_max = 32,
-		schematic = dpath .. "emergent_jungle_tree.mts", rotation = "random",
+		schematic = dpath .. "emergent_jungle_tree.mts",
 		place_offset_y = -4,
 	})
 end
@@ -285,7 +300,7 @@ register_decoration(ethereal.junglee, {
 	place_on = "default:dirt_with_rainforest_litter",
 	fill_ratio = 0.08,
 	biomes = {"rainforest"},
-	schematic = dpath .. "jungle_tree.mts", rotation = "random"})
+	schematic = dpath .. "jungle_tree.mts"})
 
 -- papyrus on dirt
 
@@ -309,6 +324,38 @@ register_decoration(ethereal.junglee, {
 		data = {
 			{name = "default:dirt", prob = 255, force_place = true},
 			{name = "default:dirt", prob = 255, force_place = true},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+			{name = "default:papyrus", prob = 255},
+		},
+		yslice_prob = { {ypos = 2, prob = 127}, {ypos = 3, prob = 127} }
+	}
+})
+
+-- papyrus on dry dirt
+
+register_decoration(ethereal.savanna, {
+	name = "default:papyrus_on_dry_dirt",
+	deco_type = "schematic",
+	place_on = {"default:dry_dirt"},
+	sidelen = 16,
+	noise_params = {
+		offset = -0.3,
+		scale = 0.7,
+		spread = {x = 200, y = 200, z = 200},
+		seed = 354,
+		octaves = 3,
+		persist = 0.7
+	},
+	biomes = {"savanna_shore"},
+	y_min = 0, y_max = 0,
+	schematic = {
+		size = {x = 1, y = 7, z = 1},
+		data = {
+			{name = "default:dry_dirt", prob = 255, force_place = true},
+			{name = "default:dry_dirt", prob = 255, force_place = true},
 			{name = "default:papyrus", prob = 255},
 			{name = "default:papyrus", prob = 255},
 			{name = "default:papyrus", prob = 255},
@@ -424,10 +471,10 @@ register_decoration(ethereal.savanna, {
 -- palm tree
 
 register_decoration(1, {
-	place_on = "default:sand",
-	fill_ratio = 0.0025, y_min = 1, y_max = 1,
+	place_on = {"default:sand", "default:sesert_sand"},
+	fill_ratio = 0.0025, y_min = 1, y_max = 3, place_offset_y = 1,
 	biomes = {"desert_ocean", "plains_ocean", "sandstone_desert_ocean",
-			"mesa_ocean", "grove_ocean", "deciduous_forest_ocean"},
+			"mesa_beach", "grove_ocean", "deciduous_forest_shore"},
 	schematic = ethereal.palmtree})
 
 -- bamboo tree
@@ -481,8 +528,7 @@ register_decoration(ethereal.desert, {
 		seed = 230, octaves = 3, persist = 0.6},
 	biomes = {"desert"},
 	schematic = dpath .. "large_cactus.mts",
-	flags = "place_center_x",
-	rotation = "random"})
+	flags = "place_center_x"})
 
 -- default bush
 
@@ -534,15 +580,14 @@ register_decoration((core.registered_nodes["default:blueberry_bush_leaves"] and 
 -- place waterlily in beach areas
 
 register_decoration(1, {
-	place_on = {"default:sand"},
+	place_on = {"default:sand", "default:desert_sand", "default:dirt"},
 	sidelen = 16, y_min = 0, y_max = 0,
 	noise_params = {
 		offset = -0.12, scale = 0.3, spread = {x = 200, y = 200, z = 200},
 		seed = 33, octaves = 3, persist = 0.7},
-	biomes = {"desert_ocean", "plains_ocean", "mesa_ocean", "grove_ocean",
-			"deciduous_forest_ocean", "swamp_ocean"},
-	schematic = ethereal.waterlily,
-	rotation = "random"})
+	biomes = {"desert_ocean", "plains_ocean", "mesa_beach", "grove_ocean",
+			"deciduous_forest_shore", "swamp_ocean"},
+	schematic = ethereal.waterlily})
 
 -- coral reef
 
@@ -560,8 +605,7 @@ if ethereal.reefs == 1 then
 			seed = 7013, octaves = 3, persist = 1},
 		biomes = {"desert_ocean", "grove_ocean"},
 		y_min = -8, y_max = -2,
-		schematic = path .. "corals.mts",
-		rotation = "random"})
+		schematic = path .. "corals.mts"})
 end
 
 -- tree logs
@@ -575,7 +619,6 @@ if ethereal.logs == 1 then
 		biomes = {"deciduous_forest", "jumble", "swamp", "prairie"},
 		schematic = dpath .. "apple_log.mts", place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = {"default:dirt_with_grass", "ethereal:prairie_dirt"}, num_spawn_by = 8})
 
 	register_decoration(ethereal.junglee, {
@@ -585,7 +628,6 @@ if ethereal.logs == 1 then
 		biomes = {"rainforest"},
 		schematic = dpath .. "jungle_log.mts", place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = "default:dirt_with_rainforest_litter", num_spawn_by = 8})
 
 	register_decoration(ethereal.snowy, {
@@ -595,7 +637,6 @@ if ethereal.logs == 1 then
 		biomes = {"taiga", "coniferous_forest"},
 		schematic = dpath .. "pine_log.mts", place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = {"default:dirt_with_snow", "default:dirt_with_coniferous_litter"},
 		num_spawn_by = 8})
 
@@ -610,7 +651,6 @@ if ethereal.logs == 1 then
 		biomes = {"savanna"},
 		schematic = dpath .. "acacia_log.mts", place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = "default:dry_dirt_with_dry_grass", num_spawn_by = 8})
 
 	register_decoration(ethereal.plains, {
@@ -627,7 +667,6 @@ if ethereal.logs == 1 then
 			}
 		}, place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = "ethereal:dry_dirt", num_spawn_by = 8})
 
 	register_decoration(ethereal.grove, {
@@ -644,7 +683,6 @@ if ethereal.logs == 1 then
 			}
 		}, place_offset_y = 1,
 		flags = "place_center_x",
-		rotation = "random",
 		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8})
 end
 

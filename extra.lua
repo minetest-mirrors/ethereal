@@ -252,7 +252,7 @@ local function add_candle(col, dcol)
 		light_source = 11,
 		sunlight_propagates = true,
 		walkable = false,
-		groups = {candle = 1, dig_immediate = 3, attached_node = 1},
+		groups = {candle = 1, candle_ethereal = 1, dig_immediate = 3, attached_node = 1},
 		sounds = default.node_sound_defaults(),
 		selection_box = {
 			type = "fixed", fixed = { -0.15, -0.5, -0.15, 0.15, 0, 0.15 }
@@ -288,7 +288,7 @@ add_candle("yellow", "Yellow ")
 core.register_craft({
 	output = "ethereal:candle",
 	recipe = {
-		{"group:candle", "dye:white"}
+		{"group:candle_ethereal", "dye:white"}
 	}
 })
 
