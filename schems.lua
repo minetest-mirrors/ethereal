@@ -452,7 +452,7 @@ register_decoration(ethereal.prairie, {
 
 local mod_fredo = core.get_modpath("farming") and farming.mod and farming.mod == "redo"
 
-register_decoration(mod_fredo and farming.kiwi ~= 0 and 1, {
+register_decoration(mod_fredo and farming.kiwi ~= 0 and ethereal.prairie, {
 	place_on = "ethereal:prairie_dirt",
 	fill_ratio = 0.001,
 	biomes = {"prairie"},
@@ -554,27 +554,26 @@ register_decoration(1, {
 
 -- default pine bush
 
-register_decoration((core.registered_nodes["default:pine_bush"] and 1), {
+register_decoration(1, {
 	name = "default:pine_bush",
 	place_on = {"default:dirt_with_snow", "default:cold_dirt"},
 	sidelen = 16, y_min = 4, y_max = 120,
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 137, octaves = 3, persist = 0.7},
-	biomes = {"taiga", old and "taiga" or "snowy_grassland"},
+	biomes = {"taiga", "snowy_grassland"},
 	schematic = dpath .. "pine_bush.mts"})
 
 -- default blueberry bush
 
-register_decoration((core.registered_nodes["default:blueberry_bush_leaves"] and 1), {
+register_decoration(1, {
 	name = "default:blueberry_bush",
-	place_on = {"default:dirt_with_coniferous_litter", "default:dirt_with_snow",
-			"ethereal:cold_dirt"},
+	place_on = {"default:dirt_with_grass", "default:dirt_with_snow", "ethereal:cold_dirt"},
 	sidelen = 16,
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
 		seed = 697, octaves = 3, persist = 0.7},
-	biomes = {"coniferous_forest", "taiga", old and "taiga" or "snowy_grassland"},
+	biomes = {"grassland", "snowy_grassland"},
 	schematic = dpath .. "blueberry_bush.mts", place_offset_y = 1})
 
 -- place waterlily in beach areas
