@@ -251,7 +251,7 @@ function ethereal.grow_sapling(pos, node)
 	local under =  get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
 
 	-- default ok and magic dirt check (can grow any ethereal sapling)
-	local ok = false ; if under == "ethereal:magical_dirt" then ok = true end
+	local ok = under == "ethereal:magical_dirt" and true
 
 	-- check if Ethereal Sapling is growing on correct substrate
 	if node.name == "ethereal:basandra_bush_sapling"

@@ -90,7 +90,7 @@ core.register_abm({
 				{"default:water_source", "default:river_water_source"})
 
 		if near then
-			core.set_node(near, {name = "default:ice"})
+			core.swap_node(near, {name = "default:ice"})
 		end
 	end
 })
@@ -113,13 +113,23 @@ core.register_abm({
 			near.y = near.y + 1
 
 			if get_node(near).name == "air" then
-				core.set_node(near, {name = "ethereal:thin_ice"})
+				core.swap_node(near, {name = "ethereal:thin_ice"})
 			end
 		end
 	end
 })
 
 -- If Heat Source near Ice or Snow then melt.
+
+local melts = {
+	["default:ice"] = "source",
+	["default:snowblock"] = "source",
+	["ethereal:icebrick"] = "source",
+	["ethereal:snowbrick"] = "source",
+	["default:snow"] = "flowing-",
+	["ethereal:thin_ice"] = "flowing",
+	["default:dirt_with_snow"] = "default:dirt_with_grass"
+}
 
 core.register_abm({
 	label = "Ethereal melt snow/ice",
@@ -138,28 +148,33 @@ core.register_abm({
 
 	action = function(pos, node)
 
-		local water_node = pos.y > 2 and "default:river_water" or "default:water"
+		local ret = melts[node.name] ; if not ret then return end
 		local new_node
 
-		if node.name == "default:ice" or node.name == "default:snowblock"
-		or node.name == "ethereal:icebrick" or node.name == "ethereal:snowbrick" then
-			new_node = water_node .. "_source"
-		elseif node.name == "default:snow"
-		or node.name == "ethereal:thin_ice" then
-			new_node = water_node .. "_flowing"
-		elseif node.name == "default:dirt_with_snow" then
-			new_node = "default:dirt_with_grass"
+		if ret:len() < 8 then
+
+			local water = pos.y > 2 and "default:river_water" or "default:water"
+
+			new_node = water .. "_" .. ret
 		else
-			return
+			new_node = ret
 		end
 
-		core.set_node(pos, {name = new_node})
+		core.swap_node(pos, {name = new_node})
 
 		ethereal.check_falling(pos)
 	end
 })
 
+
 -- If Water Source near Dry Dirt, change to normal Dirt
+
+local dry_to_wet = {
+	["ethereal:dry_dirt"] = "default:dirt",
+	["default:dry_dirt"] = "default:dirt",
+	["default:dirt_with_dry_grass"] = "default:dirt_with_grass",
+	["default:dry_dirt_with_dry_grass"] = "default:dirt_with_dry_grass",
+}
 
 core.register_abm({
 	label = "Ethereal wet dry dirt",
@@ -174,23 +189,19 @@ core.register_abm({
 
 	action = function(pos, node)
 
-		if node.name == "ethereal:dry_dirt" or node.name == "default:dry_dirt" then
-			core.set_node(pos, {name = "default:dirt"})
-		elseif node.name == "default:dirt_with_dry_grass" then
-			core.set_node(pos, {name = "default:dirt_with_grass"})
-		else
-			core.set_node(pos, {name = "default:dirt_with_dry_grass"})
-		end
+		local new = dry_to_wet[node.name]
+
+		if new then core.swap_node(pos, {name = new}) end
 	end
 })
 
 -- when enabled, override torches so they drop when touching water
 
-if ethereal.torchdrop == true and not core.get_modpath("real_torch") then
+if ethereal.torchdrop and not core.get_modpath("real_torch") then
 
 	local function on_flood(pos, oldnode, newnode)
 
-		core.add_item(pos, ItemStack("default:torch 1"))
+		core.add_item(pos, ItemStack("default:torch"))
 
 		local def = core.registered_items[newnode.name]
 
