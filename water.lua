@@ -126,7 +126,7 @@ local melts = {
 	["default:snowblock"] = "source",
 	["ethereal:icebrick"] = "source",
 	["ethereal:snowbrick"] = "source",
-	["default:snow"] = "flowing-",
+	["default:snow"] = "flowing",
 	["ethereal:thin_ice"] = "flowing",
 	["default:dirt_with_snow"] = "default:dirt_with_grass"
 }
