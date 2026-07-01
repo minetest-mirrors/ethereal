@@ -24,7 +24,7 @@ register_decoration(ethereal.magical_forest, {
 	sidelen = 4, fill_ratio = 0.001, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
 	flags = "force_placement",
-	decoration = "default:river_water_source", place_offset_y = -1,
+	decoration = "ethereal:magical_water", place_offset_y = -1,
 	spawn_by = "ethereal:magical_dirt", num_spawn_by = 8})
 
 register_decoration(ethereal.magical_forest, {

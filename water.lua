@@ -222,3 +222,44 @@ if ethereal.torchdrop and not core.get_modpath("real_torch") then
 	torch_override("torch_wall")
 	torch_override("torch_ceiling")
 end
+
+-- magical water
+
+minetest.register_node("ethereal:magical_water", {
+	description = S("Magical Water"),
+	drawtype = "liquid",
+	tiles = {
+		{
+			name = "default_river_water_source_animated.png^[brighten",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2.0,
+			}
+		},
+		{
+			name = "default_river_water_source_animated.png^[brighten",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 2.0,
+			}
+		},
+	},
+	use_texture_alpha = "blend",
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1, damage_per_second = -1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "ethereal:magical_water",
+	liquid_alternative_source = "ethereal:magical_water",
+	liquid_viscosity = 1,
+	liquid_renewable = false,
+	liquid_range = 0,
+	post_effect_color = {a = 103, r = 30, g = 76, b = 90},
+	groups = {water = 3, liquid = 3, cools_lava = 1, not_in_creative_inventory = 1},
+	sounds = default.node_sound_water_defaults(),
+})
