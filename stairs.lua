@@ -167,3 +167,9 @@ do_stair(
 	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	{"mcl_mangrove_planks.png"},
 	default.node_sound_wood_defaults())
+
+do_stair(
+	"Glostone", "glostone", "ethereal:glostone",
+	{cracky = 3},
+	{"ethereal_glostone.png"},
+	default.node_sound_stone_defaults())
