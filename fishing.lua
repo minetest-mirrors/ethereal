@@ -38,7 +38,8 @@ local fish_items = {
 	{"ethereal:fish_shrimp", "ocean"},
 	{"ethereal:fish_carp", "swamp"},
 	{"ethereal:fish_tetra", "grayness_ocean"},
-	{"ethereal:fish_mackerel", "glacier"}
+	{"ethereal:fish_mackerel", "glacier"},
+	{"ethereal:fish_starfish", "ocean"}
 }
 -- grassland_ocean, desert_ocean, bamboo_ocean, mesa_ocean, coniferous_forest_ocean,
 -- taiga_ocean, frost_ocean, deciduous_forest_ocean, grayness_ocean, grassytwo_ocean,
@@ -512,7 +513,8 @@ local fish = {
 	{"Neon Tetra", "tetra", 1},
 	{"Tilapia", "tilapia", 2},
 	{"Golden Trevally", "trevally", 2},
-	{"Stoplight Parrotfish", "parrot", 2}
+	{"Stoplight Parrotfish", "parrot", 2},
+	{"Valvatacea Starfish", "starfish", 0},
 }
 
 -- register above fish
