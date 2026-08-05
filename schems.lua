@@ -556,7 +556,7 @@ register_decoration(1, {
 
 register_decoration(1, {
 	name = "default:pine_bush",
-	place_on = {"default:dirt_with_snow", "default:cold_dirt"},
+	place_on = {"default:dirt_with_snow", "ethereal:cold_dirt"},
 	sidelen = 16, y_min = 4, y_max = 120,
 	noise_params = {
 		offset = -0.004, scale = 0.01, spread = {x = 100, y = 100, z = 100},
