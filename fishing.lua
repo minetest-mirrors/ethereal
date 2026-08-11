@@ -171,15 +171,19 @@ if not self.cast then
 
 			-- do we have worms for bait, if so take one
 			local player = self.fisher and core.get_player_by_name(self.fisher)
-			local inv = player and player:get_inventory()
 			local bait = 0
 
-			if inv and inv:contains_item("main", "caverealms:glow_bait") then
-				inv:remove_item("main", "caverealms:glow_bait")
-				bait = 40
-			elseif inv and inv:contains_item("main", "ethereal:worm") then
-				inv:remove_item("main", "ethereal:worm")
-				bait = 20
+			if player then
+
+				local inv = player and player:get_inventory()
+
+				if inv and inv:contains_item("main", "caverealms:glow_bait") then
+					inv:remove_item("main", "caverealms:glow_bait")
+					bait = 40
+				elseif inv and inv:contains_item("main", "ethereal:worm") then
+					inv:remove_item("main", "ethereal:worm")
+					bait = 20
+				end
 			end
 
 			-- re-position fishing bob and set to cast
@@ -191,8 +195,7 @@ if not self.cast then
 			self.bait = bait
 			self.cast = true
 
-			-- splash
-			effect(pos) ; effect(pos) ; effect(pos) ; effect(pos)
+			for i = 1, 4 do effect(pos) end -- splash
 
 			core.sound_play("default_water_footstep", {pos = pos, gain = 0.1}, true)
 		end
@@ -200,7 +203,7 @@ if not self.cast then
 else -- already cast and waiting for fish
 
 		-- we need a name
-		if self.fisher == nil or self.fisher == "" then
+		if not self.fisher or self.fisher == "" then
 
 			self.object:remove() ; --print("-- no name")
 
@@ -275,11 +278,11 @@ else -- already cast and waiting for fish
 					self.patience = 1.4 -- timeframe to catch fish after bob
 					self.timer = 0
 
-					self.object:set_velocity({x = 0, y = -1, z = 0})
-					self.object:set_acceleration({x = 0, y = 3, z = 0})
+					self.object:set_velocity({x = 0, y = -0.8, z = 0})
+					self.object:set_acceleration({x = 0, y = 4, z = 0})
 
 					core.sound_play("default_water_footstep", {
-						pos = pos, gain = 0.1}, true)
+						pos = pos, gain = 0.2}, true)
 				end
 			end
 		else
@@ -342,8 +345,8 @@ local function use_rod(itemstack, player, pointed_thing)
 
 		local ent = objs[n]:get_luaentity()
 
-		if ent and ent.fisher and ent.name == "ethereal:bob_entity"
-		and ent.fisher == player:get_player_name() then
+		if ent and ent.name == "ethereal:bob_entity"
+		and ent.fisher and ent.fisher == player:get_player_name() then
 
 			if ent.bob then
 
@@ -357,7 +360,7 @@ local function use_rod(itemstack, player, pointed_thing)
 				-- chance between catching fish, bonuns item or junk
 				if r < 86 then
 					item = find_item(fish_items, rodpos)
-				elseif r > 85 and r < 96 then
+				elseif r < 96 then
 					item = find_item(junk_items, rodpos)
 				else
 					item = find_item(bonus_items, rodpos)
@@ -378,7 +381,7 @@ local function use_rod(itemstack, player, pointed_thing)
 
 				-- if tool then add wear
 				if item_wear and core.registered_tools[item_name] then
-					item:set_wear(65535 - item_wear)
+					item:set_wear(65535 - tonumber(item_wear))
 				end
 
 				local inv = player:get_inventory()
@@ -421,7 +424,7 @@ end
 
 local function remove_bob(player)
 
-	local objs = core.get_objects_inside_radius(player:get_pos(), 15)
+	local objs = core.get_objects_inside_radius(player:get_pos(), 17)
 	local name = player:get_player_name()
 	local ent
 
@@ -429,27 +432,16 @@ local function remove_bob(player)
 
 		ent = objs[n]:get_luaentity()
 
-		if ent and ent.name == "ethereal:bob_entity" then
-
-			-- only remove players own bob
-			if ent.fisher and ent.fisher == name then
-				ent.object:remove()
-			end
+		if ent and ent.name == "ethereal:bob_entity" and ent.fisher == name then
+			ent.object:remove()
 		end
 	end
 end
 
--- remove bob if player signs off
+-- remove bob if player signs off or dies
 
-core.register_on_leaveplayer(function(player)
-	remove_bob(player)
-end)
-
--- remove bob if player dies
-
-core.register_on_dieplayer(function(player)
-	remove_bob(player)
-end)
+core.register_on_leaveplayer(remove_bob)
+core.register_on_dieplayer(remove_bob)
 
 -- fishing rod
 
