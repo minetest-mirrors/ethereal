@@ -90,9 +90,9 @@ local function flower_spread(pos, node)
 
 	if check and num > 3 then
 
-		local grass = core.find_nodes_in_area_under_air(pos0, pos1, {node.name})
+		local grass = core.find_nodes_in_area_under_air(pos0, pos1, node.name)
 
-		if #grass > check.min and not core.find_node_near(pos, 4, {check.item}) then
+		if #grass > check.min and not core.find_node_near(pos, 4, check.item) then
 
 			pos = grass[math_random(#grass)]
 
@@ -117,9 +117,9 @@ local function flower_spread(pos, node)
 	-- check for custom substrate to grow on, default to soil if none found
 	local plant_def = core.registered_nodes[node.name]
 	local substrate = plant_def and plant_def.flora_substrate or "group:soil"
-	local under = core.find_nodes_in_area(pos, pos, substrate)
 
-	if #under == 0 then return end -- not on a substrate we can grow on
+	 -- not on a substrate we can grow on
+	if not core.find_node_near(pos, 0, substrate, true) then return end
 
 	local soils = core.find_nodes_in_area_under_air(pos0, pos1, substrate)
 
