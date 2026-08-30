@@ -146,7 +146,7 @@ local function grow_papyrus(pos, node)
 
 	pos.y = pos.y - 1
 
-	local nod = core.get_node(pos)
+	local nod = get_node(pos)
 
 	if core.get_item_group(nod.name, "soil") == 0
 	or not core.find_node_near(pos, 3, {"group:water"}) then return end
@@ -160,14 +160,13 @@ local function grow_papyrus(pos, node)
 		pos.y = pos.y + 1
 	end
 
-	if core.get_node(pos).name == "air" and height < high then
+	if get_node(pos).name ~= "air" or height >= high then return end
 
-		if node.name == "ethereal:bamboo" and height == (high - 1) then
+	if node.name == "ethereal:bamboo" and height == (high - 1) then
 
-			ethereal.grow_bamboo_tree({x = pos.x, y = oripos, z = pos.z})
-		else
-			core.set_node(pos, {name = node.name})
-		end
+		ethereal.grow_bamboo_tree({x = pos.x, y = oripos, z = pos.z})
+	else
+		core.set_node(pos, {name = node.name})
 	end
 end
 

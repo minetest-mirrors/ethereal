@@ -691,7 +691,7 @@ core.register_craft({
 
 -- cooked fish
 
-core.register_craftitem(":ethereal:fish_cooked", {
+core.register_craftitem("ethereal:fish_cooked", {
 	description = S("Cooked Fish"),
 	inventory_image = "ethereal_fish_cooked.png",
 	wield_image = "ethereal_fish_cooked.png",

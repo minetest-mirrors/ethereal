@@ -38,7 +38,7 @@ register_decoration(ethereal.magical_forest, {
 	fill_ratio = 0.02, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
 	decoration = {"flowers:rose", "flowers:geranium", "flowers:tulip", "ethereal:onion_4",
-			"flowers:danelion_white", "flowers:viola", "flowers:dandelion_yellow",
+			"flowers:dandelion_white", "flowers:viola", "flowers:dandelion_yellow",
 			"flowers:crysanthemum_green", "ethereal:firethorn", "xanadu:poppy"} })
 
 -- ponds

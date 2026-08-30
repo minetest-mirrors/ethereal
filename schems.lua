@@ -685,7 +685,7 @@ if ethereal.logs == 1 then
 		spawn_by = "ethereal:grove_dirt", num_spawn_by = 8})
 end
 
--- deep see fumerole / vent
+-- deep see fumarole / vent
 
 register_decoration(core.get_modpath("nether") and 1, {
 	name = "nether:fumarole",

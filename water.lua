@@ -151,7 +151,7 @@ core.register_abm({
 		local ret = melts[node.name] ; if not ret then return end
 		local new_node
 
-		if ret:len() < 8 then
+		if #ret < 8 then
 
 			local water = pos.y > 2 and "default:river_water" or "default:water"
 

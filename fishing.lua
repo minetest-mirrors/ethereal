@@ -410,6 +410,8 @@ local function use_rod(itemstack, player, pointed_thing)
 	-- place actual bob
 	local obj = core.add_entity(pos, "ethereal:bob_entity")
 
+	if not obj then return itemstack end
+
 	obj:set_velocity({x = dir.x * 8, y = dir.y * 8, z = dir.z * 8})
 	obj:set_acceleration({x = dir.x * -3, y = -9.8, z = dir.z * -3})
 	obj:get_luaentity().fisher = player and player:get_player_name()
