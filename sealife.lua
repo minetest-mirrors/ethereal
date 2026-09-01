@@ -118,7 +118,7 @@ core.register_node("ethereal:seaweed_rooted", {
 		local leftover = inv:add_item("main", stack)
 		local count = leftover:get_count()
 
-		if random(2) == 1 then
+		if math_random(2) == 1 then
 			core.set_node(pos, {name = "default:sand"})
 		else
 			core.set_node(pos, {name = "ethereal:sandy"})
@@ -225,7 +225,7 @@ local function register_coral(name, description, texture)
 
 		if res == true then
 
-			if random(2) == 1 then
+			if math_random(2) == 1 then
 				core.set_node(pos, {name = "default:sand"})
 			else
 				core.set_node(pos, {name = "ethereal:sandy"})
