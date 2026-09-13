@@ -65,7 +65,7 @@ core.register_node("ethereal:bamboo_sprout", {
 local function add_sapling(name, desc, texture, width, height)
 
 	core.register_node("ethereal:" .. name .. "_sapling", {
-		description = S(desc .. " Tree Sapling"),
+		description = S(desc .. " Sapling"),
 		drawtype = "plantlike",
 		tiles = {texture .. ".png"},
 		inventory_image = texture .. ".png",
@@ -94,22 +94,22 @@ end
 -- register saplings
 
 add_sapling("basandra_bush", "Basandra Bush", "ethereal_basandra_bush_sapling", 1, 2)
-add_sapling("mangrove", "Mangrove", "mcl_mangrove_propagule", 5, 14)
-add_sapling("willow", "Willow", "ethereal_willow_sapling", 5, 14)
-add_sapling("yellow_tree", "Healing", "ethereal_yellow_tree_sapling", 4, 19)
-add_sapling("big_tree", "Big", "ethereal_big_tree_sapling", 4, 7)
-add_sapling("banana_tree", "Banana", "ethereal_banana_tree_sapling", 3, 8)
-add_sapling("frost_tree", "Frost", "ethereal_frost_tree_sapling", 4, 19)
-add_sapling("mushroom", "Mushroom", "ethereal_mushroom_sapling", 4, 11)
+add_sapling("mangrove", "Mangrove Tree", "mcl_mangrove_propagule", 5, 14)
+add_sapling("willow", "Willow Tree", "ethereal_willow_sapling", 5, 14)
+add_sapling("yellow_tree", "Healing Tree", "ethereal_yellow_tree_sapling", 4, 19)
+add_sapling("big_tree", "Big Tree", "ethereal_big_tree_sapling", 4, 7)
+add_sapling("banana_tree", "Banana Tree", "ethereal_banana_tree_sapling", 3, 8)
+add_sapling("frost_tree", "Frost Tree", "ethereal_frost_tree_sapling", 4, 19)
+add_sapling("mushroom", "Red Mushroom", "ethereal_mushroom_sapling", 4, 11)
 add_sapling("mushroom_brown", "Brown Mushroom", "ethereal_mushroom_brown_sapling", 1, 11)
-add_sapling("palm", "Palm", "moretrees_palm_sapling", 4, 9)
-add_sapling("giant_redwood", "Giant Redwood", "ethereal_giant_redwood_sapling", 7, 33)
-add_sapling("redwood", "Redwood", "ethereal_redwood_sapling", 4, 21)
-add_sapling("orange_tree", "Orange", "ethereal_orange_tree_sapling", 2, 6)
-add_sapling("birch", "Birch", "moretrees_birch_sapling", 2, 9)
-add_sapling("sakura", "Sakura", "ethereal_sakura_sapling", 4, 10)
-add_sapling("lemon_tree", "Lemon", "ethereal_lemon_tree_sapling", 2, 7)
-add_sapling("olive_tree", "Olive", "ethereal_olive_tree_sapling", 3, 10)
+add_sapling("palm", "Palm Tree", "moretrees_palm_sapling", 4, 9)
+add_sapling("giant_redwood", "Giant Redwood Tree", "ethereal_giant_redwood_sapling", 7, 33)
+add_sapling("redwood", "Redwood Tree", "ethereal_redwood_sapling", 4, 21)
+add_sapling("orange_tree", "Orange Tree", "ethereal_orange_tree_sapling", 2, 6)
+add_sapling("birch", "Birch Tree", "moretrees_birch_sapling", 2, 9)
+add_sapling("sakura", "Sakura Tree", "ethereal_sakura_sapling", 4, 10)
+add_sapling("lemon_tree", "Lemon Tree", "ethereal_lemon_tree_sapling", 2, 7)
+add_sapling("olive_tree", "Olive Tree", "ethereal_olive_tree_sapling", 3, 10)
 
 -- add tree schematic
 

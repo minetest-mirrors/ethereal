@@ -39,7 +39,8 @@ local function do_stair(description, name, node, groups, texture, sound)
 	elseif stairs_mod then
 
 		stairs.register_stair_and_slab(name, node, groups, texture,
-				S(description .. " Stair"), S(description .. " Slab"), sound, true)
+			S(description .. " Stair"), S(description .. " Slab"), sound, true,
+			S("Inner " .. description .. " Stair"), S("Outer " .. description .. " Stair"))
 	end
 end
 
