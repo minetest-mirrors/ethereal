@@ -364,7 +364,7 @@ if ethereal.sealife == 1 then
 	core.register_abm({
 		label = "Grow coral/seaweed",
 		nodenames = {"ethereal:sandy", "ethereal:seaweed_rooted"},
-		neighbors = {"group:water"},
+		neighbors = {"default:water_source"},
 		interval = 15,
 		chance = 10,
 		catch_up = false,
@@ -392,27 +392,25 @@ if ethereal.sealife == 1 then
 			end
 
 			local pos_up = {x = pos.x, y = pos.y + 1, z = pos.z}
-			local nod = get_node(pos_up).name
 
-			if nod == "default:water_source" then
+			if get_node(pos_up).name ~= "default:water_source" then return end
 
-				local sel = math_random(6)
+			local sel = math_random(6)
 
-				if sel == 1 then
+			if sel == 1 then
 
-					local height = math_random(6)
+				local height = math_random(6)
 
-					core.set_node(pos, {name = "ethereal:seaweed_rooted",
-							param2 = (height * 16)})
+				core.set_node(pos, {name = "ethereal:seaweed_rooted",
+						param2 = (height * 16)})
 
-				elseif sel == 6 then
+			elseif sel == 6 then
 
-					core.set_node(pos_up, {name = "ethereal:sponge_wet"})
+				core.set_node(pos_up, {name = "ethereal:sponge_wet"})
 
-				elseif sel > 1 then
+			elseif sel > 1 then
 
-					core.set_node(pos, {name = "ethereal:coral" .. sel .. "_rooted"})
-				end
+				core.set_node(pos, {name = "ethereal:coral" .. sel .. "_rooted"})
 			end
 		end
 	})

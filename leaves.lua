@@ -716,40 +716,36 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 		action = function(pos, node)
 
-			local prop = leaf_list[node.name]
+			local prop = leaf_list[node.name] ; if not prop then return end
 
-			if prop then
+			local def = {
+				amount = 1,
+				time = 2,
+				minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
+				maxpos = {x = pos.x + 1, y = pos.y, z = pos.z + 1},
+				minvel = {x = -0.8, y = -1, z = -0.8},
+				maxvel = {x = 0.8, y = -3, z = 0.8},
+				minacc = {x = -0.1, y = -1, z = -0.1},
+				maxacc = {x = 0.2, y = -3, z = 0.2},
+				minexptime = 5,
+				maxexptime = 10,
+				minsize = 3,
+				maxsize = 4,
+				collisiondetection = true,
+				collision_removal = true,
+				texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1],
+				vertical = true,
+				glow = prop[2]
+			}
 
-				local def = {
-					amount = 1,
-					time = 2,
-					minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
-					maxpos = {x = pos.x + 1, y = pos.y, z = pos.z + 1},
-					minvel = {x = -0.8, y = -1, z = -0.8},
-					maxvel = {x = 0.8, y = -3, z = 0.8},
-					minacc = {x = -0.1, y = -1, z = -0.1},
-					maxacc = {x = 0.2, y = -3, z = 0.2},
-					minexptime = 5,
-					maxexptime = 10,
-					minsize = 3,
-					maxsize = 4,
-					collisiondetection = true,
-					collision_removal = true,
-					texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1],
-					vertical = true,
-					glow = prop[2]
+			if core.features.particlespawner_tweenable then
+				def.texture = "ethereal_falling_leaf_animated.png^[multiply:#" .. prop[1]
+				def.animation = {
+					type = 'vertical_frames', aspect_w = 16, aspect_h = 16, length = 1
 				}
-
-				if core.features.particlespawner_tweenable then
-					def.texture = "ethereal_falling_leaf_animated.png^[multiply:#"
-						.. prop[1]
-					def.animation = {
-						type = 'vertical_frames', aspect_w = 16, aspect_h = 16, length = 1
-					}
-				end
-
-				core.add_particlespawner(def)
 			end
+
+			core.add_particlespawner(def)
 		end
 	})
 end

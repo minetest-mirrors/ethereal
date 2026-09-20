@@ -79,13 +79,12 @@ local function flower_spread(pos, node)
 
 	if (core.get_node_light(pos) or 0) < 13 then return end
 
-	local pos0 = {x = pos.x - 4, y = pos.y - 2, z = pos.z - 4}
-	local pos1 = {x = pos.x + 4, y = pos.y + 2, z = pos.z + 4}
-	local num = #core.find_nodes_in_area(pos0, pos1, "group:flora")
-
 	-- stop flowers spreading too much just below top of map block
 	if core.find_node_near(pos, 2, "ignore") then return end
 
+	local pos0 = {x = pos.x - 4, y = pos.y - 2, z = pos.z - 4}
+	local pos1 = {x = pos.x + 4, y = pos.y + 2, z = pos.z + 4}
+	local num = #core.find_nodes_in_area(pos0, pos1, "group:flora")
 	local check = items[node.name]
 
 	if check and num > 3 then
@@ -174,7 +173,7 @@ end
 
 function default.grow_cactus(pos, node)
 
-	if node.param2 >= 4 then return end
+	if node.param2 >= 4 then return end -- dont grow sideways
 
 	pos.y = pos.y - 1
 
