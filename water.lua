@@ -89,8 +89,24 @@ core.register_abm({
 		local near = core.find_node_near(pos, 1,
 				{"default:water_source", "default:river_water_source"})
 
-		if near then
-			core.swap_node(near, {name = "default:ice"})
+		if not near then return end
+
+		core.swap_node(near, {name = "default:ice"})
+
+		if node.name ~= "ethereal:crystal_spike" then return end
+
+		local spikes = core.find_nodes_in_area(
+			{x = near.x - 1, y = near.y - 1, z = near.z - 1},
+			{x = near.x + 1, y = near.y + 1, z = near.z + 1}, {"ethereal:crystal_spike"})
+
+		if #spikes >= 2 then
+
+			if math_random(1, 7) == 1 then
+
+				near.y = near.y + 0.5
+
+				core.add_item(near, "ethereal:etherium_dust")
+			end
 		end
 	end
 })
