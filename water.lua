@@ -95,11 +95,15 @@ core.register_abm({
 
 		if node.name ~= "ethereal:crystal_spike" then return end
 
-		local spikes = core.find_nodes_in_area(
-			{x = near.x - 1, y = near.y - 1, z = near.z - 1},
-			{x = near.x + 1, y = near.y + 1, z = near.z + 1}, {"ethereal:crystal_spike"})
+		local under = get_node({x = pos.x, y = pos.y - 1, z = pos.z}).name
 
-		if #spikes >= 2 then
+		if under ~= "ethereal:magical_dirt" then return end
+
+		local spikes = core.find_nodes_in_area(
+			{x = pos.x - 1, y = pos.y, z = pos.z - 1},
+			{x = pos.x + 1, y = pos.y, z = pos.z + 1}, {"ethereal:crystal_spike"})
+
+		if #spikes > 1 then
 
 			if math_random(1, 7) == 1 then
 
