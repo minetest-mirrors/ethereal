@@ -29,13 +29,13 @@ register_decoration(ethereal.magical_forest, {
 
 register_decoration(ethereal.magical_forest, {
 	place_on = "ethereal:magical_dirt",
-	fill_ratio = 0.2, y_min = 3, y_max = 42,
+	fill_ratio = 0.1, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"}, param2 = 3,
 	decoration = {"ethereal:magical_grass"} })
 
 register_decoration(ethereal.magical_forest, {
 	place_on = "ethereal:magical_dirt",
-	fill_ratio = 0.02, y_min = 3, y_max = 42,
+	fill_ratio = 0.01, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
 	decoration = {"flowers:rose", "flowers:geranium", "flowers:tulip", "ethereal:onion_4",
 			"flowers:dandelion_white", "flowers:viola", "flowers:dandelion_yellow",
@@ -206,14 +206,14 @@ register_decoration(ethereal.plains, {
 
 register_decoration(ethereal.savanna, {
 	place_on = {"default:dry_dirt_with_dry_grass", "default:dirt_with_dry_grass"},
-	fill_ratio = 0.25,
+	fill_ratio = 0.1,
 	biomes = {"savanna"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
 
 register_decoration(ethereal.mesa, {
 	place_on = {"default:dirt_with_dry_grass"},
-	fill_ratio = 0.10,
+	fill_ratio = 0.1,
 	biomes = {"mesa_redwood"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
@@ -256,7 +256,7 @@ register_decoration(ethereal.frost, {
 
 register_decoration(ethereal.fiery, {
 	place_on = {"ethereal:fiery_dirt"},
-	fill_ratio = 0.10,
+	fill_ratio = 0.1,
 	biomes = {"fiery"},
 	decoration = "ethereal:dry_shrub"})
 
@@ -323,23 +323,23 @@ register_decoration(ethereal.junglee, {
 
 register_decoration(ethereal.jumble, {
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.15,
+	fill_ratio = 0.05,
 	biomes = {"jumble", "grove"},
 	decoration = "default:junglegrass"})
 
 register_decoration(ethereal.swamp, {
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.25,
+	fill_ratio = 0.05,
 	biomes = {"swamp"},
 	decoration = "default:junglegrass"})
 
 -- grass
 
 register_decoration(1, {
-	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter",
-		"ethereal:prairie_dirt", "ethereal:grove_dirt", "ethereal:bamboo_dirt"},
-	fill_ratio = 0.35,
-	biomes = {"deciduous_forest", "grassytwo", "jumble", "rainforest", "grove", "prairie",
+	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt",
+			"ethereal:grove_dirt", "ethereal:bamboo_dirt"},
+	fill_ratio = 0.1,
+	biomes = {"deciduous_forest", "grassytwo", "jumble", "grove", "prairie",
 			"mediterranean", "bamboo", "grassland", "swamp"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 			"default:grass_5"}})
@@ -367,7 +367,7 @@ register_decoration(1, {
 
 register_decoration(ethereal.grove, {
 	place_on = {"default:dirt_with_grass", "ethereal:grove_dirt"},
-	fill_ratio = 0.1,
+	fill_ratio = 0.05,
 	biomes = {"swamp", "grove"},
 	decoration = "ethereal:fern"})
 
@@ -467,7 +467,7 @@ end
 
 register_decoration(1, {
 	place_on = {"ethereal:cold_dirt", "default:dirt_with_coniferous_litter"},
-	sidelen = 16, fill_ratio = 0.2, y_min = 3, y_max = 100,
+	sidelen = 16, fill_ratio = 0.1, y_min = 3, y_max = 100,
 	decoration = {"default:fern_1", "default:fern_2", "default:fern_3"} })
 
 -- stone with yellow algae
@@ -741,7 +741,7 @@ register_decoration(ethereal.mangrove, {
 
 register_decoration(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
-	sidelen = 16, fill_ratio = 0.25, y_min = 1, y_max = 7,
+	sidelen = 16, fill_ratio = 0.15, y_min = 1, y_max = 7,
 	biomes = {"mangrove", "mangrove_shore"},
 	decoration = {"default:dry_bush", "default:junglegrass", "default:grass_5",
 			"default:fern_1", "default:fern_2", "default:fern_3" } })
