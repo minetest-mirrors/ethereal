@@ -3,7 +3,7 @@ local S = core.get_translator("ethereal")
 
 -- Magical grass
 
-minetest.register_node("ethereal:magical_grass", {
+core.register_node("ethereal:magical_grass", {
 	description = S("Magical Grass"),
 	drawtype = "plantlike",
 	waving = 1,

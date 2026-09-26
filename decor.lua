@@ -113,6 +113,27 @@ register_decoration(ethereal.glacier, {
 	biomes = {"icesheet"},
 	decoration = "ethereal:firethorn"})
 
+-- special orange baked clay surface decor (from Asuna)
+
+register_decoration(ethereal.mesa,{
+	deco_type = "simple",
+	place_on = {"default:dirt_with_dry_grass"},
+	sidelen = 2,
+	noise_params = {
+		offset = -1,
+		scale = -1.25,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 4,
+		octaves = 4,
+		persist = 1.0
+	},
+	biomes = {"mesa_redwood"},
+	y_min = 10, y_max = 18,
+	decoration = "bakedclay:orange",
+	place_offset_y = -1,
+	flags = "force_placement"
+})
+
 -- caverealm icicle
 
 register_decoration((core.get_modpath("caverealms") and ethereal.glacier), {

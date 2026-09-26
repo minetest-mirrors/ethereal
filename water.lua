@@ -245,7 +245,7 @@ end
 
 -- magical water
 
-minetest.register_node("ethereal:magical_water", {
+core.register_node("ethereal:magical_water", {
 	description = S("Magical Water"),
 	drawtype = "liquid",
 	tiles = {

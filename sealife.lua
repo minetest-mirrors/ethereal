@@ -347,7 +347,7 @@ core.register_craft({
 
 if core.get_modpath("bonemeal") then
 
-	minetest.register_craft({
+	core.register_craft({
 		output = "ethereal:sandy",
 		recipe = {
 			{"bonemeal:mulch", "bonemeal:mulch", "bonemeal:mulch"},

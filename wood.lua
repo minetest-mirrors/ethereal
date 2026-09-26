@@ -343,7 +343,7 @@ core.register_craft({
 
 -- banana
 
-local tmp = "ethereal:banana_trunk"
+tmp = "ethereal:banana_trunk"
 
 core.register_node(tmp, {
 	description = S("Banana Trunk"),
