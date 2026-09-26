@@ -113,7 +113,25 @@ register_decoration(ethereal.glacier, {
 	biomes = {"icesheet"},
 	decoration = "ethereal:firethorn"})
 
--- special orange baked clay surface decor (from Asuna)
+-- caverealm icicle
+
+register_decoration((core.get_modpath("caverealms") and ethereal.glacier), {
+	place_on = "default:snowblock",
+	fill_ratio = 0.008, y_min = 3, y_max = 30,
+	biomes = {"icesheet"},
+	decoration = "caverealms:icicle_up"})
+
+-- scorched tree
+
+register_decoration(ethereal.plains, {
+	place_on = "ethereal:dry_dirt",
+	fill_ratio = 0.006,
+	biomes = {"plains"},
+	decoration = "ethereal:scorched_tree", height_max = 6})
+
+--== Changes from Asuna
+
+-- special orange baked clay surface decor
 
 register_decoration(ethereal.mesa,{
 	deco_type = "simple",
@@ -133,24 +151,6 @@ register_decoration(ethereal.mesa,{
 	place_offset_y = -1,
 	flags = "force_placement"
 })
-
--- caverealm icicle
-
-register_decoration((core.get_modpath("caverealms") and ethereal.glacier), {
-	place_on = "default:snowblock",
-	fill_ratio = 0.008, y_min = 3, y_max = 30,
-	biomes = {"icesheet"},
-	decoration = "caverealms:icicle_up"})
-
--- scorched tree
-
-register_decoration(ethereal.plains, {
-	place_on = "ethereal:dry_dirt",
-	fill_ratio = 0.006,
-	biomes = {"plains"},
-	decoration = "ethereal:scorched_tree", height_max = 6})
-
---== Changes from Asuna
 
 -- dry dirt patches
 
