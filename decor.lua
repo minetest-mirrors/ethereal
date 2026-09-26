@@ -416,42 +416,6 @@ register_decoration(1, {
 	decoration = "default:papyrus", height_max = 4,
 	spawn_by = "default:water_source", num_spawn_by = 1})
 
--- baked clay flowers
-
-if core.get_modpath("bakedclay") then
-
-register_decoration(1, {
-	place_on = {"ethereal:prairie_dirt", "default:dirt_with_grass", "ethereal:grove_dirt"},
-	sidelen = 16, y_min = 10, y_max = 90,
-	noise_params = {offset = 0, scale = 0.004, spread = {x = 100, y = 100, z = 100},
-			seed = 7133, octaves = 3, persist = 0.6},
-	decoration = "bakedclay:delphinium"})
-
-register_decoration(1, {
-	place_on = {"ethereal:prairie_dirt", "default:dirt_with_grass",
-			"ethereal:grove_dirt", "ethereal:bamboo_dirt"},
-	sidelen = 16, y_min = 15, y_max = 90,
-	noise_params = {offset = 0, scale = 0.004, spread = {x = 100, y = 100, z = 100},
-			seed = 7134, octaves = 3, persist = 0.6},
-	decoration = "bakedclay:thistle"})
-
-register_decoration(1, {
-	place_on = {"ethereal:jungle_dirt", "default:dirt_with_rainforest_litter"},
-	sidelen = 16, y_min = 1, y_max = 90,
-	noise_params = {offset = 0, scale = 0.01, spread = {x = 100, y = 100, z = 100},
-			seed = 7135, octaves = 3, persist = 0.6},
-	decoration = "bakedclay:lazarus",
-	spawn_by = "default:jungletree", num_spawn_by = 1})
-
-register_decoration(1, {
-	place_on = {"default:dirt_with_grass", "default:sand"},
-	sidelen = 16, y_min = 1, y_max = 15,
-	noise_params = {offset = 0, scale = 0.009, spread = {x = 100, y = 100, z = 100},
-			seed = 7136, octaves = 3, persist = 0.6},
-	decoration = "bakedclay:mannagrass",
-	spawn_by = "group:water", num_spawn_by = 1})
-end
-
 -- blue agave from wine mod
 
 if core.get_modpath("wine") then
