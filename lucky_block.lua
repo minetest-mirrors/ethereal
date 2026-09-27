@@ -104,7 +104,8 @@ lucky_block:add_blocks({
 		{name = "ethereal:willow_sapling", max = 10},
 		{name = "ethereal:lemon_tree_sapling", max = 10},
 		{name = "ethereal:olive_tree_sapling", max = 10},
-		{name = "ethereal:mangrove_sapling", max = 10}
+		{name = "ethereal:mangrove_sapling", max = 10},
+		{name = "ethereal:poplar_sapling", max = 10}
 	}},
 	{"flo", 5, {"ethereal:blue_marble_tile"}, 2},
 	{"flo", 5, {"ethereal:blue_marble_brick"}, 2},

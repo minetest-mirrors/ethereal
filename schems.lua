@@ -34,6 +34,7 @@ dofile(path .. "desertstone_spike.lua")
 dofile(path .. "desertstone_under_spike.lua")
 dofile(path .. "mangrove_tree.lua")
 dofile(path .. "pond.lua")
+dofile(path .. "poplar_tree.lua")
 
 -- register decoration helper
 
@@ -54,6 +55,44 @@ end
 -- old biome setting (when enabled old heat/humidity values are used)
 
 local old = core.settings:get_bool("ethereal.old_biomes")
+
+-- poplar trees and fallen log
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.003, y_min = 3, y_max = 71, sidelen = 80, place_offset_y = 1,
+	biomes = {"tawny_woods"},
+	schematic = ethereal.poplar_tree})
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.003, y_min = 3, y_max = 71, sidelen = 80, place_offset_y = 1,
+	biomes = {"tawny_woods"},
+	schematic = ethereal.poplar_tree,
+	replacements = { ["ethereal:poplar_leaves_red"] = "ethereal:poplar_leaves_yellow" } })
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.003, y_min = 3, y_max = 71, sidelen = 80, place_offset_y = 1,
+	biomes = {"tawny_woods"},
+	schematic = ethereal.poplar_tree,
+	replacements = { ["ethereal:poplar_leaves_red"] = "ethereal:poplar_leaves_orange" } })
+
+register_decoration(ethereal.tawny_woods, {
+	name = "ethereal:poplar_trunk",
+	place_on = {"ethereal:tawny_dirt"},
+	fill_ratio = 0.0018, y_min = 3, y_max = 71,
+	biomes = {"tawny_woods"},
+	schematic = {
+		size = {x = 3, y = 1, z = 1},
+		data = {
+			{name = "ethereal:poplar_trunk", param1 = 255, param2 = 16},
+			{name = "ethereal:poplar_trunk", param1 = 255, param2 = 16},
+			{name = "ethereal:poplar_trunk", param1 = 201, param2 = 16}
+		}
+	}, place_offset_y = 1,
+	flags = "place_center_x",
+	spawn_by = "ethereal:tawny_dirt", num_spawn_by = 8})
 
 -- ice spikes
 

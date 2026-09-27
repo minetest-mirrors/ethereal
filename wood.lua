@@ -14,6 +14,36 @@ local function add_wood(name, def)
 	core.register_node(name, def)
 end
 
+-- poplar
+
+local tmp = "ethereal:poplar_trunk"
+
+core.register_node(tmp, {
+	description = S("Poplar Trunk"),
+	tiles = {
+		"ethereal_poplar_trunk_top.png",
+		"ethereal_poplar_trunk_top.png",
+		"ethereal_poplar_trunk.png"
+	},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+	on_place = core.rotate_node
+})
+
+core.register_node("ethereal:poplar_wood", {
+	description = S("Poplar Wood"),
+	tiles = {"ethereal_poplar_wood.png"},
+	is_ground_content = false,
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir"
+})
+
+core.register_craft({
+	output = "ethereal:poplar_wood 4", recipe = {{tmp}}
+})
+
 -- basandra
 
 add_wood("ethereal:basandra_wood", {
@@ -32,7 +62,7 @@ core.register_craft({
 
 -- sakura
 
-local tmp = "ethereal:sakura_trunk"
+tmp = "ethereal:sakura_trunk"
 
 core.register_node(tmp, {
 	description = S("Sakura Trunk"),

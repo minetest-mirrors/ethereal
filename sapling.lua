@@ -110,6 +110,7 @@ add_sapling("birch", "Birch Tree", "moretrees_birch_sapling", 2, 9)
 add_sapling("sakura", "Sakura Tree", "ethereal_sakura_sapling", 4, 10)
 add_sapling("lemon_tree", "Lemon Tree", "ethereal_lemon_tree_sapling", 2, 7)
 add_sapling("olive_tree", "Olive Tree", "ethereal_olive_tree_sapling", 3, 10)
+add_sapling("poplar", "Poplar Tree", "ethereal_poplar_sapling", 3, 10)
 
 -- add tree schematic
 
@@ -223,6 +224,16 @@ function ethereal.grow_olive_tree(pos)
 	add_tree(pos, ethereal.olivetree_from_sapling)
 end
 
+function ethereal.grow_poplar_tree(pos)
+
+	local cols = {"red", "orange", "yellow"}
+	local num = math.random(3)
+	local sel = cols[num]
+
+	add_tree(pos, ethereal.poplar_tree,
+			{{"ethereal:poplar_leaves_red", "ethereal:poplar_leaves_" .. sel}})
+end
+
 -- return True if sapling has enough height room to grow
 
 local function enough_height(pos, height)
@@ -270,7 +281,9 @@ local list = {
 	["ethereal:redwood_sapling"] = {
 		dirt = "default:dirt_with_dry_grass", func = "grow_redwood_tree"},
 	["ethereal:giant_redwood_sapling"] = {
-		dirt = "default:dirt_with_dry_grass", func = "grow_giant_redwood_tree"}
+		dirt = "default:dirt_with_dry_grass", func = "grow_giant_redwood_tree"},
+	["ethereal:poplar_sapling"] = {
+		dirt = "ethereal:tawny_dirt", func = "grow_poplar_tree"}
 }
 
 -- global function run by Abm

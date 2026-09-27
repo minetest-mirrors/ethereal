@@ -170,6 +170,12 @@ do_stair(
 	default.node_sound_wood_defaults())
 
 do_stair(
+	"Poplar Wood", "poplar_wood", "ethereal:poplar_wood",
+	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	{"ethereal_poplar_wood.png"},
+	default.node_sound_wood_defaults())
+
+do_stair(
 	"Glostone", "glostone", "ethereal:glostone",
 	{cracky = 3},
 	{"ethereal_glostone.png"},

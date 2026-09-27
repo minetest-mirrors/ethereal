@@ -627,6 +627,74 @@ core.register_node("ethereal:basandra_bush_leaves", {
 	sounds = default.node_sound_leaves_defaults()
 })
 
+-- poplar leaves
+
+core.register_node(":ethereal:poplar_leaves_red", {
+	description = S("Red Poplar Leaves"),
+	drawtype = leaftype,
+	visual_scale = leafscale,
+	tiles = {"ethereal_poplar_leaves_red.png"},
+	inventory_image = l_tex("ethereal_poplar_leaves_red.png"),
+	wield_image = l_tex("ethereal_poplar_leaves_red.png"),
+	paramtype = "light",
+	walkable = ethereal.leafwalk,
+	waving = 1,
+	groups = {snappy = 3, leaves = 1, flammable = 2},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_red"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = default.after_place_leaves
+})
+
+core.register_node(":ethereal:poplar_leaves_orange", {
+	description = S("Orange Poplar Leaves"),
+	drawtype = leaftype,
+	visual_scale = leafscale,
+	tiles = {"ethereal_poplar_leaves_orange.png"},
+	inventory_image = l_tex("ethereal_poplar_leaves_orange.png"),
+	wield_image = l_tex("ethereal_poplar_leaves_orange.png"),
+	paramtype = "light",
+	walkable = ethereal.leafwalk,
+	waving = 1,
+	groups = {snappy = 3, leaves = 1, flammable = 2},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_orange"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = default.after_place_leaves
+})
+
+core.register_node(":ethereal:poplar_leaves_yellow", {
+	description = S("Yellow Poplar Leaves"),
+	drawtype = leaftype,
+	visual_scale = leafscale,
+	tiles = {"ethereal_poplar_leaves_yellow.png"},
+	inventory_image = l_tex("ethereal_poplar_leaves_yellow.png"),
+	wield_image = l_tex("ethereal_poplar_leaves_yellow.png"),
+	paramtype = "light",
+	walkable = ethereal.leafwalk,
+	waving = 1,
+	groups = {snappy = 3, leaves = 1, flammable = 2},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_yellow"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = default.after_place_leaves
+})
+
 -- leafdecay helper function
 
 local function decay(tru, lea, rad)
@@ -675,6 +743,9 @@ decay({"ethereal:mushroom_trunk"}, {"ethereal:mushroom", "ethereal:mushroom_brow
 decay({"ethereal:mangrove_tree"}, {"ethereal:mangrove_leaves", "ethereal:mangrove_roots",
 		"ethereal:vine"}, 4)
 
+decay({"ethereal:poplar_trunk"}, {"ethereal:poplar_leaves_red",
+		"ethereal:poplar_leaves_orange", "ethereal:poplar_leaves_yellow"}, 3)
+
 -- falling leaf particles
 
 if core.settings:get_bool("ethereal.leaf_particles") ~= false then
@@ -697,6 +768,9 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		["ethereal:palmleaves"] = {"2b6000"},
 		["ethereal:bamboo_leaves"] = {"445811"},
 		["ethereal:mangrove_leaves"] = {"6a7039"},
+		["ethereal:poplar_leaves_red"] = {"882d2a"},
+		["ethereal:poplar_leaves_orange"] = {"935330"},
+		["ethereal:poplar_leaves_yellow"] = {"956c2e"},
 		["default:acacia_leaves"] = {"296600"},
 		["default:aspen_leaves"] = {"395d16"},
 		["default:jungleleaves"] = {"141e10"},

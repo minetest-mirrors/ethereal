@@ -17,6 +17,54 @@ end
 
 local old = core.settings:get_bool("ethereal.old_biomes")
 
+-- tawny woods grass and fauna
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = {"ethereal:tawny_dirt", "default:dirt_with_coniferous_litter"},
+	fill_ratio = 0.9, y_min = 3, y_max = 71,
+	biomes = {"tawny_woods"},
+	decoration = {"ethereal:leaf_litter"},
+	spawn_by = "ethereal:poplar_trunk", num_spawn_by = 1, param2 = 1
+})
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.6, y_min = 3, y_max = 71,
+	biomes = {"tawny_woods"},
+	decoration = {"ethereal:leaf_litter"},
+	spawn_by = "ethereal:leaf_litter", num_spawn_by = 1, param2 = 1
+})
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.1, y_min = 3, y_max = 71,
+	biomes = {"tawny_woods"},
+	decoration = {"ethereal:tawny_grass"} })
+
+register_decoration(ethereal.tawny_woods, {
+	place_on = "ethereal:tawny_dirt",
+	fill_ratio = 0.01, y_min = 3, y_max = 71,
+	biomes = {"tawny_woods"},
+	decoration = {"ethereal:shrub_red"}, param2 = 10})
+
+if core.get_modpath("farming") and farming.mod and farming.mod == "redo" then
+
+	register_decoration(ethereal.tawny_woods, {
+		place_on = {"ethereal:tawny_dirt", "default:dirt_with_rainforest_litter"},
+		noise_params = {
+			offset = 0,
+			scale = 0.009,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 576,
+			octaves = 3,
+			persist = 0.6
+		},
+		y_min = 1, y_max = 70, biomes = "tawny_woods",
+		decoration = "farming:pumpkin_8",
+		spawn_by = {"ethereal:leaf_litter"}, num_spawn_by = 1
+	})
+end
+
 -- magical forest grass and flowers
 
 register_decoration(ethereal.magical_forest, {

@@ -1,6 +1,76 @@
 
 local S = core.get_translator("ethereal")
 
+-- tawny grass
+
+core.register_node("ethereal:tawny_grass", {
+	description = S("Tawny Grass"),
+	drawtype = "plantlike",
+	waving = 1,
+	tiles = {"ethereal_tawny_grass.png"},
+	inventory_image = "ethereal_tawny_grass.png",
+	wield_image = "ethereal_tawny_grass.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	buildable_to = true,
+	light_source = 1,
+flora_substrate = "ethereal:tawny_dirt",
+	groups = {snappy = 3, flora = 1, attached_node = 1, grass = 1,
+		normal_grass = 1, flammable = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
+	}
+})
+
+-- red shrub
+
+core.register_node("ethereal:shrub_red", {
+	description = S("Red Shrub"),
+	drawtype = "plantlike",
+	visual_scale = 1.1,
+	tiles = {"ethereal_shrub_red.png"},
+	inventory_image = "ethereal_shrub_red.png",
+	wield_image = "ethereal_shrub_red.png",
+	paramtype = "light",
+	paramtype2 = "meshoptions",
+	place_param2 = 10,
+	sunlight_propagates = true,
+	waving = 1,
+	walkable = false,
+	buildable_to = true,
+	groups = {snappy = 3, attached_node = 1, flammable = 2, plant = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
+	}
+})
+
+-- leaf litter
+
+core.register_node("ethereal:leaf_litter", {
+	description = S("Leaf Litter"),
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	use_texture_alpha = "clip",
+	tiles = {"ethereal_leaf_litter.png"},
+	inventory_image = "ethereal_leaf_litter.png",
+	wield_image = "ethereal_leaf_litter.png",
+	node_box = {
+			type = "wallmounted",
+			wall_top = {-0.5, 0.4375, -0.5, 0.5, 0.5, 0.5},
+			wall_bottom = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
+			wall_side = {-0.5, -0.5, -0.5, -0.4375, 0.5, 0.5},
+		},
+	selection_box = {type = "wallmounted"},
+	legacy_wallmounted = true,
+	groups = {snappy = 3, attached_node = 1, flammable = 2},
+	is_ground_content = false,
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 -- Magical grass
 
 core.register_node("ethereal:magical_grass", {

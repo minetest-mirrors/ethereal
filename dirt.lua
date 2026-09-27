@@ -33,7 +33,7 @@ core.register_craft({
 
 local dirts = {
 	"Bamboo", "Jungle", "Grove", "Prairie", "Cold", "Crystal", "Mushroom", "Fiery",
-	"Gray", "Magical"
+	"Gray", "Magical", "Tawny"
 }
 
 -- loop through and register dirts
