@@ -71,6 +71,8 @@ core.register_node("ethereal:leaf_litter", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+core.register_craft({ type = "fuel", recipe = "ethereal:leaf_litter", burntime = 1 })
+
 -- Magical grass
 
 core.register_node("ethereal:magical_grass", {
