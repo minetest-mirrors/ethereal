@@ -96,14 +96,14 @@ register_biome(ethereal.desert, {
 
 -- tawny woods
 
-register_biome(1, {
+register_biome(ethereal.tawny_woods, {
 	name = "tawny_woods",
 	heat_point = 19, humidity_point = 114,
 	y_min = 3, y_max = 70,
 	node_top = "ethereal:tawny_dirt", depth_top = 1,
 	node_filler = "default:dirt", depth_filler = 3})
 
-register_biome(1, {
+register_biome(ethereal.tawny_woods, {
 	name = "tawny_woods_ocean",
 	heat_point = 19, humidity_point = 114,
 	y_min = -255, y_max = 2,
