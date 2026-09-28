@@ -36,7 +36,7 @@ local function add_trunk(name, def, wood)
 
 	core.register_node(newname, def)
 
-	if wood then
+	if wood then -- if wood given then recipe added for tree > wood
 
 		core.register_craft({
 			output = "ethereal:" .. wood .. " 4", recipe = {{newname}}
@@ -67,7 +67,7 @@ local function add_allfaces(name, def, wood)
 		}
 	})
 
-	if wood then
+	if wood then -- if wood given then recipe added for allfaces tree > wood
 
 		core.register_craft({
 			output = "ethereal:" .. wood .. " 4", recipe = {{newname}}
@@ -84,7 +84,7 @@ add_trunk("poplar_trunk", {
 		"ethereal_poplar_trunk_top.png",
 		"ethereal_poplar_trunk.png"
 	}
-}, "poplar_wood") -- wood given so recipe added
+}, "poplar_wood")
 
 add_wood("poplar_wood", {
 	description = "Poplar Wood",
@@ -95,7 +95,7 @@ add_wood("poplar_wood", {
 add_allfaces("poplar_trunk", {
 	description = "Poplar Trunk",
 	tiles = {"ethereal_poplar_trunk_top.png"}
-}, "poplar_wood") -- wood given so recipe added
+}, "poplar_wood")
 
 -- basandra
 

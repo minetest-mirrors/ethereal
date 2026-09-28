@@ -396,9 +396,12 @@ core.register_craftitem("ethereal:charcoal_lump", {
 
 core.register_craft({
 	output = "ethereal:charcoal_lump 2",
-	recipe = {
-		{"ethereal:scorched_tree"}
-	}
+	recipe = { {"ethereal:scorched_tree"} }
+})
+
+core.register_craft({
+	output = "ethereal:charcoal_lump 2",
+	recipe = { {"ethereal:all_faces_scorched_tree"} }
 })
 
 core.register_craft({
