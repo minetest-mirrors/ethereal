@@ -44,6 +44,18 @@ core.register_craft({
 	output = "ethereal:poplar_wood 4", recipe = {{tmp}}
 })
 
+core.register_node("ethereal:all_faces_poplar_trunk", {
+	description = S("All-faces") .. " " .. S("Poplar Trunk"),
+	tiles = {"ethereal_poplar_trunk_top.png"},
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults()
+})
+
+core.register_craft({
+	output = "ethereal:all_faces_poplar_trunk 8",
+	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+})
+
 -- basandra
 
 add_wood("ethereal:basandra_wood", {
