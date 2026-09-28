@@ -143,7 +143,7 @@ add_trunk("mangrove_tree", {
 }, "mangrove_wood")
 
 add_wood("mangrove_wood", {
-	description = S("Mangrove Wood"),
+	description = "Mangrove Wood",
 	tiles = {"mcl_mangrove_planks.png"},
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
