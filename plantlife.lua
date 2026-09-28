@@ -123,10 +123,7 @@ core.register_node("ethereal:cactus_flower", {
 
 ethereal.add_eatable("ethereal:cactus_flower", 1)
 
-core.register_craft({
-	output = "dye:violet 2",
-	recipe = {{"ethereal:cactus_flower"}}
-})
+core.register_craft({ output = "dye:violet 2", recipe = {{"ethereal:cactus_flower"}} })
 
 -- Spore Grass
 
@@ -197,11 +194,7 @@ core.register_node("ethereal:fire_flower", {
 	end
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:fire_flower",
-	burntime = 20
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:fire_flower", burntime = 20 })
 
 -- Fire Dust
 
@@ -215,11 +208,7 @@ core.register_craft({
 	recipe = {{"ethereal:fire_flower"}}
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:fire_dust",
-	burntime = 10
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:fire_dust", burntime = 10 })
 
 -- vines
 
@@ -403,41 +392,41 @@ core.register_node("ethereal:lilac", {
 	}
 })
 
-core.register_craft({
-	output = "dye:magenta 2",
-	recipe = {{"ethereal:lilac"}}
-})
+core.register_craft({ output = "dye:magenta 2", recipe = {{"ethereal:lilac"}} })
 
 -- moss helper function
 
-local function add_moss(typ, descr, texture, recipe_item)
+local function add_moss(desc, texture, recipe_item)
 
-	core.register_node("ethereal:" .. typ .. "_moss", {
-		description = S(descr .. " Moss"),
+	local name = desc:lower()
+
+	core.register_node("ethereal:" .. name .. "_moss", {
+		description = S(desc .. " Moss"),
 		tiles = {texture},
 		groups = {crumbly = 3},
 		sounds = default.node_sound_dirt_defaults({
-			footstep = {name = "default_grass_footstep", gain = 0.4}})
+			footstep = {name = "default_grass_footstep", gain = 0.4}
+		})
 	})
 
 	core.register_craft({
-		output = "ethereal:" .. typ .. "_moss",
+		output = "ethereal:" .. name .. "_moss",
 		recipe = {{recipe_item, "default:dirt", recipe_item}}
 	})
 end
 
 -- add moss types (has grass texture on all sides)
 
-add_moss("crystal", "Crystal", "ethereal_grass_crystal_top.png", "ethereal:frost_leaves")
-add_moss("mushroom", "Mushroom", "ethereal_grass_mushroom_top.png", "ethereal:spore_grass")
-add_moss("fiery", "Fiery", "ethereal_grass_fiery_top.png", "ethereal:dry_shrub")
-add_moss("gray", "Gray", "ethereal_grass_gray_top.png", "ethereal:snowygrass")
-add_moss("green", "Green", "default_grass.png", "default:jungleleaves")
-add_moss("bamboo", "Bamboo", "ethereal_grass_bamboo_top.png", "ethereal:bamboo_leaves")
-add_moss("prairie", "Prairie", "ethereal_grass_prairie_top.png", "ethereal:orange_leaves")
-add_moss("cold", "Cold", "ethereal_grass_cold_top.png", "default:pine_needles")
-add_moss("magical", "Magical", "ethereal_grass_magical_top.png", "ethereal:magical_grass")
-add_moss("tawny", "Tawny", "ethereal_grass_tawny_top.png", "ethereal:tawny_grass")
+add_moss("Crystal", "ethereal_grass_crystal_top.png", "ethereal:frost_leaves")
+add_moss("Mushroom", "ethereal_grass_mushroom_top.png", "ethereal:spore_grass")
+add_moss("Fiery", "ethereal_grass_fiery_top.png", "ethereal:dry_shrub")
+add_moss("Gray", "ethereal_grass_gray_top.png", "ethereal:snowygrass")
+add_moss("Green", "default_grass.png", "default:jungleleaves")
+add_moss("Bamboo", "ethereal_grass_bamboo_top.png", "ethereal:bamboo_leaves")
+add_moss("Prairie", "ethereal_grass_prairie_top.png", "ethereal:orange_leaves")
+add_moss("Cold", "ethereal_grass_cold_top.png", "default:pine_needles")
+add_moss("Magical", "ethereal_grass_magical_top.png", "ethereal:magical_grass")
+add_moss("Tawny", "ethereal_grass_tawny_top.png", "ethereal:tawny_grass")
 
 -- shroom helper function
 
@@ -469,29 +458,25 @@ add_shroom("cyan", "Cyan", "3")
 
 -- poppy
 
-if not core.get_modpath("xanadu") then
+core.register_node("ethereal:poppy", {
+	description = S("Poppy"),
+	tiles = {"ethereal_poppy.png"},
+	inventory_image = "ethereal_poppy.png",
+	wield_image = "ethereal_poppy.png",
+	sunlight_propagates = true,
+	buildable_to = true,
+	waving = 1,
+	drawtype = "plantlike",
+	paramtype = "light",
+	walkable = false,
+	groups = {flower = 1, flora = 1, snappy = 3, attached_node = 1, flammable = 3},
+	selection_box = {
+		type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
 
-	core.register_node(":xanadu:poppy", {
-		description = S("Poppy"),
-		tiles = {"ethereal_poppy.png"},
-		inventory_image = "ethereal_poppy.png",
-		wield_image = "ethereal_poppy.png",
-		sunlight_propagates = true,
-		buildable_to = true,
-		waving = 1,
-		drawtype = "plantlike",
-		paramtype = "light",
-		walkable = false,
-		groups = {flower = 1, flora = 1, snappy = 3, attached_node = 1, flammable = 3},
-		selection_box = {
-			type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}
-		},
-		sounds = default.node_sound_leaves_defaults(),
-	})
+-- craft dye from plant
+core.register_craft({ output = "dye:red 4", recipe = {{"ethereal:poppy"}} })
 
-	-- craft dye from plant
-	core.register_craft({
-		output = "dye:red 4",
-		recipe = {{"xanadu:poppy"}}
-	})
-end
+core.register_alias("xanadu:poppy", "ethereal:poppy")
