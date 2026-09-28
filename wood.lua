@@ -31,6 +31,30 @@ local function add_trunk(name, def)
 	core.register_node(name, def)
 end
 
+-- all-faces trunk helper
+
+local function add_allfaces(name, def)
+
+	def.description = S("All-faces") .. " " .. S(def.description)
+	def.sounds = default.node_sound_wood_defaults()
+	def.groups = def.groups or {tree = 1, choppy = 2, oddly_breakable_by_hand = 1,
+			flammable = 2}
+
+	local oldname = "ethereal:" .. name
+	local newname = "ethereal:all_faces_" .. name
+
+	core.register_node(newname, def)
+
+	core.register_craft({
+		output = newname .. " 8",
+		recipe = {
+			{oldname, oldname, oldname},
+			{oldname, "", oldname},
+			{oldname, oldname, oldname}
+		}
+	})
+end
+
 -- poplar
 
 local tmp = "ethereal:poplar_trunk"
@@ -54,16 +78,9 @@ core.register_craft({
 	output = "ethereal:poplar_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_poplar_trunk", {
-	description = S("All-faces") .. " " .. S("Poplar Trunk"),
-	tiles = {"ethereal_poplar_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_poplar_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("poplar_trunk", {
+	description = "Poplar Trunk",
+	tiles = {"ethereal_poplar_trunk_top.png"}
 })
 
 -- basandra
@@ -102,16 +119,9 @@ core.register_craft({
 	output = "ethereal:sakura_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_sakura_trunk", {
-	description = S("All-faces") .. " " .. S("Sakura Trunk"),
-	tiles = {"ethereal_sakura_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_sakura_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("sakura_trunk", {
+	description = "Sakura Trunk",
+	tiles = {"ethereal_sakura_trunk_top.png"}
 })
 
 -- Mangrove
@@ -137,16 +147,9 @@ core.register_craft({
 	output = "ethereal:mangrove_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_mangrove_trunk", {
-	description = S("All-faces") .. " " .. S("Mangrove Trunk"),
-	tiles = {"mcl_mangrove_log_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_mangrove_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("mangrove_tree", {
+	description = "Mangrove Trunk",
+	tiles = {"mcl_mangrove_log_top.png"}
 })
 
 -- mangrove roots
@@ -189,16 +192,9 @@ core.register_craft({
 	output = "ethereal:willow_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_willow_trunk", {
-	description = S("All-faces") .. " " .. S("Willow Trunk"),
-	tiles = {"ethereal_willow_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_willow_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("willow_trunk", {
+	description = "Willow Trunk",
+	tiles = {"ethereal_willow_trunk_top.png"}
 })
 
 -- redwood
@@ -224,16 +220,9 @@ core.register_craft({
 	output = "ethereal:redwood_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_redwood_trunk", {
-	description = S("All-faces") .. " " .. S("Redwood Trunk"),
-	tiles = {"ethereal_redwood_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_redwood_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("redwood_trunk", {
+	description = "Redwood Trunk",
+	tiles = {"ethereal_redwood_trunk_top.png"}
 })
 
 -- frost
@@ -260,16 +249,9 @@ core.register_craft({
 	output = "ethereal:frost_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_frost_tree", {
-	description = S("All-faces") .. " " .. S("Frost Tree"),
-	tiles = {"ethereal_frost_tree_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_frost_tree 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("frost_tree", {
+	description = "Frost Tree",
+	tiles = {"ethereal_frost_tree_top.png"}
 })
 
 -- healing
@@ -296,16 +278,9 @@ core.register_craft({
 	output = "ethereal:yellow_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_yellow_trunk", {
-	description = S("All-faces") .. " " .. S("Healing Trunk"),
-	tiles = {"ethereal_yellow_tree_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_yellow_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("yellow_trunk", {
+	description = "Healing Trunk",
+	tiles = {"ethereal_yellow_tree_top.png"}
 })
 
 -- palm (thanks to VanessaE for palm textures)
@@ -331,16 +306,9 @@ core.register_craft({
 	output = "ethereal:palm_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_palm_trunk", {
-	description = S("All-faces") .. " " .. S("Palm Trunk"),
-	tiles = {"moretrees_palm_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_palm_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("palm_trunk", {
+	description = "Palm Trunk",
+	tiles = {"moretrees_palm_trunk_top.png"}
 })
 
 -- banana
@@ -366,16 +334,9 @@ core.register_craft({
 	output = "ethereal:banana_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_banana_trunk", {
-	description = S("All-faces") .. " " .. S("Banana Trunk"),
-	tiles = {"ethereal_banana_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_banana_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("banana_trunk", {
+	description = "Banana Trunk",
+	tiles = {"ethereal_banana_trunk_top.png"}
 })
 
 -- scorched
@@ -401,16 +362,9 @@ core.register_craft({
 	}
 })
 
-core.register_node("ethereal:all_faces_scorched_tree", {
-	description = S("All-faces") .. " " .. S("Scorched Tree"),
-	tiles = {"ethereal_scorched_tree_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 1},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_scorched_tree 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("scorched_tree", {
+	description = "Scorched Tree",
+	tiles = {"ethereal_scorched_tree_top.png"}
 })
 
 -- mushroom
@@ -426,16 +380,9 @@ add_trunk(tmp, {
 	}
 })
 
-core.register_node("ethereal:all_faces_mushroom_trunk", {
-	description = S("All-faces") .. " " .. S("Mushroom Trunk"),
-	tiles = {"ethereal_mushroom_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_mushroom_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("mushroom_trunk", {
+	description = "Mushroom Trunk",
+	tiles = {"ethereal_mushroom_trunk_top.png"}
 })
 
 -- birch (thanks to VanessaE for birch textures)
@@ -461,16 +408,9 @@ core.register_craft({
 	output = "ethereal:birch_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_birch_trunk", {
-	description = S("All-faces") .. " " .. S("Birch Trunk"),
-	tiles = {"moretrees_birch_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_birch_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("birch_trunk", {
+	description = "Birch Trunk",
+	tiles = {"moretrees_birch_trunk_top.png"}
 })
 
 -- Bamboo
@@ -538,14 +478,7 @@ core.register_craft({
 	output = "ethereal:olive_wood 4", recipe = {{tmp}}
 })
 
-core.register_node("ethereal:all_faces_olive_trunk", {
-	description = S("All-faces") .. " " .. S("Olive Trunk"),
-	tiles = {"ethereal_olive_trunk_top.png"},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults()
-})
-
-core.register_craft({
-	output = "ethereal:all_faces_olive_trunk 8",
-	recipe = { {tmp, tmp, tmp}, {tmp, "", tmp}, {tmp, tmp, tmp} }
+add_allfaces("olive_trunk", {
+	description = "Olive Trunk",
+	tiles = {"ethereal_olive_trunk_top.png"}
 })
