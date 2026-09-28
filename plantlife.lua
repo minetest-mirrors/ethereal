@@ -47,6 +47,8 @@ core.register_node("ethereal:shrub_red", {
 	}
 })
 
+core.register_craft({ output = "dye:red 2", recipe = {{"ethereal:shrub_red"}} })
+
 -- leaf litter
 
 core.register_node("ethereal:leaf_litter", {
