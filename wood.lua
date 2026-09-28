@@ -18,21 +18,30 @@ local function add_wood(name, def)
 	core.register_node(name, def)
 end
 
+-- register trunk helper
+
+local function add_trunk(name, def)
+
+	def.sounds = default.node_sound_wood_defaults()
+	def.paramtype2 = "facedir"
+	def.on_place = core.rotate_node
+	def.groups = def.groups or {tree = 1, choppy = 2, oddly_breakable_by_hand = 1,
+			flammable = 2}
+
+	core.register_node(name, def)
+end
+
 -- poplar
 
 local tmp = "ethereal:poplar_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Poplar Trunk"),
 	tiles = {
 		"ethereal_poplar_trunk_top.png",
 		"ethereal_poplar_trunk_top.png",
 		"ethereal_poplar_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:poplar_wood", {
@@ -74,17 +83,13 @@ core.register_craft({
 
 tmp = "ethereal:sakura_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Sakura Trunk"),
 	tiles = {
 		"ethereal_sakura_trunk_top.png",
 		"ethereal_sakura_trunk_top.png",
 		"ethereal_sakura_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:sakura_wood", {
@@ -113,17 +118,13 @@ core.register_craft({
 
 tmp = "ethereal:mangrove_tree"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Mangrove Trunk"),
 	tiles = {
 		"mcl_mangrove_log_top.png",
 		"mcl_mangrove_log_top.png",
 		"mcl_mangrove_log.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:mangrove_wood", {
@@ -169,17 +170,13 @@ core.register_node("ethereal:mangrove_roots", {
 
 tmp = "ethereal:willow_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Willow Trunk"),
 	tiles = {
 		"ethereal_willow_trunk_top.png",
 		"ethereal_willow_trunk_top.png",
 		"ethereal_willow_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:willow_wood", {
@@ -208,17 +205,13 @@ core.register_craft({
 
 tmp = "ethereal:redwood_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Redwood Trunk"),
 	tiles = {
 		"ethereal_redwood_trunk_top.png",
 		"ethereal_redwood_trunk_top.png",
 		"ethereal_redwood_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:redwood_wood", {
@@ -247,17 +240,14 @@ core.register_craft({
 
 tmp = "ethereal:frost_tree"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Frost Tree"),
 	tiles = {
 		"ethereal_frost_tree_top.png",
 		"ethereal_frost_tree_top.png",
 		"ethereal_frost_tree.png"
 	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1}
 })
 
 add_wood("ethereal:frost_wood", {
@@ -286,17 +276,14 @@ core.register_craft({
 
 tmp = "ethereal:yellow_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Healing Tree Trunk"),
 	tiles = {
 		"ethereal_yellow_tree_top.png",
 		"ethereal_yellow_tree_top.png",
 		"ethereal_yellow_tree.png"
 	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, puts_out_fire = 1}
 })
 
 add_wood("ethereal:yellow_wood", {
@@ -325,17 +312,13 @@ core.register_craft({
 
 tmp = "ethereal:palm_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Palm Trunk"),
 	tiles = {
 		"moretrees_palm_trunk_top.png",
 		"moretrees_palm_trunk_top.png",
 		"moretrees_palm_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:palm_wood", {
@@ -364,17 +347,13 @@ core.register_craft({
 
 tmp = "ethereal:banana_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Banana Trunk"),
 	tiles = {
 		"ethereal_banana_trunk_top.png",
 		"ethereal_banana_trunk_top.png",
 		"ethereal_banana_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:banana_wood", {
@@ -403,17 +382,14 @@ core.register_craft({
 
 tmp = "ethereal:scorched_tree"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Scorched Tree"),
 	tiles = {
 		"ethereal_scorched_tree_top.png",
 		"ethereal_scorched_tree_top.png",
 		"ethereal_scorched_tree.png"
 	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 1},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 1}
 })
 
 core.register_craft({
@@ -441,17 +417,13 @@ core.register_craft({
 
 tmp = "ethereal:mushroom_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Mushroom Trunk"),
 	tiles = {
 		"ethereal_mushroom_trunk_top.png",
 		"ethereal_mushroom_trunk_top.png",
 		"ethereal_mushroom_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 core.register_node("ethereal:all_faces_mushroom_trunk", {
@@ -470,17 +442,13 @@ core.register_craft({
 
 tmp = "ethereal:birch_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Birch Trunk"),
 	tiles = {
 		"moretrees_birch_trunk_top.png",
 		"moretrees_birch_trunk_top.png",
 		"moretrees_birch_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:birch_wood", {
@@ -551,17 +519,13 @@ core.register_craft({
 
 tmp = "ethereal:olive_trunk"
 
-core.register_node(tmp, {
+add_trunk(tmp, {
 	description = S("Olive Trunk"),
 	tiles = {
 		"ethereal_olive_trunk_top.png",
 		"ethereal_olive_trunk_top.png",
 		"ethereal_olive_trunk.png"
-	},
-	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir",
-	on_place = core.rotate_node
+	}
 })
 
 add_wood("ethereal:olive_wood", {
