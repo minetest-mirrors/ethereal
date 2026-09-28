@@ -102,30 +102,11 @@ core.register_craft({
 	}
 })
 
--- Bamboo Block
-
-core.register_node("ethereal:bamboo_block", {
-	description = S("Bamboo Block"),
-	tiles = {"ethereal_bamboo_floor.png"},
-	paramtype = "light",
-	groups = {snappy = 3, choppy = 3 , flammable = 2, wood = 1},
-	sounds = default.node_sound_wood_defaults()
-})
-
 core.register_craft({
 	output = "ethereal:bamboo_block",
 	recipe = {
 		{"ethereal:bamboo_floor"},
 		{"ethereal:bamboo_floor"}
-	}
-})
-
-core.register_craft({
-	output = "ethereal:bamboo_block",
-	recipe = {
-		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"},
-		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"},
-		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"}
 	}
 })
 

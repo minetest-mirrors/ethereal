@@ -5,6 +5,10 @@ local S = core.get_translator("ethereal")
 
 local function add_wood(name, def)
 
+	def.sounds = default.node_sound_wood_defaults() -- some defaults
+	def.paramtype2 = "facedir"
+	def.is_ground_content = false
+
 	if ethereal.wood_rotate then
 		def.on_place = core.rotate_node
 	else
@@ -31,13 +35,10 @@ core.register_node(tmp, {
 	on_place = core.rotate_node
 })
 
-core.register_node("ethereal:poplar_wood", {
+add_wood("ethereal:poplar_wood", {
 	description = S("Poplar Wood"),
 	tiles = {"ethereal_poplar_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1}
 })
 
 core.register_craft({
@@ -61,10 +62,7 @@ core.register_craft({
 add_wood("ethereal:basandra_wood", {
 	description = S("Basandra Wood"),
 	tiles = {"ethereal_basandra_bush_wood.png"},
-	paramtype2 = "facedir",
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = default.node_sound_wood_defaults()
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1}
 })
 
 core.register_craft({
@@ -92,10 +90,7 @@ core.register_node(tmp, {
 add_wood("ethereal:sakura_wood", {
 	description = S("Sakura Wood"),
 	tiles = {"ethereal_sakura_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -134,10 +129,7 @@ core.register_node(tmp, {
 add_wood("ethereal:mangrove_wood", {
 	description = S("Mangrove Wood"),
 	tiles = {"mcl_mangrove_planks.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -193,10 +185,7 @@ core.register_node(tmp, {
 add_wood("ethereal:willow_wood", {
 	description = S("Willow Wood"),
 	tiles = {"ethereal_willow_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -235,10 +224,7 @@ core.register_node(tmp, {
 add_wood("ethereal:redwood_wood", {
 	description = S("Redwood Wood"),
 	tiles = {"ethereal_redwood_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -277,10 +263,7 @@ core.register_node(tmp, {
 add_wood("ethereal:frost_wood", {
 	description = S("Frost Wood"),
 	tiles = {"ethereal_frost_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1}
 })
 
 core.register_craft({
@@ -319,10 +302,7 @@ core.register_node(tmp, {
 add_wood("ethereal:yellow_wood", {
 	description = S("Healing Tree Wood"),
 	tiles = {"ethereal_yellow_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1}
 })
 
 core.register_craft({
@@ -361,10 +341,7 @@ core.register_node(tmp, {
 add_wood("ethereal:palm_wood", {
 	description = S("Palm Wood"),
 	tiles = {"moretrees_palm_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -403,10 +380,7 @@ core.register_node(tmp, {
 add_wood("ethereal:banana_wood", {
 	description = S("Banana Wood"),
 	tiles = {"ethereal_banana_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -512,10 +486,7 @@ core.register_node(tmp, {
 add_wood("ethereal:birch_wood", {
 	description = S("Birch Wood"),
 	tiles = {"moretrees_birch_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
@@ -559,10 +530,21 @@ core.register_node("ethereal:bamboo", {
 	end
 })
 
+core.register_craft({ type = "fuel", recipe = "ethereal:bamboo", burntime = 2 })
+
+-- Bamboo block
+
+tmp = "ethereal:bamboo"
+
+add_wood("ethereal:bamboo_block", {
+	description = S("Bamboo Block"),
+	tiles = {"ethereal_bamboo_floor.png"},
+	groups = {wood = 1, choppy = 3, oddly_breakable_by_hand = 1, flammable = 2}
+})
+
 core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:bamboo",
-	burntime = 2
+	output = "ethereal:bamboo_block",
+	recipe = { {tmp, tmp, tmp}, {tmp, tmp, tmp}, {tmp, tmp, tmp} }
 })
 
 -- olive
@@ -585,10 +567,7 @@ core.register_node(tmp, {
 add_wood("ethereal:olive_wood", {
 	description = S("Olive Wood"),
 	tiles = {"ethereal_olive_wood.png"},
-	is_ground_content = false,
-	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	sounds = default.node_sound_wood_defaults(),
-	paramtype2 = "facedir"
+	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3}
 })
 
 core.register_craft({
