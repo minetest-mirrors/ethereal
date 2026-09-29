@@ -69,7 +69,8 @@ core.register_node("ethereal:leaf_litter", {
 	selection_box = {type = "wallmounted"},
 	legacy_wallmounted = true,
 	groups = {snappy = 3, attached_node = 1, flammable = 2},
-	is_ground_content = false,
+	is_ground_content = true,
+	buildable_to = true,
 	sounds = default.node_sound_leaves_defaults(),
 })
 
