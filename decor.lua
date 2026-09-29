@@ -572,10 +572,10 @@ if core.get_modpath("fireflies") then
 		name = "fireflies:firefly_low",
 		place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter",
 				"default:dirt_with_rainforest_litter", "default:dirt",
-				"ethereal:prairie_dirt"},
+				"ethereal:prairie_dirt", "ethereal:tawny_dirt"},
 		fill_ratio = 0.0005, y_min = -1, y_max = 200,
 		biomes = {"deciduous_forest", "grassytwo", "coniferous_forest", "rainforest",
-				"swamp"},
+				"swamp", "tawny_woods"},
 		decoration = "fireflies:hidden_firefly", place_offset_y = 2})
 
 	-- restart firefly timers
