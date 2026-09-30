@@ -22,14 +22,39 @@ local function l_tex(tex)
 	return tex -- plantlike
 end
 
--- default apple tree leaves
+-- override helper
 
-core.override_item("default:leaves", {
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	inventory_image = l_tex("default_leaves.png"),
-	wield_image = l_tex("default_leaves.png"),
-	walkable = ethereal.leafwalk
+local function override_leaf(name, texture, new_drop)
+
+	local def = core.registered_nodes[name] ; if not def then return end
+	local drops = new_drop or def.drop
+
+	core.override_item(name, {
+		drawtype = leaftype,
+		visual_scale = leafscale,
+		inventory_image = l_tex(texture),
+		wield_image = l_tex(texture),
+		walkable = ethereal.leafwalk,
+		drop = drops
+	})
+end
+
+-- override default leaves
+
+override_leaf("default:leaves", "default_leaves.png")
+
+override_leaf("default:jungleleaves", "default_jungleleaves.png")
+
+override_leaf("default:acacia_leaves", "default_acacia_leaves.png")
+
+override_leaf("default:aspen_leaves", "default_aspen_leaves.png")
+
+override_leaf("default:pine_needles", "default_pine_needles.png", {
+	max_items = 1, items = {
+		{items = {"default:pine_sapling"}, rarity = 20},
+		{items = {"ethereal:pine_nuts"}, rarity = 5},
+		{items = {"default:pine_needles"}}
+	}
 })
 
 -- ability to craft big tree sapling
@@ -39,55 +64,28 @@ core.register_craft({
 	output = "ethereal:big_tree_sapling"
 })
 
--- default jungle tree leaves
+-- register leaves helper
 
-core.override_item("default:jungleleaves", {
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	inventory_image = l_tex("default_jungleleaves.png"),
-	wield_image = l_tex("default_jungleleaves.png"),
-	walkable = ethereal.leafwalk
-})
+local function add_leaves(name, def)
 
--- default pine tree leaves
+	def.tiles = {def.texture}
+	def.inventory_image = l_tex(def.texture)
+	def.visual_scale = def.visual_scale or leafscale
+	def.wield_image = l_tex(def.texture)
+	def.texture = nil -- clear helper string
+	def.description = S(def.description)
+	def.drawtype = leaftype
+	def.paramtype = "light"
+	def.walkable = ethereal.leafwalk
+	def.waving = 1
+	def.groups = def.groups or {snappy = 3, leaves = 1, flammable = 2}
+	def.sounds = default.node_sound_leaves_defaults()
+	def.after_place_node = default.after_place_leaves
 
-core.override_item("default:pine_needles", {
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	inventory_image = l_tex("default_pine_needles.png"),
-	wield_image = l_tex("default_pine_needles.png"),
-	walkable = ethereal.leafwalk,
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"default:pine_sapling"}, rarity = 20},
-			{items = {"ethereal:pine_nuts"}, rarity = 5},
-			{items = {"default:pine_needles"}}
-		}
-	}
-})
+	core.register_node(name, def)
+end
 
--- default acacia tree leaves
-
-core.override_item("default:acacia_leaves", {
-	drawtype = leaftype,
-	inventory_image = l_tex("default_acacia_leaves.png"),
-	wield_image = l_tex("default_acacia_leaves.png"),
-	visual_scale = leafscale,
-	walkable = ethereal.leafwalk
-})
-
--- default aspen tree leaves
-
-core.override_item("default:aspen_leaves", {
-	drawtype = leaftype,
-	inventory_image = l_tex("default_aspen_leaves.png"),
-	wield_image = l_tex("default_aspen_leaves.png"),
-	visual_scale = leafscale,
-	walkable = ethereal.leafwalk
-})
-
--- willow twig
+-- willow
 
 local tex = "ethereal_willow_twig.png"
 
@@ -95,373 +93,269 @@ if ethereal.leaftype ~= 0 then
 	tex = "ethereal_willow_twig_allfaces.png"
 end
 
-core.register_node("ethereal:willow_twig", {
-	description = S("Willow Twig"),
-	drawtype = leaftype,
-	tiles = {tex},
-	inventory_image = l_tex(tex),
-	wield_image = l_tex(tex),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
+add_leaves("ethereal:willow_twig", {
+	description = "Willow Twig",
+	texture = tex,
 	visual_scale = 1.4,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:willow_sapling"}, rarity = 50},
 			{items = {"ethereal:willow_twig"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
--- redwood leaves
+-- redwood
 
-core.register_node("ethereal:redwood_leaves", {
-	description = S("Redwood Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_redwood_leaves.png"},
-	inventory_image = l_tex("ethereal_redwood_leaves.png"),
-	wield_image = l_tex("ethereal_redwood_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:redwood_leaves", {
+	description = "Redwood Leaves",
+	texture = "ethereal_redwood_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
-			{items = {"ethereal:redwood_sapling"}, rarity = 50},
+		max_items = 1, items = {
+			{items = {"ethereal:redwood_sapling"}, rarity = 80},
 			{items = {"ethereal:redwood_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
--- orange tree leaves
+-- orange tree
 
-core.register_node("ethereal:orange_leaves", {
-	description = S("Orange Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_orange_leaves.png"},
-	inventory_image = l_tex("ethereal_orange_leaves.png"),
-	wield_image = l_tex("ethereal_orange_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:orange_leaves", {
+	description = "Orange Leaves",
+	texture = "ethereal_orange_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:orange_tree_sapling"}, rarity = 15},
 			{items = {"ethereal:orange_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
--- banana tree leaves
+-- banana tree
 
-core.register_node("ethereal:bananaleaves", {
-	description = S("Banana Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_banana_leaf.png"},
-	inventory_image = l_tex("ethereal_banana_leaf.png"),
-	wield_image = l_tex("ethereal_banana_leaf.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:bananaleaves", {
+	description = "Banana Leaves",
+	texture = "ethereal_banana_leaf.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:banana_tree_sapling"}, rarity = 10},
 			{items = {"ethereal:bananaleaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
--- healing tree leaves
+-- healing tree
 
-core.register_node("ethereal:yellowleaves", {
-	description = S("Healing Tree Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_yellow_leaves.png"},
-	inventory_image = l_tex("ethereal_yellow_leaves.png"),
-	wield_image = l_tex("ethereal_yellow_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
+add_leaves("ethereal:yellowleaves", {
+	description = "Healing Tree Leaves",
+	texture = "ethereal_yellow_leaves.png",
+	light_source = 9,
 	groups = {snappy = 3, leaves = 1, eatable = 1},
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:yellow_tree_sapling"}, rarity = 50},
 			{items = {"ethereal:yellowleaves"}}
 		}
 	},
-	on_use = core.item_eat(1),
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves,
-	light_source = 9
+	on_use = core.item_eat(1)
 })
 
--- palm tree leaves
+-- palm tree
 
-core.register_node("ethereal:palmleaves", {
-	description = S("Palm Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"moretrees_palm_leaves.png"},
-	inventory_image = l_tex("moretrees_palm_leaves.png"),
-	wield_image = l_tex("moretrees_palm_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:palmleaves", {
+	description = "Palm Leaves",
+	texture = "moretrees_palm_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:palm_sapling"}, rarity = 10},
 			{items = {"ethereal:palmleaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
--- birch tree leaves
+-- birch tree
 
-local birch_def = {
-	description = S("Birch Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"moretrees_birch_leaves.png"},
-	inventory_image = l_tex("moretrees_birch_leaves.png"),
-	wield_image = l_tex("moretrees_birch_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:birch_leaves", {
+	description = "Birch Leaves",
+	texture = "moretrees_birch_leaves.png",
 	drop = {
 		max_items = 1,
 		items = {
 			{items = {"ethereal:birch_sapling"}, rarity = 20},
 			{items = {"ethereal:birch_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
-}
+	}
+})
 
-core.register_node("ethereal:birch_leaves", table.copy(birch_def))
+-- magical birch (cyan)
 
--- style 1 (cyan)
-
-local tex = "moretrees_birch_leaves_white.png^[multiply:#259797"
-birch_def.tiles = {tex}
-birch_def.inventory_image = l_tex(tex)
-birch_def.wield_image = l_tex(tex)
-birch_def.light_source = 2
-birch_def.description = S("Magical Birch Leaves")
-birch_def.drop.items[2].items = {"ethereal:birch_leaves2"}
-
-core.register_node("ethereal:birch_leaves2", table.copy(birch_def))
-
--- style 2 (violet)
-
-local tex = "moretrees_birch_leaves_white.png^[multiply:#da70d6"
-birch_def.tiles = {tex}
-birch_def.inventory_image = l_tex(tex)
-birch_def.wield_image = l_tex(tex)
-birch_def.drop.items[2].items = {"ethereal:birch_leaves3"}
-
-core.register_node("ethereal:birch_leaves3", table.copy(birch_def))
-
--- style 3 (gold)
-
-local tex = "moretrees_birch_leaves_white.png^[multiply:#da9100"
-birch_def.tiles = {tex}
-birch_def.inventory_image = l_tex(tex)
-birch_def.wield_image = l_tex(tex)
-birch_def.drop.items[2].items = {"ethereal:birch_leaves4"}
-
-core.register_node("ethereal:birch_leaves4", table.copy(birch_def))
-
--- frost tree leaves
-
-core.register_node("ethereal:frost_leaves", {
-	description = S("Frost Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_frost_leaves.png"},
-	inventory_image = l_tex("ethereal_frost_leaves.png"),
-	wield_image = l_tex("ethereal_frost_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, puts_out_fire = 1},
+add_leaves("ethereal:birch_leaves2", {
+	description = "Magical Birch Leaves",
+	texture = "moretrees_birch_leaves_white.png^[multiply:#259797",
+	light_source = 2,
 	drop = {
 		max_items = 1,
 		items = {
+			{items = {"ethereal:birch_sapling"}, rarity = 20},
+			{items = {"ethereal:birch_leaves2"}}
+		}
+	}
+})
+
+-- magical birch (violet)
+
+add_leaves("ethereal:birch_leaves3", {
+	description = "Magical Birch Leaves",
+	texture = "moretrees_birch_leaves_white.png^[multiply:#da70d6",
+	light_source = 2,
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:birch_sapling"}, rarity = 20},
+			{items = {"ethereal:birch_leaves3"}}
+		}
+	}
+})
+
+-- magical birch (gold)
+
+add_leaves("ethereal:birch_leaves4", {
+	description = "Magical Birch Leaves",
+	texture = "moretrees_birch_leaves_white.png^[multiply:#da9100",
+	light_source = 2,
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"ethereal:birch_sapling"}, rarity = 20},
+			{items = {"ethereal:birch_leaves4"}}
+		}
+	}
+})
+
+-- frost tree leaves
+
+add_leaves("ethereal:frost_leaves", {
+	description = "Frost Leaves",
+	texture = "ethereal_frost_leaves.png",
+	light_source = 9,
+	groups = {snappy = 3, leaves = 1, puts_out_fire = 1},
+	drop = {
+		max_items = 1, items = {
 			{items = {"ethereal:frost_tree_sapling"}, rarity = 15},
 			{items = {"ethereal:frost_leaves"}}
 		}
-	},
-	light_source = 9,
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
 -- bamboo stalk leaves
 
-core.register_node("ethereal:bamboo_leaves", {
-	description = S("Bamboo Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_bamboo_leaves.png"},
-	inventory_image = l_tex("ethereal_bamboo_leaves.png"),
-	wield_image = l_tex("ethereal_bamboo_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:bamboo_leaves", {
+	description = "Bamboo Leaves",
+	texture = "ethereal_bamboo_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:bamboo_sprout"}, rarity = 10},
 			{items = {"ethereal:bamboo_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
 -- sakura leaves
 
-core.register_node("ethereal:sakura_leaves", {
-	description = S("Sakura Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_sakura_leaves.png"},
-	inventory_image = l_tex("ethereal_sakura_leaves.png"),
-	wield_image = l_tex("ethereal_sakura_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:sakura_leaves", {
+	description = "Sakura Leaves",
+	texture = "ethereal_sakura_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:sakura_sapling"}, rarity = 30},
 			{items = {"ethereal:sakura_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
-core.register_node("ethereal:sakura_leaves2", {
-	description = S("Sakura Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_sakura_leaves2.png"},
-	inventory_image = l_tex("ethereal_sakura_leaves2.png"),
-	wield_image = l_tex("ethereal_sakura_leaves2.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:sakura_leaves2", {
+	description = "Sakura Leaves",
+	texture = "ethereal_sakura_leaves2.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:sakura_sapling"}, rarity = 30},
 			{items = {"ethereal:sakura_leaves2"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
 -- lemon tree leaves
 
-core.register_node("ethereal:lemon_leaves", {
-	description = S("Lemon Tree Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_lemon_leaves.png"},
-	inventory_image = l_tex("ethereal_lemon_leaves.png"),
-	wield_image = l_tex("ethereal_lemon_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:lemon_leaves", {
+	description = "Lemon Tree Leaves",
+	texture = "ethereal_lemon_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:lemon_tree_sapling"}, rarity = 25},
 			{items = {"ethereal:lemon_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
 -- olive tree leaves
 
-core.register_node("ethereal:olive_leaves", {
-	description = S("Olive Tree Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_olive_leaves.png"},
-	inventory_image = l_tex("ethereal_olive_leaves.png"),
-	wield_image = l_tex("ethereal_olive_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:olive_leaves", {
+	description = "Olive Tree Leaves",
+	texture = "ethereal_olive_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:olive_tree_sapling"}, rarity = 25},
 			{items = {"ethereal:olive_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
 })
 
 -- mangrove tree leaves
 
-core.register_node("ethereal:mangrove_leaves", {
-	description = S("Mangrove Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"mcl_mangrove_leaves.png"},
-	inventory_image = l_tex("mcl_mangrove_leaves.png"),
-	wield_image = l_tex("mcl_mangrove_leaves.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
+add_leaves("ethereal:mangrove_leaves", {
+	description = "Mangrove Leaves",
+	texture = "mcl_mangrove_leaves.png",
 	drop = {
-		max_items = 1,
-		items = {
+		max_items = 1, items = {
 			{items = {"ethereal:mangrove_sapling"}, rarity = 25},
 			{items = {"ethereal:mangrove_leaves"}}
 		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
+	}
+})
+
+-- poplar leaves
+
+add_leaves("ethereal:poplar_leaves_red", {
+	description = "Red Poplar Leaves",
+	texture = "ethereal_poplar_leaves_red.png",
+	drop = {
+		max_items = 1, items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_red"}}
+		}
+	}
+})
+
+add_leaves("ethereal:poplar_leaves_orange", {
+	description = "Orange Poplar Leaves",
+	texture = "ethereal_poplar_leaves_orange.png",
+	drop = {
+		max_items = 1, items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_orange"}}
+		}
+	}
+})
+
+add_leaves("ethereal:poplar_leaves_yellow", {
+	description = "Yellow Poplar Leaves",
+	texture = "ethereal_poplar_leaves_yellow.png",
+	drop = {
+		max_items = 1, items = {
+			{items = {"ethereal:poplar_sapling"}, rarity = 50},
+			{items = {"ethereal:poplar_leaves_yellow"}}
+		}
+	}
 })
 
 -- red mushroom top
@@ -480,11 +374,7 @@ core.register_node("ethereal:mushroom", {
 	sounds = default.node_sound_wood_defaults()
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:mushroom",
-	burntime = 10
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:mushroom", burntime = 10 })
 
 -- brown mushroom top
 
@@ -502,11 +392,7 @@ core.register_node("ethereal:mushroom_brown", {
 	sounds = default.node_sound_wood_defaults()
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:mushroom_brown",
-	burntime = 10
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:mushroom_brown", burntime = 10 })
 
 -- mushroom pore (spongelike material found inside giant shrooms)
 
@@ -520,11 +406,7 @@ core.register_node("ethereal:mushroom_pore", {
 	sounds = default.node_sound_dirt_defaults()
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:mushroom_pore",
-	burntime = 3
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:mushroom_pore", burntime = 3 })
 
 -- hedge block
 
@@ -545,11 +427,7 @@ core.register_craft({
 	}
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:bush",
-	burntime = 1
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:bush", burntime = 9 })
 
 -- bush block #2
 
@@ -572,24 +450,11 @@ core.register_craft({
 	}
 })
 
-core.register_craft({
-	type = "fuel",
-	recipe = "ethereal:bush2",
-	burntime = 1
-})
+core.register_craft({ type = "fuel", recipe = "ethereal:bush2", burntime = 9 })
 
 -- pine needles bush (replaces bush 3)
 
 core.register_alias("ethereal:bush3", "default:pine_bush_needles")
-
-core.register_craft({
-	output = "default:pine_bush_needles",
-	recipe = {
-		{"group:leaves", "group:leaves", "group:leaves"},
-		{"group:leaves", "default:pine_needles", "group:leaves"},
-		{"group:leaves", "group:leaves", "group:leaves"}
-	}
-})
 
 -- basandra bush stem, leaves
 
@@ -625,74 +490,6 @@ core.register_node("ethereal:basandra_bush_leaves", {
 		}
 	},
 	sounds = default.node_sound_leaves_defaults()
-})
-
--- poplar leaves
-
-core.register_node(":ethereal:poplar_leaves_red", {
-	description = S("Red Poplar Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_poplar_leaves_red.png"},
-	inventory_image = l_tex("ethereal_poplar_leaves_red.png"),
-	wield_image = l_tex("ethereal_poplar_leaves_red.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"ethereal:poplar_sapling"}, rarity = 50},
-			{items = {"ethereal:poplar_leaves_red"}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
-})
-
-core.register_node(":ethereal:poplar_leaves_orange", {
-	description = S("Orange Poplar Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_poplar_leaves_orange.png"},
-	inventory_image = l_tex("ethereal_poplar_leaves_orange.png"),
-	wield_image = l_tex("ethereal_poplar_leaves_orange.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"ethereal:poplar_sapling"}, rarity = 50},
-			{items = {"ethereal:poplar_leaves_orange"}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
-})
-
-core.register_node(":ethereal:poplar_leaves_yellow", {
-	description = S("Yellow Poplar Leaves"),
-	drawtype = leaftype,
-	visual_scale = leafscale,
-	tiles = {"ethereal_poplar_leaves_yellow.png"},
-	inventory_image = l_tex("ethereal_poplar_leaves_yellow.png"),
-	wield_image = l_tex("ethereal_poplar_leaves_yellow.png"),
-	paramtype = "light",
-	walkable = ethereal.leafwalk,
-	waving = 1,
-	groups = {snappy = 3, leaves = 1, flammable = 2},
-	drop = {
-		max_items = 1,
-		items = {
-			{items = {"ethereal:poplar_sapling"}, rarity = 50},
-			{items = {"ethereal:poplar_leaves_yellow"}}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-	after_place_node = default.after_place_leaves
 })
 
 -- leafdecay helper function
