@@ -57,13 +57,6 @@ override_leaf("default:pine_needles", "default_pine_needles.png", {
 	}
 })
 
--- ability to craft big tree sapling
-
-core.register_craft({
-	recipe = {{"default:sapling", "default:sapling", "default:sapling"}},
-	output = "ethereal:big_tree_sapling"
-})
-
 -- register leaves helper
 
 local function add_leaves(name, def)

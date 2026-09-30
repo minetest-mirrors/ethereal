@@ -330,3 +330,10 @@ core.register_craft({
 	output = "ethereal:giant_redwood_sapling",
 	recipe = {{"ethereal:redwood_sapling", "ethereal:redwood_sapling"}}
 })
+
+-- 3x saplings make 1x big tree sapling
+
+core.register_craft({
+	recipe = {{"default:sapling", "default:sapling", "default:sapling"}},
+	output = "ethereal:big_tree_sapling"
+})
