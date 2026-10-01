@@ -542,7 +542,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 	local leaf_list = {
 		["ethereal:frost_leaves"] = {"331b37", 9},
-		["ethereal:bananaleaves"] = {"28581e"},
+		["ethereal:bananaleaves"] = {"b1b169"}, --{"28581e"},
 		["ethereal:lemon_leaves"] = {"507c1e"},
 		["ethereal:olive_leaves"] = {"416531"},
 		["ethereal:orange_leaves"] = {"1a3b1b"},
@@ -555,7 +555,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		["ethereal:birch_leaves2"] = {"259797", 2},
 		["ethereal:birch_leaves3"] = {"da70d6", 2},
 		["ethereal:birch_leaves4"] = {"da9100", 2},
-		["ethereal:palmleaves"] = {"2b6000"},
+		["ethereal:palmleaves"] = {"b1b169"},--{"2b6000"},
 		["ethereal:bamboo_leaves"] = {"445811"},
 		["ethereal:mangrove_leaves"] = {"6a7039"},
 		["ethereal:poplar_leaves_red"] = {"882d2a"},
