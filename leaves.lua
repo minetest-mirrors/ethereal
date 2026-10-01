@@ -570,31 +570,37 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		["xnether:blue_leaves"] = {"44acda"}
 	}
 
+	-- make leaf table for search instead of using group:leaves
+	local leaf_nodes = {}
+
+	for name in pairs(leaf_list) do
+		leaf_nodes[#leaf_nodes + 1] = name
+	end
+
+	local tweenable = core.features.particlespawner_tweenable and true
+
 	core.register_abm({
 		label = "Ethereal falling leaves",
-		nodenames = {"group:leaves"},
+		nodenames = leaf_nodes,
 		neighbors = {"air"},
-		interval = 9,
-		chance = 75,
+		interval = 8,
+		chance = 90,
 		catch_up = false,
 
-		action = function(pos, node)
+		action = function(pos, node, aoc, aocw)
 
 			local prop = leaf_list[node.name] ; if not prop then return end
 
 			local def = {
-				amount = 1,
-				time = 2,
-				minpos = {x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
-				maxpos = {x = pos.x + 1, y = pos.y, z = pos.z + 1},
+				amount = 1, time = 2,
+				minpos = {x = pos.x - 0.4, y = pos.y - 1, z = pos.z - 0.4},
+				maxpos = {x = pos.x + 0.4, y = pos.y - 1, z = pos.z + 0.4},
 				minvel = {x = -0.8, y = -1, z = -0.8},
 				maxvel = {x = 0.8, y = -3, z = 0.8},
-				minacc = {x = -0.1, y = -1, z = -0.1},
-				maxacc = {x = 0.2, y = -3, z = 0.2},
-				minexptime = 5,
-				maxexptime = 10,
-				minsize = 3,
-				maxsize = 4,
+				minacc = {x = -0.05, y = -0.1, z = -0.05},
+				maxacc = {x = 0.05, y = -0.3, z = 0.05},
+				minexptime = 5, maxexptime = 10,
+				minsize = 3, maxsize = 4,
 				collisiondetection = true,
 				collision_removal = true,
 				texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1],
@@ -602,7 +608,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 				glow = prop[2]
 			}
 
-			if core.features.particlespawner_tweenable then
+			if tweenable then
 				def.texture = "ethereal_falling_leaf_animated.png^[multiply:#" .. prop[1]
 				def.animation = {
 					type = 'vertical_frames', aspect_w = 16, aspect_h = 16, length = 1
@@ -612,4 +618,80 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 			core.add_particlespawner(def)
 		end
 	})
+
+--[[
+	-- A different way of doing falling leaves, only show leaf particles to the
+	-- player that is in their current fov
+
+	local function leaf_particle(pos, prop, playername)
+
+		local def = {
+			amount = 1, time = 2,
+			minpos = {x = pos.x - 0.4, y = pos.y - 1, z = pos.z - 0.4}, -- below leaf
+			maxpos = {x = pos.x + 0.4, y = pos.y - 1, z = pos.z + 0.4},
+			minvel = {x = -0.8, y = -1, z = -0.8},
+			maxvel = {x = 0.8, y = -3, z = 0.8},
+			minacc = {x = -0.05, y = -0.1, z = -0.05}, -- slow falling
+			maxacc = {x = 0.05, y = -0.3, z = 0.05},
+			minexptime = 5, maxexptime = 10,
+			minsize = 3, maxsize = 4,
+			collisiondetection = true,
+			collision_removal = true,
+			texture = "ethereal_falling_leaf.png^[multiply:#" .. prop[1],
+			vertical = true,
+			glow = prop[2],
+			playername = playername -- only player can see particles
+		}
+
+		if tweenable then
+			def.texture = "ethereal_falling_leaf_animated.png^[multiply:#" .. prop[1]
+			def.animation = {
+					type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 1}
+		end
+
+		core.add_particlespawner(def)
+	end
+
+	local math_min, math_random = math.min, math.random
+	local timer = 0
+
+	core.register_globalstep(function(dtime)
+
+		timer = timer + dtime ; if timer < 5 then return end ; timer = 0
+
+		for _, player in ipairs(core.get_connected_players()) do
+
+			local ppos = player:get_pos()
+			local pname = player:get_player_name()
+			local dir = player:get_look_dir()
+
+			-- only search in the area the player is looking
+			local center = {
+				x = ppos.x + dir.x * 10,
+				y = ppos.y + dir.y * 2,
+				z = ppos.z + dir.z * 10
+			}
+
+			local minp = {x = center.x - 8 , y = center.y - 1, z = center.z - 8}
+			local maxp = {x = center.x + 8, y = center.y + 8, z = center.z + 8}
+			local leaves = core.find_nodes_in_area(minp, maxp, leaf_nodes)
+			local count = #leaves
+
+			if count > 0 then
+
+				local amount = math_min(count, 3) -- max 3 particles
+
+				for _ = 1, amount do
+
+					local pos = leaves[math_random(1, count)]
+					local node = core.get_node(pos)
+					local prop = leaf_list[node.name]
+
+					if prop then
+						leaf_particle(pos, prop, pname)
+					end
+				end
+			end
+		end
+	end)]]
 end
