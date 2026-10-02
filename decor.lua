@@ -319,7 +319,8 @@ register_decoration(ethereal.frost, {
 	place_on = {"ethereal:crystal_dirt"},
 	fill_ratio = 0.02, y_min = 1, y_max = 1750,
 	biomes = {"frost", "frost_floatland"},
-	decoration = {"ethereal:crystal_spike", "ethereal:crystalgrass"}})
+	decoration = {"ethereal:crystalgrass", "ethereal:crystalgrass",
+			"ethereal:crystalgrass", "ethereal:crystal_spike"} }) -- 1:3 chance spike
 
 -- red shrub
 
@@ -335,7 +336,8 @@ register_decoration(ethereal.snowy, {
 	place_on = {"ethereal:gray_dirt"},
 	fill_ratio = 0.05,
 	biomes = {"grayness"},
-	decoration = "ethereal:snowygrass"})
+	decoration = {"ethereal:snowygrass", "ethereal:snowygrass", "ethereal:snowygrass",
+			"ethereal:snowygrass", "flowers:chrysanthemum_green"} }) -- 1:5 chance flower
 
 register_decoration(ethereal.cold_desert, {
 	place_on = {"default:silver_sand"},

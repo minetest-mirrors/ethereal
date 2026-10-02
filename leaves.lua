@@ -578,7 +578,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 	end
 
 	local tweenable = core.features.particlespawner_tweenable and true
-
+--[[
 	core.register_abm({
 		label = "Ethereal falling leaves",
 		nodenames = leaf_nodes,
@@ -618,8 +618,8 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 			core.add_particlespawner(def)
 		end
 	})
+]]--
 
---[[
 	-- A different way of doing falling leaves, only show leaf particles to the
 	-- player that is in their current fov
 
@@ -652,14 +652,17 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 		core.add_particlespawner(def)
 	end
 
-	local math_min, math_random = math.min, math.random
+	-- localize a few things to hopefully speed things up
+	local connected_players = core.get_connected_players
+	local find_nodes_in_area = core.find_nodes_in_area
+	local math_min, math_random, get_node = math.min, math.random, core.get_node
 	local timer = 0
 
 	core.register_globalstep(function(dtime)
 
 		timer = timer + dtime ; if timer < 5 then return end ; timer = 0
 
-		for _, player in ipairs(core.get_connected_players()) do
+		for _, player in ipairs(connected_players()) do
 
 			local ppos = player:get_pos()
 			local pname = player:get_player_name()
@@ -673,9 +676,15 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 			}
 
 			local minp = {x = center.x - 8 , y = center.y - 1, z = center.z - 8}
-			local maxp = {x = center.x + 8, y = center.y + 8, z = center.z + 8}
-			local leaves = core.find_nodes_in_area(minp, maxp, leaf_nodes)
+			local maxp = {x = center.x + 8, y = center.y + 10, z = center.z + 8}
+			local leaves = find_nodes_in_area(minp, maxp, leaf_nodes)
 			local count = #leaves
+
+-- testing only
+--for _,pos in ipairs(leaves) do
+--	core.add_particle({pos = pos, texture = "heart.png", glow = 5,
+--		expirationtime = 5, size = 6, collisiondetection = false, vertical = false})
+--end
 
 			if count > 0 then
 
@@ -684,7 +693,7 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 				for _ = 1, amount do
 
 					local pos = leaves[math_random(1, count)]
-					local node = core.get_node(pos)
+					local node = get_node(pos)
 					local prop = leaf_list[node.name]
 
 					if prop then
@@ -693,5 +702,5 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 				end
 			end
 		end
-	end)]]
+	end)
 end

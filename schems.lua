@@ -409,7 +409,7 @@ register_decoration(ethereal.savanna, {
 
 register_decoration(ethereal.grayness, {
 	place_on = "ethereal:gray_dirt",
-	fill_ratio = 0.02,
+	fill_ratio = 0.01, sidelen = 16,
 	biomes = {"grayness"},
 	schematic = ethereal.willow,
 	spawn_by = "ethereal:gray_dirt", num_spawn_by = 6})
@@ -483,7 +483,7 @@ register_decoration(ethereal.grassytwo, {
 
 register_decoration(ethereal.prairie, {
 	place_on = "ethereal:prairie_dirt",
-	fill_ratio = 0.01,
+	fill_ratio = 0.01, place_offset_y = 1,
 	biomes = {"prairie"},
 	schematic = ethereal.orangetree})
 
