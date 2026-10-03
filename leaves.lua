@@ -627,8 +627,8 @@ if core.settings:get_bool("ethereal.leaf_particles") ~= false then
 
 		local def = {
 			amount = 1, time = 2,
-			minpos = {x = pos.x - 0.4, y = pos.y - 1, z = pos.z - 0.4}, -- below leaf
-			maxpos = {x = pos.x + 0.4, y = pos.y - 1, z = pos.z + 0.4},
+			minpos = {x = pos.x - 0.4, y = pos.y - 0.55, z = pos.z - 0.4}, -- below leaf
+			maxpos = {x = pos.x + 0.4, y = pos.y - 0.55, z = pos.z + 0.4},
 			minvel = {x = -0.8, y = -1, z = -0.8},
 			maxvel = {x = 0.8, y = -3, z = 0.8},
 			minacc = {x = -0.05, y = -0.1, z = -0.05}, -- slow falling
