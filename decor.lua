@@ -1,7 +1,7 @@
 
 -- register decoration helper
 
-local function register_decoration(enabled, def)
+local function add_deco(enabled, def)
 
 	if enabled ~= 1 then return end
 
@@ -19,7 +19,7 @@ local old = core.settings:get_bool("ethereal.old_biomes")
 
 -- tawny woods grass and fauna
 
-register_decoration(ethereal.tawny_woods, {
+add_deco(ethereal.tawny_woods, {
 	place_on = {"ethereal:tawny_dirt", "default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.9, y_min = 3, y_max = 71,
 	biomes = {"tawny_woods"},
@@ -27,7 +27,7 @@ register_decoration(ethereal.tawny_woods, {
 	spawn_by = "ethereal:poplar_trunk", num_spawn_by = 1, param2 = 1
 })
 
-register_decoration(ethereal.tawny_woods, {
+add_deco(ethereal.tawny_woods, {
 	place_on = "ethereal:tawny_dirt",
 	fill_ratio = 0.6, y_min = 3, y_max = 71,
 	biomes = {"tawny_woods"},
@@ -35,13 +35,13 @@ register_decoration(ethereal.tawny_woods, {
 	spawn_by = "ethereal:leaf_litter", num_spawn_by = 1, param2 = 1
 })
 
-register_decoration(ethereal.tawny_woods, {
+add_deco(ethereal.tawny_woods, {
 	place_on = "ethereal:tawny_dirt",
 	fill_ratio = 0.1, y_min = 3, y_max = 71,
 	biomes = {"tawny_woods"},
 	decoration = {"ethereal:tawny_grass"} })
 
-register_decoration(ethereal.tawny_woods, {
+add_deco(ethereal.tawny_woods, {
 	place_on = "ethereal:tawny_dirt",
 	fill_ratio = 0.01, y_min = 3, y_max = 71,
 	biomes = {"tawny_woods"},
@@ -49,7 +49,7 @@ register_decoration(ethereal.tawny_woods, {
 
 if core.get_modpath("farming") and farming.mod and farming.mod == "redo" then
 
-	register_decoration(ethereal.tawny_woods, {
+	add_deco(ethereal.tawny_woods, {
 		place_on = {"ethereal:tawny_dirt", "default:dirt_with_rainforest_litter"},
 		noise_params = {
 			offset = 0,
@@ -67,7 +67,7 @@ end
 
 -- magical forest grass and flowers
 
-register_decoration(ethereal.magical_forest, {
+add_deco(ethereal.magical_forest, {
 	place_on = {"ethereal:magical_dirt"},
 	sidelen = 4, fill_ratio = 0.001, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
@@ -75,23 +75,23 @@ register_decoration(ethereal.magical_forest, {
 	decoration = "ethereal:magical_water", place_offset_y = -1,
 	spawn_by = "ethereal:magical_dirt", num_spawn_by = 8})
 
-register_decoration(ethereal.magical_forest, {
+add_deco(ethereal.magical_forest, {
 	place_on = "ethereal:magical_dirt",
 	fill_ratio = 0.1, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"}, param2 = 3,
 	decoration = {"ethereal:magical_grass"} })
 
-register_decoration(ethereal.magical_forest, {
+add_deco(ethereal.magical_forest, {
 	place_on = "ethereal:magical_dirt",
 	fill_ratio = 0.01, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
 	decoration = {"flowers:rose", "flowers:geranium", "flowers:tulip", "ethereal:onion_4",
 			"flowers:dandelion_white", "flowers:viola", "flowers:dandelion_yellow",
-			"flowers:crysanthemum_green", "ethereal:firethorn", "xanadu:poppy"} })
+			"flowers:crysanthemum_green", "ethereal:firethorn"} })
 
 -- ponds
 
-register_decoration(ethereal.mesa, {
+add_deco(ethereal.mesa, {
 	place_on = {"group:bakedclay"},
 	sidelen = 32, fill_ratio = 0.003, y_min = 18, y_max = 72,
 	biomes = {"mesa"},
@@ -100,7 +100,7 @@ register_decoration(ethereal.mesa, {
 
 -- thin ice
 
-register_decoration(ethereal.frost, {
+add_deco(ethereal.frost, {
 	place_on = {"default:silver_sand"},
 	fill_ratio = 1.0, y_min = 0, y_max = 0,
 	decoration = "ethereal:thin_ice", place_offset_y = 1,
@@ -108,7 +108,7 @@ register_decoration(ethereal.frost, {
 
 -- water pools in swamp areas
 
-register_decoration(ethereal.swamp, {
+add_deco(ethereal.swamp, {
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 4, fill_ratio = 0.01, y_min = 1, y_max = 2,
 	biomes = {"swamp"},
@@ -116,7 +116,7 @@ register_decoration(ethereal.swamp, {
 	decoration = "default:water_source", place_offset_y = -1,
 	spawn_by = "default:dirt_with_grass", num_spawn_by = 8})
 
-register_decoration(ethereal.swamp, {
+add_deco(ethereal.swamp, {
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 4, fill_ratio = 0.1, y_min = 1, y_max = 2,
 	biomes = {"swamp"},
@@ -126,7 +126,7 @@ register_decoration(ethereal.swamp, {
 
 -- dry dirt patches
 
-register_decoration(ethereal.savanna, {
+add_deco(ethereal.savanna, {
 	place_on = {"default:dry_dirt_with_dry_grass"},
 	sidelen = 4,
 	noise_params = {offset = -1.5, scale = -1.5, spread = {x = 200, y = 200, z = 200},
@@ -140,12 +140,12 @@ register_decoration(ethereal.savanna, {
 
 if core.get_modpath("farming") and farming.mod and farming.mod == "redo" then
 
-	register_decoration(ethereal.cold_desert, {
+	add_deco(ethereal.cold_desert, {
 		place_on = "default:silver_sand",
 		fill_ratio = 0.001, y_min = 4, y_max = 100,
 		decoration = "farming:salt_crystal"})
 else
-	register_decoration(1, {
+	add_deco(1, {
 		place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
 		sidelen = 16, y_min = 15, y_max = 55,
 		noise_params = {offset = 0, scale = 0.002, spread = {x = 100, y = 100, z = 100},
@@ -155,7 +155,7 @@ end
 
 -- firethorn shrub
 
-register_decoration(ethereal.glacier, {
+add_deco(ethereal.glacier, {
 	place_on = "default:snowblock",
 	fill_ratio = 0.001, y_min = 1, y_max = 30,
 	biomes = {"icesheet"},
@@ -163,7 +163,7 @@ register_decoration(ethereal.glacier, {
 
 -- caverealm icicle
 
-register_decoration((core.get_modpath("caverealms") and ethereal.glacier), {
+add_deco((core.get_modpath("caverealms") and ethereal.glacier), {
 	place_on = "default:snowblock",
 	fill_ratio = 0.008, y_min = 3, y_max = 30,
 	biomes = {"icesheet"},
@@ -171,7 +171,7 @@ register_decoration((core.get_modpath("caverealms") and ethereal.glacier), {
 
 -- scorched tree
 
-register_decoration(ethereal.plains, {
+add_deco(ethereal.plains, {
 	place_on = "ethereal:dry_dirt",
 	fill_ratio = 0.006,
 	biomes = {"plains"},
@@ -181,7 +181,7 @@ register_decoration(ethereal.plains, {
 
 -- special orange baked clay surface decor
 
-register_decoration(ethereal.mesa,{
+add_deco(ethereal.mesa,{
 	deco_type = "simple",
 	place_on = {"default:dirt_with_dry_grass"},
 	sidelen = 2,
@@ -202,7 +202,7 @@ register_decoration(ethereal.mesa,{
 
 -- dry dirt patches
 
-register_decoration(ethereal.plains, {
+add_deco(ethereal.plains, {
 	place_on = {"default:dry_dirt_with_dry_grass"},
 	sidelen = 4,
 	noise_params = {offset = -1.5, scale = -1.5, spread = {x = 200, y = 200, z = 200},
@@ -214,7 +214,7 @@ register_decoration(ethereal.plains, {
 
 -- rainforest litter in grove biome
 
-register_decoration(ethereal.grove, {
+add_deco(ethereal.grove, {
 	place_on = {"ethereal:grove_dirt"},
 	sidelen = 4,
 	noise_params = {offset = -0.0025, scale = 0.5, spread = {x = 100, y = 100, z = 100},
@@ -226,7 +226,7 @@ register_decoration(ethereal.grove, {
 
 -- scorched tree
 
-register_decoration(ethereal.fiery, {
+add_deco(ethereal.fiery, {
 	place_on = {"ethereal:fiery_dirt"},
 	fill_ratio = 0.000275,
 	biomes = {"fiery"},
@@ -235,7 +235,7 @@ register_decoration(ethereal.fiery, {
 
 -- fiery lava pits
 
-register_decoration(ethereal.fiery, {
+add_deco(ethereal.fiery, {
 	place_on = {"ethereal:fiery_dirt"},
 	place_offset_y = -1,
 	spawn_by = "ethereal:fiery_dirt",
@@ -257,14 +257,14 @@ register_decoration(ethereal.fiery, {
 
 -- dry shrub
 
-register_decoration(ethereal.plains, {
+add_deco(ethereal.plains, {
 	place_on = {"ethereal:dry_dirt", "default:sand", "default:desert_sand",
 			"default:sandstone", "default:dirt_with_dry_grass"},
 	fill_ratio = 0.015,
 	biomes = {"plains", "deciduous_forest_ocean", "desert", "sandstone_desert", "mesa"},
 	decoration = "default:dry_shrub"})
 
-register_decoration(ethereal.plains, {
+add_deco(ethereal.plains, {
 	place_on = {"default:desert_sand", "default:dirt_with_dry_grass", "bakedclay:red",
 			"bakedclay:grey", "bakedclay:brown", "bakedclay:orange"},
 	fill_ratio = 0.015,
@@ -273,21 +273,21 @@ register_decoration(ethereal.plains, {
 
 -- dry grass
 
-register_decoration(ethereal.savanna, {
+add_deco(ethereal.savanna, {
 	place_on = {"default:dry_dirt_with_dry_grass", "default:dirt_with_dry_grass"},
 	fill_ratio = 0.1,
 	biomes = {"savanna"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
 
-register_decoration(ethereal.mesa, {
+add_deco(ethereal.mesa, {
 	place_on = {"default:dirt_with_dry_grass"},
 	fill_ratio = 0.1,
 	biomes = {"mesa_redwood"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
 
-register_decoration(ethereal.caves, {
+add_deco(ethereal.caves, {
 	place_on = {"default:desert_stone"},
 	fill_ratio = 0.005, y_min = 5, y_max = 42,
 	biomes = {"caves"},
@@ -295,7 +295,7 @@ register_decoration(ethereal.caves, {
 
 -- flowers
 
-register_decoration(ethereal.grassy, {
+add_deco(ethereal.grassy, {
 	place_on = {"default:dirt_with_grass", "ethereal:grove_dirt"},
 	fill_ratio = 0.025,
 	biomes = {"deciduous_forest", "grassytwo", "mediterranean"},
@@ -304,7 +304,7 @@ register_decoration(ethereal.grassy, {
 
 -- prairie flowers
 
-register_decoration(ethereal.prairie, {
+add_deco(ethereal.prairie, {
 	place_on = {"ethereal:prairie_dirt"},
 	fill_ratio = 0.035,
 	biomes = {"prairie"},
@@ -315,7 +315,7 @@ register_decoration(ethereal.prairie, {
 
 -- crystal spike & grass
 
-register_decoration(ethereal.frost, {
+add_deco(ethereal.frost, {
 	place_on = {"ethereal:crystal_dirt"},
 	fill_ratio = 0.02, y_min = 1, y_max = 1750,
 	biomes = {"frost", "frost_floatland"},
@@ -324,7 +324,7 @@ register_decoration(ethereal.frost, {
 
 -- red shrub
 
-register_decoration(ethereal.fiery, {
+add_deco(ethereal.fiery, {
 	place_on = {"ethereal:fiery_dirt"},
 	fill_ratio = 0.1,
 	biomes = {"fiery"},
@@ -332,14 +332,14 @@ register_decoration(ethereal.fiery, {
 
 -- snowy grass
 
-register_decoration(ethereal.snowy, {
+add_deco(ethereal.snowy, {
 	place_on = {"ethereal:gray_dirt"},
 	fill_ratio = 0.05,
 	biomes = {"grayness"},
 	decoration = {"ethereal:snowygrass", "ethereal:snowygrass", "ethereal:snowygrass",
 			"ethereal:snowygrass", "flowers:chrysanthemum_green"} }) -- 1:5 chance flower
 
-register_decoration(ethereal.cold_desert, {
+add_deco(ethereal.cold_desert, {
 	place_on = {"default:silver_sand"},
 	fill_ratio = 0.025,
 	biomes = {"cold_desert"},
@@ -347,13 +347,13 @@ register_decoration(ethereal.cold_desert, {
 
 -- cactus
 
-register_decoration(ethereal.sandstone, {
+add_deco(ethereal.sandstone, {
 	place_on = {"default:sandstone"},
 	fill_ratio = 0.002,
 	biomes = {"sandstone_desert"},
 	decoration = "default:cactus", height_max = 2})
 
-register_decoration(ethereal.desert, {
+add_deco(ethereal.desert, {
 	place_on = {"default:desert_sand"},
 	fill_ratio = 0.005,
 	biomes = {"desert"},
@@ -361,7 +361,7 @@ register_decoration(ethereal.desert, {
 
 -- spore grass
 
-register_decoration(ethereal.mushroom, {
+add_deco(ethereal.mushroom, {
 	place_on = {"ethereal:mushroom_dirt"},
 	fill_ratio = 0.1,
 	biomes = {"mushroom"},
@@ -369,7 +369,7 @@ register_decoration(ethereal.mushroom, {
 
 -- slime mold
 
-register_decoration(ethereal.mushroom, {
+add_deco(ethereal.mushroom, {
 	place_on = {"default:sand"},
 	sidelen = 16, fill_ratio = 0.065, y_min = 1, y_max = 5,
 	biomes = {"mushroom_ocean"},
@@ -377,7 +377,7 @@ register_decoration(ethereal.mushroom, {
 
 -- red & brown mushroom
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:dirt_with_rainforest_litter", "default:dirt_with_grass",
 			"ethereal:prairie_dirt", "ethereal:mushroom_dirt"},
 	sidelen = 16, fill_ratio = 0.01,
@@ -386,19 +386,19 @@ register_decoration(1, {
 
 -- jungle grass
 
-register_decoration(ethereal.junglee, {
+add_deco(ethereal.junglee, {
 	place_on = {"default:dirt_with_rainforest_litter"},
 	fill_ratio = 0.1,
 	biomes = {"rainforest"},
 	decoration = "default:junglegrass"})
 
-register_decoration(ethereal.jumble, {
+add_deco(ethereal.jumble, {
 	place_on = {"default:dirt_with_grass"},
 	fill_ratio = 0.05,
 	biomes = {"jumble", "grove"},
 	decoration = "default:junglegrass"})
 
-register_decoration(ethereal.swamp, {
+add_deco(ethereal.swamp, {
 	place_on = {"default:dirt_with_grass"},
 	fill_ratio = 0.05,
 	biomes = {"swamp"},
@@ -406,7 +406,7 @@ register_decoration(ethereal.swamp, {
 
 -- grass
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt",
 			"ethereal:grove_dirt", "ethereal:bamboo_dirt"},
 	fill_ratio = 0.1,
@@ -417,7 +417,7 @@ register_decoration(1, {
 
 -- lilac
 
-register_decoration(ethereal.bamboo, {
+add_deco(ethereal.bamboo, {
 	place_on = {"ethereal:bamboo_dirt"},
 	fill_ratio = 0.025, y_min = 3, y_max = 35,
 	biomes = {"bamboo"},
@@ -425,7 +425,7 @@ register_decoration(ethereal.bamboo, {
 
 -- marram grass
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:sand"},
 	sidelen = 4, y_min = 3, y_max = 6,
 	noise_params = {offset = -0.7, scale = 3.0, spread = {x = 16, y = 16, z = 16},
@@ -436,13 +436,13 @@ register_decoration(1, {
 
 -- ferns
 
-register_decoration(ethereal.grove, {
+add_deco(ethereal.grove, {
 	place_on = {"default:dirt_with_grass", "ethereal:grove_dirt"},
 	fill_ratio = 0.05,
 	biomes = {"swamp", "grove"},
 	decoration = "ethereal:fern"})
 
-register_decoration(ethereal.frost, { -- chance of something edible so high up
+add_deco(ethereal.frost, { -- chance of something edible so high up
 	place_on = {"ethereal:crystal_dirt"},
 	fill_ratio = 0.001, y_min = 1025, y_max = 1750,
 	biomes = {"frost_floatland"},
@@ -450,19 +450,19 @@ register_decoration(ethereal.frost, { -- chance of something edible so high up
 
 -- snow
 
-register_decoration(ethereal.snowy, {
+add_deco(ethereal.snowy, {
 	place_on = {"default:dirt_with_coniferous_litter"},
 	fill_ratio = 0.8, y_min = 20, y_max = 140,
 	biomes = {"coniferous_forest"},
 	decoration = "default:snow"})
 
-register_decoration(ethereal.alpine, {
+add_deco(ethereal.alpine, {
 	place_on = {"default:dirt_with_snow"},
 	fill_ratio = 0.8, y_min = 40, y_max = 140,
 	biomes = {"taiga"},
 	decoration = "default:snow"})
 
-register_decoration(ethereal.snowy_grassland, {
+add_deco(ethereal.snowy_grassland, {
 	place_on = {"ethereal:cold_dirt"},
 	fill_ratio = 0.8, y_min = 2, y_max = 40,
 	biomes = {"snowy_grassland"},
@@ -472,7 +472,7 @@ register_decoration(ethereal.snowy_grassland, {
 
 local abundant = core.settings:get_bool("ethereal.abundant_onions") ~= false
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
 	fill_ratio = (abundant and 0.025 or 0.005),
 	biomes = {"deciduous_forest", "grassytwo", "jumble", "prairie"},
@@ -480,7 +480,7 @@ register_decoration(1, {
 
 -- papyrus
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:dirt_with_grass", "default:dirt_with_rainforest_litter"},
 	fill_ratio = 0.1, y_min = 1, y_max = 1,
 	biomes = {"deciduous_forest", "rainforest", "swamp"},
@@ -489,14 +489,14 @@ register_decoration(1, {
 
 -- default ferns
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"ethereal:cold_dirt", "default:dirt_with_coniferous_litter"},
 	sidelen = 16, fill_ratio = 0.1, y_min = 3, y_max = 100,
 	decoration = {"default:fern_1", "default:fern_2", "default:fern_3"} })
 
 -- stone with yellow algae
 
-register_decoration(core.get_modpath("caverealms") and ethereal.tundra, {
+add_deco(core.get_modpath("caverealms") and ethereal.tundra, {
 	place_on = {"default:permafrost_with_stones"},
 	sidelen = 4, y_min = 3, y_max = 50,
 	noise_params = {offset = -0.2, scale = 1.0, spread = {x = 100, y = 100, z = 100},
@@ -507,7 +507,7 @@ register_decoration(core.get_modpath("caverealms") and ethereal.tundra, {
 
 -- Tundra moss
 
-register_decoration(ethereal.tundra, {
+add_deco(ethereal.tundra, {
 	place_on = {"default:permafrost_with_stones"},
 	sidelen = 4, y_min = 2, y_max = 50,
 	noise_params = {offset = -0.8, scale = 2.0, spread = {x = 100, y = 100, z = 100},
@@ -518,7 +518,7 @@ register_decoration(ethereal.tundra, {
 
 -- Tundra patchy snow
 
-register_decoration(ethereal.tundra, {
+add_deco(ethereal.tundra, {
 	place_on = {"default:permafrost_with_moss", "default:permafrost_with_stones",
 			"default:stone", "default:gravel"},
 	sidelen = 4, y_min = 1, y_max = 50,
@@ -529,7 +529,7 @@ register_decoration(ethereal.tundra, {
 
 -- Tundra very sparse grass and dry shrubs
 
-register_decoration(ethereal.tundra, {
+add_deco(ethereal.tundra, {
 	deco_type = "simple",
 	place_on = {"default:permafrost_with_moss"},
 	sidelen = 16,
@@ -544,7 +544,7 @@ register_decoration(ethereal.tundra, {
 
 if core.get_modpath("butterflies") then
 
-	register_decoration(1, {
+	add_deco(1, {
 		name = "butterflies:butterfly",
 		place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt"},
 		fill_ratio = 0.005, y_min = 1, y_max = 200,
@@ -570,7 +570,7 @@ end
 
 if core.get_modpath("fireflies") then
 
-	register_decoration(1, {
+	add_deco(1, {
 		name = "fireflies:firefly_low",
 		place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter",
 				"default:dirt_with_rainforest_litter", "default:dirt",
@@ -592,7 +592,7 @@ end
 
 -- Coral Reef
 
-register_decoration(ethereal.reefs, {
+add_deco(ethereal.reefs, {
 	name = "default:corals",
 	place_on = {"default:sand"},
 	sidelen = 4, y_min = -8, y_max = -2,
@@ -606,7 +606,7 @@ register_decoration(ethereal.reefs, {
 
 -- Kelp
 
-register_decoration(ethereal.reefs, {
+add_deco(ethereal.reefs, {
 	name = "default:kelp",
 	place_on = {"default:sand"},
 	sidelen = 16, y_min = -10, y_max = -5,
@@ -622,7 +622,7 @@ register_decoration(ethereal.reefs, {
 
 local function add_illumishroom(low, high, nodename)
 
-	register_decoration(1, {
+	add_deco(1, {
 		place_on = {"default:stone_with_coal"},
 		sidelen = 16, fill_ratio = 0.5, y_min = low, y_max = high,
 		flags = "force_placement, all_floors",
@@ -635,21 +635,21 @@ add_illumishroom(-3000, -2000, "ethereal:illumishroom3")
 
 --= Poppy's growing in Clearing Biome in memory of RealBadAngel
 
-register_decoration(1, {
+add_deco(1, {
 	place_on = {"default:dirt_with_grass"},
 	sidelen = 16, fill_ratio = 0.004,
 	biomes = {"grassland"},
-	decoration = {"xanadu:poppy"}})
+	decoration = {"ethereal:poppy"}})
 
 -- mangrove swamp deco
 
-register_decoration(ethereal.mangrove, {
+add_deco(ethereal.mangrove, {
 	place_on = "ethereal:mud",
 	fill_ratio = 0.008,
 	biomes = {"mangrove"},
 	decoration = "ethereal:bamboo", height_max = 4})
 
-register_decoration(ethereal.mangrove, {
+add_deco(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
 	sidelen = 16, fill_ratio = 0.15, y_min = 1, y_max = 7,
 	biomes = {"mangrove", "mangrove_shore"},
