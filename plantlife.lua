@@ -1,6 +1,35 @@
 
 local S = core.get_translator("ethereal")
 
+-- barrel cactus
+
+core.register_node("ethereal:barrel_cactus", {
+	description = S("Barrel Cactus"),
+	drawtype = "plantlike",
+	visual_scale = 0.8,
+	tiles = {"ethereal_barrel_cactus.png"},
+	inventory_image = "ethereal_barrel_cactus.png",
+	wield_image = "ethereal_barrel_cactus.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	damage_per_second = 1,
+	groups = {snappy = 3, attached_node = 1, flammable = 2, plant = 1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
+	},
+	on_use = core.item_eat(1)
+})
+
+core.register_craft({
+	output = "default:cactus",
+	recipe = {
+		{"ethereal:barrel_cactus", "ethereal:barrel_cactus"},
+		{"ethereal:barrel_cactus", "ethereal:barrel_cactus"}
+	}
+})
+
 -- tawny grass
 
 core.register_node("ethereal:tawny_grass", {

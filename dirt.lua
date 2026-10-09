@@ -72,7 +72,7 @@ local items = {
 	["ethereal:crystalgrass"] = {
 			soil = "ethereal:crystal_dirt", item = "ethereal:crystal_spike", min = 4},
 	["ethereal:dry_shrub"] = {
-			soil = "ethereal:fiery_dirt", item = "ethereal:fire_flower", min = 8},
+			soil = "ethereal:fiery_dirt", item = "ethereal:fire_flower", min = 6},
 }
 
 local function flower_spread(pos, node)

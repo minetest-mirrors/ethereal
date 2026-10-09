@@ -52,3 +52,5 @@ ethereal.sapling_protection_check (Check for area protection before placing sapl
 ethereal.old_biomes (Use old biome settings) bool false
 
 ethereal.pond_chance (Chance of mesa pond spawning) int 1
+
+ethereal.snowwalk (Player can walk on thin snow blocks) bool true

@@ -283,3 +283,9 @@ core.register_node("ethereal:magical_water", {
 	groups = {water = 3, liquid = 3, cools_lava = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_water_defaults(),
 })
+
+-- Override snow depending on setting
+
+if core.settings:get_bool("ethereal.snowwalk") == false then
+	core.override_item("default:snow", {walkable = false})
+end
