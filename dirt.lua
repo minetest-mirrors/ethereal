@@ -110,12 +110,13 @@ local function flower_spread(pos, node)
 
 	pos.y = pos.y - 1
 
-	-- dont spread if we are on desert sand
-	if get_node(pos).name == "default:desert_sand" then return end
-
 	-- check for custom substrate to grow on, default to soil if none found
 	local plant_def = core.registered_nodes[node.name]
 	local substrate = plant_def and plant_def.flora_substrate or "group:soil"
+
+	-- dont spread if we are on desert sand, unless it's the growing substrate
+	if substrate ~= "default:desert_sand"
+	and get_node(pos).name == "default:desert_sand" then return end
 
 	 -- not on a substrate we can grow on
 	if not core.find_node_near(pos, 0, substrate, true) then return end
@@ -126,7 +127,8 @@ local function flower_spread(pos, node)
 
 	pos = soils[math_random(#soils)] -- set new position
 
-	if get_node(pos).name == "default:desert_sand" then return end -- double check
+	if substrate ~= "default:desert_sand"
+	and get_node(pos).name == "default:desert_sand" then return end -- double check
 
 	pos.y = pos.y + 1
 

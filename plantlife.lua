@@ -13,8 +13,9 @@ core.register_node("ethereal:barrel_cactus", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
+flora_substrate = "default:desert_sand",
 	damage_per_second = 1,
-	groups = {snappy = 3, attached_node = 1, flammable = 2, plant = 1},
+	groups = {snappy = 3, attached_node = 1, flammable = 2, flora = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed", fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
@@ -69,7 +70,8 @@ core.register_node("ethereal:shrub_red", {
 	waving = 1,
 	walkable = false,
 	buildable_to = true,
-	groups = {snappy = 3, attached_node = 1, flammable = 2, plant = 1},
+flora_substrate = "ethereal:tawny_dirt",
+	groups = {snappy = 3, attached_node = 1, flammable = 2, flora = 1},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed", fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, -5 / 16, 6 / 16},
