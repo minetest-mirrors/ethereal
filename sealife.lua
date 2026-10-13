@@ -170,7 +170,6 @@ core.register_craft( {
 	recipe = {{"ethereal:seaweed"}}
 })
 
-
 -- coral on_place helper function
 
 local coral_nodes = {}
@@ -220,6 +219,10 @@ local function register_coral(name, description, texture)
 	end
 
 	local function rooted_on_dig(pos, node, digger)
+
+		local pname = digger:get_player_name() or ""
+
+		if core.is_protected(pos, pname) then return end
 
 		local res = core.node_dig(pos, node, digger)
 
@@ -274,6 +277,13 @@ local function register_coral(name, description, texture)
 	table.insert(coral_nodes, "ethereal:" .. name)
 end
 
+-- Corals
+
+register_coral("coral2", S("Blue Glow Coral"), "ethereal_coral_blue.png")
+register_coral("coral3", S("Orange Glow Coral"), "ethereal_coral_orange.png")
+register_coral("coral4", S("Pink Glow Coral"), "ethereal_coral_pink.png")
+register_coral("coral5", S("Green Glow Coral"), "ethereal_coral_green.png")
+
 -- update old style coral to new
 
 core.register_lbm({
@@ -299,28 +309,11 @@ core.register_lbm({
 	end
 })
 
--- Blue Coral
-
-register_coral("coral2", S("Blue Glow Coral"), "ethereal_coral_blue.png")
+-- Coral > Dye
 
 core.register_craft({output = "dye:cyan 3", recipe = {{"ethereal:coral2"}}})
-
--- Orange Coral
-
-register_coral("coral3", S("Orange Glow Coral"), "ethereal_coral_orange.png")
-
 core.register_craft({output = "dye:orange 3", recipe = {{"ethereal:coral3"}}})
-
--- Pink Coral
-
-register_coral("coral4", S("Pink Glow Coral"), "ethereal_coral_pink.png")
-
 core.register_craft({output = "dye:pink 3", recipe = {{"ethereal:coral4"}}})
-
--- Green Coral
-
-register_coral("coral5", S("Green Glow Coral"), "ethereal_coral_green.png")
-
 core.register_craft({output = "dye:green 3", recipe = {{"ethereal:coral5"}}})
 
 -- Undersea Sand (used for growing seaweed and corals)
@@ -461,7 +454,7 @@ core.register_node("ethereal:sponge", {
 		-- replace water nodes with sponge air
 		for _, w in pairs(num) do
 
-			if not core.is_protected(pos, name) then
+			if not core.is_protected(w, name) then
 				core.set_node(w, {name = "ethereal:sponge_air"})
 			end
 		end
