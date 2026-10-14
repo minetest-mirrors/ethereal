@@ -53,7 +53,7 @@ add_deco(ethereal.tawny_woods, { -- red shrub
 
 add_deco(ethereal.tawny_woods, { -- flowers
 	place_on = "ethereal:tawny_dirt",
-	fill_ratio = 0.001, y_min = 3, y_max = 71,
+	fill_ratio = 0.002, y_min = 3, y_max = 71,
 	biomes = {"tawny_woods"},
 	decoration = {"flowers:viola", "flowers:dandelion_yellow"} })
 
@@ -78,13 +78,13 @@ add_deco(ethereal.magical_forest, { -- magical water
 
 add_deco(ethereal.magical_forest, { -- magical grass
 	place_on = "ethereal:magical_dirt",
-	fill_ratio = 0.05, y_min = 3, y_max = 42,
+	fill_ratio = 0.1, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"}, param2 = 3,
 	decoration = {"ethereal:magical_grass"} })
 
 add_deco(ethereal.magical_forest, { -- grass or black tulip
 	place_on = "ethereal:magical_dirt",
-	fill_ratio = 0.001, y_min = 3, y_max = 42,
+	fill_ratio = 0.002, y_min = 3, y_max = 42,
 	biomes = {"magical_forest"},
 	decoration = {"flowers:tulip_black", "flowers:dandelion_white",
 		"bakedclay:lazarus"} })
@@ -101,7 +101,7 @@ add_deco(ethereal.mangrove, { -- grass or fern
 
 add_deco(ethereal.mangrove, { -- flower
 	place_on = "ethereal:mud",
-	fill_ratio = 0.001, y_min = 1, y_max = 7,
+	fill_ratio = 0.002, y_min = 1, y_max = 7,
 	biomes = {"mangrove", "mangrove_shore"},
 	decoration = "flowers:geranium"})
 
@@ -117,7 +117,7 @@ add_deco(ethereal.mesa,{ -- orange baked clay surface patches
 
 add_deco(ethereal.mesa, { -- dry grass
 	place_on = {"default:dirt_with_dry_grass"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"mesa_redwood"},
 	decoration = {"default:dry_grass_2", "default:dry_grass_3", "default:dry_grass_4",
 			"default:dry_grass_5"}})
@@ -163,7 +163,7 @@ add_deco(ethereal.swamp, { -- more water pools
 
 add_deco(ethereal.swamp, { -- grass with chance of jungle grass or fern
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"swamp"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5", "default:junglegrass", "ethereal:fern",
@@ -171,7 +171,7 @@ add_deco(ethereal.swamp, { -- grass with chance of jungle grass or fern
 
 add_deco(ethereal.swamp, { -- mix of mushrooms
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.01,
+	fill_ratio = 0.02,
 	biomes = {"swamp"},
 	decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"} })
 
@@ -210,14 +210,14 @@ add_deco(ethereal.grove, { -- rainforest litter in grove biome
 
 add_deco(ethereal.grove, { -- grass with chance of fern
 	place_on = {"ethereal:grove_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"grove"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5", "ethereal:fern"} })
 
 add_deco(ethereal.grove, { -- flowers
 	place_on = {"ethereal:grove_dirt"},
-	fill_ratio = 0.001,
+	fill_ratio = 0.002,
 	biomes = {"grove"},
 	decoration = {"flowers:geranium", "flowers:tulip"} })
 
@@ -270,7 +270,7 @@ add_deco(ethereal.savanna, { -- dry grass
 
 add_deco(ethereal.savanna, { -- flower
 	place_on = {"default:dry_dirt_with_dry_grass", "default:dirt_with_dry_grass"},
-	fill_ratio = 0.001,
+	fill_ratio = 0.002,
 	biomes = {"savanna"},
 	decoration = {"flowers:dandelion_yellow"} })
 
@@ -286,14 +286,14 @@ add_deco(ethereal.caves, {
 
 add_deco(ethereal.grassytwo, {
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"grassytwo"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5"} })
 
 add_deco(ethereal.grassytwo, { -- flowers
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.001,
+	fill_ratio = 0.002,
 	biomes = {"grassytwo"},
 	decoration = {"flowers:dandelion_white", "flowers:viola"} })
 
@@ -301,14 +301,14 @@ add_deco(ethereal.grassytwo, { -- flowers
 
 add_deco(ethereal.prairie, { -- grass
 	place_on = {"ethereal:prairie_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"prairie"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5"} })
 
 add_deco(ethereal.prairie, { -- chance of grass, flower or strawberry
 	place_on = {"ethereal:prairie_dirt"},
-	fill_ratio = 0.01,
+	fill_ratio = 0.02,
 	biomes = {"prairie"},
 	decoration = {"default:grass_1", "flowers:rose", "bakedclay:thistle",
 		"flowers:dandelion_yellow", "flowers:viola", "ethereal:strawberry_7"} })
@@ -317,10 +317,10 @@ add_deco(ethereal.prairie, { -- chance of grass, flower or strawberry
 
 add_deco(ethereal.frost, { -- crystal grass and chance of crystal spike
 	place_on = {"ethereal:crystal_dirt"},
-	fill_ratio = 0.02, y_min = 1, y_max = 1750,
+	fill_ratio = 0.05, y_min = 1, y_max = 1750,
 	biomes = {"frost", "frost_floatland"},
 	decoration = {"ethereal:crystalgrass", "ethereal:crystalgrass",
-		"ethereal:crystalgrass", "ethereal:crystal_spike"} })
+		"ethereal:crystalgrass", "ethereal:crystalgrass", "ethereal:crystal_spike"} })
 
 add_deco(ethereal.frost, { -- thin ice
 	place_on = {"default:silver_sand"},
@@ -330,7 +330,7 @@ add_deco(ethereal.frost, { -- thin ice
 
 add_deco(ethereal.frost, { -- chance of something edible so high up
 	place_on = {"ethereal:crystal_dirt"},
-	fill_ratio = 0.001, y_min = 1025, y_max = 1750,
+	fill_ratio = 0.002, y_min = 1025, y_max = 1750,
 	biomes = {"frost_floatland"},
 	decoration = "ethereal:fern"})
 
@@ -363,12 +363,17 @@ add_deco(ethereal.fiery, { -- fiery red shrub
 
 --= Grayness biome
 
-add_deco(ethereal.snowy, { -- snowy grass with chance of flower
+add_deco(ethereal.snowy, { -- snowy grass
 	place_on = {"ethereal:gray_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"grayness"},
-	decoration = {"ethereal:snowygrass", "ethereal:snowygrass", "ethereal:snowygrass",
-		"ethereal:snowygrass", "flowers:chrysanthemum_green", "flowers:dandelion_white"} })
+	decoration = {"ethereal:snowygrass"} })
+
+add_deco(ethereal.snowy, { -- flowers
+	place_on = {"ethereal:gray_dirt"},
+	fill_ratio = 0.005,
+	biomes = {"grayness"},
+	decoration = {"flowers:chrysanthemum_green", "flowers:dandelion_white"} })
 
 --= Cold Desert biome
 
@@ -417,7 +422,7 @@ add_deco(ethereal.desert, {
 
 add_deco(ethereal.mushroom, { -- spore grass
 	place_on = {"ethereal:mushroom_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"mushroom"},
 	decoration = "ethereal:spore_grass"})
 
@@ -430,7 +435,7 @@ add_deco(ethereal.mushroom, { -- slime mold
 add_deco(ethereal.mushroom, { -- red and brown mushroom
 	place_on = {"default:dirt_with_rainforest_litter", "default:dirt_with_grass",
 		"ethereal:mushroom_dirt"},
-	fill_ratio = 0.002,
+	fill_ratio = 0.004,
 	biomes = {"mushroom"},
 	decoration = {"flowers:mushroom_brown", "flowers:mushroom_red"} })
 
@@ -438,14 +443,14 @@ add_deco(ethereal.mushroom, { -- red and brown mushroom
 
 add_deco(ethereal.grassy, {
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"deciduous_forest"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5"} })
 
 add_deco(ethereal.grassy, {
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.001,
+	fill_ratio = 0.002,
 	biomes = {"deciduous_forest"},
 	decoration = {"flowers:rose", "flowers:dandelion_white"} })
 
@@ -453,7 +458,7 @@ add_deco(ethereal.grassy, {
 
 add_deco(ethereal.junglee, { -- jungle grass
 	place_on = {"default:dirt_with_rainforest_litter"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"rainforest"},
 	decoration = "default:junglegrass"})
 
@@ -474,14 +479,14 @@ add_deco(ethereal.junglee, { -- papyrus
 
 add_deco(ethereal.jumble, { -- grass with chance of jungle grass
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"jumble"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5", "default:junglegrass"} })
 
 add_deco(ethereal.jumble, { -- flowers
 	place_on = {"default:dirt_with_grass"},
-	fill_ratio = 0.001,
+	fill_ratio = 0.002,
 	biomes = {"jumble"},
 	decoration = {"flowers:rose", "flowers:viola", "flowers:dandelion_white",
 		"bakedclay:thistle"} })
@@ -490,14 +495,14 @@ add_deco(ethereal.jumble, { -- flowers
 
 add_deco(ethereal.mediterranean, { -- grass
 	place_on = {"ethereal:grove_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"mediterranean"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5"} })
 
 add_deco(ethereal.mediterranean, { -- flowers
 	place_on = {"ethereal:grove_dirt"},
-	fill_ratio = 0.002,
+	fill_ratio = 0.003,
 	biomes = {"mediterranean"},
 	decoration = {"flowers:tulip", "flowers:rose", "flowers:dandelion_yellow"} })
 
@@ -529,7 +534,7 @@ add_deco(1, {
 
 add_deco(ethereal.bamboo, {
 	place_on = {"ethereal:bamboo_dirt"},
-	fill_ratio = 0.05,
+	fill_ratio = 0.1,
 	biomes = {"bamboo"},
 	decoration = {"default:grass_2", "default:grass_3", "default:grass_4",
 		"default:grass_5"} })
@@ -544,7 +549,7 @@ add_deco(ethereal.bamboo, { -- lilac
 
 add_deco(ethereal.alpine, { -- flowers
 	place_on = {"default:dirt_with_snow"},
-	fill_ratio = 0.001, y_min = 5, y_max = 140,
+	fill_ratio = 0.002, y_min = 5, y_max = 140,
 	biomes = {"taiga"},
 	decoration = {"flowers:viola", "bakedclay:delphinium"} })
 
@@ -570,7 +575,7 @@ add_deco(ethereal.snowy, {
 
 add_deco(ethereal.snowy, {
 	place_on = {"default:dirt_with_coniferous_litter"},
-	fill_ratio = 0.001, y_min = 3, y_max = 100,
+	fill_ratio = 0.002, y_min = 3, y_max = 100,
 	biomes = {"coniferous_forest"},
 	decoration = "flowers:viola"})
 
@@ -635,7 +640,7 @@ add_deco(ethereal.tundra, { -- snow
 add_deco(ethereal.tundra, { -- chance of grass, dry shrub or flower
 	deco_type = "simple",
 	place_on = {"default:permafrost_with_moss"},
-	fill_ratio = 0.01, y_min = 1, y_max = 50,
+	fill_ratio = 0.02, y_min = 1, y_max = 50,
 	biomes = {"tundra"},
 	decoration = {"default:grass_1", "default:dry_shrub", "flowers:dandelion_white",
 		"flowers:viola"} })
@@ -690,7 +695,7 @@ local abundant = core.settings:get_bool("ethereal.abundant_onions") ~= false
 add_deco(1, {
 	place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt",
 		"ethereal:magical_dirt"},
-	fill_ratio = (abundant and 0.025 or 0.005),
+	fill_ratio = (abundant and 0.02 or 0.005),
 	biomes = {"deciduous_forest", "grassytwo", "jumble", "prairie", "magical_forest"},
 	decoration = "ethereal:onion_4"})
 
@@ -702,7 +707,7 @@ if core.get_modpath("butterflies") then
 		name = "butterflies:butterfly",
 		place_on = {"default:dirt_with_grass", "ethereal:prairie_dirt",
 			"ethereal:magical_dirt"},
-		fill_ratio = 0.0005, y_min = 1, y_max = 200,
+		fill_ratio = 0.0007, y_min = 1, y_max = 200,
 		biomes = {"deciduous_forest", "grassytwo", "prairie", "jumble", "magical_forest"},
 		decoration = {"butterflies:butterfly_white", "butterflies:butterfly_red",
 			"butterflies:butterfly_violet"}, place_offset_y = 2})
@@ -727,7 +732,7 @@ if core.get_modpath("fireflies") then
 		place_on = {"default:dirt_with_grass", "default:dirt_with_coniferous_litter",
 			"default:dirt_with_rainforest_litter", "default:dirt",
 			"ethereal:prairie_dirt", "ethereal:tawny_dirt"},
-		fill_ratio = 0.0005, y_min = -1, y_max = 200,
+		fill_ratio = 0.0007, y_min = -1, y_max = 200,
 		biomes = {"deciduous_forest", "grassytwo", "coniferous_forest", "rainforest",
 			"swamp", "tawny_woods"},
 		decoration = "fireflies:hidden_firefly", place_offset_y = 2})
