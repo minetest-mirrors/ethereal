@@ -172,9 +172,9 @@ end
 function ethereal.grow_willow_tree(pos)
 
 	if math.random(20) == 1 then
-		add_tree(pos, ethereal.willow)
-	else
 		add_tree(pos, ethereal.old_willow)
+	else
+		add_tree(pos, ethereal.willow)
 	end
 end
 
