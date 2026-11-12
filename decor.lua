@@ -239,7 +239,7 @@ add_deco(ethereal.plains, { -- scorched tree
 
 add_deco(ethereal.plains, { -- dry shrub
 	place_on = {"ethereal:dry_dirt"},
-	fill_ratio = 0.015,
+	fill_ratio = 0.015, param2 = 4,
 	biomes = {"plains"},
 	decoration = "default:dry_shrub"})
 
@@ -357,7 +357,7 @@ add_deco(ethereal.fiery, { -- lava pits
 
 add_deco(ethereal.fiery, { -- fiery red shrub
 	place_on = {"ethereal:fiery_dirt"},
-	fill_ratio = 0.06,
+	fill_ratio = 0.06, param2 = 4,
 	biomes = {"fiery"},
 	decoration = "ethereal:dry_shrub"})
 
@@ -399,7 +399,7 @@ add_deco(ethereal.sandstone, { -- cactus
 
 add_deco(ethereal.sandstone, { -- dry shrub
 	place_on = {"default:sandstone"},
-	fill_ratio = 0.015,
+	fill_ratio = 0.015, param2 = 4,
 	biomes = {"sandstone_desert"},
 	decoration = "default:dry_shrub"})
 
