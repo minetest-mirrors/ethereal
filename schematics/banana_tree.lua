@@ -1,7 +1,6 @@
 
 local _ = {name = "air", param1 = 0}
 local t = {name = "ethereal:banana_trunk", param1 = 255}
-local T = {name = "ethereal:banana_trunk", param1 = 255, force_place = true}
 local L = {name = "ethereal:bananaleaves", param1 = 255}
 local l = {name = "ethereal:bananaleaves", param1 = 180}
 local B = {name = "ethereal:banana", param1 = 255}
@@ -45,10 +44,10 @@ ethereal.bananatree = {
 	_,_,_,L,_,_,_,
 	_,_,_,_,_,_,_,
 
-	_,_,_,T,_,_,_,
-	_,_,_,T,_,_,_,
-	_,_,_,T,_,_,_,
-	_,_,_,T,_,_,_,
+	_,_,_,t,_,_,_,
+	_,_,_,t,_,_,_,
+	_,_,_,t,_,_,_,
+	_,_,_,t,_,_,_,
 	_,_,b,t,b,_,_,
 	_,_,B,t,B,_,_,
 	_,L,L,L,L,L,_,

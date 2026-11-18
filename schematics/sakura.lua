@@ -1,13 +1,12 @@
 
 local t = {name = "ethereal:sakura_trunk", param1 = 255}
-local T = {name = "ethereal:sakura_trunk", param1 = 255, force_place = true}
 local P = {name = "ethereal:sakura_leaves", param1 = 255}
 local W = {name = "ethereal:sakura_leaves2", param1 = 255}
-local _ = {name = "air", param1 = 255}
+local _ = {name = "air", param1 = 0}
 
 ethereal.sakura_tree = {
 
-	size = {x=9, y=10, z=7},
+	size = {x = 9, y = 10, z = 7},
 
 	yslice_prob = {
 		{ypos = 1, prob = 127},
@@ -50,11 +49,11 @@ _,P,P,P,P,P,P,P,P,
 _,P,P,P,P,P,P,P,P,
 _,_,P,P,P,P,P,P,_,
 
-_,_,_,_,T,_,_,_,_,
-_,_,_,_,T,_,_,_,_,
-_,_,_,_,T,_,_,_,_,
-_,_,P,P,T,t,P,_,_,
-_,P,P,t,T,t,t,P,P,
+_,_,_,_,t,_,_,_,_,
+_,_,_,_,t,_,_,_,_,
+_,_,_,_,t,_,_,_,_,
+_,_,P,P,t,t,P,_,_,
+_,P,P,t,t,t,t,P,P,
 _,P,P,t,_,t,P,t,P,
 P,P,P,t,P,t,P,t,P,
 P,P,t,P,P,P,P,t,P,

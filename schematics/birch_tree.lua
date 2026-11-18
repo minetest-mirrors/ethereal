@@ -1,7 +1,6 @@
 
 local _ = {name = "air", param1 = 0}
 local t = {name = "ethereal:birch_trunk", param1 = 255}
-local T = {name = "ethereal:birch_trunk", param1 = 255, force_place = true}
 local L = {name = "ethereal:birch_leaves", param1 = 255}
 local l = {name = "ethereal:birch_leaves", param1 = 150}
 
@@ -36,12 +35,12 @@ ethereal.birchtree = {
 	_,l,L,l,_,
 	_,_,L,_,_,
 
-	_,_,T,_,_,
-	_,_,T,_,_,
-	_,_,T,_,_,
-	_,_,T,_,_,
-	_,_,T,_,_,
-	L,L,T,L,L,
+	_,_,t,_,_,
+	_,_,t,_,_,
+	_,_,t,_,_,
+	_,_,t,_,_,
+	_,_,t,_,_,
+	L,L,t,L,L,
 	L,L,t,L,L,
 	_,L,t,L,_,
 	_,L,L,L,_,

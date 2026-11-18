@@ -1,7 +1,6 @@
 
 local _ = {name = "air", param1 = 000}
 local b = {name = "ethereal:bamboo", param1 = 255}
-local B = {name = "ethereal:bamboo", param1 = 255, force_place = true}
 local L = {name = "ethereal:bamboo_leaves", param1 = 255}
 local l = {name = "ethereal:bamboo_leaves", param1 = 100}
 
@@ -37,12 +36,12 @@ ethereal.bambootree = {
 	_,L,_,
 	_,_,_,
 
-	_,B,_,
-	_,B,_,
-	_,B,_,
-	_,B,_,
-	_,B,_,
-	_,B,_,
+	_,b,_,
+	_,b,_,
+	_,b,_,
+	_,b,_,
+	_,b,_,
+	_,b,_,
 	_,b,_,
 	_,b,_,
 	_,b,_,

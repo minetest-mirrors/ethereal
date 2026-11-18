@@ -46,7 +46,7 @@ local function add_schem(enabled, def)
 	def.deco_type = "schematic"
 	def.y_min = def.y_min or 1
 	def.y_max = def.y_max or 100
-	def.flags = def.flags or "place_center_x, place_center_z"
+	def.flags = def.flags or "place_center_x, place_center_z, force_placement"
 	def.rotation = def.rotation or "random"
 
 	core.register_decoration(def)
@@ -87,8 +87,7 @@ add_schem(ethereal.glacier, {
 	biomes = {"icesheet"},
 	schematic = ethereal.desertstone_under_spike, place_offset_y = 1,
 	spawn_by = "default:snowblock", num_spawn_by = 8,
-	replacements = {{"default:cobble", "air"}, {"default:stone", "default:ice"}},
-	flags = "place_center_x, place_center_z, force_placement"})
+	replacements = {{"default:cobble", "air"}, {"default:stone", "default:ice"}} })
 
 -- magical forest trees
 
@@ -119,15 +118,13 @@ add_schem(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
 	fill_ratio = 0.023, y_min = -1, y_max = 6,
 	biomes = {"mangrove", "mangrove_shore"},
-	schematic = ethereal.mangrove_tree_2,
-	flags = "place_center_x, place_center_z, force_placement"})
+	schematic = ethereal.mangrove_tree_2})
 
 add_schem(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
 	fill_ratio = 0.023, y_min = 1, y_max = 6,
 	biomes = {"mangrove", "mangrove_shore"},
-	schematic = ethereal.mangrove_tree,
-	flags = "place_center_x, place_center_z, force_placement"})
+	schematic = ethereal.mangrove_tree})
 
 add_schem(ethereal.mangrove, {
 	place_on = {"ethereal:mud"},
@@ -149,8 +146,7 @@ add_schem(core.get_modpath("stairs") and ethereal.caves, {
 	sidelen = 16, fill_ratio = 0.01, y_min = 5, y_max = 42,
 	biomes = {"caves"},
 	schematic = ethereal.desertstone_spike,
-	spawn_by = "default:desert_stone", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement"})
+	spawn_by = "default:desert_stone", num_spawn_by = 8})
 
 -- desertstone under spike
 
@@ -168,8 +164,7 @@ add_schem(ethereal.glacier, {
 	fill_ratio = 0.0002, y_min = 3, y_max = 30,
 	biomes = {"icesheet"},
 	schematic = ethereal.igloo, place_offset_y = -1,
-	spawn_by = "default:snowblock", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement"})
+	spawn_by = "default:snowblock", num_spawn_by = 8})
 
 -- sakura tree
 
@@ -187,7 +182,6 @@ add_schem(ethereal.mesa, {
 	fill_ratio = 0.0025,
 	biomes = {"mesa_redwood"},
 	schematic = ethereal.redwood_tree,
-	flags = "place_center_x, place_center_z",
 	spawn_by = "default:dirt_with_dry_grass", num_spawn_by = 8})
 
 add_schem(ethereal.mesa, {
@@ -195,7 +189,6 @@ add_schem(ethereal.mesa, {
 	fill_ratio = 0.0015,
 	biomes = {"mesa_redwood"},
 	schematic = ethereal.redwood_small_tree,
-	flags = "place_center_x, place_center_z",
 	spawn_by = "default:dirt_with_dry_grass", num_spawn_by = 8})
 
 -- banana tree
@@ -213,8 +206,7 @@ add_schem(1, {
 	fill_ratio = 0.01, y_min = old and 120 or 150, y_max = old and 140 or 160,
 	biomes = old and {"taiga"} or {"mountain", "icesheet"},
 	schematic = ethereal.yellowtree,
-	spawn_by = old and "default:dirt_with_snow" or "default:snow", num_spawn_by = 8,
-	flags = "place_center_x, place_center_z, force_placement"})
+	spawn_by = old and "default:dirt_with_snow" or "default:snow", num_spawn_by = 8})
 
 -- crystal frost tree
 
@@ -277,6 +269,7 @@ add_schem(ethereal.fiery, {
 -- Due to 32 node height, altitude is limited and prescence depends on chunksize
 
 local chunksize
+
 if core.get_mapgen_chunksize then
 	local v = core.get_mapgen_chunksize()
 	chunksize = math.max(v.x, v.y, v.z)
@@ -483,7 +476,9 @@ add_schem(ethereal.bamboo, {
 	fill_ratio = 0.08, y_min = 35, y_max = 70,
 	biomes = {"bamboo"},
 	schematic = ethereal.bush,
-	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6})
+	spawn_by = "ethereal:bamboo_dirt", num_spawn_by = 6,
+	flags = "place_center_x, place_center_z"
+})
 
 -- vine tree
 

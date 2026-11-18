@@ -60,7 +60,7 @@ function ethereal.grow_yellow_tree(pos)
 end
 
 function ethereal.grow_big_tree(pos)
-	add_tree(pos, ethereal.bigtree_from_sapling)
+	add_tree(pos, ethereal.bigtree)
 end
 
 function ethereal.grow_banana_tree(pos)
@@ -74,11 +74,11 @@ function ethereal.grow_banana_tree(pos)
 end
 
 function ethereal.grow_frost_tree(pos)
-	add_tree(pos, ethereal.frosttrees_from_sapling)
+	add_tree(pos, ethereal.frosttrees)
 end
 
 function ethereal.grow_mushroom_tree(pos)
-	add_tree(pos, ethereal.mushroomone_from_sapling)
+	add_tree(pos, ethereal.mushroomone)
 end
 
 function ethereal.grow_mushroom_brown_tree(pos)
@@ -99,11 +99,11 @@ function ethereal.grow_willow_tree(pos)
 end
 
 function ethereal.grow_redwood_tree(pos)
-	add_tree(pos, ethereal.redwood_small_tree_from_sapling)
+	add_tree(pos, ethereal.redwood_small_tree)
 end
 
 function ethereal.grow_giant_redwood_tree(pos)
-	add_tree(pos, ethereal.redwood_tree_from_sapling)
+	add_tree(pos, ethereal.redwood_tree)
 end
 
 function ethereal.grow_orange_tree(pos)
@@ -146,7 +146,7 @@ function ethereal.grow_lemon_tree(pos)
 end
 
 function ethereal.grow_olive_tree(pos)
-	add_tree(pos, ethereal.olivetree_from_sapling)
+	add_tree(pos, ethereal.olivetree)
 end
 
 function ethereal.grow_poplar_tree(pos)

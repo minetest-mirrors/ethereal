@@ -2,7 +2,6 @@
 local _ = {name = "air", prob = 0}
 local T = {name = "ethereal:yellow_trunk", prob = 255}
 local t = {name = "ethereal:yellow_trunk", prob = 127}
-local M = {name = "ethereal:yellow_trunk", prob = 255, force_place = true}
 local L = {name = "ethereal:yellowleaves", prob = 255}
 local A = {name = "ethereal:golden_apple", prob = 115}
 
@@ -98,11 +97,11 @@ ethereal.yellowtree = {
 	_,_,_,L,T,L,_,_,_,
 	_,_,_,_,L,_,_,_,_,
 
-	_,_,_,_,M,_,_,_,_,
-	_,_,_,_,M,_,_,_,_,
-	_,_,_,_,M,_,_,_,_,
-	_,_,_,T,M,_,_,_,_,
-	_,_,_,_,M,_,_,_,_,
+	_,_,_,_,T,_,_,_,_,
+	_,_,_,_,T,_,_,_,_,
+	_,_,_,_,T,_,_,_,_,
+	_,_,_,T,T,_,_,_,_,
+	_,_,_,_,T,_,_,_,_,
 	_,_,_,_,T,T,_,_,_,
 	_,_,_,_,T,_,_,_,_,
 	_,_,_,T,T,_,_,_,_,
