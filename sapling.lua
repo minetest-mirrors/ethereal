@@ -32,86 +32,6 @@ local function prepare_on_place(itemstack, placer, pointed_thing, name, w, h)
 	return core.item_place_node(itemstack, placer, pointed_thing)
 end
 
--- Bamboo Sprout
-
-core.register_node("ethereal:bamboo_sprout", {
-	description = S("Bamboo Sprout"),
-	drawtype = "plantlike",
-	tiles = {"ethereal_bamboo_sprout.png"},
-	inventory_image = "ethereal_bamboo_sprout.png",
-	wield_image = "ethereal_bamboo_sprout.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	groups = {
-		food_bamboo_sprout = 1, snappy = 3, attached_node = 1, flammable = 2,
-		dig_immediate = 3, ethereal_sapling = 1, sapling = 1,
-	},
-	sounds = default.node_sound_defaults(),
-	selection_box = {
-		type = "fixed", fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -0.1, 3 / 16}
-	},
-	on_use = core.item_eat(2),
-	grown_height = 11,
-
-	on_place = function(itemstack, placer, pointed_thing)
-		return prepare_on_place(itemstack, placer, pointed_thing,
-				"ethereal:bamboo_sprout", 1, 18)
-	end
-})
-
--- register Sapling helper
-
-local function add_sapling(name, desc, texture, width, height)
-
-	core.register_node("ethereal:" .. name .. "_sapling", {
-		description = S(desc .. " Sapling"),
-		drawtype = "plantlike",
-		tiles = {texture .. ".png"},
-		inventory_image = texture .. ".png",
-		wield_image = texture .. ".png",
-		paramtype = "light",
-		sunlight_propagates = true,
-		is_ground_content = false,
-		walkable = false,
-		selection_box = {
-			type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 5 / 16, 4 / 16}
-		},
-		groups = {
-			snappy = 2, dig_immediate = 3, flammable = 2,
-			ethereal_sapling = 1, attached_node = 1, sapling = 1
-		},
-		sounds = default.node_sound_leaves_defaults(),
-		grown_height = height,
-
-		on_place = function(itemstack, placer, pointed_thing)
-			return prepare_on_place(itemstack, placer, pointed_thing,
-					name .. "_sapling", width, height)
-		end
-	})
-end
-
--- register saplings
-
-add_sapling("basandra_bush", "Basandra Bush", "ethereal_basandra_bush_sapling", 1, 2)
-add_sapling("mangrove", "Mangrove Tree", "mcl_mangrove_propagule", 5, 14)
-add_sapling("willow", "Willow Tree", "ethereal_willow_sapling", 5, 14)
-add_sapling("yellow_tree", "Healing Tree", "ethereal_yellow_tree_sapling", 4, 19)
-add_sapling("big_tree", "Big Tree", "ethereal_big_tree_sapling", 4, 7)
-add_sapling("banana_tree", "Banana Tree", "ethereal_banana_tree_sapling", 3, 8)
-add_sapling("frost_tree", "Frost Tree", "ethereal_frost_tree_sapling", 4, 19)
-add_sapling("mushroom", "Red Mushroom", "ethereal_mushroom_sapling", 4, 11)
-add_sapling("mushroom_brown", "Brown Mushroom", "ethereal_mushroom_brown_sapling", 1, 11)
-add_sapling("palm", "Palm Tree", "moretrees_palm_sapling", 4, 9)
-add_sapling("giant_redwood", "Giant Redwood Tree", "ethereal_giant_redwood_sapling", 7, 33)
-add_sapling("redwood", "Redwood Tree", "ethereal_redwood_sapling", 4, 21)
-add_sapling("orange_tree", "Orange Tree", "ethereal_orange_tree_sapling", 2, 6)
-add_sapling("birch", "Birch Tree", "moretrees_birch_sapling", 2, 9)
-add_sapling("sakura", "Sakura Tree", "ethereal_sakura_sapling", 4, 10)
-add_sapling("lemon_tree", "Lemon Tree", "ethereal_lemon_tree_sapling", 2, 7)
-add_sapling("olive_tree", "Olive Tree", "ethereal_olive_tree_sapling", 3, 10)
-add_sapling("poplar", "Poplar Tree", "ethereal_poplar_sapling", 3, 10)
-
 -- add tree schematic
 
 local function add_tree(pos, schem, replace)
@@ -243,8 +163,7 @@ end
 
 local function enough_height(pos, height)
 
-	return core.line_of_sight(
-			{x = pos.x, y = pos.y + 1, z = pos.z},
+	return core.line_of_sight({x = pos.x, y = pos.y + 1, z = pos.z},
 			{x = pos.x, y = pos.y + height, z = pos.z})
 end
 
@@ -291,42 +210,147 @@ local list = {
 		dirt = "ethereal:tawny_dirt", func = "grow_poplar_tree"}
 }
 
--- global function run by Abm
+-- can we grow sapling
 
-function ethereal.grow_sapling(pos, node)
-
-	-- sapling definition
-	local def = core.registered_nodes[node and node.name] ; if not def then return end
+local function can_grow(pos, height, data)
 
 	-- enough light to grow
 	if (core.get_node_light(pos) or 0) < 13 then return end
 
 	-- enought height to grow
-	if not enough_height(pos, (def.grown_height or 33)) then return end
-
-	-- get sapling information from table
-	local data = list[node.name] ; if not data then return end
+	if not enough_height(pos, height) then return end
 
 	-- are we growing on the correct substrate
-	local bpos = {x = pos.x, y = pos.y - 1, z = pos.z}
+	if not core.find_node_near({x = pos.x, y = pos.y - 1, z = pos.z}, 0,
+			{data.dirt, "ethereal:magical_dirt"}, true) then return end
 
-	if not core.find_node_near(bpos, 0, {data.dirt, "ethereal:magical_dirt"}, true) then
-		return
-	end
-
-	-- run grow function
-	local func = ethereal[data.func] ; if func then func(pos) end
+	return true
 end
 
--- grow saplings Abm
+-- try to grow sapling, will keep this global for compatibility
 
-core.register_abm({
-	label = "Ethereal grow sapling",
+function ethereal.grow_sapling(pos, node)
+
+	if type(node) == "string" then node = {name = node} end
+
+	local def = core.registered_nodes[node and node.name] ; if not def then return end
+	local data = list[node.name] ; if not data then return end
+
+	if can_grow(pos, (def.grown_height or 33), data) then
+
+		local func = ethereal[data.func] ; if func then func(pos) end ; return
+	end
+
+	core.get_node_timer(pos):start(300) -- restart timer (5 minutes)
+end
+
+-- timer start (5 to 25 minutes)
+
+local function start_timer(pos)
+	core.get_node_timer(pos):start(math.random(300, 1500))
+end
+
+-- Bamboo Sprout
+
+core.register_node("ethereal:bamboo_sprout", {
+	description = S("Bamboo Sprout"),
+	drawtype = "plantlike",
+	tiles = {"ethereal_bamboo_sprout.png"},
+	inventory_image = "ethereal_bamboo_sprout.png",
+	wield_image = "ethereal_bamboo_sprout.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	groups = {
+		food_bamboo_sprout = 1, snappy = 3, attached_node = 1, flammable = 2,
+		dig_immediate = 3, ethereal_sapling = 1, sapling = 1,
+	},
+	sounds = default.node_sound_defaults(),
+	selection_box = {
+		type = "fixed", fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -0.1, 3 / 16}
+	},
+	on_use = core.item_eat(2),
+	grown_height = 11,
+
+	on_place = function(itemstack, placer, pointed_thing)
+
+		return prepare_on_place(itemstack, placer, pointed_thing,
+				"ethereal:bamboo_sprout", 1, 18)
+	end,
+
+	on_timer = function(pos)
+		ethereal.grow_sapling(pos, "ethereal:bamboo_sprout")
+	end,
+	on_construct = start_timer
+})
+
+-- register Sapling helper
+
+local function add_sapling(name, desc, texture, width, height)
+
+	local nodename = "ethereal:" .. name .. "_sapling"
+
+	core.register_node(nodename, {
+		description = S(desc .. " Sapling"),
+		drawtype = "plantlike",
+		tiles = {texture .. ".png"},
+		inventory_image = texture .. ".png",
+		wield_image = texture .. ".png",
+		paramtype = "light",
+		sunlight_propagates = true,
+		is_ground_content = false,
+		walkable = false,
+		selection_box = {
+			type = "fixed", fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 5 / 16, 4 / 16}
+		},
+		groups = {
+			snappy = 2, dig_immediate = 3, flammable = 2,
+			ethereal_sapling = 1, attached_node = 1, sapling = 1
+		},
+		sounds = default.node_sound_leaves_defaults(),
+		grown_height = height,
+
+		on_place = function(itemstack, placer, pointed_thing)
+
+			return prepare_on_place(itemstack, placer, pointed_thing,
+					name .. "_sapling", width, height)
+		end,
+
+		on_timer = function(pos)
+			ethereal.grow_sapling(pos, nodename)
+		end,
+		on_construct = start_timer
+	})
+end
+
+-- register saplings
+
+add_sapling("basandra_bush", "Basandra Bush", "ethereal_basandra_bush_sapling", 1, 2)
+add_sapling("mangrove", "Mangrove Tree", "mcl_mangrove_propagule", 5, 14)
+add_sapling("willow", "Willow Tree", "ethereal_willow_sapling", 5, 14)
+add_sapling("yellow_tree", "Healing Tree", "ethereal_yellow_tree_sapling", 4, 19)
+add_sapling("big_tree", "Big Tree", "ethereal_big_tree_sapling", 4, 7)
+add_sapling("banana_tree", "Banana Tree", "ethereal_banana_tree_sapling", 3, 8)
+add_sapling("frost_tree", "Frost Tree", "ethereal_frost_tree_sapling", 4, 19)
+add_sapling("mushroom", "Red Mushroom", "ethereal_mushroom_sapling", 4, 11)
+add_sapling("mushroom_brown", "Brown Mushroom", "ethereal_mushroom_brown_sapling", 1, 11)
+add_sapling("palm", "Palm Tree", "moretrees_palm_sapling", 4, 9)
+add_sapling("giant_redwood", "Giant Redwood Tree", "ethereal_giant_redwood_sapling", 7, 33)
+add_sapling("redwood", "Redwood Tree", "ethereal_redwood_sapling", 4, 21)
+add_sapling("orange_tree", "Orange Tree", "ethereal_orange_tree_sapling", 2, 6)
+add_sapling("birch", "Birch Tree", "moretrees_birch_sapling", 2, 9)
+add_sapling("sakura", "Sakura Tree", "ethereal_sakura_sapling", 4, 10)
+add_sapling("lemon_tree", "Lemon Tree", "ethereal_lemon_tree_sapling", 2, 7)
+add_sapling("olive_tree", "Olive Tree", "ethereal_olive_tree_sapling", 3, 10)
+add_sapling("poplar", "Poplar Tree", "ethereal_poplar_sapling", 3, 10)
+
+-- start timers for any old saplings
+
+core.register_lbm({
+	name = "ethereal:convert_saplings_to_node_timer",
 	nodenames = {"group:ethereal_sapling"},
-	interval = 10,
-	chance = 50,
-	catch_up = false,
-	action = ethereal.grow_sapling
+	run_at_every_load = false,
+	action = start_timer
 })
 
 -- 2x redwood saplings make 1x giant redwood sapling

@@ -110,6 +110,7 @@ who helped make this mod bigger and better throughout it's release :)
 - Update translations.
 - Tweak n Tidy a lotta code.
 - Add Tawny Woods biome and flora.
+- Move saplings away from Abm's and onto node timers.
 
 ### 1.34
  - Add animated falling leaves (thanks EdgeLoopRepeat).
